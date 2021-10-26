@@ -9,6 +9,7 @@ import com.skilldistillery.marketplace.services.UserService;
 
 @RestController
 @RequestMapping("api")
+@CrossOrigin({"*", "http://localhost:4301"})
 public class UserController {
 	@Autowired
 	private UserService userSvc;
