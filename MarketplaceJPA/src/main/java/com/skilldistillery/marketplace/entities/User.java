@@ -1,6 +1,7 @@
 package com.skilldistillery.marketplace.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
@@ -29,7 +33,126 @@ public class User {
 	
 	@Column(name="picture_url")
 	private String pictureUrl;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="user")
+	private List<Cart> carts;
+	
+	@OneToMany(mappedBy="sender")
+	private List<Message> sentMessages;
+	
+	@OneToMany(mappedBy="recipient")
+	private List<Message> receivedMessages;
+	
+	
+	@OneToMany(mappedBy="creator")
+	private List<Token> createdTokens;
+	
+	public List<Cart> getCarts() {
+		return carts;
+	}
 
+
+
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
+	}
+
+
+
+	public List<Message> getSentMessages() {
+		return sentMessages;
+	}
+
+
+
+	public void setSentMessages(List<Message> sentMessages) {
+		this.sentMessages = sentMessages;
+	}
+
+
+
+	public List<Message> getReceivedMessages() {
+		return receivedMessages;
+	}
+
+
+
+	public void setReceivedMessages(List<Message> receivedMessages) {
+		this.receivedMessages = receivedMessages;
+	}
+
+
+
+	public List<Token> getCreatedTokens() {
+		return createdTokens;
+	}
+
+
+
+	public void setCreatedTokens(List<Token> createdTokens) {
+		this.createdTokens = createdTokens;
+	}
+
+
+
+	public List<Token> getOwnedTokens() {
+		return ownedTokens;
+	}
+
+
+
+	public void setOwnedTokens(List<Token> ownedTokens) {
+		this.ownedTokens = ownedTokens;
+	}
+
+
+
+	public List<Collection> getCollectionsCreated() {
+		return collectionsCreated;
+	}
+
+
+
+	public void setCollectionsCreated(List<Collection> collectionsCreated) {
+		this.collectionsCreated = collectionsCreated;
+	}
+
+
+
+	public List<MarketTransfer> getSellerTransfers() {
+		return sellerTransfers;
+	}
+
+
+
+	public void setSellerTransfers(List<MarketTransfer> sellerTransfers) {
+		this.sellerTransfers = sellerTransfers;
+	}
+
+
+
+	public List<MarketTransfer> getBuyerTransfers() {
+		return buyerTransfers;
+	}
+
+
+
+	public void setBuyerTransfers(List<MarketTransfer> buyerTransfers) {
+		this.buyerTransfers = buyerTransfers;
+	}
+
+	@OneToMany(mappedBy="owner")
+	private List<Token> ownedTokens;
+	
+	@OneToMany(mappedBy="creator")
+	private List<Collection> collectionsCreated;
+	
+	@OneToMany(mappedBy="seller")
+	private List<MarketTransfer> sellerTransfers;
+	
+	@OneToMany(mappedBy="buyer")
+	private List<MarketTransfer> buyerTransfers;
 	
 	public User() { super(); }
 	
@@ -137,8 +260,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + "]";
+		return "User [id=" + id + ", username=" + username + ", enabled=" + enabled + ", role=" + role + ", createdOn="
+				+ createdOn + "]";
 	}
 
 	@Override

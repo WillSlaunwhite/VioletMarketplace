@@ -14,7 +14,9 @@ public class Category {
 	private String description;
 	
 	
-	// update constructors and getters and setters once mappings are added
+	
+	
+	
 
 	public Category() {
 		super();

@@ -1,12 +1,16 @@
 package com.skilldistillery.marketplace.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Token {
@@ -26,9 +30,21 @@ public class Token {
 	@Column(name="token_location")
 	private String tokenLocation;
 	
-//	private User creator;
+	@ManyToOne
+	@JoinColumn(name="collection_id")
+	private Collection collection;
 	
-//	private User owner;
+	@OneToMany(mappedBy="token")
+	private List<MarketTransfer> transfers;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="creator_id")
+	private User creator;
+	
+	@ManyToOne
+	@JoinColumn(name="owner_id")
+	private User owner;
 	
 //	private Collection collection;
 	

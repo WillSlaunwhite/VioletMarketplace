@@ -1,12 +1,16 @@
 package com.skilldistillery.marketplace.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cart {
@@ -15,14 +19,33 @@ public class Cart {
 	private int id;
 	private boolean completed;
 	
-//	private User user;
-
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	@Column(name="created_date")
 	private LocalDate createdDate;
 	
+	@OneToMany(mappedBy="cart")
+	private List<CartItem> items;
 	
-	// update constructors and getters and setters once mappings are added
 	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<CartItem> getItems() {
+		return items;
+	}
+
+	public void setItems(List<CartItem> items) {
+		this.items = items;
+	}
+
 	public Cart() { super(); }
 	
 	public Cart(int id, boolean completed, LocalDate createdDate) {
@@ -31,9 +54,8 @@ public class Cart {
 		this.completed = completed;
 		this.createdDate = createdDate;
 	}
-
-
-
+	// update constructors and getters and setters once mappings are added
+	
 
 
 	public int getId() {
@@ -62,10 +84,8 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Cart [id=").append(id).append(", completed=").append(completed).append(", createdDate=")
-				.append(createdDate).append("]");
-		return builder.toString();
+		return "Cart [id=" + id + ", completed=" + completed + ", user=" + user + ", createdDate=" + createdDate
+				+ ", items=" + items + "]";
 	}
 	
 	
