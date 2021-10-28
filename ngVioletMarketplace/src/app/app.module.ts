@@ -34,6 +34,13 @@ import { TokenComponent } from './components/token/token.component';
   providers: [
     TokenService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,
+    BlockComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegisterComponent,
+    NavbarComponent,
+    HomeComponent,
+    TokenComponent]
 })
 export class AppModule { }
