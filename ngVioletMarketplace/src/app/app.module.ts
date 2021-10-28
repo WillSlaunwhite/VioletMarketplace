@@ -8,6 +8,11 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { TokenService } from './services/token.service';
+import { HomeComponent } from './components/home/home.component';
+import { TokenComponent } from './components/token/token.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +21,19 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     LogoutComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent,
+    TokenComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TokenService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
