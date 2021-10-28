@@ -28,7 +28,7 @@ public class User {
 	@Column(name="created_on")
 	private LocalDateTime createdOn;
 	
-	@Column(name="diplay_name")
+	@Column(name="display_name")
 	private String displayName;
 	
 	@Column(name="picture_url")
