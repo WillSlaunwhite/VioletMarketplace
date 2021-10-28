@@ -129,6 +129,38 @@ public class Token {
 	public void setTokenLocation(String tokenLocation) {
 		this.tokenLocation = tokenLocation;
 	}
+	
+	public Collection getCollection() {
+		return collection;
+	}
+
+	public void setCollection(Collection collection) {
+		this.collection = collection;
+	}
+
+	public List<MarketTransfer> getTransfers() {
+		return transfers;
+	}
+
+	public void setTransfers(List<MarketTransfer> transfers) {
+		this.transfers = transfers;
+	}
+
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+
+	public User getOwner() {
+		return owner;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
 
 	@Override
 	public String toString() {
