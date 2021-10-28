@@ -1,4 +1,4 @@
-package com.skilldistillery.marketplace.entities;
+ package com.skilldistillery.marketplace.entities;
 
 import java.time.LocalDateTime;
 
@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
-public class MarketTransfer {
+@Table(name="market_transfer")
+public class TokenTx {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -34,9 +36,9 @@ public class MarketTransfer {
 	@Column(name="transfer_date")
 	private LocalDateTime transferDate;
 	
-	public MarketTransfer() { super(); }
+	public TokenTx() { super(); }
 
-	public MarketTransfer(int id, Token token, String description, LocalDateTime transferDate) {
+	public TokenTx(int id, Token token, String description, LocalDateTime transferDate) {
 		super();
 		this.id = id;
 		this.token = token;
