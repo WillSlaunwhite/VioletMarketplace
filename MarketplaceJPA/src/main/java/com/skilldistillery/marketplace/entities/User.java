@@ -120,25 +120,25 @@ public class User {
 
 
 
-	public List<MarketTransfer> getSellerTransfers() {
+	public List<TokenTx> getSellerTransfers() {
 		return sellerTransfers;
 	}
 
 
 
-	public void setSellerTransfers(List<MarketTransfer> sellerTransfers) {
+	public void setSellerTransfers(List<TokenTx> sellerTransfers) {
 		this.sellerTransfers = sellerTransfers;
 	}
 
 
 
-	public List<MarketTransfer> getBuyerTransfers() {
+	public List<TokenTx> getBuyerTransfers() {
 		return buyerTransfers;
 	}
 
 
 
-	public void setBuyerTransfers(List<MarketTransfer> buyerTransfers) {
+	public void setBuyerTransfers(List<TokenTx> buyerTransfers) {
 		this.buyerTransfers = buyerTransfers;
 	}
 
@@ -149,10 +149,10 @@ public class User {
 	private List<Collection> collectionsCreated;
 	
 	@OneToMany(mappedBy="seller")
-	private List<MarketTransfer> sellerTransfers;
+	private List<TokenTx> sellerTransfers;
 	
 	@OneToMany(mappedBy="buyer")
-	private List<MarketTransfer> buyerTransfers;
+	private List<TokenTx> buyerTransfers;
 	
 	public User() { super(); }
 	

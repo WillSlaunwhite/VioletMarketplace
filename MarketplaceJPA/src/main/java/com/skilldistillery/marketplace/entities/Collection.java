@@ -17,6 +17,14 @@ public class Collection {
 	private int id;
 
 	private String name;
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+
 	private String description;
 	
 	@ManyToOne
