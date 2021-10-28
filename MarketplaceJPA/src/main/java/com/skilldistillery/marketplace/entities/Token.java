@@ -35,9 +35,41 @@ public class Token {
 	private Collection collection;
 	
 	@OneToMany(mappedBy="token")
-	private List<MarketTransfer> transfers;
+	private List<TokenTx> transfers;
 	
 	
+	public Collection getCollection() {
+		return collection;
+	}
+
+	public void setCollection(Collection collection) {
+		this.collection = collection;
+	}
+
+	public List<TokenTx> getTransfers() {
+		return transfers;
+	}
+
+	public void setTransfers(List<TokenTx> transfers) {
+		this.transfers = transfers;
+	}
+
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+
+	public User getOwner() {
+		return owner;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
+
 	@ManyToOne
 	@JoinColumn(name="creator_id")
 	private User creator;
@@ -132,12 +164,10 @@ public class Token {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Token [id=").append(id).append(", name=").append(name).append(", description=")
-				.append(description).append(", rarity=").append(rarity).append(", price=").append(price)
-				.append(", offered=").append(offered).append(", releaseDate=").append(releaseDate)
-				.append(", tokenLocation=").append(tokenLocation).append("]");
-		return builder.toString();
+		return "Token [id=" + id + ", name=" + name + ", description=" + description + ", rarity=" + rarity + ", price="
+				+ price + ", offered=" + offered + ", releaseDate=" + releaseDate + ", tokenLocation=" + tokenLocation
+				+ ", collection=" + collection + ", transfers=" + transfers + ", creator=" + creator + ", owner="
+				+ owner + "]";
 	}
 	
 	

@@ -11,7 +11,7 @@
 		<class>com.skilldistillery.marketplace.entities.Cart</class>
 		<class>com.skilldistillery.marketplace.entities.Category</class>
 		<class>com.skilldistillery.marketplace.entities.Collection</class>
-		<class>com.skilldistillery.marketplace.entities.MarketTransfer</class>
+		<class>com.skilldistillery.marketplace.entities.TokenTx</class>
 		<class>com.skilldistillery.marketplace.entities.Message</class>
 		<class>com.skilldistillery.marketplace.entities.Token</class>
 		<class>com.skilldistillery.marketplace.entities.CartItem</class>
