@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Collection {
@@ -16,8 +18,10 @@ public class Collection {
 
 	private String name;
 	private String description;
-
-//	private User creator;
+	
+	@ManyToOne
+	@JoinColumn(name="created_by")
+	private User creator;
 
 	@Column(name = "release_date")
 	private LocalDate releaseDate;

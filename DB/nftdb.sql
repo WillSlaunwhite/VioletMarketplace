@@ -108,9 +108,9 @@ CREATE TABLE IF NOT EXISTS `market_transfer` (
   `description` VARCHAR(100) NULL,
   `seller_id` INT NOT NULL,
   `buyer_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
   INDEX `fk_market_transfer_user1_idx` (`seller_id` ASC),
   INDEX `fk_market_transfer_user2_idx` (`buyer_id` ASC),
-  PRIMARY KEY (`id`),
   CONSTRAINT `fk_transaction_token1`
     FOREIGN KEY (`token_id`)
     REFERENCES `token` (`id`)
