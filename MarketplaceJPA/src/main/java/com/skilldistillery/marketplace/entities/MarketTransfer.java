@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class MarketTransfer {
@@ -14,12 +17,19 @@ public class MarketTransfer {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
+	@ManyToOne
+	@JoinColumn(name="token_id")
 	private Token token;
+	
 	private String description;
 	
-//	private User seller;
+	@OneToOne
+	@JoinColumn(name="seller_id")
+	private User seller;
 	
-//	private User buyer;
+	@OneToOne
+	@JoinColumn(name="buyer_id")
+	private User buyer;
 	
 	@Column(name="transfer_date")
 	private LocalDateTime transferDate;
