@@ -1,7 +1,9 @@
 package com.skilldistillery.marketplace.entities;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +18,21 @@ public class User {
 	private String password;
 	private boolean enabled;
 	private String role;
+	private String email;
+	private String biography;
+	
+	@Column(name="created_on")
+	private LocalDateTime createdOn;
+	
+	@Column(name="diplay_name")
+	private String displayName;
+	
+	@Column(name="picture_url")
+	private String pictureUrl;
 
+	
+	public User() { super(); }
+	
 	
 
 	public int getId() {
@@ -59,9 +75,66 @@ public class User {
 		this.role = role;
 	}
 
-	public User() {
-		super();
+	public String getEmail() {
+		return email;
 	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+
+	public String getBiography() {
+		return biography;
+	}
+
+
+
+	public void setBiography(String biography) {
+		this.biography = biography;
+	}
+
+
+
+	public LocalDateTime getCreatedOn() {
+		return createdOn;
+	}
+
+
+
+	public void setCreatedOn(LocalDateTime createdOn) {
+		this.createdOn = createdOn;
+	}
+
+
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
+
+
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+
+
+
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
