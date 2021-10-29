@@ -27,6 +27,13 @@ public class TokenServiceImpl implements TokenService {
 	}
 	
 	@Override
+	public Set<Token> index(String username) {
+		Set<Token> tokens = new HashSet<Token>();
+		tokens.addAll(tokenRepo.findByOwner_Username(username));
+		return tokens;
+	}
+	
+	@Override
 	public Token show(String username, int tid) {
 		return tokenRepo.findByOwner_UsernameAndId(username, tid);
 	}
@@ -44,6 +51,41 @@ public class TokenServiceImpl implements TokenService {
 		} else {
 			return null;
 		}
+	}
+	
+	@Override
+	public Token update(String ownerName, String buyerName, int tid, Token token) {
+		Token existingToken = tokenRepo.findByOwner_UsernameAndId(ownerName, tid);
+		User buyer = userRepo.findByUsername(buyerName);
+		if(existingToken != null) {
+			existingToken.setId(token.getId());
+			existingToken.setName(token.getName());
+			existingToken.setDescription(token.getDescription());
+			existingToken.setOffered(token.isOffered());
+			existingToken.setPrice(token.getPrice());
+			existingToken.setRarity(token.getRarity());
+			existingToken.setReleaseDate(token.getReleaseDate());
+			existingToken.setTokenLocation(token.getTokenLocation());
+			
+			existingToken.setCollection(token.getCollection());
+			existingToken.setTransfers(token.getTransfers());
+			existingToken.setCreator(token.getCreator());
+			existingToken.setOwner(buyer);
+			tokenRepo.saveAndFlush(existingToken);
+			return existingToken;
+		}
+		return null;
+	}
+	
+	@Override
+	public boolean destroy(String username, int tid) {
+		boolean deleted = false;
+		Token token = tokenRepo.findByOwner_UsernameAndId(username, tid);
+		if(token != null) {
+			tokenRepo.delete(token);
+			deleted = true;
+		}
+		return deleted;
 	}
 	
 }
