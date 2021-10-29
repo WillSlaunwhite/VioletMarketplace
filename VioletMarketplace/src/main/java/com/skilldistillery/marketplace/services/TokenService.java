@@ -12,4 +12,10 @@ public interface TokenService {
 	public Token show(String username, int tid);
 
 	public Token create(String username, Token token);
+
+	Set<Token> index(String username);
+
+	boolean destroy(String username, int tid);
+
+	Token update(String ownerName, String buyerName, int tid, Token token);
 }
