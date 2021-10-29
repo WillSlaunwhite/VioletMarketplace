@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Token {
 	@Id
@@ -34,42 +36,10 @@ public class Token {
 	@JoinColumn(name="collection_id")
 	private Collection collection;
 	
+	@JsonIgnore  // added this and had to fix tx getters and setters for me
 	@OneToMany(mappedBy="token")
 	private List<TokenTx> transfers;
 	
-	
-	public Collection getCollection() {
-		return collection;
-	}
-
-	public void setCollection(Collection collection) {
-		this.collection = collection;
-	}
-
-	public List<TokenTx> getTransfers() {
-		return transfers;
-	}
-
-	public void setTransfers(List<TokenTx> transfers) {
-		this.transfers = transfers;
-	}
-
-	public User getCreator() {
-		return creator;
-	}
-
-	public void setCreator(User creator) {
-		this.creator = creator;
-	}
-
-	public User getOwner() {
-		return owner;
-	}
-
-	public void setOwner(User owner) {
-		this.owner = owner;
-	}
-
 	@ManyToOne
 	@JoinColumn(name="creator_id")
 	private User creator;
@@ -170,11 +140,11 @@ public class Token {
 		this.collection = collection;
 	}
 
-	public List<MarketTransfer> getTransfers() {
+	public List<TokenTx> getTransfers() {
 		return transfers;
 	}
 
-	public void setTransfers(List<MarketTransfer> transfers) {
+	public void setTransfers(List<TokenTx> transfers) {
 		this.transfers = transfers;
 	}
 

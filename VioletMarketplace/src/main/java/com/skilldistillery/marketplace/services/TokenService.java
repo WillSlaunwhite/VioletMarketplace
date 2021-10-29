@@ -2,6 +2,8 @@ package com.skilldistillery.marketplace.services;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import com.skilldistillery.marketplace.entities.Token;
 
 public interface TokenService {

@@ -4,12 +4,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.marketplace.entities.Token;
 import com.skilldistillery.marketplace.entities.User;
 import com.skilldistillery.marketplace.repositories.TokenRepository;
 import com.skilldistillery.marketplace.repositories.UserRepository;
 
+@Service
 public class TokenServiceImpl implements TokenService {
 	@Autowired
 	private TokenRepository tokenRepo;

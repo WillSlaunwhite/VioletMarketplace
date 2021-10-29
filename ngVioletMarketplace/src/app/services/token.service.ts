@@ -8,7 +8,7 @@ import { Token } from '../models/token';
 })
 export class TokenService {
   constructor(private http: HttpClient, ) { }
-  private baseUrl = 'http://localhost:8090';
+  private baseUrl = 'http://localhost:8090/';
   private url = this.baseUrl + 'api/tokens';
 
   index(): Observable<Token[]> {

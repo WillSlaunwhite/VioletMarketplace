@@ -44,6 +44,19 @@ export class TokenComponent implements OnInit {
     );
   }
 
+  createToken(token: Token) {
+    this.tokenService.create(token).subscribe(
+      (newBet) => {
+        this.reloadTokens();
+        this.newToken = new Token();
+      },
+      (fail) => {
+        console.error('TokenComponent.addToken(): Error creating Token');
+        console.error(fail);
+      }
+    );
+  }
+
   ngOnInit(): void {
   }
 
