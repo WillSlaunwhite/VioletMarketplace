@@ -27,11 +27,15 @@ public class TokenController {
 	@Autowired
 	private TokenService tokenSvc;
 	
+	
+//	user home page index method
 	@GetMapping("tokens")
-	public Set<Token> index(HttpServletRequest req, HttpServletResponse resp) {
+	public Set<Token> index(HttpServletRequest req,
+			HttpServletResponse resp) {
 		return tokenSvc.index();
 	}
 	
+//	find non-principal user's tokens index method
 	@GetMapping("tokens/{username}")
 	public Set<Token> index(HttpServletRequest req,
 			HttpServletResponse resp,
@@ -39,6 +43,7 @@ public class TokenController {
 		return tokenSvc.index(username);
 	}
 	
+//	I dont understand how this is different than the first one.
 	@GetMapping("tokens/myTokens")
 	public Set<Token> index(HttpServletRequest req,
 			HttpServletResponse resp,
@@ -48,7 +53,7 @@ public class TokenController {
 	
 	@PostMapping("tokens")
 	public Token create(HttpServletRequest req,
-			HttpServletResponse resp,
+			HttpServletResponse resp, 
 			@RequestBody Token token) {
 		tokenSvc.create("admin", token);
 		if (token == null) {
