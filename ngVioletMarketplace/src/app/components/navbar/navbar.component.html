@@ -1,68 +1,138 @@
-<nav class="navbar-custom navbar-expand-sm .navbar-dark">
+<nav class="navbar-custom navbar-expand-sm .navbar-dark ">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mynavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- ////////////////////////////////////////////////////////////////// -->
+<!-- ////////////////////////////////////////////////////////////////// -->
     <div class="collapse navbar-collapse" id="mynavbar">
       <a class="navbar-brand" href="#">
         <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
       </a>
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" text-white>NFT</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Collections</a></li>
-            <li><a class="dropdown-item" href="#">Hot</a></li>
-            <li><a class="dropdown-item" href="#">New</a></li>
-            <li><a class="dropdown-item" href="#">Drops</a></li>
-            <li><a class="dropdown-item" href="#">Buy Now</a></li>
-            <li><a class="dropdown-item" href="#">Auctions</a></li>
-            <li><a class="dropdown-item" href="#">Create NFT</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Crypto</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Buy</a></li>
-            <li><a class="dropdown-item" href="#">Sell</a></li>
-            <li><a class="dropdown-item" href="#">Trade</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">More</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Blog</a></li>
-            <li><a class="dropdown-item" href="#">About Us</a></li>
-            <li><a class="dropdown-item" href="#">Newsletters</a></li>
-            <li><a class="dropdown-item" href="#">Events</a></li>
-          </ul>
-        </li>
-      </ul>
-      <div class="d-flex justify-content-center" text-light>VIOLET GLOW NFT</div>
-      <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search">
-        <button class="btn btn-primary" type="button">Search</button>
+
+<!-- ////////////NFTMODAL//////////////// -->
+  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#NFTModal">
+    NFT
+  </button>
+
+  <!-- The Modal -->
+<div class="modal" id="NFTModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">NFT</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <li><a  href="#">Collections</a></li>
+        <li><a  href="#">Hot</a></li>
+        <li><a  href="#">New</a></li>
+        <li><a  href="#">Drops</a></li>
+        <li><a  href="#">Buy Now</a></li>
+        <li><a  href="#">Auctions</a></li><hr>
+        <li><a  href="#">Create NFT</a></li>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ////////////CRYPTOMODAL//////////////// -->
+<!-- <div class="container nav navbar-nav navbar-left"> -->
+  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#CryptoModal">
+    Crypto
+  </button>
+<!-- </div> -->
+
+<div class="modal" id="CryptoModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Crypto</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <li><a  href="#">Buy</a></li>
+            <li><a  href="#">Sell</a></li>
+            <li><a  href="#">Trade</a></li>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ////////////MOREMODAL//////////////// -->
+<div>
+  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#MoreModal">
+    More...
+  </button>
+</div>
+
+<div class="modal" id="MoreModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">More...</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <li><a  href="#">Blog</a></li>
+        <li><a  href="#">About Us</a></li>
+        <li><a  href="#">Newsletters</a></li>
+        <li><a  href="#">Events</a></li>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- //////////////////////////////////////////////////////////////// -->
+<!-- ////////////////////////////EndOfModal////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- ////////////////////////////////////////////////////////////////// -->
+<form class="d-flex" style="width: 50%">
+        <input class="form-control me-2 m-2 " type="text" placeholder="Search">
+        <button class="btn btn-primary m-1" type="button">Search</button>
       </form>
 <!-- ////////////////////////////////////////////////////////////////// -->
-      <!-- <div class="login-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Username" name="username">
-          <input type="text" placeholder="Password" name="psw">
-          <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-      </div> -->
+<div>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" role="button" data-bs-toggle="dropdown">Login</a>
+          <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn m-1" role="button" data-bs-toggle="dropdown">Login</a>
 
           <ul class="dropdown-menu form-wrapper">
             <li>
-              <form >
+              <form class="m-2">
                 <p class="hint-text">Sign in with your social media account</p>
                 <div class="form-group social-btn clearfix">
-                  <a href="#" class="btn btn-primary pull-left"><i class="fa fa-facebook"></i> Facebook</a>
-                  <a href="#" class="btn btn-info pull-right"><i class="fa fa-twitter"></i> Twitter</a>
+                  <a href="#" class="btn btn-primary pull-left m-1"><i class="fa fa-facebook"></i> Facebook</a>
+                  <a href="#" class="btn btn-info pull-right m-1"><i class="fa fa-twitter"></i> Twitter</a>
                 </div>
                 <div class="or-seperator"><b>or</b></div>
                 <div class="form-group">
@@ -79,11 +149,12 @@
             </li>
           </ul>
         </li>
+  <!-- ////////////////////////////////////////////////////////////////// -->
         <li>
-          <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" role="button" data-bs-toggle="dropdown">Sign up</a>
+          <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn m-1 justify-content-end" role="button" data-bs-toggle="dropdown">Sign up</a>
           <ul class="dropdown-menu form-wrapper">
             <li>
-              <form >
+              <form class="m-2">
                 <p class="hint-text">Fill in this form to create your account!</p>
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Username" required="required">
@@ -103,9 +174,11 @@
           </ul>
         </li>
       </ul>
+
       <!-- //////////////////////////// -->
-     </div>
+      </div>
+    </div>
+  </div>
 
-
-</div>
 </nav>
+
