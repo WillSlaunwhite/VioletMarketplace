@@ -38,12 +38,14 @@ public class TokenTx {
 	
 	public TokenTx() { super(); }
 
-	public TokenTx(int id, Token token, String description, LocalDateTime transferDate) {
-		super();
-		this.id = id;
+	public TokenTx(int id, Token token, String description, LocalDateTime transferDate, User buyer, User seller) {
+		
 		this.token = token;
 		this.description = description;
 		this.transferDate = transferDate;
+		this.seller=seller;
+		this.buyer=buyer;
+		
 	}
 
 	public int getId() {
