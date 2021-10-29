@@ -1,6 +1,8 @@
-<nav class="navbar-custom navbar-expand-sm .navbar-dark ">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mynavbar">
+<div class="x-logobar" ><img src="https://live.staticflickr.com/65535/51640018848_8d2ffa6af1_b.jpg" class="rounded mx-auto d-block"></div>
+
+<nav class="navbar-custom navbar-expand-sm .navbar-dark justify-content: center">
+  <div class="container-fluid ">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
 <!-- ////////////////////////////////////////////////////////////////// -->
@@ -10,7 +12,7 @@
       </a>
 
 <!-- ////////////NFTMODAL//////////////// -->
-  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#NFTModal">
+  <button type="button" class="btn btn-primary m-1 " data-bs-toggle="modal" data-bs-target="#NFTModal">
     NFT
   </button>
 
@@ -49,7 +51,9 @@
             </tr>
             <hr>
             <tr>
-              <td><a  href="#">Create NFT</a></td>
+              <td><a  href="#" [routerLink]="['/token']"
+
+                >Create NFT</a></td>
             </tr>
 
           </tbody>
@@ -167,6 +171,59 @@
         <button class="btn btn-primary m-1" type="button">Search</button>
       </form>
 <!-- ////////////////////////////////////////////////////////////////// -->
+<!-- ////////////SIGNUPMODAL//////////////// -->
+<div>
+  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#SignUpModal">
+   Sign Up
+  </button>
+</div>
+
+<div class="modal" id="SignUpModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Sign Up</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form class="m-2">
+          <p class="hint-text">Fill in this form to create your account!</p>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" required="required">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Profile Photo" required="required">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Wallet #" required="required">
+          </div>
+          <div class="form-group">
+            <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
+          </div>
+          <input type="submit" class="btn btn-primary btn-block" value="Sign up">
+        </form>
+      </div>
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div>
 
       <ul class="nav navbar-nav navbar-right">
@@ -179,57 +236,69 @@
               <!-- //////////////////////////// -->
 
               <!-- //////////////////////////// -->
-              <form class="m-2">
-                <p class="hint-text">Sign in with your social media account</p>
-                <div class="form-group social-btn clearfix">
-                  <a href="#" class="btn btn-primary-outline pull-left m-1"><img src="https://icons.iconarchive.com/icons/yootheme/social-bookmark/32/social-facebook-button-blue-icon.png"></a>
-                  <a href="#" class="btn btn-primary-outline pull-right m-1"><img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png"></a>
-                </div>
-                <div class="or-seperator"><b>or</b></div>
+              <div class="login-form">
+                <form action="/examples/actions/confirmation.php" method="post">
+                    <h2 class="text-center">Sign in</h2>
+                    <div class="text-center social-btn">
+                        <a href="#" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
+                        <a href="#" class="btn btn-info btn-block"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
+                  <a href="#" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
+                    </div>
+                <div class="or-seperator"><i>or</i></div>
+                    <div class="form-group">
+                      <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <span class="fa fa-user"></span>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+                        </div>
+                    </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" required="required">
-                </div>
-                <input type="submit" class="btn btn-primary btn-block" value="Login">
-                <div class="form-footer">
-                  <a href="#">Forgot Your password?</a>
-                </div>
-              </form>
-            </li>
-          </ul>
-        </li>
-  <!-- ////////////////////////////////////////////////////////////////// -->
-        <li>
-          <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn m-1 justify-content-end" role="button" data-bs-toggle="dropdown">Sign up</a>
-          <ul class="dropdown-menu form-wrapper">
-            <li>
-              <form class="m-2">
-                <p class="hint-text">Fill in this form to create your account!</p>
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Username" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Password" required="required">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm Password" required="required">
-                </div>
-                <div class="form-group">
-                  <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
-                </div>
-                <input type="submit" class="btn btn-primary btn-block" value="Sign up">
-              </form>
-            </li>
-          </ul>
-        </li>
-      </ul>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block login-btn">Sign in</button>
+                    </div>
+                    <div class="clearfix">
+                        <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+                        <a href="#" class="float-right text-success">Forgot Password?</a>
+                    </div>
 
-      <!-- //////////////////////////// -->
+                </form>
+                <div class="hint-text">Don't have an account? <a href="#" class="text-success">Register Now!</a></div>
+            </div>
+            </li>
+          </ul>
+        </li>
+        </ul>
+        </div>
+  <!-- ////////////////////////////////////////////////////////////////// -->
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mynavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<!-- ////////////////////////////////////////////////////////////////// -->
+  <div class="collapse navbar-collapse" id="mynavbar">
+    <a class="navbar-brand" href="#">
+      <img src="https://live.staticflickr.com/65535/51635031185_238615b7fa_w.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
+    </a>
+</div>
+
+<!--/////////////////////////////CLOSING TAGS/////////////////////////////////////-->
       </div>
     </div>
-  </div>
-
 </nav>
+
+
+
+<script src="https://use.fontawesome.com/6f23f1888e.js"></script>
 
