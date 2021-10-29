@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -34,19 +35,41 @@ public class User {
 	@Column(name="picture_url")
 	private String pictureUrl;
 	
+	
+	// added a bunch of json ignore
 	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private List<Cart> carts;
 	
+	@JsonBackReference(value="sender")
 	@OneToMany(mappedBy="sender")
 	private List<Message> sentMessages;
 	
+	@JsonBackReference(value="recipient")
 	@OneToMany(mappedBy="recipient")
 	private List<Message> receivedMessages;
 	
-	
+	@JsonIgnore
 	@OneToMany(mappedBy="creator")
 	private List<Token> createdTokens;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="owner")
+	private List<Token> ownedTokens;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="creator")
+	private List<Collection> collectionsCreated;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="seller")
+	private List<TokenTx> sellerTransfers;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="buyer")
+	private List<TokenTx> buyerTransfers;
+	
+	public User() { super(); }
 	
 	public List<Cart> getCarts() {
 		return carts;
@@ -142,21 +165,6 @@ public class User {
 		this.buyerTransfers = buyerTransfers;
 	}
 
-	@OneToMany(mappedBy="owner")
-	private List<Token> ownedTokens;
-	
-	@OneToMany(mappedBy="creator")
-	private List<Collection> collectionsCreated;
-	
-	@OneToMany(mappedBy="seller")
-	private List<TokenTx> sellerTransfers;
-	
-	@OneToMany(mappedBy="buyer")
-	private List<TokenTx> buyerTransfers;
-	
-	public User() { super(); }
-	
-	
 
 	public int getId() {
 		return id;
