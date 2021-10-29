@@ -18,4 +18,6 @@ public interface TokenService {
 	boolean destroy(String username, int tid);
 
 	Token update(String ownerName, String buyerName, int tid, Token token);
+
+	public Token update(String name, int tid, Token token);
 }

@@ -28,12 +28,8 @@ public class TokenController {
 	private TokenService tokenSvc;
 	
 	
-//	user home page index method
-	@GetMapping("tokens")
-	public Set<Token> index(HttpServletRequest req,
-			HttpServletResponse resp) {
-		return tokenSvc.index();
-	}
+	/////////////// UNAUTH METHODS ///////////////////
+	
 	
 //	find non-principal user's tokens index method
 	@GetMapping("tokens/{username}")
@@ -43,7 +39,20 @@ public class TokenController {
 		return tokenSvc.index(username);
 	}
 	
-//	I dont understand how this is different than the first one.
+	
+	
+	/////////////// GET METHODS ///////////////////
+	
+	
+	
+//	return all tokens
+	@GetMapping("tokens")
+	public Set<Token> index(HttpServletRequest req,
+			HttpServletResponse resp) {
+		return tokenSvc.index();
+	}
+	
+//	Get principal's list of tokens
 	@GetMapping("tokens/myTokens")
 	public Set<Token> index(HttpServletRequest req,
 			HttpServletResponse resp,
@@ -51,11 +60,26 @@ public class TokenController {
 		return tokenSvc.index(principal.getName());
 	}
 	
+	@GetMapping("tokens/{tid}")
+	public Token show(HttpServletRequest req,
+			HttpServletResponse resp,
+			Principal principal,
+			@PathVariable int tid) {
+		return tokenSvc.show(principal.getName(), tid);
+	}
+	
+	
+	
+	/////////////// POST METHODS ///////////////////
+	
+	
+	
 	@PostMapping("tokens")
 	public Token create(HttpServletRequest req,
 			HttpServletResponse resp, 
+			Principal principal,
 			@RequestBody Token token) {
-		tokenSvc.create("admin", token);
+		tokenSvc.create(principal.getName(), token);
 		if (token == null) {
 			resp.setStatus(404);
 		}
@@ -63,15 +87,20 @@ public class TokenController {
 	}
 	
 	
-	// method has extra params it probably doesn't need 
 	
+	/////////////// PUT METHODS ///////////////////
+	
+	
+	
+	// method has extra params it probably doesn't need 
 	@PutMapping("tokens/{tid}")
-	public Token update(HttpServletRequest req,
+	public Token sellMyToken(HttpServletRequest req,
 		HttpServletResponse resp,
+		Principal principal,
 		@PathVariable int tid) {
 		
 		Token token = new Token();
-		token = tokenSvc.show("admin", tid);
+		token = tokenSvc.show(principal.getName(), tid);
 
 		if (token == null) {
 			resp.setStatus(404);
@@ -80,6 +109,29 @@ public class TokenController {
 		token = tokenSvc.update("admin", "secondUser", tid, token);
 		return token;
 	}
+	
+	@PutMapping("tokens/{tid}")
+	public Token updateMyToken(HttpServletRequest req,
+			HttpServletResponse resp,
+			Principal principal,
+			@PathVariable int tid) {
+		
+		Token token = new Token();
+		token = tokenSvc.show(principal.getName(), tid);
+		
+		if (token == null) {
+			resp.setStatus(404);
+		}
+		
+		token = tokenSvc.update(principal.getName(), tid, token);
+		return token;
+	}
+	
+	
+	
+	/////////////// DELETE METHODS ///////////////////
+	
+	
 	
 	@DeleteMapping("tokens/{tid}")
 	public void destroy(HttpServletRequest req,
