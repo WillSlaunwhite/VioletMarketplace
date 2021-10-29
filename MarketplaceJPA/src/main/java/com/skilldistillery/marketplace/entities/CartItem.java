@@ -27,6 +27,13 @@ public class CartItem {
 	@ManyToOne
 	@JoinColumn(name = "cart_id")
 	private Cart cart;
+	
+	public CartItem(Token newToken) {
+		this.token = newToken;
+		cart.addCartItem(this);
+		
+	}
+	
 
 	@Override
 	public String toString() {
@@ -55,6 +62,12 @@ public class CartItem {
 
 	public void setCart(Cart cart) {
 		this.cart = cart;
+	}
+
+
+	public CartItem() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 

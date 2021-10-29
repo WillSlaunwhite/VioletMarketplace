@@ -1,6 +1,8 @@
 package com.skilldistillery.marketplace.entities;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -15,21 +17,20 @@ import javax.persistence.OneToMany;
 @Entity
 public class Cart {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private boolean completed;
-	
+
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private User user;
-	
-	@Column(name="created_date")
+
+	@Column(name = "created_date")
 	private LocalDate createdDate;
-	
-	@OneToMany(mappedBy="cart")
+
+	@OneToMany(mappedBy = "cart")
 	private List<CartItem> items;
-	
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -46,17 +47,33 @@ public class Cart {
 		this.items = items;
 	}
 
-	public Cart() { super(); }
-	
-	public Cart(int id, boolean completed, LocalDate createdDate) {
-		super();
-		this.id = id;
-		this.completed = completed;
-		this.createdDate = createdDate;
-	}
-	// update constructors and getters and setters once mappings are added
-	
+	public Cart() {
 
+		items = new ArrayList<CartItem>();
+		completed = false;
+		createdDate = LocalDate.now();
+
+	}
+
+	public List<CartItem> addCartItem(CartItem newItem) {
+		if (!this.items.contains(newItem)) {
+			this.items.add(newItem);
+			return items;
+		} else {
+			return items;
+		}
+	}
+
+	public List<CartItem> removeCartItem(CartItem newItem) {
+		if (this.items.contains(newItem)) {
+			this.items.remove(newItem);
+			return items;
+		} else {
+			return items;
+		}
+	}
+
+	// update constructors and getters and setters once mappings are added
 
 	public int getId() {
 		return id;
@@ -87,6 +104,5 @@ public class Cart {
 		return "Cart [id=" + id + ", completed=" + completed + ", user=" + user + ", createdDate=" + createdDate
 				+ ", items=" + items + "]";
 	}
-	
-	
+
 }
