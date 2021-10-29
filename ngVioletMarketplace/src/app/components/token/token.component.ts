@@ -57,6 +57,18 @@ export class TokenComponent implements OnInit {
     );
   }
 
+  deleteToken(id: number): void {
+    this.tokenService.destroy(id).subscribe(
+      (success) => {
+        this.reloadTokens();
+      },
+      (failure) => {
+        console.error('tokenComponent.deleteToken(): error deleting Token');
+        console.error(failure);
+      }
+    );
+  }
+
   ngOnInit(): void {
   }
 
