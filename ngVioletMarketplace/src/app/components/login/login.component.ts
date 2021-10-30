@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router) {}
   loginUser = new User();
+  showPage = false;
 
   login(user: User) {
     console.log('logging in');
