@@ -190,9 +190,11 @@ body {
 	}
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: violet;
-}
+
+
+a.list-group-item:hover{
+  background:violet;
+  }
 
 .login-form {
   width: 340px;
@@ -250,6 +252,8 @@ body {
 }
 .x-logobar {
   background-color: #1A062A;
+  /* display: inline-block; */
+
 
 }
 
