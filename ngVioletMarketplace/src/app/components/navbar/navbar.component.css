@@ -190,7 +190,9 @@ body {
 	}
 }
 
-
+.list-group-item {
+  text-align:center;
+}
 
 a.list-group-item:hover{
   background:violet;
@@ -253,8 +255,11 @@ a.list-group-item:hover{
 .x-logobar {
   background-color: #1A062A;
   /* display: inline-block; */
-
+  display: flex; justify-content: center;
 
 }
 
+.pony {
+  display: flex; justify-content: center;
+}
 /* background: #1D092D; */
