@@ -1,6 +1,6 @@
 <div class="x-logobar row " >
   <!-- <div class="pony"><img src="https://www.freepnglogos.com/uploads/little-pony-png/little-pony-release-november-the-shillong-6.png" height="75" ></div> -->
-  <div class="col-6"><img class="center-block img-responsive" src="https://live.staticflickr.com/65535/51639936281_88fbb6c452_z.jpg " height="120px" ></div>
+  <div class="container-fluid pony"><img class="center-block img-responsive" src="https://live.staticflickr.com/65535/51639936281_88fbb6c452_z.jpg " height="120px" ></div>
   <div class="pony"><img src="https://www.freepnglogos.com/uploads/little-pony-png/little-pony-release-november-the-shillong-6.png" height="75" ></div>
 </div>
 
@@ -149,70 +149,18 @@
 <div class="modal" id="SignUpModal">
   <app-register></app-register>
 </div>
-
+<!-- ////////////////////////////LOGINMODAL////////////////////////////////////// -->
 <div>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#" class="btn btn-primary dropdown-toggle get-started-btn m-1" role="button" data-bs-toggle="dropdown">Login</a>
-
-
-          <ul class="dropdown-menu form-wrapper">
-            <li>
-              <!-- //////////////////////////// -->
-
-              <!-- //////////////////////////// -->
-              <div class="login-form">
-                <form action="/examples/actions/confirmation.php" method="post">
-                    <h2 class="text-center">Sign in</h2>
-                    <div class="text-center social-btn">
-                        <a href="#" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
-                        <a href="#" class="btn btn-info btn-block"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
-                  <a href="#" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
-                    </div>
-                <div class="or-seperator"><i>or</i></div>
-                    <div class="form-group">
-                      <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <span class="fa fa-user"></span>
-                                </span>
-                            </div>
-                            <input type="text" class="form-control" name="username" placeholder="Username" required="required">
-                        </div>
-                    </div>
-                <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fa fa-lock"></i>
-                                </span>
-                            </div>
-                            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-block login-btn">Sign in</button>
-                    </div>
-                    <div class="clearfix">
-                        <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-                        <a href="#" class="float-right text-success">Forgot Password?</a>
-                    </div>
-
-                </form>
-                <div class="hint-text">Don't have an account? <a href="#" class="text-success">Register Now!</a></div>
-            </div>
-            </li>
-          </ul>
-        </li>
-        </ul>
-        </div>
-  <!-- ////////////////////////////////////////////////////////////////// -->
-
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#UserModal">
-    <span class="navbar-toggler-icon"></span>
+  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#loginModal">
+   Login
   </button>
-<!-- ////////////////////////////////////////////////////////////////// -->
+</div>
+
+<div class="modal" id="loginModal">
+  <app-login></app-login>
+</div>
+
+<!-- ////////////////////////////USERMODAL////////////////////////////////////// -->
   <div class="modal" id="UserModal">
     <a class="navbar-brand" href="#">
       <img src="https://live.staticflickr.com/65535/51635031185_238615b7fa_w.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
@@ -277,5 +225,5 @@
 
 
 
-<script src="https://use.fontawesome.com/6f23f1888e.js"></script>
+<script src="https://use.fontawesome.com/6f23f1888e.js"></script>/
 
