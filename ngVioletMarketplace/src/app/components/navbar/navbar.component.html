@@ -1,5 +1,13 @@
-<div class="x-logobar" ><img src="https://live.staticflickr.com/65535/51640018848_8d2ffa6af1_b.jpg" class="rounded mx-auto d-block"></div>
+<div class="x-logobar row " >
+  <!-- <div class="pony"><img src="https://www.freepnglogos.com/uploads/little-pony-png/little-pony-release-november-the-shillong-6.png" height="75" ></div> -->
+  <div class="container-fluid pony"><img class="center-block img-responsive" src="https://live.staticflickr.com/65535/51639936281_88fbb6c452_z.jpg " height="120px" ></div>
+  <div class="pony"><img src="https://www.freepnglogos.com/uploads/little-pony-png/little-pony-release-november-the-shillong-6.png" height="75" ></div>
+</div>
 
+
+
+
+<!-- ////////////////////////////////////////////////////////////////// -->
 <nav class="navbar-custom navbar-expand-sm .navbar-dark justify-content: center">
   <div class="container-fluid ">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -29,36 +37,18 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <table class="table table-hover text-center">
-          <tbody>
-            <tr>
-              <td><a  href="#">Collections</a></td>
-            </tr>
-            <tr>
-              <td><a  href="#">Hot</a></td>
-            </tr>
-            <tr>
-              <td><a  href="#">New</a></td>
-            </tr>
-            <tr>
-              <td><a  href="#">Drops</a></td>
-            </tr>
-            <tr>
-              <td><a  href="#">Buy Now</a></td>
-            </tr>
-            <tr>
-              <td><a  href="#">Auctions</a></td>
-            </tr>
-            <hr>
-            <tr>
-              <td><a  href="#" [routerLink]="['/token']"
-
-                >Create NFT</a></td>
-            </tr>
-
-          </tbody>
-        </table>
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action">Collections</a>
+          <a href="#" class="list-group-item list-group-item-action">Hot</a>
+          <a href="#" class="list-group-item list-group-item-action">New</a>
+          <a href="#" class="list-group-item list-group-item-action">Drops</a>
+          <a href="#" class="list-group-item list-group-item-action">Buy Now</a>
+          <a href="#" class="list-group-item list-group-item-action">Auctions</a><hr>
+          <a href="#" class="list-group-item list-group-item-action">Create NFT</a>
+        </div>
       </div>
+
+
 
       <!-- Modal footer -->
       <div class="modal-footer">
@@ -85,22 +75,13 @@
       </div>
 
       <!-- Modal body -->
+
       <div class="modal-body">
-        <table class="table table-hover text-center">
-          <tbody>
-            <tr>
-              <td><a  href="#">Buy</a></td>
-            </tr>
-            <tr>
-              <td><a  href="#">Sell</a></td>
-            </tr>
-            <tr>
-              <td><a  href="#">Trade</a></td>
-            </tr>
-
-
-          </tbody>
-        </table>
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action">Buy</a>
+          <a href="#" class="list-group-item list-group-item-action">Sell</a>
+          <a href="#" class="list-group-item list-group-item-action">Trade</a>
+        </div>
       </div>
 
       <!-- Modal footer -->
@@ -130,24 +111,11 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <table class="table table-hover text-center ">
-          <tbody>
-            <tr>
-              <td ><a  href="#">Blog</a></td>
-            </tr>
-            <tr>
-              <td><a  href="#">About Us</a></td>
-            </tr>
-            <tr>
-              <td><a  href="#">Newsletters</a></td>
-            </tr>
-            <tr>
-              <td><a  href="#">Events</a></td>
-            </tr>
-
-
-          </tbody>
-        </table>
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action">Events</a>
+          <a href="#" class="list-group-item list-group-item-action">About Us</a>
+          <a href="#" class="list-group-item list-group-item-action">E-newsletter</a>
+        </div>
       </div>
 
 
@@ -181,75 +149,74 @@
 <div class="modal" id="SignUpModal">
   <app-register></app-register>
 </div>
-
+<!-- ////////////////////////////LOGINMODAL////////////////////////////////////// -->
 <div>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#" class="btn btn-primary dropdown-toggle get-started-btn m-1" role="button" data-bs-toggle="dropdown">Login</a>
-
-
-          <ul class="dropdown-menu form-wrapper">
-            <li>
-              <!-- //////////////////////////// -->
-
-              <!-- //////////////////////////// -->
-              <div class="login-form">
-                <form action="/examples/actions/confirmation.php" method="post">
-                    <h2 class="text-center">Sign in</h2>
-                    <div class="text-center social-btn">
-                        <a href="#" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
-                        <a href="#" class="btn btn-info btn-block"><i class="fa fa-twitter"></i> Sign in with <b>Twitter</b></a>
-                  <a href="#" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
-                    </div>
-                <div class="or-seperator"><i>or</i></div>
-                    <div class="form-group">
-                      <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <span class="fa fa-user"></span>
-                                </span>
-                            </div>
-                            <input type="text" class="form-control" name="username" placeholder="Username" required="required">
-                        </div>
-                    </div>
-                <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fa fa-lock"></i>
-                                </span>
-                            </div>
-                            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-block login-btn">Sign in</button>
-                    </div>
-                    <div class="clearfix">
-                        <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
-                        <a href="#" class="float-right text-success">Forgot Password?</a>
-                    </div>
-
-                </form>
-                <div class="hint-text">Don't have an account? <a href="#" class="text-success">Register Now!</a></div>
-            </div>
-            </li>
-          </ul>
-        </li>
-        </ul>
-        </div>
-  <!-- ////////////////////////////////////////////////////////////////// -->
-
-  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mynavbar">
-    <span class="navbar-toggler-icon"></span>
+  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#loginModal">
+   Login
   </button>
-<!-- ////////////////////////////////////////////////////////////////// -->
-  <div class="collapse navbar-collapse" id="mynavbar">
+</div>
+
+<div class="modal" id="loginModal">
+  <app-login></app-login>
+</div>
+
+<!-- ////////////////////////////USERMODAL////////////////////////////////////// -->
+  <div class="modal" id="UserModal">
     <a class="navbar-brand" href="#">
       <img src="https://live.staticflickr.com/65535/51635031185_238615b7fa_w.jpg" alt="Logo" style="width:40px;" class="rounded-pill">
     </a>
 </div>
+
+
+
+
+<div class="modal" id="UserModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Sign Up</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form class="m-2">
+          <p class="hint-text">Fill in this form to create your account!</p>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" required="required">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Profile Photo" required="required">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Wallet #" required="required">
+          </div>
+          <div class="form-group">
+            <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
+          </div>
+          <input type="submit" class="btn btn-primary btn-block" value="Sign up">
+        </form>
+      </div>
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 
 <!--/////////////////////////////CLOSING TAGS/////////////////////////////////////-->
       </div>
@@ -258,5 +225,5 @@
 
 
 
-<script src="https://use.fontawesome.com/6f23f1888e.js"></script>
+<script src="https://use.fontawesome.com/6f23f1888e.js"></script>/
 
