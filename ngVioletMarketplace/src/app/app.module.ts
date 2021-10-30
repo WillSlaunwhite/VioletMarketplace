@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from './services/token.service';
 import { HomeComponent } from './components/home/home.component';
 import { TokenComponent } from './components/token/token.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { PictureuploadComponent } from './pictureupload/pictureupload.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { TokenComponent } from './components/token/token.component';
     RegisterComponent,
     NavbarComponent,
     HomeComponent,
-    TokenComponent
+    TokenComponent,
+    SidebarComponent,
+    PictureuploadComponent
   ],
   imports: [
     BrowserModule,
