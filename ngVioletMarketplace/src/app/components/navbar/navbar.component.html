@@ -147,56 +147,14 @@
 </div>
 
 <div class="modal" id="SignUpModal">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Sign Up</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form class="m-2">
-          <p class="hint-text">Fill in this form to create your account!</p>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" placeholder="Confirm Password" required="required">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Profile Photo" required="required">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Wallet #" required="required">
-          </div>
-          <div class="form-group">
-            <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms &amp; Conditions</a></label>
-          </div>
-          <input type="submit" class="btn btn-primary btn-block" value="Sign up">
-        </form>
-      </div>
-
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
+  <app-register></app-register>
 </div>
 
 <div>
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle get-started-btn m-1" role="button" data-bs-toggle="dropdown">Login</a>
+          <a href="#" class="btn btn-primary dropdown-toggle get-started-btn m-1" role="button" data-bs-toggle="dropdown">Login</a>
 
 
           <ul class="dropdown-menu form-wrapper">
