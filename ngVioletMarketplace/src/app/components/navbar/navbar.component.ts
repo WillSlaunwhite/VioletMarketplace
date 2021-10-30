@@ -9,6 +9,9 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent implements OnInit {
 
   constructor(auth: AuthService) { }
+
+  // check login
+  //
   
 
   ngOnInit(): void {
