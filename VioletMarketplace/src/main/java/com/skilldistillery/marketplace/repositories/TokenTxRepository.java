@@ -6,7 +6,6 @@ import java.util.Set;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.skilldistillery.marketplace.entities.Token;
 import com.skilldistillery.marketplace.entities.TokenTx;
 
 public interface TokenTxRepository extends JpaRepository<TokenTx, Integer>{

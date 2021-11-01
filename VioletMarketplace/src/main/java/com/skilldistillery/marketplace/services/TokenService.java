@@ -19,5 +19,5 @@ public interface TokenService {
 
 	Token update(String ownerName, String buyerName, int tid, Token token);
 
-	public Token update(String name, int tid, Token token);
+//	public Token update(String name, int tid, Token token);
 }

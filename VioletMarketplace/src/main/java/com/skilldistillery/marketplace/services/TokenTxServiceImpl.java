@@ -38,6 +38,11 @@ public class TokenTxServiceImpl implements TokenTxService {
 		List<TokenTx> sellerTransfers = tokenRepo.findBySeller(sellerId);
 		return sellerTransfers;
 	}
+	@Override
+	public TokenTx create(TokenTx transfer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 //	@Override
 //	public Token create(String username, Token token) {
 //		// TODO Auto-generated method stub
