@@ -17,8 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from './services/token.service';
 import { HomeComponent } from './components/home/home.component';
 import { TokenComponent } from './components/token/token.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { PictureuploadComponent } from './pictureupload/pictureupload.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ToastrModule.forRoot(),
   ],
   providers: [
-    TokenService
+    TokenService,
   ],
 
   bootstrap: [AppComponent]

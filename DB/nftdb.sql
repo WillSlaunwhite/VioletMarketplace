@@ -324,7 +324,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (1, 'admin', 'admin', 1, NULL, '2020-01-01 10:10:10', 'admin@email.com', 'Mr. Manager', 'url here', 'Mr. Managers Journey To The Top');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (1, 'admin', '$2a$12$sFk3F2vpHmUzA9NQBgQzOOXKVbLQU3V092l1WMom/ON7W1gGyMmKS', 1, NULL, '2020-01-01 10:10:10', 'admin@email.com', 'Mr. Manager', 'url here', 'Mr. Managers Journey To The Top');
 INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (2, 'secondUser', 'admin', 0, NULL, '2020-01-01 10:10:10', 'second@email.com', 'Mr. Worker', 'url here', 'Shit Rolls Downhill');
 
 COMMIT;
@@ -398,3 +398,12 @@ INSERT INTO `message` (`id`, `content`, `created_at`, `sender_id`, `recipient_id
 
 COMMIT;
 
+
+-- -----------------------------------------------------
+-- Data for table `favorite`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `nftdb`;
+INSERT INTO `favorite` (`user_id`, `token_id`) VALUES (1, 1);
+
+COMMIT;

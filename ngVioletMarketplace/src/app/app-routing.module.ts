@@ -16,6 +16,8 @@ const routes: Routes = [
   { path: 'token:id', component: TokenComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+
   // { path: '**', component: NotFoundComponent }
 ];
 

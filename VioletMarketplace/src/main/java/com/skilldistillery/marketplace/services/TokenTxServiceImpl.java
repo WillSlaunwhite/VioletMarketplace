@@ -24,8 +24,8 @@ public class TokenTxServiceImpl implements TokenTxService {
 		
 		return transfers;
 	}
-	public TokenTx show(int tokenId) {
-		TokenTx toShow = tokenRepo.findById(tokenId);
+	public TokenTx show(int tokenTxId) {
+		TokenTx toShow = tokenRepo.queryById(tokenTxId);
 		return toShow;
 	}
 	@Override
@@ -37,6 +37,11 @@ public class TokenTxServiceImpl implements TokenTxService {
 	public List<TokenTx> sellerTransfers(int sellerId) {
 		List<TokenTx> sellerTransfers = tokenRepo.findBySeller(sellerId);
 		return sellerTransfers;
+	}
+	@Override
+	public TokenTx create(TokenTx transfer) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 //	@Override
 //	public Token create(String username, Token token) {
