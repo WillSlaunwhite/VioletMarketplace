@@ -13,6 +13,7 @@ public interface TokenTxRepository extends JpaRepository<TokenTx, Integer>{
 
 	List<TokenTx> index();
 	TokenTx findById(int id);
+	
 	@Query(value="Select t from market_transfer t where t.buyer_id = ?1")
 	List<TokenTx> findByBuyer(int buyerId);
 	
