@@ -1,8 +1,13 @@
+body, html {
+  margin-right: -15px;
+}
+
 .navbar-custom {
 	background-color: rgb(114, 0, 104);
   }
-  
+
   body {
+
 	  font-family: 'Varela Round', sans-serif;
 	background-color: lightblue;
 	margin-right: -15px;
@@ -190,15 +195,15 @@
 		  width: 100%;
 	  }
   }
-  
+
   .list-group-item {
 	text-align:center;
   }
-  
+
   a.list-group-item:hover{
 	background:violet;
 	}
-  
+
   .login-form {
 	width: 340px;
 	margin: 30px auto;
@@ -257,21 +262,21 @@
 	background-color: #1A062A;
 	/* display: inline-block; */
 	display: flex; justify-content: center;
-  
+
   }
-  
+
   .pony {
 	display: flex; justify-content: center;
   }
   /* background: #1D092D; */
-  
+
   .btn-primary {
 	color: rgb(255, 255, 255);
 	background-color: violet;
 	border-radius: 18px;
 	border: none;
   }
-  
+
   .navbar-nav.navbar-center {
 	position: absolute;
 	left: 50%;
