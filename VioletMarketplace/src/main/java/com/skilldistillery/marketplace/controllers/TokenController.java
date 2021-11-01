@@ -110,22 +110,22 @@ public class TokenController {
 		return token;
 	}
 	
-	@PutMapping("tokens/{tid}")
-	public Token updateMyToken(HttpServletRequest req,
-			HttpServletResponse resp,
-			Principal principal,
-			@PathVariable int tid) {
-		
-		Token token = new Token();
-		token = tokenSvc.show(principal.getName(), tid);
-		
-		if (token == null) {
-			resp.setStatus(404);
-		}
-		
-		token = tokenSvc.update(principal.getName(), tid, token);
-		return token;
-	}
+//	@PutMapping("tokens/{tid}")
+//	public Token updateMyToken(HttpServletRequest req,
+//			HttpServletResponse resp,
+//			Principal principal,
+//			@PathVariable int tid) {
+//		
+//		Token token = new Token();
+//		token = tokenSvc.show(principal.getName(), tid);
+//		
+//		if (token == null) {
+//			resp.setStatus(404);
+//		}
+//		
+//		token = tokenSvc.update(principal.getName(), tid, token);
+//		return token;
+//	}
 	
 	
 	
