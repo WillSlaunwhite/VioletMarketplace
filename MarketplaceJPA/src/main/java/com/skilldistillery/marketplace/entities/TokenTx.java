@@ -31,6 +31,22 @@ public class TokenTx {
 	@JoinColumn(name="seller_id")
 	private User seller;
 	
+	public User getSeller() {
+		return seller;
+	}
+
+	public void setSeller(User seller) {
+		this.seller = seller;
+	}
+
+	public User getBuyer() {
+		return buyer;
+	}
+
+	public void setBuyer(User buyer) {
+		this.buyer = buyer;
+	}
+
 	@OneToOne
 	@JoinColumn(name="buyer_id")
 	private User buyer;
