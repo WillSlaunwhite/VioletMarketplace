@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,13 +14,11 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from './services/token.service';
 import { HomeComponent } from './components/home/home.component';
 import { TokenComponent } from './components/token/token.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -33,12 +34,13 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     RouterModule,
-    BrowserModule,
+    CommonModule,
+    FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CollapseModule.forRoot(),
+    ToastrModule.forRoot(),
   ],
   providers: [
     TokenService

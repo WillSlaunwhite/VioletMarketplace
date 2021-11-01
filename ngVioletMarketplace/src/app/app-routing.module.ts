@@ -21,7 +21,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CollapseModule, FormsModule, CommonModule, BrowserModule, RouterModule.forRoot(routes, {useHash: true})],
+  imports: [CommonModule, BrowserModule, RouterModule.forRoot(routes, {
+    useHash: true,
+    scrollPositionRestoration: "enabled",
+    anchorScrolling: "enabled",
+    scrollOffset: [0, 64]})
+  ],
   exports: [RouterModule]
 })
+
+// code error fixing changed this to default?
 export class AppRoutingModule { }
