@@ -6,6 +6,9 @@
     "ngVioletMarketplace": {
       "projectType": "application",
       "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
         "@schematics/angular:application": {
           "strict": true
         }
@@ -27,13 +30,36 @@
               "src/styles.css",
               "src/styles.scss",
               "src/assets/css/nucleo-icons.css",
-              "src/assets/demo/demo.css",
+
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "src/assets/scss/black-dashboard.scss",
+              "src/styles.scss",
+              "src/assets/css/nucleo-icons.css",
               "node_modules/bs-stepper/dist/css/bs-stepper.css",
               "src/assets/scss/black-dashboard.scss",
               "node_modules/@swimlane/ngx-datatable/index.css",
               "node_modules/@swimlane/ngx-datatable/assets/icons.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src",
+                "src/assets",
+                "src/assets/scss",
+                "src/assets/scss/black-dashboard",
+                "src/assets/scss/black-dashboard/angular-differences",
+                "src/assets/scss/black-dashboard/custom",
+                "src/assets/scss/black-dashboard/custom/cards",
+                "src/assets/scss/black-dashboard/custom/mixins",
+                "src/assets/scss/black-dashboard/custom/utilities",
+                "src/assets/scss/black-dashboard/custom/vendor",
+                "src/assets/scss/black-dashboard/bootstrap",
+                "src/assets/scss/black-dashboard/bootstrap/mixins",
+                "src/assets/scss/black-dashboard/bootstrap/utilities",
+                "src/assets/scss/black-dashboard/bootstrap/vendor"
+              ]
+            },
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
@@ -99,8 +125,17 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
+
+
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "src/styles.css"
+            ],
             "scripts": []
           }
         }

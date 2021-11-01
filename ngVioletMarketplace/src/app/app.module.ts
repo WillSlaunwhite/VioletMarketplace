@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +14,6 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenService } from './services/token.service';
 import { HomeComponent } from './components/home/home.component';
@@ -16,6 +21,8 @@ import { TokenComponent } from './components/token/token.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PictureuploadComponent } from './pictureupload/pictureupload.component';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+
 
 @NgModule({
   declarations: [
@@ -31,11 +38,14 @@ import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, So
     PictureuploadComponent
   ],
   imports: [
-    BrowserModule,
+    RouterModule,
+    CommonModule,
+    FormsModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    SocialLoginModule
+    ToastrModule.forRoot(),
   ],
   providers: [
     TokenService,
