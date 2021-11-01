@@ -22,6 +22,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { PictureuploadComponent } from './pictureupload/pictureupload.component';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { CryptoComponent } from './crypto/crypto.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     HomeComponent,
     TokenComponent,
     SidebarComponent,
-    PictureuploadComponent
+    PictureuploadComponent,
+    AboutUsComponent,
+    CryptoComponent
   ],
   imports: [
     RouterModule,
