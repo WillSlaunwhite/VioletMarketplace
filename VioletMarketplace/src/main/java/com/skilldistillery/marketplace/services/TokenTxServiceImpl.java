@@ -24,8 +24,8 @@ public class TokenTxServiceImpl implements TokenTxService {
 		
 		return transfers;
 	}
-	public TokenTx show(int tokenId) {
-		TokenTx toShow = tokenRepo.findById(tokenId);
+	public TokenTx show(int tokenTxId) {
+		TokenTx toShow = tokenRepo.queryById(tokenTxId);
 		return toShow;
 	}
 	@Override

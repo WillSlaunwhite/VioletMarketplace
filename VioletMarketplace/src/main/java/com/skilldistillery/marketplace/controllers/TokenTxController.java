@@ -35,18 +35,18 @@ public class TokenTxController {
 
 	// Returns All Transfers for a given SELLER
 
-	@GetMapping("transfers/{sellerId}")
+	@GetMapping("transfers/seller/{userId}")
 	public List<TokenTx> sellerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
-			@PathVariable int sellerId) {
-		return txSvc.sellerTransfers(sellerId);
+			@PathVariable int userId) {
+		return txSvc.sellerTransfers(userId);
 	}
 
 	// Returns All Transfers for a given BUYER
 
-	@GetMapping("transfers/{buyerId}")
+	@GetMapping("transfers/buyer/{userId}")
 	public List<TokenTx> buyerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
-			@PathVariable int buyerId) {
-		return txSvc.sellerTransfers(buyerId);
+			@PathVariable int userId) {
+		return txSvc.sellerTransfers(userId);
 	}
 
 	/////////////// GET METHODS ///////////////////

@@ -10,12 +10,14 @@ import com.skilldistillery.marketplace.entities.TokenTx;
 
 public interface TokenTxRepository extends JpaRepository<TokenTx, Integer>{
 
-	List<TokenTx> index();
-	TokenTx findById(int id);
-	@Query(value="Select t from market_transfer t where t.buyer_id = ?1")
+	TokenTx queryById(int id);
+	
+	@Query(value="Select from market_transfer where buyer_id = ?1",
+			nativeQuery=true)
 	List<TokenTx> findByBuyer(int buyerId);
 	
-	@Query(value="Select t from market_transfer t where t.seller_id = ?1")
+	@Query(value="Select t from market_transfer t where t.seller_id = ?1",
+			nativeQuery=true)
 	List<TokenTx> findBySeller(int sellerId);
 	
 }

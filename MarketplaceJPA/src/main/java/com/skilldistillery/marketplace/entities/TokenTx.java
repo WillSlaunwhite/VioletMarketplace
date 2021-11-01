@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="market_transfer")
 public class TokenTx {
@@ -82,10 +84,8 @@ public class TokenTx {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("MarketTransfer [id=").append(id).append(", token=").append(token).append(", description=")
-				.append(description).append(", transferDate=").append(transferDate).append("]");
-		return builder.toString();
+		return "TokenTx [id=" + id + ", token=" + token + ", description=" + description + ", seller=" + seller
+				+ ", buyer=" + buyer + ", transferDate=" + transferDate + "]";
 	}
 	
 	
