@@ -25,8 +25,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/assets/scss/black-dashboard.scss",
               "src/styles.scss",
               "src/assets/css/nucleo-icons.css",
@@ -36,7 +41,7 @@
               "node_modules/@swimlane/ngx-datatable/assets/icons.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
-             "stylePreprocessorOptions": {
+            "stylePreprocessorOptions": {
               "includePaths": [
                 "src",
                 "src/assets",
@@ -118,8 +123,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "src/styles.css"
+            ],
             "scripts": []
           }
         }
