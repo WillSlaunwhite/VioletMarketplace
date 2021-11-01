@@ -21,12 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, BrowserModule, RouterModule.forRoot(routes, {
-    useHash: true,
-    scrollPositionRestoration: "enabled",
-    anchorScrolling: "enabled",
-    scrollOffset: [0, 64]})
-  ],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 
