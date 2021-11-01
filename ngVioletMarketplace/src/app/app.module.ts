@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -19,6 +18,7 @@ import { TokenService } from './services/token.service';
 import { HomeComponent } from './components/home/home.component';
 import { TokenComponent } from './components/token/token.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -30,6 +30,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     RegisterComponent,
     NavbarComponent,
     HomeComponent,
+    SidebarComponent,
     TokenComponent
   ],
   imports: [
@@ -38,8 +39,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
+    CollapseModule,
     ToastrModule.forRoot(),
   ],
   providers: [

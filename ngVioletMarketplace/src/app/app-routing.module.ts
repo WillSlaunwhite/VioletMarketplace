@@ -5,10 +5,9 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TokenComponent } from './components/token/token.component';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -21,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [CommonModule, BrowserModule, RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 
