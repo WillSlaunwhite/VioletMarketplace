@@ -6,7 +6,7 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-token',
   templateUrl: './token.component.html',
-  styleUrls: ['./token.component.css']
+  styleUrls: ['./token.component.css'],
 })
 export class TokenComponent implements OnInit {
   constructor(
@@ -16,6 +16,9 @@ export class TokenComponent implements OnInit {
   ) { }
   newToken: Token = new Token();
   tokens: Token[] = [];
+  selected: Token | null = null;
+  editToken: Token | null = null;
+
 
   addToken(token: Token) {
     this.tokenService.create(token).subscribe(
@@ -44,19 +47,6 @@ export class TokenComponent implements OnInit {
     );
   }
 
-  createToken(token: Token) {
-    this.tokenService.create(token).subscribe(
-      (newBet) => {
-        this.reloadTokens();
-        this.newToken = new Token();
-      },
-      (fail) => {
-        console.error('TokenComponent.addToken(): Error creating Token');
-        console.error(fail);
-      }
-    );
-  }
-
   deleteToken(id: number): void {
     this.tokenService.destroy(id).subscribe(
       (success) => {
@@ -70,6 +60,33 @@ export class TokenComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!this.selected && this.route.snapshot.paramMap.get('id')) {
+      this.tokenService.show(this.route.snapshot.params['id']).subscribe(
+        (success) => {
+          this.reloadTokens();
+          this.selected = success;
+        },
+        (fail) => {
+          console.error('tokenComponent.ngOnInit(): error initializing Token by id');
+          console.error(fail);
+          this.router.navigateByUrl('notfound');
+        }
+      );
+    } else {
+      this.reloadTokens();
+    }
+  }
+
+  setEditToken() {
+    this.editToken = Object.assign({}, this.selected);
+  }
+
+  displayToken(token: Token) {
+    this.selected = token;
+  }
+
+  hideToken() {
+    this.selected = null;
   }
 
 }

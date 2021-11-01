@@ -5,6 +5,7 @@
 body {
 	font-family: 'Varela Round', sans-serif;
   background-color: lightblue;
+  margin-right: -15px;
 }
 .form-control {
 	box-shadow: none;
@@ -190,9 +191,13 @@ body {
 	}
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: violet;
+.list-group-item {
+  text-align:center;
 }
+
+a.list-group-item:hover{
+  background:violet;
+  }
 
 .login-form {
   width: 340px;
@@ -250,7 +255,12 @@ body {
 }
 .x-logobar {
   background-color: #1A062A;
+  /* display: inline-block; */
+  display: flex; justify-content: center;
 
 }
 
+.pony {
+  display: flex; justify-content: center;
+}
 /* background: #1D092D; */
