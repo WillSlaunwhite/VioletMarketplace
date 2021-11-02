@@ -10,10 +10,18 @@ import { AuthService } from './auth.service';
 export class TokenService {
   constructor(private http: HttpClient, private auth: AuthService) { }
   private baseUrl = 'http://localhost:8090/';
-  private url = this.baseUrl + 'api/tokens';
+  private url = this.baseUrl + 'api/home/tokens';
 
+  // index(): Observable<Token[]> {
+  //   return this.http.get<Token[]>(this.url, this.getHttpOptions()).pipe(
+  //     catchError((err: any) => {
+  //       console.log(err);
+  //       return throwError('tokenService.index(): Error retrieving Token list');
+  //     })
+  //   );
+  // }
   index(): Observable<Token[]> {
-    return this.http.get<Token[]>(this.url + '/myTokens', this.getHttpOptions()).pipe(
+    return this.http.get<Token[]>(this.url).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('tokenService.index(): Error retrieving Token list');

@@ -16,13 +16,46 @@
 
 
 
+<!--
+  <div class="col">
+    <div class="card h-100 shadow-sm"> <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" class="card-img-top" alt="..."> -->
+
+
+      <div id="tokenList">
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>description</th>
+            <th>rarity</th>
+            <th>price</th>
+            <th>tokenLocation</th>
+            <th>offered</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let token of tokens">
+            <td>{{ token.id }}</td>
+            <td>{{ token.name }}</td>
+            <td>{{ token.description }}</td>
+            <td>{{ token.rarity }}</td>
+            <td>{{ token.price }}</td>
+            <td>{{ token.tokenLocation }}</td>
+            <td>{{ token.offered }}</td>
+
+          </tr>
+        </tbody>
+      </table>
+      </div>
 
 
 
 
-
-
-
+          <!-- <div> <a href="#" class="btn btn-warning">Buy This NFT Now!</a> </div>
+        </div>
+    </div>
+</div> -->
 
 
 
