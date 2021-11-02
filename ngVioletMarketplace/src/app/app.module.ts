@@ -21,6 +21,7 @@ import { TokenComponent } from './components/token/token.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PictureuploadComponent } from './pictureupload/pictureupload.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 
 
 @NgModule({

@@ -1,34 +1,6 @@
 <!-- //////////////////////////// -->
 <!-- the ability to edit profile -->
-<form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label><br>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-    </div>
-  </div>
-  <!-- //////////////////////////// -->
-  <div class="form-group">
-    <label for="wallet">Wallet</label><br>
-    <input type="text" class="form-control" id="wallet" placeholder="#wallet">
-  </div>
-  <div class="form-group">
-    <label for="inputImage">Profile Image</label><br>
-    <input type="text" class="form-control" cols="50" id="inputImage" placeholder="Upload Profile Image">
-  </div>
-  <div class="">
-    <label for="inputBio">Tell us about yourself:</label><br>
-    <textarea class="form-control" rows="5" cols="50" maxlength="200"id="inputBio" name="text"></textarea>
-  </div><br>
-  <!-- //////////////////////////// -->
 
-  <button type="submit" class="btn btn-primary" style="background-color: aquamarine !important;">Update</button>
-
-</form>
 <!-- //////////////////////////// -->
 <!-- display token history -->
     <!-- able to filter -->
@@ -66,7 +38,7 @@
   <div class=" row">
     <div class=" col-md-8">
       <div class=" card">
-        <div class=" card-header"><h5 class=" title">Edit Profile</h5></div>
+        <div class=" card-header"><h3 class=" title">Edit Profile</h3></div>
         <div class=" card-body">
           <form>
             <div class=" row">
@@ -86,22 +58,24 @@
                   <input
                     class=" form-control"
                     type="text"
-                    value="willslaunwhite"
+                    value="Jimmy Garoppolo
+
+                    "
                   />
                 </div>
               </div>
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> First Name </label>
-                  <input class=" form-control" type="text" value="will" />
+                  <label> Title </label>
+                  <input class=" form-control" type="text" value="CEO" />
                 </div>
               </div>
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label>Last Name </label>
+                  <label>Profile Image</label>
                   <input
                     class=" form-control"
-                    value="slaunwhite"
+                    value="image for profile"
                     type="text"
                   />
                 </div>
@@ -110,14 +84,30 @@
             <div class=" row">
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> First Name </label>
-                  <input class=" form-control" type="text" value="Mike" />
+                  <label> Wallet </label>
+                  <input class=" form-control" type="text" value="Wallet ID" />
                 </div>
               </div>
+
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> Country </label>
-                  <input class=" form-control" type="text" value="Andrew" />
+                  <label> Facebook </label>
+                  <input class=" form-control" type="text" value="www.facebook.com/JimmyG" />
+                </div>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <label> Twitter </label>
+                  <input class=" form-control" type="text" value="@JimmyG" />
+                </div>
+              </div>
+
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <label> Google </label>
+                  <input class=" form-control" type="text" value="JimmyGaroppolo@gmail.com" />
                 </div>
               </div>
             </div>
@@ -133,10 +123,12 @@
           </form>
         </div>
         <div class=" card-footer">
-          <button class=" btn btn-fill btn-primary" type="submit">Save</button>
+          <button class=" btn btn-fill btn-primary" type="submit">Save and Update</button>
         </div>
       </div>
     </div>
+
+  <!-- ////////////////////////////////////////////////////////////////// -->
     <div class=" col-md-4">
       <div class=" card card-user">
         <div class=" card-body">
@@ -153,7 +145,7 @@
                 src="https://bit.ly/3GSu5vh"
               />
 
-              <h5 class=" title">Mike Andrew</h5>
+              <h5 class=" title">Jimmy Garoppolo</h5>
             </a>
             <p class=" description">Ceo/Co-Founder</p>
           </div>
@@ -188,4 +180,136 @@
       </div>
     </div>
   </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////// -->
+<div class=" card">
+  <div class=" card-header"><h3 class=" title">NFTs</h3></div>
+  <div class=" card-body">
+<div>
+  <table class="table">
+    <thead>
+      <!-- <tr><h1 justify-content-center>NFTs</h1></tr> -->
+        <tr>
+            <th class="text-center">Token</th>
+            <th>Name</th>
+            <th>Created On</th>
+            <th>Purchase Date</th>
+            <th>Sold Date</th>
+            <th>Offered for Sale</th>
+            <th class="text-right">Purchase Price</th>
+            <th class="text-right">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-center">1</td>
+            <td>Tom Brady</td>
+            <td>2000</td>
+            <td>2012</td>
+            <td>2013</td>
+            <td>Yes</td>
+            <td class="text-right">&dollar; 99,225</td>
+            <td class="td-actions text-right">
+              <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-single-02"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-settings"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-simple-remove"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center">2</td>
+            <td>Bart Star</td>
+            <td>1967</td>
+            <td>2012</td>
+            <td>2013</td>
+            <td>No</td>
+            <td class="text-right">&dollar; 89,241</td>
+            <td class="td-actions text-right">
+              <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-single-02"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-settings"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-simple-remove"></i>
+                </button>
+            </td>
+        </tr>
+      </tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- ////////////////////////////////////////////////////////////////// -->
+<div class=" card">
+  <div class=" card-header"><h3 class=" title">NFT Favorites</h3></div>
+  <div class=" card-body">
+<div>
+  <table class="table">
+    <thead>
+      <!-- <tr><h1 justify-content-center>NFTs</h1></tr> -->
+        <tr>
+            <th class="text-center">Token</th>
+            <th>Name</th>
+            <th>Created On</th>
+            <th>Purchase Date</th>
+            <th>Sold Date</th>
+            <th>Offered for Sale</th>
+            <th class="text-right">Purchase Price</th>
+            <th class="text-right">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-center">1</td>
+            <td>Andrew Luck</td>
+            <td>2009</td>
+            <td>2012</td>
+            <td>2013</td>
+            <td>Yes</td>
+            <td class="text-right">&dollar; 99,225</td>
+            <td class="td-actions text-right">
+              <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-single-02"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-settings"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-simple-remove"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center">3</td>
+            <td>John Elway</td>
+            <td>2001</td>
+            <td>2012</td>
+            <td>2013</td>
+            <td>Yes</td>
+            <td class="text-right">&dollar; 459,241</td>
+            <td class="td-actions text-right">
+              <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-single-02"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-settings"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-simple-remove"></i>
+                </button>
+            </td>
+        </tr>
+      </tbody>
+</table>
+
+</div>
+</div>
 </div>
