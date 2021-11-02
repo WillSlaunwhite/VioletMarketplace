@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BsModalService, BsModalRef, ModalOptions, ModalDirective } from 'ngx-bootstrap/modal';
 import { AuthService } from 'src/app/services/auth.service';
-import { BsModalRef, BsModalService, ModalOptions, ModalDirective } from 'ngx-bootstrap/modal';
+import { LoginComponent } from '../login/login.component';
 import { PictureuploadComponent } from '../pictureupload/pictureupload.component';
-import { FormsModule } from '@angular/forms';
+
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-user-page',
+  templateUrl: './user-page.component.html',
+  styleUrls: ['./user-page.component.css']
 })
-export class NavbarComponent implements OnInit {
-
-  constructor(private auth: AuthService, private modalService: BsModalService) { }
+export class UserPageComponent implements OnInit {
   bsModalRef?: BsModalRef;
-  // check login
-  //
+  constructor(private auth: AuthService, private modalService: BsModalService) { }
 
   openModalWithComponent() {
     const initialState: ModalOptions = {
@@ -32,7 +30,12 @@ export class NavbarComponent implements OnInit {
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 
+
   ngOnInit(): void {
+  }
+
+  loggedIn(): boolean {
+    return this.auth.isUserLoggedIn();
   }
 
 }
