@@ -5,6 +5,9 @@
   border: none;
 } */
 
+body, html {
+  margin-right: -15px;
+}
 .card {
   background-color: #8941cca9 !important;
 }
