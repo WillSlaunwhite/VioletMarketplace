@@ -41,7 +41,7 @@ public class TokenServiceImpl implements TokenService {
 	
 	@Override
 	public Token showById(int tid) {
-		return tokenRepo.getById(null);
+		return tokenRepo.queryById(tid);
 	}
 	
 	@Override

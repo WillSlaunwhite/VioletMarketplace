@@ -12,4 +12,5 @@ public interface TokenRepository extends JpaRepository<Token, Integer>{
 	Set<Token> findByCreator_Username(String username);
 	Set<Token> findByOwner_Username(String username);
 	Token findByOwner_UsernameAndId(String username, int tokenId);
+	Token queryById(int id);
 }
