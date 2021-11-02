@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { User } from '../models/user';
 
@@ -10,6 +10,7 @@ import { User } from '../models/user';
 export class AuthService {
   constructor(private http: HttpClient) {}
   private baseUrl = 'http://localhost:8090/';
+  private url = this.baseUrl+'api/user';
 
   login(username: string, password: string) {
     // Make credentials
@@ -34,7 +35,25 @@ export class AuthService {
       })
     );
   }
+  getUser(username:string): Observable<User>{
+    return this.http.get<User>(`${this.url}/${username}`).pipe(
+      catchError((err:any) =>{
+        console.error(err);
+        return throwError('tokenService.getUser(): Error retreiving user');
 
+      })
+    );
+    }
+    getHttpOptions() {
+      let credentials = this.getCredentials();
+      let options = {
+        headers: {
+          'X-Requestd-With': 'XMLHttpRequest',
+          Authorization: `Basic ${credentials}`,
+        },
+      };
+      return options;
+    }
   register(user: User) {
     // create request to register a new account
     return this.http.post(this.baseUrl + 'register', user).pipe(

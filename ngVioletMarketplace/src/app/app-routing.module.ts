@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'token/:id', component: TokenComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'user', component: UserPageComponent },
+  { path: 'user/:username', component: UserPageComponent },
   { path: 'test', component: PictureuploadComponent },
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 
