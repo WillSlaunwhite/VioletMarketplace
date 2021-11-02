@@ -22,6 +22,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { PictureuploadComponent } from './pictureupload/pictureupload.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
+import { NFTInfoComponent } from './components/nft-info/nft-info.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
     NavbarComponent,
     HomeComponent,
     SidebarComponent,
-    TokenComponent
+    TokenComponent,
+    NFTInfoComponent
   ],
   imports: [
     BrowserModule,
