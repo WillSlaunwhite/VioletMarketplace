@@ -46,7 +46,7 @@ public class TokenController {
 	
 	
 //	return all tokens
-	@GetMapping("tokens")
+	@GetMapping("home/tokens")
 	public Set<Token> indexHome(HttpServletRequest req,
 			HttpServletResponse resp) {
 		return tokenSvc.index();
