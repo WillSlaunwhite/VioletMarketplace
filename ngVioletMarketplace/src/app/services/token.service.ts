@@ -21,7 +21,7 @@ export class TokenService {
   //   );
   // }
   index(): Observable<Token[]> {
-    return this.http.get<Token[]>(this.baseUrl + 'home/tokens/').pipe(
+    return this.http.get<Token[]>(this.baseUrl+"api/home/tokens").pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('tokenService.index(): Error retrieving Token list');
@@ -49,7 +49,7 @@ export class TokenService {
   }
 
   show(id: number): Observable<Token> {
-    return this.http.get<Token>(`${this.url}/id/${id}`, this.getHttpOptions()).pipe(
+    return this.http.get<Token>(`${this.url}/id/${id}`).pipe(
       catchError((err: any) => {
         console.error(err);
         return throwError('tokenService.show(): Error getting Token');

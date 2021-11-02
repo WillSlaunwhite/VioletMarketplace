@@ -83,9 +83,9 @@
 
 
 
-  <!-- <div class="row">
+  <div class="row">
     <div class="column side">
-      <h2>What's Hot!</h2>
+            <h2>What's Hot!</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
         numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
@@ -123,104 +123,34 @@
                 optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
                 obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam</p><br>
 
-    </div> -->
+    </div>
 
 <!-- ////////////////////////////////////////////////////////////////// -->
 
-    <!-- <div class="column middle">
+<div class="column middle">
       <h2>NFTs</h2>
 
-  <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
-    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-        <div class="col">
-            <div class="card h-100 shadow-sm"> <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">ASUS Rog</span> <span class="float-end price-hp">🔥🔥</span> </div>
-                    <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
-                    <div class="text-center my-4"> <a href="#" class="btn btn-warning">Buy This NFT Now!</a> </div>
-                </div>
-            </div>
+
+    <div *ngFor="let token of tokens">
+      <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="https://bit.ly/3GSu5vh" alt="Card image cap" />
+        <div class="card-body">
+          <h4 class="card-title">{{token.name}}</h4>
+          <p class="card-text">{{token.description}}</p>
+          <p class="card-text">Price: ${{token.price}}</p>
+          <a routerLink="/token/id/{{token.id}}" class="btn btn-primary" >Buy this NFT</a>
         </div>
-        <div class="col">
-            <div class="card h-100 shadow-sm"> <img src="https://live.staticflickr.com/65535/51635031185_238615b7fa_w.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-success">🔥🔥</span> <span class="float-end"><a href="#">Example</a></span> </div>
-                    <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
-                    <div class="d-grid gap-2 my-4"> <a href="#" class="btn btn-warning">Buy This NFT Now!</a> </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 shadow-sm"> <img src="https://i.pinimg.com/originals/2d/e8/56/2de856778a293b611e355daaa8d462a9.png" class="card-img-top" alt="...">
-                <div class="label-top shadow-sm">Asus Rog</div>
-                <div class="card-body">
-                    <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-success">🔥🔥</span> <span class="float-end"><a href="#" class="small text-muted">Reviews</a></span> </div>
-                    <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
-                    <div class="text-center my-4"> <a href="#" class="btn btn-warning">Buy This NFT Now!</a> </div>
-                    <div class="clearfix mb-1"> <span class="float-start"><i class="icon-social-facebook" class="far fa-question-circle"></i></span> <span class="float-end"><i class="far fa-plus"></i></span> </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 shadow-sm"> <img src="https://live.staticflickr.com/65535/51634402013_08ba592a7e_w.jpg" class="card-img-top" alt="...">
-                <div class="label-top shadow-sm">DELL</div>
-                <div class="card-body">
-                    <div class="clearfix mb-3"> <span class="float-start price-hp">🔥🔥</span> <span class="float-end"><a class="text-muted small" href="#">Reviews</a></span> </div>
-                    <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
-                    <div class="text-center my-4"> <a href="#" class="btn btn-warning">Buy This NFT Now!</a> </div>
-                    <div class="clearfix mb-1"> <span class="float-start"><i class="far fa-question-circle"></i></span> <span class="float-end"><i class="fas fa-plus"></i></span> </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 </div>
-<div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
-  <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-      <div class="col">
-          <div class="card h-100 shadow-sm"> <img src="https://live.staticflickr.com/65535/51634828034_530acf3aa8_n.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">Rare!</span> <span class="float-end price-hp">🔥🔥</span> </div>
-                  <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
-                  <div class="text-center my-4"> <a href="#" class="btn btn-warning">Buy This NFT Now!</a> </div>
-              </div>
-          </div>
-      </div>
-      <div class="col">
-          <div class="card h-100 shadow-sm"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8oxYzUjEgRF7WZlyAhfwgpTmDta_x8H_s6X3MHwPsbRuhB-BxmItGotrJgim4qk-_gDc&usqp=CAU" class="card-img-top" alt="...">
-              <div class="card-body">
-                  <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-success">🔥🔥</span> <span class="float-end"><a href="#">Example</a></span> </div>
-                  <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
-                  <div class="d-grid gap-2 my-4"> <a href="#" class="btn btn-warning">Buy This NFT Now!</a> </div>
-              </div>
-          </div>
-      </div>
-      <div class="col">
-          <div class="card h-100 shadow-sm"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVVdV1HYLXYK3oPFisDaN5Lvrfv_HHzVGRao8p0LVnzSIp1PBSjxxx8YiDek4Ax1VNGFo&usqp=CAU" class="card-img-top" alt="...">
-              <div class="label-top shadow-sm">Asus Rog</div>
-              <div class="card-body">
-                  <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-success">🔥🔥</span> <span class="float-end"><a href="#" class="small text-muted">Reviews</a></span> </div>
-                  <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
-                  <div class="text-center my-4"> <a href="#" class="btn btn-warning">Buy This NFT Now!</a> </div>
-                  <div class="clearfix mb-1"> <span class="float-start"><i class="far fa-question-circle"></i></span> <span class="float-end"><i class="fas fa-plus"></i></span> </div>
-              </div>
-          </div>
-      </div>
-      <div class="col">
-          <div class="card h-100 shadow-sm"> <img src="https://live.staticflickr.com/65535/51634180946_37edc7c4ea_w.jpg" class="card-img-top" alt="...">
-              <div class="label-top shadow-sm">DELL</div>
-              <div class="card-body">
-                  <div class="clearfix mb-3"> <span class="float-start price-hp">🔥🔥</span> <span class="float-end"><a class="text-muted small" href="#">Reviews</a></span> </div>
-                  <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
-                  <div class="text-center my-4"> <a href="#" class="btn btn-warning">Buy This NFT Now!</a> </div>
-                  <div class="clearfix mb-1"> <span class="float-start"><em class="bi bi-cart-plus-fill"></em></span> <span class="float-end"><i class="bi bi-bookmark-heart-fill"></i></span> </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-  </div> -->
+
+<!-- <a *ngFor="let hero of heroes"
+  routerLink="/detail/{{hero.id}}">
+  {{hero.name}}
+</a> -->
+
 <!-- ////////////////////////////////////////////////////////////////// -->
-    <!-- <div class="column side">
+<div class="column side">
       <h2>News</h2>
       <h3></h3>
       <p></p>
@@ -229,9 +159,9 @@
          <li><b>Vel facilisis</b> volutpat est velit egestas dui id. Sapien et ligula ullamcorper malesuada proin libero. Risus nec feugiat in fermentum posuere. Malesuada fames ac turpis egestas. Augue mauris augue neque gravida in. Non arcu risus quis varius quam quisque id diam. Arcu cursus vitae congue mauris rhoncus aenean vel. Vulputate eu scelerisque felis imperdiet proin. Nisl vel pretium lectus quam id leo in vitae turpis. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit. At erat pellentesque adipiscing commodo elit at imperdiet. Suspendisse sed nisi lacus sed viverra tellus in. Tempor nec feugiat nisl pretium. Sem et tortor consequat id porta nibh. Blandit massa enim nec dui. Condimentum id venenatis a condimentum vitae. Turpis egestas integer eget aliquet. Tincidunt lobortis feugiat vivamus at augue.</li><br>
          <li><b>Eu tincidunt</b>Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio. Tortor vitae purus faucibus ornare suspendisse sed. Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum. Risus nullam eget felis eget nunc lobortis mattis aliquam. A diam maecenas sed enim ut. Ut porttitor leo a diam sollicitudin tempor id eu. Ac auctor augue mauris augue neque gravida in fermentum. Elementum nisi quis eleifend quam adipiscing vitae. Nunc scelerisque viverra mauris in. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Urna molestie at elementum eu facilisis sed odio morbi. Ipsum consequat nisl vel pretium lectus. Quam nulla porttitor massa id neque. Nibh nisl condimentum id venenatis a. Lacus viverra vitae congue eu consequat ac felis donec et. Eget egestas purus viverra accumsan in nisl. Urna nec tincidunt praesent semper feugiat. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim.</li><br>
       </ul>
-    </div>
-  </div> -->
 
+</div>
+</div>
 
 
 
