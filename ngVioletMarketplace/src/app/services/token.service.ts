@@ -41,7 +41,7 @@ export class TokenService {
   }
 
   show(id: number): Observable<Token> {
-    return this.http.get<Token>(`${this.url}/${id}`, this.getHttpOptions()).pipe(
+    return this.http.get<Token>(`${this.url}/id/${id}`, this.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.error(err);
         return throwError('tokenService.show(): Error getting Token');

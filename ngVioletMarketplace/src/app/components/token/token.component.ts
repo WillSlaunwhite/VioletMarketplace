@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Token } from 'src/app/models/token';
+import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class TokenComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private tokenService: TokenService,
+    private auth: AuthService
   ) { }
   newToken: Token = new Token();
   tokens: Token[] = [];
@@ -63,13 +65,13 @@ export class TokenComponent implements OnInit {
     if (!this.selected && this.route.snapshot.paramMap.get('id')) {
       this.tokenService.show(this.route.snapshot.params['id']).subscribe(
         (success) => {
-          this.reloadTokens();
           this.selected = success;
         },
         (fail) => {
           console.error('tokenComponent.ngOnInit(): error initializing Token by id');
+          console.error('routing to index');
           console.error(fail);
-          this.router.navigateByUrl('notfound');
+          this.tokenService.index();
         }
       );
     } else {
@@ -87,6 +89,10 @@ export class TokenComponent implements OnInit {
 
   hideToken() {
     this.selected = null;
+  }
+
+  loggedIn() {
+    return this.auth.isUserLoggedIn();
   }
 
 }
