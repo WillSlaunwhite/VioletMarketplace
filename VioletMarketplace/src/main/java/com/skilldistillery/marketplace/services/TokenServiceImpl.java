@@ -87,11 +87,5 @@ public class TokenServiceImpl implements TokenService {
 		}
 		return deleted;
 	}
-
-	@Override
-	public Token update(String name, int tid, Token token) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }

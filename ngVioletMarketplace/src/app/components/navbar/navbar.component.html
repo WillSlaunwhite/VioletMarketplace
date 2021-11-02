@@ -143,7 +143,7 @@ navbar-custom navbar-expand-sm .navbar-dark justify-content-center">
       </form>
 <!-- ////////////////////////////////////////////////////////////////// -->
 <!-- ////////////SIGNUPMODAL//////////////// -->
-<div>
+<div *ngIf="!loggedIn()">
   <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#SignUpModal ">
    Sign Up
   </button>
@@ -168,7 +168,6 @@ navbar-custom navbar-expand-sm .navbar-dark justify-content-center">
 
 
 
-
 <!--/////////////////////////////CLOSING TAGS/////////////////////////////////////-->
       </div>
     </div>
@@ -180,4 +179,3 @@ navbar-custom navbar-expand-sm .navbar-dark justify-content-center">
 
 
 <script src="https://use.fontawesome.com/6f23f1888e.js"></script>
-
