@@ -28,15 +28,20 @@ public class TokenServiceImpl implements TokenService {
 	}
 	
 	@Override
-	public Set<Token> index(String username) {
+	public Set<Token> indexByUsername(String username) {
 		Set<Token> tokens = new HashSet<Token>();
 		tokens.addAll(tokenRepo.findByOwner_Username(username));
 		return tokens;
 	}
 	
 	@Override
-	public Token show(String username, int tid) {
+	public Token showByUsernameId(String username, int tid) {
 		return tokenRepo.findByOwner_UsernameAndId(username, tid);
+	}
+	
+	@Override
+	public Token showById(int tid) {
+		return tokenRepo.getById(null);
 	}
 	
 	@Override

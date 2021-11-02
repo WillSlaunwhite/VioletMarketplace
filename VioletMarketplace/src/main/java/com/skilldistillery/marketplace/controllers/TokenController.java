@@ -33,10 +33,10 @@ public class TokenController {
 	
 //	find non-principal user's tokens index method
 	@GetMapping("tokens/{username}")
-	public Set<Token> index(HttpServletRequest req,
+	public Set<Token> indexNonPrincipal(HttpServletRequest req,
 			HttpServletResponse resp,
 			@PathVariable String username) {
-		return tokenSvc.index(username);
+		return tokenSvc.indexByUsername(username);
 	}
 	
 	
@@ -47,25 +47,25 @@ public class TokenController {
 	
 //	return all tokens
 	@GetMapping("tokens")
-	public Set<Token> index(HttpServletRequest req,
+	public Set<Token> indexHome(HttpServletRequest req,
 			HttpServletResponse resp) {
 		return tokenSvc.index();
 	}
 	
 //	Get principal's list of tokens
 	@GetMapping("tokens/myTokens")
-	public Set<Token> index(HttpServletRequest req,
+	public Set<Token> indexByUsername(HttpServletRequest req,
 			HttpServletResponse resp,
 			Principal principal) {
-		return tokenSvc.index(principal.getName());
+		return tokenSvc.indexByUsername(principal.getName());
 	}
 	
-	@GetMapping("tokens/{tid}")
+	@GetMapping("tokens/id/{tid}")
 	public Token show(HttpServletRequest req,
 			HttpServletResponse resp,
 			Principal principal,
 			@PathVariable int tid) {
-		return tokenSvc.show(principal.getName(), tid);
+		return tokenSvc.showByUsernameId(principal.getName(), tid);
 	}
 	
 	
@@ -100,7 +100,7 @@ public class TokenController {
 		@PathVariable int tid) {
 		
 		Token token = new Token();
-		token = tokenSvc.show(principal.getName(), tid);
+		token = tokenSvc.showByUsernameId(principal.getName(), tid);
 
 		if (token == null) {
 			resp.setStatus(404);
