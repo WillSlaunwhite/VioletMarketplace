@@ -1,303 +1,8 @@
-
-
- <button
- class="btn btn-primary"
- data-target="#myModal"
- (click)="openModalWithComponent()"
->OPEN MODAL HERE </button>
-
-
-
-
-
-*ngIf="loggedIn()"
-
-
-<!--
-
-
-
-<div class="row" id="modals">
-    <div class="col-md-4">
-      <button
-        class="btn btn-primary"
-        data-target="#myModal"
-        (click)="myModal.show()"
-      >
-        Launch Modal
-      </button>
-    </div>
-    <div class="col-md-4">
-      <button
-        class="btn btn-warning"
-        data-target="#myModal1"
-        (click)="myModal1.show()"
-      >
-        Launch Modal Mini
-      </button>
-    </div>
-    <div class="col-md-4">
-      <button
-        class="btn btn-success"
-        data-target="#myModal2"
-        (click)="myModal2.show()"
-      >
-        Launch Modal Form
-      </button>
-    </div>
-  </div>
-  <div
-    aria-hidden="true"
-    aria-labelledby="myModalLabel"
-    bsModal
-    class="modal fade"
-    #myModal="bs-modal"
-    id="myModal"
-    role="dialog"
-    tabindex="-1"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header justify-content-center">
-          <button
-            aria-hidden="true"
-            class="close"
-            data-dismiss="modal"
-            type="button"
-            (click)="myModal.hide()"
-          >
-            <i class="tim-icons icon-simple-remove"> </i>
-          </button>
-          <h4 class="title title-up">Modal title</h4>
-        </div>
-        <div class="modal-body">
-          <p>
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts. Separated
-            they live in Bookmarksgrove right at the coast of the Semantics, a
-            large language ocean. A small river named Duden flows by their
-            place and supplies it with the necessary regelialia. It is a
-            paradisematic country, in which roasted parts of sentences fly
-            into your mouth.
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-default" type="button">Nice Button</button>
-          <button class="btn btn-danger" data-dismiss="modal" type="button" (click)="myModal.hide()">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    aria-hidden="true"
-    aria-labelledby="myModalLabel"
-    bsModal
-    class="modal fade modal-mini modal-primary modal-mini"
-    #myModal1="bs-modal"
-    id="myModal1"
-    role="dialog"
-    tabindex="-1"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header justify-content-center">
-          <button
-            aria-hidden="true"
-            class="close"
-            data-dismiss="modal"
-            (click)="myModal1.hide()"
-            type="button"
-          >
-            <i class="tim-icons icon-simple-remove text-white"> </i>
-          </button>
-          <div class="modal-profile">
-            <i class="tim-icons icon-single-02"> </i>
-          </div>
-        </div>
-        <div class="modal-body">
-          <p>Always have an access to your profile</p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-link btn-neutral" type="button">
-            Back
-          </button>
-          <button
-            class="btn btn-link btn-neutral"
-            data-dismiss="modal"
-            type="button"
-            (click)="myModal1.hide()"
-          >
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    aria-hidden="true"
-    aria-labelledby="myModalLabel"
-    bsModal
-    class="modal fade modal-black"
-    #myModal2="bs-modal"
-    id="myModal2"
-    role="dialog"
-    tabindex="-1"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header justify-content-center">
-          <button
-            aria-hidden="true"
-            class="close"
-            data-dismiss="modal"
-            (click)="myModal2.hide()"
-            type="button"
-          >
-            <i class="tim-icons icon-simple-remove text-white"> </i>
-          </button>
-          <div class="text-muted text-center ml-auto mr-auto">
-            <h3 class="mb-0">Sign in with</h3>
-          </div>
-        </div>
-        <div class="modal-body">
-          <div class="btn-wrapper text-center">
-            <a class="btn btn-neutral btn-icon mr-1" href="javascript:void(0)">
-              <img src="assets/img/github.svg" />
-            </a>
-            <a class="btn btn-neutral btn-icon" href="javascript:void(0)">
-              <img src="assets/img/google.svg" />
-            </a>
-          </div>
-          <div class="text-center text-muted mb-4 mt-3">
-            <small> Or sign in with credentials </small>
-          </div>
-          <form role="form">
-            <div class="form-group mb-3">
-              <div class="input-group input-group-alternative" [ngClass]="{'input-group-focus':focus1===true}">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="tim-icons icon-email-85"> </i>
-                  </span>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Email"
-                  type="email"
-                  (focus)="focus1=true" (blur)="focus1=false"
-                />
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group input-group-alternative" [ngClass]="{'input-group-focus':focus2===true}">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="tim-icons icon-key-25"> </i>
-                  </span>
-                </div>
-                <input
-                  class="form-control"
-                  placeholder="Password"
-                  type="password"
-                  (focus)="focus2=true" (blur)="focus2=false"
-                />
-              </div>
-            </div>
-            <div class="form-check mt-3">
-              <label class="form-check-label">
-                <input
-                  checked="checked"
-                  class="form-check-input"
-                  type="checkbox"
-                />
-
-                <span class="form-check-sign"> </span> Remember me!
-              </label>
-            </div>
-            <div class="text-center">
-              <button class="btn btn-primary my-4" type="button">
-                Sign in
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <!-- //////////////////////////// -->
-  <!-- the ability to edit profile -->
-
-
-<!-- <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-    </div>
-  </div> -->
-  <!-- //////////////////////////// -->
-  <!-- <div class="form-group">
-    <label for="wallet">Wallet</label>
-    <input type="text" class="form-control" id="wallet" placeholder="#wallet">
-  </div>
-  <div class="form-group">
-    <label for="inputImage">Profile Image</label>
-    <input type="text" class="form-control" id="inputImage" placeholder="Upload Profile Image">
-  </div>
-  <div class="">
-    <label for="inputBio">Tell us about yourself:</label><br>
-    <textarea class="form-control" rows="5" cols="50" maxlength="200"id="inputBio" name="text"></textarea>
-  </div><br> -->
-  <!-- //////////////////////////// -->
-
-  <button type="submit" class="btn btn-primary" style="background-color: aquamarine !important;">Update</button>
-
-<!-- </form> -->
-<!-- //////////////////////////// -->
-<!-- display token history -->
-    <!-- able to filter -->
-<!-- //////////////////////////// -->
-<!-- small bio -->
-<!-- //////////////////////////// -->
-<!--  offered tokens -->
-<!-- //////////////////////////// -->
-<!-- public/private -->
-<!-- picture option -->
-<!-- wallet -->
-
-
-
-
-
-<!-- id: number;
-  email: string;
-  username: string;
-  password: string;
-  enabled: boolean;
-  role: string;
-  biography: string;
-  displayName: string;
-  pictureUrl: string; -->
-
-
-
-
-
-
-
-<!-- <div class=" content">
+<div class=" content">
   <div class=" row">
     <div class=" col-md-8">
       <div class=" card">
-        <div class=" card-header"><h5 class=" title">Edit Profile</h5></div>
+        <div class=" card-header"><h3 class=" title">Edit Profile</h3></div>
         <div class=" card-body">
           <form>
             <div class=" row">
@@ -317,22 +22,22 @@
                   <input
                     class=" form-control"
                     type="text"
-                    value="willslaunwhite"
+                    value="Jimmy Garoppolo"
                   />
                 </div>
               </div>
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> First Name </label>
-                  <input class=" form-control" type="text" value="will" />
+                  <label> Title </label>
+                  <input class=" form-control" type="text" value="CEO" />
                 </div>
               </div>
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label>Last Name </label>
+                  <label>Profile Image</label>
                   <input
                     class=" form-control"
-                    value="slaunwhite"
+                    value="Image for profile"
                     type="text"
                   />
                 </div>
@@ -341,14 +46,30 @@
             <div class=" row">
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> First Name </label>
-                  <input class=" form-control" type="text" value="Mike" />
+                  <label> Wallet </label>
+                  <input class=" form-control" type="text" value="Wallet ID" />
                 </div>
               </div>
+
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> Country </label>
-                  <input class=" form-control" type="text" value="Andrew" />
+                  <label> Facebook </label>
+                  <input class=" form-control" type="text" value="www.facebook.com/JimmyG" />
+                </div>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <label> Twitter </label>
+                  <input class=" form-control" type="text" value="@JimmyG" />
+                </div>
+              </div>
+
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <label> Google </label>
+                  <input class=" form-control" type="text" value="JimmyGaroppolo@gmail.com" />
                 </div>
               </div>
             </div>
@@ -364,10 +85,12 @@
           </form>
         </div>
         <div class=" card-footer">
-          <button class=" btn btn-fill btn-primary" type="submit">Save</button>
+          <button class=" btn btn-fill btn-primary" type="submit">Save and Update</button>
         </div>
       </div>
     </div>
+
+  <!-- /////////////////////////////PROFILE CARD///////////////////////////////////// -->
     <div class=" col-md-4">
       <div class=" card card-user">
         <div class=" card-body">
@@ -384,7 +107,7 @@
                 src="https://bit.ly/3GSu5vh"
               />
 
-              <h5 class=" title">Mike Andrew</h5>
+              <h5 class=" title">Jimmy Garoppolo</h5>
             </a>
             <p class=" description">Ceo/Co-Founder</p>
           </div>
@@ -419,4 +142,204 @@
       </div>
     </div>
   </div>
+</div>
+<!-- ////////////////////////////NFT HISTORY// //////////////////////////////////// -->
+<div class=" card">
+  <div class=" card-header"><h3 class=" title">NFT History</h3></div>
+  <div class=" card-body">
+<div>
+  <table class="table">
+    <thead>
+      <!-- <tr><h1 justify-content-center>NFTs</h1></tr> -->
+        <tr>
+          <th>Media</th>
+            <th class="text-center">Token</th>
+            <th>Name</th>
+            <th>Created On</th>
+            <th>Purchase Date</th>
+            <th>Sold Date</th>
+            <th>Offered for Sale</th>
+            <th class="text-right">Purchase Price</th>
+            <th class="text-right">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td> <img src="https://i.pinimg.com/originals/fa/41/b4/fa41b4b61fbe2bc402e98da71a9d7b34.png" width="30px" alt="..."></td>
+            <td class="text-center">1</td>
+            <td>Tom Brady</td>
+            <td>2000</td>
+            <td>2012</td>
+            <td>2013</td>
+            <td>Yes</td>
+            <td class="text-right">&dollar; 99,225</td>
+            <td class="td-actions text-right">
+              <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-single-02"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-settings"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-simple-remove"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+          <td> <img src="https://i.pinimg.com/originals/fa/41/b4/fa41b4b61fbe2bc402e98da71a9d7b34.png" width="30px" alt="..."></td>
+            <td class="text-center">2</td>
+            <td>Bart Star</td>
+            <td>1967</td>
+            <td>2012</td>
+            <td>2013</td>
+            <td>No</td>
+            <td class="text-right">&dollar; 89,241</td>
+            <td class="td-actions text-right">
+              <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-single-02"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-settings"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-simple-remove"></i>
+                </button>
+            </td>
+        </tr>
+      </tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- //////////////////////////////NFT FAVORITES//////////////////////////////////// -->
+<div class=" card">
+  <div class=" card-header"><h3 class=" title">NFT Favorites 💛 </h3></div>
+  <div class=" card-body">
+<div>
+  <table class="table">
+    <thead>
+      <!-- <tr><h1 justify-content-center>NFTs</h1></tr> -->
+        <tr>
+            <th class="text-center">Token</th>
+            <th>Name</th>
+            <th>Created On</th>
+            <th>Purchase Date</th>
+            <th>Sold Date</th>
+            <th>Offered for Sale</th>
+            <th class="text-right">Purchase Price</th>
+            <th class="text-right">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="text-center">1</td>
+            <td>Andrew Luck</td>
+            <td>2009</td>
+            <td>2012</td>
+            <td>2013</td>
+            <td>Yes</td>
+            <td class="text-right">&dollar; 99,225</td>
+            <td class="td-actions text-right">
+              <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-single-02"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-settings"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-simple-remove"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-center">3</td>
+            <td>John Elway</td>
+            <td>2001</td>
+            <td>2012</td>
+            <td>2013</td>
+            <td>Yes</td>
+            <td class="text-right">&dollar; 459,241</td>
+            <td class="td-actions text-right">
+              <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-single-02"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-settings"></i>
+              </button>
+              <button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
+                <i class="tim-icons icon-simple-remove"></i>
+                </button>
+            </td>
+        </tr>
+      </tbody>
+</table>
+
+</div>
+</div>
+</div>
+<!-- //////////////////////////// -->
+
+<div class=" card">
+  <div class=" card-header"><h3 class=" title">NFT </h3></div>
+  <div class=" card-body">
+<div>
+  <table class="table">
+        <thead>
+            <tr>
+                <th class="text-left">Media</th>
+                <th class="text-left">NFT</th>
+                <th class="text-left">Collection</th>
+                <th class="text-left">Created On</th>
+                <th class="text-left">For Sale</th>
+                <th class="text-right">Last Price</th>
+                <th class="text-right">Sale Price</th>
+                <th></th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="img-container justify-content-center">
+                        <img src="https://i.pinimg.com/originals/fa/41/b4/fa41b4b61fbe2bc402e98da71a9d7b34.png" width="30px" alt="...">
+                    </div>
+                    <small>click to enlarge/play</small>
+                </td>
+                <td class="td-name">
+                    <a href="#">Stupid Pony</a>
+                    <br><small>by Creator Name</small>
+                </td>
+                <td>
+                    Ponies
+                </td>
+                <td>
+                    11/12/2021
+                </td>
+                <td class="">
+                  No
+                </td>
+                <td class="td-number text-right">
+                  $30000
+                </td>
+                <td class="td-number text-right">
+                  NA
+                </td>
+                <td></td>
+                <td>
+                    <button>Buy</button>
+                    <button>Sell</button>
+                    <button>Favorite</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+  </div>
+  <button>Close</button>
+  </div>
+
+  <!-- //////////////////////////// -->
+<!-- </div>
+</div>
 </div> -->
