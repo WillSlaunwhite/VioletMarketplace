@@ -19,10 +19,11 @@ public class TokenServiceImpl implements TokenService {
 	@Autowired
 	private UserRepository userRepo;
 	
+	
 	@Override
 	public Set<Token> index() {
 		Set<Token> tokens = new HashSet<Token>();
-		tokens.addAll(tokenRepo.findByOwner_Username("admin"));
+		tokens.addAll(tokenRepo.findAll());
 		return tokens;
 	}
 	

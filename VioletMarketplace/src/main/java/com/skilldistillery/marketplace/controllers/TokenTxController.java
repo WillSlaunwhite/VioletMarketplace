@@ -36,7 +36,8 @@ public class TokenTxController {
 	// Returns All Transfers for a given SELLER
 
 	@GetMapping("transfers/seller/{userId}")
-	public List<TokenTx> sellerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
+	public List<TokenTx> sellerTransferRecord(HttpServletRequest req,
+			HttpServletResponse resp,
 			@PathVariable int userId) {
 		return txSvc.sellerTransfers(userId);
 	}
@@ -53,7 +54,9 @@ public class TokenTxController {
 
 //	return all transfers
 	@GetMapping("transfers")
-	public List<TokenTx> index(HttpServletRequest req, HttpServletResponse resp) {
+	public List<TokenTx> index(HttpServletRequest req,
+			HttpServletResponse resp,
+			@PathVariable int userId) {
 		return txSvc.index();
 	}
 
@@ -71,49 +74,6 @@ public class TokenTxController {
 	}
 }
 
-	/////////////// PUT METHODS ///////////////////
-//
-//	// method has extra params it probably doesn't need
-//	@PutMapping("tokens/{tid}")
-//	public Token sellMyToken(HttpServletRequest req, HttpServletResponse resp, Principal principal,
-//			@PathVariable int tid) {
-//
-//		Token token = new Token();
-//		token = txSvc.show(principal.getName(), tid);
-//
-//		if (token == null) {
-//			resp.setStatus(404);
-//		}
-//
-//		token = txSvc.update("admin", "secondUser", tid, token);
-//		return token;
-//	}
-//
-//	@PutMapping("transfers/{tid}")
-//	public Token updateMyToken(HttpServletRequest req, HttpServletResponse resp, Principal principal,
-//			@PathVariable int tid) {
-//
-//		Token token = new Token();
-//		token = txSvc.show(principal.getName(), tid);
-//
-//		if (token == null) {
-//			resp.setStatus(404);
-//		}
-//
-//		token = txSvc.update(principal.getName(), tid, token);
-//		return token;
-//	}
-//
-//	/////////////// DELETE METHODS ///////////////////
-//
-//	@DeleteMapping("transfers/{tid}")
-//	public void destroy(HttpServletRequest req, HttpServletResponse resp, Principal principal, @PathVariable int tid) {
-//
-//		if (txSvc.destroy(principal.getName(), tid)) {
-//			resp.setStatus(204);
-//		} else {
-//			resp.setStatus(404);
-//		}
-//	}
-//
-//}
+	
+	
+
