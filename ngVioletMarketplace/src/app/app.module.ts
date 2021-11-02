@@ -23,6 +23,9 @@ import { PictureuploadComponent } from './pictureupload/pictureupload.component'
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 import { NFTInfoComponent } from './components/nft-info/nft-info.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { EventsComponent } from './components/events/events.component';
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { NFTInfoComponent } from './components/nft-info/nft-info.component';
     HomeComponent,
     SidebarComponent,
     TokenComponent,
-    NFTInfoComponent
+    NFTInfoComponent,
+    AboutUsComponent,
+    EventsComponent,
+    NewsletterComponent
   ],
   imports: [
     BrowserModule,
