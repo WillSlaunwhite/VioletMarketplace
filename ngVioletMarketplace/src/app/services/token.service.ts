@@ -12,14 +12,20 @@ export class TokenService {
   private baseUrl = 'http://localhost:8090/';
   private url = this.baseUrl + 'api/tokens';
 
-//  GIANT NOTICE ################## MAYBE REMOVE '/myTokens' MAY BREAK EVERYTHING
-
-
   index(): Observable<Token[]> {
     return this.http.get<Token[]>(this.url + '/myTokens', this.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('tokenService.index(): Error retrieving Token list');
+      })
+    );
+  }
+
+  getTransfers(): Observable<any[]> {
+    return this.http.get<any[]>(this.url + '/myTokens/transfers', this.getHttpOptions()).pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('tokenService.getTransfers(): Error retrieving Token transfers');
       })
     );
   }
