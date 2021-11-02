@@ -63,9 +63,9 @@ public class TokenController {
 	@GetMapping("tokens/id/{tid}")
 	public Token show(HttpServletRequest req,
 			HttpServletResponse resp,
-			Principal principal,
+			
 			@PathVariable int tid) {
-		return tokenSvc.showByUsernameId(principal.getName(), tid);
+		return tokenSvc.showById(tid);
 	}
 	
 	
