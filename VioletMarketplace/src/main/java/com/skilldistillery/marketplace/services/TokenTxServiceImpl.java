@@ -40,8 +40,11 @@ public class TokenTxServiceImpl implements TokenTxService {
 	}
 	@Override
 	public TokenTx create(TokenTx transfer) {
-		// TODO Auto-generated method stub
-		return null;
+		TokenTx newTransfer = transfer;
+		if (newTransfer != null) {
+			tokenRepo.saveAndFlush(newTransfer);
+		}
+		return newTransfer;
 	}
 //	@Override
 //	public Token create(String username, Token token) {

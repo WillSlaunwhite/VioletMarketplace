@@ -32,6 +32,11 @@ export class NavbarComponent implements OnInit {
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 
+ loggedIn(): boolean {
+  return this.auth.isUserLoggedIn();
+  }
+
+
   ngOnInit(): void {
   }
 

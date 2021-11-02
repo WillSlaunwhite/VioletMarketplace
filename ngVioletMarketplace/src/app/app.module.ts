@@ -23,9 +23,10 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 
 import { TokenService } from './services/token.service';
 
-
-
-
+import { NFTInfoComponent } from './components/nft-info/nft-info.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { EventsComponent } from './components/events/events.component';
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
 
 
 @NgModule({
@@ -39,7 +40,11 @@ import { TokenService } from './services/token.service';
     HomeComponent,
     PictureuploadComponent,
     TokenComponent,
-    UserPageComponent
+    UserPageComponent,
+    NFTInfoComponent,
+    AboutUsComponent,
+    EventsComponent,
+    NewsletterComponent
   ],
   imports: [
     CommonModule,

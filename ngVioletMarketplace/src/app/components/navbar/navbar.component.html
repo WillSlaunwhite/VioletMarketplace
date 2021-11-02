@@ -83,8 +83,36 @@
             <input type="text" class="form-control" placeholder="Search">
           </div>
       </form>
+<!-- ////////////////////////////////////////////////////////////////// -->
+<!-- ////////////SIGNUPMODAL//////////////// -->
+<div *ngIf="!loggedIn()">
+  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#SignUpModal ">
+   Sign Up
+  </button>
+</div>
+
+<div class="modal" id="SignUpModal">
+  <app-register></app-register>
+</div>
+<!-- ////////////////////////////LOGINMODAL////////////////////////////////////// -->
+<div>
+  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#loginModal">
+   Login
+  </button>
+</div>
+
+<div class="modal" id="loginModal">
+  <app-login></app-login>
+</div>
+
+<!-- ////////////////////////////USERMODAL////////////////////////////////////// -->
+
+
+
+
+<!--/////////////////////////////CLOSING TAGS/////////////////////////////////////-->
+      </div>
     </div>
-  </div>
 </nav>
 
 
