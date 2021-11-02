@@ -19,10 +19,11 @@ public class TokenServiceImpl implements TokenService {
 	@Autowired
 	private UserRepository userRepo;
 	
+	
 	@Override
 	public Set<Token> index() {
 		Set<Token> tokens = new HashSet<Token>();
-		tokens.addAll(tokenRepo.findByOwner_Username("admin"));
+		tokens.addAll(tokenRepo.findAll());
 		return tokens;
 	}
 	
@@ -88,10 +89,7 @@ public class TokenServiceImpl implements TokenService {
 		return deleted;
 	}
 
-	@Override
-	public Token update(String name, int tid, Token token) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
 	
 }
