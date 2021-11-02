@@ -7,6 +7,7 @@ export class Token {
   releaseDate: string;
   tokenLocation: string;
   offered: boolean;
+  
   constructor(
     id: number = 0,
     name: string = '',
