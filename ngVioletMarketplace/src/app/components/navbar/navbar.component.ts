@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private auth: AuthService, private modalService: BsModalService) { }
   bsModalRef?: BsModalRef;
+  username: string | null = null;
   // check login
 
   openModalWithComponent() {
@@ -35,8 +36,12 @@ export class NavbarComponent implements OnInit {
   return this.auth.isUserLoggedIn();
   }
 
+  logout() {
+    this.auth.logout();
+  }
 
   ngOnInit(): void {
+    this.username = this.auth.getUsername();
   }
 
 }

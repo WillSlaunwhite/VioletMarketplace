@@ -14,7 +14,7 @@
                   <input
                     class=" form-control"
                     type="text"
-                    value="willslaunwhite@no.mail"
+                    value="{{user.email}}"
                   />
                 </div>
               </div>
@@ -24,14 +24,14 @@
                   <input
                     class=" form-control"
                     type="text"
-                    value="Jimmy Garoppolo"
+                    value="{{user.username}}"
                   />
                 </div>
               </div>
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> Title </label>
-                  <input class=" form-control" type="text" value="CEO" />
+                  <label> Role </label>
+                  <input class=" form-control" type="text" value="{{user.role}}" />
                 </div>
               </div>
               <div class=" col-md-5 pr-md-1">
@@ -39,7 +39,7 @@
                   <label>Profile Image</label>
                   <input
                     class=" form-control"
-                    value="Image for profile"
+                    value="{{user.pictureUrl}}"
                     type="text"
                   />
                 </div>
@@ -79,7 +79,7 @@
               <div class=" col-md-10">
                 <div class=" form-group">
                   <label> About Me </label>
-                  <textarea class=" form-control" cols="100" rows="4">About me.
+                  <textarea class=" form-control" cols="100" rows="4">{{user.biography}}
                   </textarea>
                 </div>
               </div>
@@ -109,15 +109,19 @@
                 src="https://bit.ly/3GSu5vh"
               />
 
-              <h5 class=" title">Jimmy Garoppolo</h5>
+              <h5 class=" title">Username: {{user.username}}</h5>
+              <h5 class=" title">Display Name: {{user.displayName}}</h5>
+              <h5 class=" title">Email: {{user.email}}</h5>
+              <h5 class=" title">Role: {{user.role}}</h5>
+              <h5 class=" title">Wallet Balance: {{user.wallet}}</h5>
+              <h5 class=" title">This will be a link to click on for tx</h5>
+
             </a>
-            <p class=" description">Ceo/Co-Founder</p>
+            <p class=" description">{{user.biography}}</p>
           </div>
-          <div class=" card-description">
-            Do not be scared of the truth because we need to restart the human
-            foundation in truth And I love you like Kanye loves Kanye I love
-            Rick Owensâ bed design but the back is...
-          </div>
+          <!-- <div class=" card-description">
+            {{user.biography}}
+          </div> -->
         </div>
         <div class=" card-footer">
           <div class=" button-container">
@@ -301,7 +305,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr routerLink='/token/id/1'>
                 <td>
                     <div class="img-container justify-content-center">
                         <img src="https://i.pinimg.com/originals/fa/41/b4/fa41b4b61fbe2bc402e98da71a9d7b34.png" width="30px" alt="...">
@@ -309,7 +313,7 @@
                     <small>click to enlarge/play</small>
                 </td>
                 <td class="td-name">
-                    <a href="#">Stupid Pony</a>
+                    <p>Stupid Pony</p>
                     <br><small>by Creator Name</small>
                 </td>
                 <td>

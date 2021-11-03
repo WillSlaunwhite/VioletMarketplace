@@ -6,39 +6,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<button class="btn btn-linkedin" style="border-radius: 12px;"><i class="fab fa-linkedin" style="font-size: 18px; margin-right: 20px;"></i>LinkedIn</button>
 
 
 
+<!-- <ul class="nav nav-pills nav-fill">
+  <li class="nav-item">
+    <a class="nav-link active btn-primary" routerLink='/home'>Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink='/about'>About Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink='/login'>Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink='/register'>Register Account</a>
+  </li>
+</ul> -->
 
 
-
-
-<div *ngFor="let token of tokens">
-  <div class="col">
-  <div classs="card" style="width: 20rem;" ><a routerLink="/token/id/{{token.id}}">
-    <img class="card-img-top" src="https://bit.ly/3GSu5vh" alt="Card image cap" />
-    <div class="card-body">
-      <h4 class="card-title">{{token.name}}</h4>
-    <ul id="firstRow">
-      <li class="card-text">{{ token.description }}</li>
-      <li class="card-text">{{ token.rarity }}</li>
-      <li class="card-text">{{ token.price }}</li>
-    </ul>
-    <hr>
-    <ul>
-      <li class="card-text">{{ token.description }}</li>
-    </ul>
-    </div>
-  </a>
-  </div>
-</div>
-
-
-
-<!-- <app-logout></app-logout> -->
-
-</div>
 
 
 <!--
@@ -114,18 +100,16 @@
 
 
     <div *ngFor="let token of tokens">
-      <div class="card" style="width: 20rem;" >
-        <a routerLink="/token/id/{{token.id}}">
+      <div class="card" style="width: 20rem;">
         <img class="card-img-top" src="https://bit.ly/3GSu5vh" alt="Card image cap" />
         <div class="card-body">
           <h4 class="card-title">{{token.name}}</h4>
           <p class="card-text">{{token.description}}</p>
           <p class="card-text">Price: ${{token.price}}</p>
           <a routerLink="/token/id/{{token.id}}" class="btn btn-primary" >Buy this NFT</a>
-        </div></a>
+        </div>
       </div>
     </div>
-</div>
 
 <!-- <a *ngFor="let hero of heroes"
   routerLink="/detail/{{hero.id}}">
@@ -143,7 +127,7 @@
          <li><b>Eu tincidunt</b>Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio. Tortor vitae purus faucibus ornare suspendisse sed. Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum. Risus nullam eget felis eget nunc lobortis mattis aliquam. A diam maecenas sed enim ut. Ut porttitor leo a diam sollicitudin tempor id eu. Ac auctor augue mauris augue neque gravida in fermentum. Elementum nisi quis eleifend quam adipiscing vitae. Nunc scelerisque viverra mauris in. Pellentesque eu tincidunt tortor aliquam nulla facilisi cras. Urna molestie at elementum eu facilisis sed odio morbi. Ipsum consequat nisl vel pretium lectus. Quam nulla porttitor massa id neque. Nibh nisl condimentum id venenatis a. Lacus viverra vitae congue eu consequat ac felis donec et. Eget egestas purus viverra accumsan in nisl. Urna nec tincidunt praesent semper feugiat. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim.</li><br>
       </ul>
 
-</div>
+  </div>
 </div>
 
 
