@@ -1,12 +1,13 @@
 package com.skilldistillery.marketplace.services;
 
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.marketplace.entities.Bid;
 import com.skilldistillery.marketplace.entities.TokenTx;
+import com.skilldistillery.marketplace.repositories.BidRepository;
 import com.skilldistillery.marketplace.repositories.TokenTxRepository;
 import com.skilldistillery.marketplace.repositories.UserRepository;
 
@@ -17,6 +18,8 @@ public class TokenTxServiceImpl implements TokenTxService {
 	
 	@Autowired
 	private UserRepository userRepo;
+	@Autowired
+	private BidRepository bidRepo;
 
 		@Override
 		public List<TokenTx> userIndex(int userId) {
@@ -45,6 +48,10 @@ public class TokenTxServiceImpl implements TokenTxService {
 			tokenRepo.saveAndFlush(newTransfer);
 		}
 		return newTransfer;
+	}
+	@Override
+	public List<Bid> userBids(int userId) {
+		return bidRepo.findByUser(userId);
 	}
 //	@Override
 //	public Token create(String username, Token token) {

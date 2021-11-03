@@ -15,6 +15,7 @@
 		<class>com.skilldistillery.marketplace.entities.Message</class>
 		<class>com.skilldistillery.marketplace.entities.Token</class>
 		<class>com.skilldistillery.marketplace.entities.CartItem</class>
+		<class>com.skilldistillery.marketplace.entities.Bid</class>
 
 
 		<properties>
