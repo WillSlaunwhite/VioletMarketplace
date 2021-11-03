@@ -27,6 +27,9 @@ import { NFTInfoComponent } from './components/nft-info/nft-info.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { EventsComponent } from './components/events/events.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { BuyNFTComponent } from './components/buy-nft/buy-nft.component';
+import { BidNFTComponent } from './components/bid-nft/bid-nft.component';
+
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
     NFTInfoComponent,
     AboutUsComponent,
     EventsComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    BuyNFTComponent,
+    BidNFTComponent,
+
   ],
   imports: [
     CommonModule,

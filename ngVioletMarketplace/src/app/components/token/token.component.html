@@ -1,4 +1,3 @@
-
 <!--
 <div id="tokenList" *ngIf='!selected'>
   <table class="table table-bordered table-striped table-hover">
@@ -27,17 +26,40 @@
   </tbody>
 </table>
 </div> -->
+<br>
+<br>
+      <div class="card" style="width: 25rem">
+        <div id="tokenDetails" *ngIf="selected">
 
-<div id="tokenDetails" *ngIf='selected'>
-  <p>{{selected.id}}</p>
-  <p>Token: {{selected.name}}</p>
-  <p>Description: {{selected.description}}</p>
-  <p>Rarity: {{selected.rarity}}</p>
-  <p>Price: {{selected.price}}</p>
-  <p>Token Location: {{selected.tokenLocation}}</p>
-  <p>Offered: {{selected.offered}}</p>
-</div>
+          <p>{{ selected.id }}</p>
+          <p>Token: {{ selected.name }}</p>
+          <p>Description: {{ selected.description }}</p>
+          <p>Rarity: {{ selected.rarity }}</p>
+          <p>Price: {{ selected.price }}</p>
+          <p>Token Location: {{ selected.tokenLocation }}</p>
+          <p>Offered: {{ selected.offered }}</p>
+          <br>
+          <div>
+            <button>
+          <a class="actionLink" routerLink='/bid' >Bid Now</a>
+        </button>
+        <button>
+          <a class="actionLink" routerLink='/buy' [routerLinkActive]="['active', 'btn-primary']">Buy Now</a>
+        </button>
+        </div>
+          <br>
+        </div>
+      </div>
 
 
 
-
+<!--
+<div id="tokenDetails" *ngIf="selected">
+  <p>{{ selected.id }}</p>
+  <p>Token: {{ selected.name }}</p>
+  <p>Description: {{ selected.description }}</p>
+  <p>Rarity: {{ selected.rarity }}</p>
+  <p>Price: {{ selected.price }}</p>
+  <p>Token Location: {{ selected.tokenLocation }}</p>
+  <p>Offered: {{ selected.offered }}</p>
+</div> -->
