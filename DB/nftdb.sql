@@ -321,6 +321,7 @@ CREATE TABLE IF NOT EXISTS `bid` (
   `description` VARCHAR(100) NULL,
   `seller_id` INT NOT NULL,
   `buyer_id` INT NOT NULL,
+  `offer_amount` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_market_transfer_user1_idx` (`seller_id` ASC),
   INDEX `fk_market_transfer_user2_idx` (`buyer_id` ASC),
@@ -458,6 +459,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
-INSERT INTO `bid` (`id`, `bid_date`, `token_id`, `description`, `seller_id`, `buyer_id`) VALUES (1, '2021-11-03', 1, 'test bid', 1, 2);
+INSERT INTO `bid` (`id`, `bid_date`, `token_id`, `description`, `seller_id`, `buyer_id`,`offer_amount`) VALUES (1, '2021-11-03', 1, 'Purchase', 1, 2,1000);
+INSERT INTO `bid` (`id`, `bid_date`, `token_id`, `description`, `seller_id`, `buyer_id`,`offer_amount`) VALUES (2, '2021-11-03', 3, 'Purchase', 3, 1,9800);
+INSERT INTO `bid` (`id`, `bid_date`, `token_id`, `description`, `seller_id`, `buyer_id`,`offer_amount`) VALUES (3, '2021-11-03', 2, 'Purchase', 2, 4,4555);
+INSERT INTO `bid` (`id`, `bid_date`, `token_id`, `description`, `seller_id`, `buyer_id`,`offer_amount`) VALUES (4, '2021-11-03', 5, 'Purchase', 5, 1,69420);
 
 COMMIT;
