@@ -8,7 +8,6 @@ import com.skilldistillery.marketplace.entities.TokenTx;
 
 public interface TokenTxService {
 	
-	public List<TokenTx> index();
 
 	public TokenTx show(int transferId);
 	
@@ -16,5 +15,7 @@ public interface TokenTxService {
 	public List<TokenTx> sellerTransfers(int sellerId);
 
 	public TokenTx create(TokenTx transfer);
+
+	List<TokenTx> userIndex(int userId);
 	
 }
