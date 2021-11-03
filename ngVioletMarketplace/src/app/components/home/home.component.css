@@ -19,26 +19,28 @@
   }
 
 
-  .column {
-    float: left;
-  }
 
-  /* Left and right column */
-  .column.side {
-    width: 20%;
-  }
 
-  /* Middle column */
-  .column.middle {
-    justify-content: center;
-    align-content: center;
-    width: 60%;
-  }
+.column {
+  float: left;
+}
 
-  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .column.side, .column.middle {
-      width: 100%;
-    }
+/* Left and right column */
+.column.side {
+  width: 20%;
+}
+
+/* Middle column */
+.column.middle {
+  justify-content: center;
+  align-content: center;
+  width: 60%;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column.side, .column.middle {
+    width: 100%;
   }
+}
 
