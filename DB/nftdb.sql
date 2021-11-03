@@ -308,10 +308,43 @@ CREATE TABLE IF NOT EXISTS `favorite` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `bid`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `bid` ;
+
+CREATE TABLE IF NOT EXISTS `bid` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `bid_date` DATETIME NOT NULL,
+  `token_id` INT NOT NULL,
+  `description` VARCHAR(100) NULL,
+  `seller_id` INT NOT NULL,
+  `buyer_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_market_transfer_user1_idx` (`seller_id` ASC),
+  INDEX `fk_market_transfer_user2_idx` (`buyer_id` ASC),
+  CONSTRAINT `fk_transaction_token10`
+    FOREIGN KEY (`token_id`)
+    REFERENCES `token` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_market_transfer_user10`
+    FOREIGN KEY (`seller_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_market_transfer_user20`
+    FOREIGN KEY (`buyer_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 SET SQL_MODE = '';
 DROP USER IF EXISTS nftdbuser@localhost;
 SET SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-CREATE USER 'nftdbuser'@'localhost' IDENTIFIED BY 'nftdb';
+CREATE USER 'nftdbuser'@'localhost' IDENTIFIED BY 'violet';
 
 GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'nftdbuser'@'localhost';
 
@@ -359,8 +392,6 @@ INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `pri
             VALUES (4, 'Granny Smith', 'Friendly, Sweet', 'rare', '2018-03-05 10:10:10', 350, 1, 4, 1, 4, 'https://i.imgur.com/1cDuhpI.jpg');
             INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`)
             VALUES (5, 'Applejack', 'Silly, Upbeat', 'rare', '2021-01-03 10:10:10', 980, 1,5, 1, 5, 'https://i.imgur.com/UKWFq4O.png');
-
-
 COMMIT;
 
 
@@ -418,5 +449,15 @@ COMMIT;
 START TRANSACTION;
 USE `nftdb`;
 INSERT INTO `favorite` (`user_id`, `token_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `bid`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `nftdb`;
+INSERT INTO `bid` (`id`, `bid_date`, `token_id`, `description`, `seller_id`, `buyer_id`) VALUES (1, '2021-11-03', 1, 'test bid', 1, 2);
 
 COMMIT;
