@@ -10,12 +10,22 @@
       border: 0;
       border-radius: 1rem;
 
+
+
   }
 
   .card-img,
   .card-img-top {
       border-top-left-radius: calc(1rem - 1px);
-      border-top-right-radius: calc(1rem - 1px)
+      border-top-right-radius: calc(1rem - 1px);
+      height: 250px;
+      width:100%;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      background-color: white;
   }
 
 
