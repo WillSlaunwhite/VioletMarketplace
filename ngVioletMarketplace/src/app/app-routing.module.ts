@@ -11,7 +11,10 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import { FormsModule } from '@angular/forms';
 import { PictureuploadComponent } from './components/pictureupload/pictureupload.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { CryptoComponent } from './crypto/crypto.component';
+import { CryptoComponent } from './components/crypto/crypto.component';
+import { BlockComponent } from './components/block/block.component';
+import { BuyNFTComponent } from './components/buy-nft/buy-nft.component';
+import { BidNFTComponent } from './components/bid-nft/bid-nft.component';
 
 
 const routes: Routes = [
@@ -26,6 +29,9 @@ const routes: Routes = [
   { path: 'test', component: PictureuploadComponent },
   { path: 'about', component: AboutUsComponent},
   { path: 'crypto', component: CryptoComponent},
+  { path: 'block', component: BlockComponent},
+  { path: 'buy', component: BuyNFTComponent},
+  { path: 'bid', component: BidNFTComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 
   // { path: '**', component: NotFoundComponent }
