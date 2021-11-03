@@ -39,7 +39,7 @@
 
 
 
-<nav class="navbar navbar-expand-lg bg-primary">
+<!-- <nav class="navbar navbar-expand-lg bg-primary">
   <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -50,37 +50,84 @@
       <a class="navbar-brand" href="#">Hidden brand</a>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <button class="btn-primary btn-lg"><i style="float:left; vertical-align: auto;" class="fas fa-home"></i><a class="nav-link" [routerLink]="['/home']">Home</a></button>
+          <button class="btn-primary btn-lg"><i style="float:left; vertical-align: auto;" class="fas fa-home"></i><a class="nav-link" [routerLink]="['/home']">Home</a></button> -->
 
           <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-        </li>
+        <!-- </li>
         <li class="nav-item">
           <button class="btn-primary"><a class="nav-link" [routerLink]="['/crypto']">Crypto</a></button>
         </li>
 
         <li class="nav-item" >
           <button class="btn-primary"><a class="nav-link" [routerLink]="['/token']">New NFT</a></button>
-          <!-- <a class="nav-link" [routerLink]="['/token']">New NFT</a> -->
+
+          <a class="nav-link" [routerLink]="['/token']">New NFT</a>
 
         <li class="nav-item">
           <button class="btn-primary"><a class="nav-link" [routerLink]="['/about']">About Us</a></button>
-          <!-- <a class="nav-link" data-target="#myModal" (click)="openModalWithComponent()"> TEST LINK 2</a> -->
+          <a class="nav-link" data-target="#myModal" (click)="openModalWithComponent()"> TEST LINK 2</a>
         </li>
-      </ul>
+      </ul> -->
 
       <!-- <div class="modal" id="loginModal">
         <app-login></app-login>
       </div> -->
 
 
-      <form class="form-inline ml-auto">
+      <!-- <form class="form-inline ml-auto">
           <div class="form-group no-border">
             <input type="text" class="form-control" placeholder="Search">
           </div>
-      </form>
+      </form> -->
+
+
+
+
+
+
+      <ul class="nav nav-pills nav-fill">
+        <li class="nav-item">
+          <a class="navbar-brand nav-link home-link"  routerLink='/home'  [routerLinkActive]="['active', 'btn-primary']">Violet Marketplace
+            <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" alt="Logo" style="width:30px;" class="rounded-pill">
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink='/home' [routerLinkActive]="['active', 'btn-primary']">Home</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/about' [routerLinkActive]="['active', 'btn-primary']">About Us</a>
+        </li>
+        <li class="nav-item" *ngIf="!loggedIn()">
+          <a class="nav-link" routerLink='/login' [routerLinkActive]="['active', 'btn-primary']">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!loggedIn()">
+          <a class="nav-link" routerLink='/register' [routerLinkActive]="['active', 'btn-primary']">Register Account</a>
+        </li>
+        <li class="nav-item" *ngIf="loggedIn()">
+          <a class="nav-link" (click)="logout()">Logout</a>
+        </li>
+        <li class="nav-item user-pfp" *ngIf="loggedIn()">
+          <a class="navbar-brand nav-link"  routerLink='/user/{{username}}'  [routerLinkActive]="['active', 'btn-primary']">
+            <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" alt="Logo" style="width:30px;" class="rounded-pill"> {{ username }}'s profile
+          </a>
+        </li>
+      </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- ////////////////////////////////////////////////////////////////// -->
 <!-- ////////////SIGNUPMODAL//////////////// -->
-<div *ngIf="!loggedIn()">
+<!-- <div *ngIf="!loggedIn()">
 
     <button class="btn-primary"><a class="nav-link" [routerLink]="['/register']">Sign up</a></button>
 
@@ -88,25 +135,24 @@
 
 <div class="modal" id="SignUpModal">
   <app-register></app-register>
-</div>
+</div> -->
 <!-- ////////////////////////////LOGINMODAL////////////////////////////////////// -->
-<div *ngIf="!loggedIn()">
+<!-- <div *ngIf="!loggedIn()">
   <button class="btn-primary"><a class="nav-link" [routerLink]="['/login']">Login</a>
   </button>
 </div>
-<app-logout></app-logout>
-
+<app-logout></app-logout> -->
 <!-- ////////////////////////////USERMODAL////////////////////////////////////// -->
-<div *ngIf="loggedIn()">
+<!-- <div *ngIf="loggedIn()">
   <button class="btn-primary"><a class="nav-link" [routerLink]="['user/freynolds']">User</a></button>
-</div>
+</div> -->
 
 
 
 <!--/////////////////////////////CLOSING TAGS/////////////////////////////////////-->
-      </div>
+      <!-- </div>
     </div>
-</nav>
+</nav> -->
 
 
 <script src="https://use.fontawesome.com/6f23f1888e.js"></script>
