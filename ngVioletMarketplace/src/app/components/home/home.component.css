@@ -9,13 +9,10 @@
       transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
       border: 0;
       border-radius: 1rem;
-
-
-
   }
 
-  .card-img,
-  .card-img-top {
+.card-img,
+.card-img-top {
       border-top-left-radius: calc(1rem - 1px);
       border-top-right-radius: calc(1rem - 1px);
       height: 250px;
@@ -27,8 +24,6 @@
       align-items: center;
       background-color: white;
   }
-
-
 
 
 .column {
