@@ -53,11 +53,11 @@ public class TokenTxController {
 	/////////////// GET METHODS ///////////////////
 
 //	return all transfers
-	@GetMapping("transfers")
+	@GetMapping("transfers/{userId}")
 	public List<TokenTx> index(HttpServletRequest req,
 			HttpServletResponse resp,
 			@PathVariable int userId) {
-		return txSvc.index();
+		return txSvc.userIndex(userId);
 	}
 
 	/////////////// POST METHODS ///////////////////
