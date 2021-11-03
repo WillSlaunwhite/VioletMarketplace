@@ -14,6 +14,7 @@
 
 <main>
 
+<!-- <app-logout></app-logout> -->
 
 
 <!--
@@ -21,33 +22,6 @@
     <div class="card h-100 shadow-sm"> <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" class="card-img-top" alt="..."> -->
 
 
-      <div id="tokenList">
-        <table class="table table-bordered table-striped table-hover">
-          <thead>
-          <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>description</th>
-            <th>rarity</th>
-            <th>price</th>
-            <th>tokenLocation</th>
-            <th>offered</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let token of tokens">
-            <td>{{ token.id }}</td>
-            <td>{{ token.name }}</td>
-            <td>{{ token.description }}</td>
-            <td>{{ token.rarity }}</td>
-            <td>{{ token.price }}</td>
-            <td>{{ token.tokenLocation }}</td>
-            <td>{{ token.offered }}</td>
-
-          </tr>
-        </tbody>
-      </table>
-      </div>
 
 
 
@@ -116,14 +90,15 @@
 
 
     <div *ngFor="let token of tokens">
-      <div class="card" style="width: 20rem;">
+      <div class="card" style="width: 20rem;" >
+        <a routerLink="/token/id/{{token.id}}">
         <img class="card-img-top" src="https://bit.ly/3GSu5vh" alt="Card image cap" />
         <div class="card-body">
           <h4 class="card-title">{{token.name}}</h4>
           <p class="card-text">{{token.description}}</p>
           <p class="card-text">Price: ${{token.price}}</p>
           <a routerLink="/token/id/{{token.id}}" class="btn btn-primary" >Buy this NFT</a>
-        </div>
+        </div></a>
       </div>
     </div>
 </div>

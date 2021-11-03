@@ -10,6 +10,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { FormsModule } from '@angular/forms';
 import { PictureuploadComponent } from './components/pictureupload/pictureupload.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { CryptoComponent } from './crypto/crypto.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'user/:username', component: UserPageComponent },
   { path: 'test', component: PictureuploadComponent },
+  { path: 'about', component: AboutUsComponent},
+  { path: 'crypto', component: CryptoComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 
   // { path: '**', component: NotFoundComponent }

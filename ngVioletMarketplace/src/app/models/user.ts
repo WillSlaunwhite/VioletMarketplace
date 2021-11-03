@@ -8,6 +8,7 @@ export class User {
   biography: string;
   displayName: string;
   pictureUrl: string;
+  wallet: string;
 
   constructor(
     id: number = 0,
@@ -18,7 +19,9 @@ export class User {
     role: string = '',
     biography: string = '',
     displayName: string = '',
-    pictureUrl: string = ''
+    pictureUrl: string = '',
+    wallet: string = '',
+
   ) {
     this.id = id;
     this.email = email;
@@ -29,6 +32,7 @@ export class User {
     this.biography = biography;
     this.displayName = displayName;
     this.pictureUrl = pictureUrl;
+    this.wallet = wallet;
 
   }
 }
