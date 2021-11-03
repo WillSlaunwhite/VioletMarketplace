@@ -1,35 +1,43 @@
 <head>
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"> -->
+
 <meta charset="utf-8">
 <title>NgVioletMarketplace</title>
 <base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-
-<main>
-
+<button class="btn btn-linkedin" style="border-radius: 12px;"><i class="fab fa-linkedin" style="font-size: 18px; margin-right: 20px;"></i>LinkedIn</button>
 
 
 
-  <div class="card" style="width: 20rem;">
+
+
+
+
+<div *ngFor="let token of tokens">
+  <div class="col">
+  <div classs="card" style="width: 20rem;" ><a routerLink="/token/id/{{token.id}}">
     <img class="card-img-top" src="https://bit.ly/3GSu5vh" alt="Card image cap" />
     <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h4 class="card-title">{{token.name}}</h4>
+    <ul id="firstRow">
+      <li class="card-text">{{ token.description }}</li>
+      <li class="card-text">{{ token.rarity }}</li>
+      <li class="card-text">{{ token.price }}</li>
+    </ul>
+    <hr>
+    <ul>
+      <li class="card-text">{{ token.description }}</li>
+    </ul>
     </div>
+  </a>
   </div>
+</div>
 
 
 
 
-
+</div>
 
 
 <!--
@@ -37,33 +45,6 @@
     <div class="card h-100 shadow-sm"> <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" class="card-img-top" alt="..."> -->
 
 
-      <div id="tokenList">
-        <table class="table table-bordered table-striped table-hover">
-          <thead>
-          <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>description</th>
-            <th>rarity</th>
-            <th>price</th>
-            <th>tokenLocation</th>
-            <th>offered</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let token of tokens">
-            <td>{{ token.id }}</td>
-            <td>{{ token.name }}</td>
-            <td>{{ token.description }}</td>
-            <td>{{ token.rarity }}</td>
-            <td>{{ token.price }}</td>
-            <td>{{ token.tokenLocation }}</td>
-            <td>{{ token.offered }}</td>
-
-          </tr>
-        </tbody>
-      </table>
-      </div>
 
 
 
@@ -171,4 +152,4 @@
 
 <!-- ////////////////////////////////////////////Cards End//////////////////////////////////////////////////// -->
 
-</main>
+

@@ -10,7 +10,7 @@ import { User } from '../models/user';
 export class AuthService {
   constructor(private http: HttpClient) {}
   private baseUrl = 'http://localhost:8090/';
-  private url = this.baseUrl+'api/user';
+  private url = this.baseUrl + 'api/user';
 
   login(username: string, password: string) {
     // Make credentials
@@ -27,6 +27,7 @@ export class AuthService {
     return this.http.get(this.baseUrl + 'authenticate', httpOptions).pipe(
       tap((res) => {
         localStorage.setItem('credentials', credentials);
+        localStorage.setItem('username', username);
         return res;
       }),
       catchError((err: any) => {
@@ -35,25 +36,25 @@ export class AuthService {
       })
     );
   }
-  getUser(username:string): Observable<User>{
+  getUser(username: string): Observable<User> {
     return this.http.get<User>(`${this.url}/${username}`).pipe(
-      catchError((err:any) =>{
+      catchError((err: any) => {
         console.error(err);
         return throwError('tokenService.getUser(): Error retreiving user');
-
       })
     );
   }
-    getHttpOptions() {
-      let credentials = this.getCredentials();
-      let options = {
-        headers: {
-          'X-Requestd-With': 'XMLHttpRequest',
-          Authorization: `Basic ${credentials}`,
-        },
-      };
-      return options;
-    }
+  getHttpOptions() {
+    let credentials = this.getCredentials();
+    let options = {
+      headers: {
+        'X-Requestd-With': 'XMLHttpRequest',
+        Authorization: `Basic ${credentials}`,
+      },
+    };
+    return options;
+  }
+
   register(user: User) {
     // create request to register a new account
     return this.http.post(this.baseUrl + 'register', user).pipe(
@@ -81,5 +82,9 @@ export class AuthService {
 
   getCredentials() {
     return localStorage.getItem('credentials');
+  }
+
+  getUsername() {
+    return localStorage.getItem('username');
   }
 }
