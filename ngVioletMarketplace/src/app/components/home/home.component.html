@@ -96,25 +96,30 @@
 <!-- ////////////////////////////////////////////////////////////////// -->
 
 <div class="column middle">
-      <h2>NFTs</h2>
+  <h2>NFTs</h2>
+  <div class="container-fluid bg-trasparent my-4 p-1" style="position: relative">
+    <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-sm-3 g-3">
 
 
-    <div *ngFor="let token of tokens">
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="https://bit.ly/3GSu5vh" alt="Card image cap" />
-        <div class="card-body">
-          <h4 class="card-title">{{token.name}}</h4>
-          <p class="card-text">{{token.description}}</p>
-          <p class="card-text">Price: ${{token.price}}</p>
-          <a routerLink="/token/id/{{token.id}}" class="btn btn-primary" >Buy this NFT</a>
-        </div>
+      <div *ngFor="let token of tokens">
+      <div class="col"></div>
+          <div class="card" style="width: 25rem;" >
+            <a routerLink="/token/id/{{token.id}}">
+            <img class="card-img-top" src="https://bit.ly/3GSu5vh" alt="Card image cap" />
+          <div class="card-body">
+            <h4 class="card-title">{{token.name}}</h4>
+            <p class="card-text">{{token.description}}</p>
+            <p class="card-text">Price: ${{token.price}}</p>
+            <a routerLink="/token/id/{{token.id}}" class="btn btn-primary" >Buy this NFT</a>
+          </div></a>
       </div>
     </div>
+    </div>
 
-<!-- <a *ngFor="let hero of heroes"
-  routerLink="/detail/{{hero.id}}">
-  {{hero.name}}
-</a> -->
+    </div>
+    </div>
+
+
 
 <!-- ////////////////////////////////////////////////////////////////// -->
 <div class="column side">
