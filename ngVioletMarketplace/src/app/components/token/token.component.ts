@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Bid } from 'src/app/models/bid';
 import { Token } from 'src/app/models/token';
+import { Tokentx } from 'src/app/models/tokentx';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
+import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
   selector: 'app-token',
@@ -14,12 +17,17 @@ export class TokenComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private tokenService: TokenService,
+    private transactionService: TransactionService,
     private auth: AuthService
   ) { }
   newToken: Token = new Token();
   tokens: Token[] = [];
   selected: Token | null = null;
   editToken: Token | null = null;
+  tokenTransactions: Tokentx[] = [];
+  bids: Bid[] = [];
+
+
 
 
   addToken(token: Token) {
@@ -61,17 +69,69 @@ export class TokenComponent implements OnInit {
     );
   }
 
+  getAllTransfers() {
+    this.transactionService.getAllTransfers().subscribe(
+      tokentxList => {
+        console.log(this.tokenTransactions.length);
+
+        this.tokenTransactions = tokentxList;
+
+        console.log(this.tokenTransactions.length);
+      },
+      fail => {
+        console.error('tokenComponent.getAllTransfers(): error getting transfers');
+        console.error(fail);
+      }
+    )
+  }
+
+  getAllBids() {
+    this.transactionService.getAllBids().subscribe(
+      bidsList => {
+        console.log(this.bids.length);
+
+        this.bids = bidsList;
+
+        console.log(this.bids.length);
+      },
+      fail => {
+        console.error('tokenComponent.getAllTransfers(): error getting transfers');
+        console.error(fail);
+      }
+    )
+  }
+
+
   ngOnInit(): void {
     if (!this.selected && this.route.snapshot.paramMap.get('id')) {
       this.tokenService.show(this.route.snapshot.params['id']).subscribe(
         (success) => {
           this.selected = success;
+          console.log("succeeded getting token, attempting to get transfers.");
+
+          this.getAllTransfers();
+
+          console.log("succeeded getting transfers, attempting to get all bids");
+
+          this.getAllBids();
+
+          console.log("successfully retrieved all bids");
         },
         (fail) => {
           console.error('tokenComponent.ngOnInit(): error initializing Token by id');
           console.error('routing to index');
-          console.error(fail);
+
           this.tokenService.index();
+
+          console.error('Succeeded routing to index, getting transfers');
+
+          this.getAllTransfers();
+          console.log(this.tokenTransactions.length);
+
+          console.error('succeded getting transfers');
+
+
+          console.error(fail);
         }
       );
     } else {

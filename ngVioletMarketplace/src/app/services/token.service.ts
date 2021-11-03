@@ -20,6 +20,7 @@ export class TokenService {
   //     })
   //   );
   // }
+
   index(): Observable<Token[]> {
     return this.http.get<Token[]>(this.baseUrl+"api/home/tokens").pipe(
       catchError((err: any) => {
@@ -29,18 +30,9 @@ export class TokenService {
     );
   }
 
-  getTransfers(): Observable<any[]> {
-    return this.http.get<any[]>(this.url + '/myTokens/transfers', this.getHttpOptions()).pipe(
-      catchError((err: any) => {
-        console.log(err);
-        return throwError('tokenService.getTransfers(): Error retrieving Token transfers');
-      })
-    );
-  }
-
   create(token: Token): Observable<Token> {
     token.offered = false;
-    return this.http.post<Token>(this.url, token, this.getHttpOptions()).pipe(
+    return this.http.post<Token>(this.url, token, this.auth.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('tokenService.create(): Error creating Token');
@@ -58,22 +50,11 @@ export class TokenService {
   }
 
   destroy(id: number) {
-    return this.http.delete(`${this.url}/${id}`, this.getHttpOptions()).pipe(
+    return this.http.delete(`${this.url}/${id}`, this.auth.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
-        return throwError('tokenService.delete(): Error delete Token');
+        return throwError('tokenService.delete(): Error deleting Token');
       })
     );
-  }
-
-  getHttpOptions() {
-    let credentials = this.auth.getCredentials();
-    let options = {
-      headers: {
-        'X-Requestd-With': 'XMLHttpRequest',
-        Authorization: `Basic ${credentials}`,
-      },
-    };
-    return options;
   }
 }

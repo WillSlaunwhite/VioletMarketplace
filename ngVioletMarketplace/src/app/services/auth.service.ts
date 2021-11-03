@@ -44,6 +44,7 @@ export class AuthService {
       })
     );
   }
+
   getHttpOptions() {
     let credentials = this.getCredentials();
     let options = {
