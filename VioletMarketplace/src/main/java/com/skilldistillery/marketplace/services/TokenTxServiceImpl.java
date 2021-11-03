@@ -18,11 +18,11 @@ public class TokenTxServiceImpl implements TokenTxService {
 	@Autowired
 	private UserRepository userRepo;
 
-	@Override
-	public List<TokenTx> index() {
-		List<TokenTx> transfers = tokenRepo.findAll();
-		
-		return transfers;
+		@Override
+		public List<TokenTx> userIndex(int userId) {
+			List<TokenTx> transfers = tokenRepo.findByUser(userId);
+			
+			return transfers;
 	}
 	public TokenTx show(int tokenTxId) {
 		TokenTx toShow = tokenRepo.queryById(tokenTxId);
