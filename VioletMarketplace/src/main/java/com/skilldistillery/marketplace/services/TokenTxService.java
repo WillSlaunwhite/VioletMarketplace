@@ -16,5 +16,7 @@ public interface TokenTxService {
 	public TokenTx create(TokenTx transfer);
 
 	List<TokenTx> userIndex(int userId);
+	boolean destroyBid(int bidId);
+	Bid create(Bid bid);
 	
 }
