@@ -10,9 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class Bid {
@@ -34,8 +33,9 @@ public class Bid {
 	@JoinColumn(name="buyer_id")
 	private User buyer;
 	
-	@Column(name="transfer_date")
-	private LocalDateTime transferDate;
+	@Column(name="bid_date")
+	@CreationTimestamp
+	private LocalDateTime bidDate;
 	
 	public User getSeller() {
 		return seller;
@@ -60,7 +60,7 @@ public class Bid {
 		
 		this.token = token;
 		this.description = description;
-		this.transferDate = transferDate;
+		this.bidDate = transferDate;
 		this.seller=seller;
 		this.buyer=buyer;
 		
@@ -90,18 +90,18 @@ public class Bid {
 		this.description = description;
 	}
 
-	public LocalDateTime getTransferDate() {
-		return transferDate;
+	public LocalDateTime getBidDate() {
+		return bidDate;
 	}
 
-	public void setTransferDate(LocalDateTime transferDate) {
-		this.transferDate = transferDate;
+	public void getBidDate(LocalDateTime bidDate) {
+		this.bidDate = bidDate;
 	}
 
 	@Override
 	public String toString() {
 		return "TokenTx [id=" + id + ", token=" + token + ", description=" + description + ", seller=" + seller
-				+ ", buyer=" + buyer + ", transferDate=" + transferDate + "]";
+				+ ", buyer=" + buyer + ", transferDate=" + bidDate + "]";
 	}
 	
 	

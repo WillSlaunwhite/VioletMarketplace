@@ -11,8 +11,8 @@ public interface BidRepository extends JpaRepository<Bid, Integer>{
 
 	
 	Bid queryById(int id);
-	
-	@Query(value="Select * from bid where buyer_id = ?1 or where seller_id = ?1",
+//	value="Select * from market_transfer where buyer_id = ?1 or seller_id = ?1
+	@Query(value="Select * from bid where buyer_id = ?1 or seller_id = ?1",
 			nativeQuery=true)
 	List<Bid> findByUser(int userId);
 	

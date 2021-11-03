@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Bid } from 'src/app/models/bid';
 import { Token } from 'src/app/models/token';
 import { Tokentx } from 'src/app/models/tokentx';
 import { AuthService } from 'src/app/services/auth.service';
@@ -24,6 +25,7 @@ export class TokenComponent implements OnInit {
   selected: Token | null = null;
   editToken: Token | null = null;
   tokenTransactions: Tokentx[] = [];
+  bids: Bid[] = [];
 
 
 
@@ -83,17 +85,37 @@ export class TokenComponent implements OnInit {
     )
   }
 
+  getAllBids() {
+    this.transactionService.getAllBids().subscribe(
+      bidsList => {
+        console.log(this.bids.length);
+
+        this.bids = bidsList;
+
+        console.log(this.bids.length);
+      },
+      fail => {
+        console.error('tokenComponent.getAllTransfers(): error getting transfers');
+        console.error(fail);
+      }
+    )
+  }
+
 
   ngOnInit(): void {
     if (!this.selected && this.route.snapshot.paramMap.get('id')) {
       this.tokenService.show(this.route.snapshot.params['id']).subscribe(
         (success) => {
           this.selected = success;
-          console.log("succeeded getting token, getting transfers.");
+          console.log("succeeded getting token, attempting to get transfers.");
 
           this.getAllTransfers();
 
-          console.log("succeeded getting transfers");
+          console.log("succeeded getting transfers, attempting to get all bids");
+
+          this.getAllBids();
+
+          console.log("successfully retrieved all bids");
         },
         (fail) => {
           console.error('tokenComponent.ngOnInit(): error initializing Token by id');
