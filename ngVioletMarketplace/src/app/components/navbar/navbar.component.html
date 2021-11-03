@@ -54,18 +54,15 @@
           <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
         </li>
         <li class="nav-item">
-          <button class="btn-primary"><a class="nav-link" [routerLink]="['/register']">Register</a></button>
+          <button class="btn-primary"><a class="nav-link" [routerLink]="['/crypto']">Crypto</a></button>
         </li>
 
         <li class="nav-item" >
           <button class="btn-primary"><a class="nav-link" [routerLink]="['/token']">New NFT</a></button>
           <!-- <a class="nav-link" [routerLink]="['/token']">New NFT</a> -->
+
         <li class="nav-item">
-          <button class="btn-primary"><a class="nav-link" [routerLink]="['/user']">User</a></button>
-          <!-- <a class="nav-link" data-target="#myModal" (click)="openModalWithComponent()" [routerLink]="['/test']"> TEST LINK</a> -->
-        </li>
-        <li class="nav-item">
-          <button class="btn-primary"><a class="nav-link" [routerLink]="['/Home']">Test Button</a></button>
+          <button class="btn-primary"><a class="nav-link" [routerLink]="['/about']">About Us</a></button>
           <!-- <a class="nav-link" data-target="#myModal" (click)="openModalWithComponent()"> TEST LINK 2</a> -->
         </li>
       </ul>
@@ -83,22 +80,25 @@
 <!-- ////////////////////////////////////////////////////////////////// -->
 <!-- ////////////SIGNUPMODAL//////////////// -->
 <div *ngIf="!loggedIn()">
-  <button type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#SignUpModal ">
-   Sign Up
-  </button>
+
+    <button class="btn-primary"><a class="nav-link" [routerLink]="['/register']">Sign up</a></button>
+
 </div>
 
 <div class="modal" id="SignUpModal">
   <app-register></app-register>
 </div>
 <!-- ////////////////////////////LOGINMODAL////////////////////////////////////// -->
-<div>
+<div *ngIf="!loggedIn()">
   <button class="btn-primary"><a class="nav-link" [routerLink]="['/login']">Login</a>
   </button>
 </div>
+<app-logout></app-logout>
 
 <!-- ////////////////////////////USERMODAL////////////////////////////////////// -->
-
+<div *ngIf="loggedIn()">
+  <button class="btn-primary"><a class="nav-link" [routerLink]="['user/freynolds']">User</a></button>
+</div>
 
 
 
