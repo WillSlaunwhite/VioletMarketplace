@@ -7,7 +7,8 @@
  .btn-primary {
   color: rgb(255, 255, 255) !important;
   background-color: violet !important;
-  border-radius: 18px;
+  border-radius: 8px;
+  max-height: 55px;
   border: none;
 }
 
@@ -27,7 +28,10 @@
 }
 .navbar .btn-primary:hover, .navbar .btn-primary:focus {
 
-  background: #fff !important;
+  background: #5298f3cb !important;
+  font-weight: 800;
+  font-size: large;
+  color:blueviolet;
 }
 
 

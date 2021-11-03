@@ -14,7 +14,6 @@ export class NavbarComponent implements OnInit {
   constructor(private auth: AuthService, private modalService: BsModalService) { }
   bsModalRef?: BsModalRef;
   // check login
-  //
 
   openModalWithComponent() {
     const initialState: ModalOptions = {
