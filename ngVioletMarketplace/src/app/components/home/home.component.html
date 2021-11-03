@@ -101,7 +101,7 @@
 
     <div *ngFor="let token of tokens">
       <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="https://bit.ly/3GSu5vh" alt="Card image cap" />
+        <img class="card-img-top" src="{{token.tokenLocation}}" alt="Card image cap" />
         <div class="card-body">
           <h4 class="card-title">{{token.name}}</h4>
           <p class="card-text">{{token.description}}</p>
@@ -110,11 +110,6 @@
         </div>
       </div>
     </div>
-
-<!-- <a *ngFor="let hero of heroes"
-  routerLink="/detail/{{hero.id}}">
-  {{hero.name}}
-</a> -->
 
 <!-- ////////////////////////////////////////////////////////////////// -->
 <div class="column side">

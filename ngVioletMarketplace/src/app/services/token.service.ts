@@ -20,6 +20,7 @@ export class TokenService {
   //     })
   //   );
   // }
+
   index(): Observable<Token[]> {
     return this.http.get<Token[]>(this.baseUrl+"api/home/tokens").pipe(
       catchError((err: any) => {

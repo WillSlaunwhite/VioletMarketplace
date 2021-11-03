@@ -1,6 +1,10 @@
 import { Token } from "./token";
 import { User } from "./user";
 
+// either separate bid entity in database
+// or potential field in tx showing whether confirmed
+
+
 export class Tokentx {
   id:number;
   description:string;
