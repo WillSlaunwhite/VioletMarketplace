@@ -1,0 +1,9 @@
+.imgsize {
+  height: 250px;
+  width:120%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
