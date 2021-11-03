@@ -1,6 +1,6 @@
 
-
-<div id="tokenList">
+<!--
+<div id="tokenList" *ngIf='!selected'>
   <table class="table table-bordered table-striped table-hover">
     <thead>
     <tr>
@@ -26,7 +26,7 @@
     </tr>
   </tbody>
 </table>
-</div>
+</div> -->
 
 <div id="tokenDetails" *ngIf='selected'>
   <p>{{selected.id}}</p>
