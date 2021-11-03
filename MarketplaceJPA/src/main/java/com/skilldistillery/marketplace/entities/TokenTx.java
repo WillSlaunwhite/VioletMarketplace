@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name="market_transfer")
@@ -52,6 +52,7 @@ public class TokenTx {
 	private User buyer;
 	
 	@Column(name="transfer_date")
+	@CreationTimestamp
 	private LocalDateTime transferDate;
 	
 	public TokenTx() { super(); }
