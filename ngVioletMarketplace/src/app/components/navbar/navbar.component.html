@@ -87,13 +87,16 @@
 
       <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-          <a class="navbar-brand nav-link home-link"  routerLink='/home'  [routerLinkActive]="['active', 'btn-primary']">Violet Marketplace
+          <a class="navbar-brand nav-link home-link"  routerLink='/home'  [routerLinkActive]="['active', 'btn-primary']">Violet NFT Marketplace
             <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" alt="Logo" style="width:30px;" class="rounded-pill">
           </a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" routerLink='/home' [routerLinkActive]="['active', 'btn-primary']">Home</a>
         </li> -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/crypto' [routerLinkActive]="['active', 'btn-primary']">Crypto</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink='/about' [routerLinkActive]="['active', 'btn-primary']">About Us</a>
         </li>
@@ -108,7 +111,7 @@
         </li>
         <li class="nav-item user-pfp" *ngIf="loggedIn()">
           <a class="navbar-brand nav-link"  routerLink='/user/{{username}}'  [routerLinkActive]="['active', 'btn-primary']">
-            <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" alt="Logo" style="width:30px;" class="rounded-pill"> {{ username }}'s profile
+            <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" alt="Logo" style="width:30px;" class="rounded-pill" color="white"> {{ username }}'s profile
           </a>
         </li>
       </ul>
