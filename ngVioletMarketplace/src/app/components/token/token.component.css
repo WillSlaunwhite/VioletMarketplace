@@ -14,8 +14,6 @@
 }
 
 .actionLink {
-
-
   color: rgb(255, 255, 255) !important;
   background-color: violet !important;
   border-radius: 8px;
@@ -23,3 +21,58 @@
   border: none;
   padding: 0.5rem;
 }
+
+/* STUFF WILL ADDED */
+
+@media (min-width: 1024px) {
+  .item--wrapper {
+      flex-direction: row;
+  }
+  .item--wrapper {
+      display: flex;
+      flex-direction: column;
+  }
+  *, ::before, ::after {
+      box-sizing: border-box;
+  }
+  div {
+      display: block;
+  }
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.item-container {
+  height: 50vh;
+  background-color: aquamarine;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.transaction-table {
+  height: 80%;
+  background: gray;
+  border-radius: 10px;
+}
+
+.token-history {
+  border-radius: 10px;
+  width: 25%;
+  justify-content: center;
+  background-color:darkcyan;
+}
+
+
+
+
+
+
+
+/* ENDS HERE */

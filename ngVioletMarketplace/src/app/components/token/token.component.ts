@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
 import { TransactionService } from 'src/app/services/transaction.service';
 
+
 @Component({
   selector: 'app-token',
   templateUrl: './token.component.html',
@@ -30,20 +31,36 @@ export class TokenComponent implements OnInit {
 
 
 
-  addToken(token: Token) {
+  createToken(token: Token) {
     this.tokenService.create(token).subscribe(
       (newToken) => {
-        this.reloadTokens();
+        this.getAllTokens();
         this.newToken = new Token();
       },
       (failed) => {
-        console.error('TokenComponent.addToken(): Error creating Token');
+        console.error('TokenComponent.createToken(): Error creating Token');
         console.error(failed);
       }
-    );
-  }
+      );
+    }
 
-  reloadTokens(): void {
+    deleteToken(id: number): void {
+      this.tokenService.destroy(id).subscribe(
+        (success) => {
+          this.getAllTokens();
+        },
+        (failure) => {
+          console.error('tokenComponent.deleteToken(): error deleting Token');
+          console.error(failure);
+        }
+      );
+    }
+
+    // updateToken
+    // method already exists in service, needs to be built out here
+
+
+  getAllTokens(): void {
     this.tokenService.index().subscribe(
       (tokenList) => {
         this.tokens = tokenList;
@@ -57,17 +74,6 @@ export class TokenComponent implements OnInit {
     );
   }
 
-  deleteToken(id: number): void {
-    this.tokenService.destroy(id).subscribe(
-      (success) => {
-        this.reloadTokens();
-      },
-      (failure) => {
-        console.error('tokenComponent.deleteToken(): error deleting Token');
-        console.error(failure);
-      }
-    );
-  }
 
   getAllTransfers() {
     this.transactionService.getAllTransfers().subscribe(
@@ -85,7 +91,7 @@ export class TokenComponent implements OnInit {
     )
   }
 
-  getAllBids() {
+  getMyBids() {
     this.transactionService.getAllBids().subscribe(
       bidsList => {
         console.log(this.bids.length);
@@ -113,7 +119,7 @@ export class TokenComponent implements OnInit {
 
           console.log("succeeded getting transfers, attempting to get all bids");
 
-          this.getAllBids();
+          this.getMyBids();
 
           console.log("successfully retrieved all bids");
         },
@@ -135,7 +141,7 @@ export class TokenComponent implements OnInit {
         }
       );
     } else {
-      this.reloadTokens();
+      this.getAllTokens();
     }
   }
 
