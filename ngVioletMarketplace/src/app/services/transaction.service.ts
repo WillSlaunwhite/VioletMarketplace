@@ -21,7 +21,6 @@ export class TransactionService {
   private url = this.baseUrl + 'api/';
   tokens: Token[] = [];
   transfers: Tokentx[] = [];
-  bids: Bid[] = [];    // needs to be bid model
 
 
 // what I'm thinking is, when you load the token page that has the list of bids
@@ -35,7 +34,8 @@ export class TransactionService {
 
 // this way, when a user navigates to a token's page, we can have it set so when they click on
 // the bids for it, they can see the pending bids yet to be accepted or denied, and on the other side,
-// if you've submitted a bid for a bet
+// if you've submitted a bid for a bet when you navigate to the page it'll show the status of your bet.
+// you'll also be able to see a concise list of these on the user's page.
 
 // logic to create and update bids and transactions
 
