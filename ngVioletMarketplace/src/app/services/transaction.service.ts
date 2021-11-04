@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Bid } from '../models/bid';
@@ -15,7 +16,9 @@ export class TransactionService {
   constructor(
     private http: HttpClient,
     private auth: AuthService,
-    private tokenSvc: TokenService
+    private tokenSvc: TokenService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   private baseUrl = 'http://localhost:8090/';
   private url = this.baseUrl + 'api/';
@@ -103,8 +106,36 @@ create(bid: Bid): Observable<Bid> {
   }
 
 
-  getAllBids(username: string): Observable<Bid[]> {
-    return this.http.get<Bid[]>(this.url + 'bids/' + username).pipe(
+
+  // ngOnInit(): void {
+    //   if (!this.selected && this.route.snapshot.paramMap.get('id')) {
+    //     this.todoService.show(this.route.snapshot.params['id']).subscribe(
+    //       (success) => {
+    //         this.reloadTodos();
+    //         this.selected = success;
+    //       },
+    //       (fail) => {
+    //         console.error('TodoListComponent.ngOnInit(): error initializing todo by id');
+    //         console.error(fail);
+    //         this.router.navigateByUrl('notfound');
+    //       }
+    //     );
+    //   } else {
+    //     this.reloadTodos();
+    //   }
+    // }
+
+  getAllBids(): Observable<Bid[]> {
+    return this.http.get<Bid[]>(this.url + 'bids/').pipe(
+      catchError((err: any) => {
+        console.log(err);
+        return throwError('transactionService.getAllBids(): Error retrieving Bid list');
+      })
+    );
+  }
+
+  getAllBidsUser(): Observable<Bid[]> {
+    return this.http.get<Bid[]>(this.url + 'bids/' + this.route.snapshot.paramMap.get("userId")).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('transactionService.getAllBids(): Error retrieving Bid list');

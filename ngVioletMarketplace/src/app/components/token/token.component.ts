@@ -6,7 +6,9 @@ import { Tokentx } from 'src/app/models/tokentx';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
 import { TransactionService } from 'src/app/services/transaction.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @Component({
   selector: 'app-token',
@@ -104,7 +106,7 @@ export class TokenComponent implements OnInit {
         console.error('tokenComponent.getAllTransfers(): error getting transfers');
         console.error(fail);
       }
-    )
+    );
   }
 
 

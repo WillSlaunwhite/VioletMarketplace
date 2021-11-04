@@ -78,6 +78,13 @@ public List<Bid> userBids(HttpServletRequest req,
 		@PathVariable int userId) {
 	return txSvc.userBids(userId);
 }
+///// GET ALL BIDS FOR A TOKEN
+@GetMapping("bids/{tokenId}")
+public List<Bid> tokenBids(HttpServletRequest req,
+		HttpServletResponse resp,
+		@PathVariable int tokenId) {
+	return txSvc.userBids(tokenId);
+}
 //	DELETE BID BY BID ID
 @DeleteMapping("bids/delete/{bidId}")
 public void destroyBid(HttpServletResponse res,
