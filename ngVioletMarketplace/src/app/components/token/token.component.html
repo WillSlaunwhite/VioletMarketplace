@@ -1,53 +1,7 @@
-<!--
-<div id="tokenList" *ngIf='!selected'>
-  <table class="table table-bordered table-striped table-hover">
-    <thead>
-    <tr>
-      <th>id</th>
-      <th>name</th>
-      <th>description</th>
-      <th>rarity</th>
-      <th>price</th>
-      <th>tokenLocation</th>
-      <th>offered</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let token of tokens">
-      <td>{{ token.id }}</td>
-      <td>{{ token.name }}</td>
-      <td>{{ token.description }}</td>
-      <td>{{ token.rarity }}</td>
-      <td>{{ token.price }}</td>
-      <td>{{ token.tokenLocation }}</td>
-      <td>{{ token.offered }}</td>
-
-    </tr>
-  </tbody>
-</table>
-</div> -->
-
-<!-- <div>
-<accordion>
-  <accordion-group heading="Static Header">
-    This content is straight in the template.
-  </accordion-group>
-  <accordion-group heading="Another group">
-    <p>Some content</p>
-  </accordion-group>
-  <accordion-group heading="Another group">
-    <p>Some content</p>
-  </accordion-group>
-  <accordion-group heading="Another group">
-    <p>Some content</p>
-  </accordion-group>
-</accordion>
-</div>
-
 
 <br>
 <br>
-      <div class="col card" style="width: 25rem">
+      <!-- <div class="card" style="width: 25rem">
         <div id="tokenDetails" *ngIf="selected">
 
           <p>{{ selected.id }}</p>
@@ -59,14 +13,67 @@
           <p>Offered: {{ selected.offered }}</p>
           <br>
           <div>
-          <a class="actionLink" routerLink='/bid' >Bid Now</a>
-          <a class="actionLink" routerLink='/buy' [routerLinkActive]="['active', 'btn-primary']">Buy Now</a>
+
+          <a class="actionLink mx-5" routerLink='/bid'  >Bid Now</a>
+
+
+          <a class="actionLink" routerLink='/buy' >Buy Now</a>
+
         </div>
           <br>
         </div>
-      </div>
+      </div> -->
+
+      <!-- //////////////////////////// -->
+<div class="row">
+        <div class="column side">
+      <div class="col">
+        <div class="card h-100 shadow-sm" style="width: 25rem">
+
+          <div class="card-header"><img class="imgsize"
+              src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg"/>
+          </div>
+          <div>
 
 
+          </div>
+          <div class="card-body">
+            <div class="card" style="width: 25rem">
+              <div id="tokenDetails" *ngIf="selected">
+
+                <p>{{ selected.id }}</p>
+                <p>Token: {{ selected.name }}</p>
+                <p>Description: {{ selected.description }}</p>
+                <p>Rarity: {{ selected.rarity }}</p>
+                <p>Price: {{ selected.price }}</p>
+                <p>Token Location: {{ selected.tokenLocation }}</p>
+                <p>Offered: {{ selected.offered }}</p>
+                <br>
+
+                <br>
+              </div>
+            </div>
+
+
+          <div class="card-footer">
+            <div class="text-center my-4">
+              <div>
+
+                <a class="actionLink mx-5" routerLink='/bid'  >Bid Now</a>
+
+
+                <a class="actionLink mx-5" routerLink='/buy' >Buy Now</a>
+
+              </div>
+            </div>
+
+          </div>
+          </div>
+          </div>
+          </div>
+  </div>
+<!-- //////////////////////////// -->
+<div class="column middle">
 <h1>TRANSACTIONS TABLE</h1>
 <table class="table table-bordered table-striped table-hover w-50">
   <thead>
@@ -78,6 +85,10 @@
     <th>token</th>
   </tr>
 </thead>
+
+<!-- //////////////////////////// -->
+
+
 <tbody>
   <tr *ngFor="let transaction of tokenTransactions">
     <td>{{ transaction.id }}</td>
@@ -219,6 +230,11 @@
 
   </tr>
 </tbody>
+<<<<<<< HEAD
+</table>
+</div>
+</div>
+=======
 </table> -->
 <!--
 <div id="tokenDetails" *ngIf="selected">
@@ -230,3 +246,4 @@
   <p>Token Location: {{ selected.tokenLocation }}</p>
   <p>Offered: {{ selected.offered }}</p>
 </div> -->
+>>>>>>> e442e73a0e7bd36ffb88537f7b019888729117d0
