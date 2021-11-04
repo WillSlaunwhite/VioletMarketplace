@@ -34,32 +34,23 @@ public class TokenTxController {
 	 * THE TOKEN CONTROLLER
 	 */
 
-	// Returns All Transfers for a given SELLER
-
+//	GET ALL TRANSFERS WHERE USER IS SELLER
 	@GetMapping("transfers/seller/{userId}")
 	public List<TokenTx> sellerTransferRecord(HttpServletRequest req,
 			HttpServletResponse resp,
 			@PathVariable int userId) {
 		return txSvc.sellerTransfers(userId);
 	}
-	@GetMapping("bids/{userId}")
-	public List<Bid> userBids(HttpServletRequest req,
-			HttpServletResponse resp,
-			@PathVariable int userId) {
-		return txSvc.userBids(userId);
-	}
+	
 
-	// Returns All Transfers for a given BUYER
-
+	//GET ALL TRANSFERS WHERE USER IS BUYER
 	@GetMapping("transfers/buyer/{userId}")
 	public List<TokenTx> buyerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
 			@PathVariable int userId) {
 		return txSvc.sellerTransfers(userId);
 	}
 
-	/////////////// GET METHODS ///////////////////
-
-//	return all transfers
+//		GET ALL TRANSFERS FOR USER REGARDLESS OF ROLE 
 	@GetMapping("transfers/{userId}")
 	public List<TokenTx> index(HttpServletRequest req,
 			HttpServletResponse resp,
@@ -68,7 +59,8 @@ public class TokenTxController {
 	}
 
 	/////////////// POST METHODS ///////////////////
-
+	
+//	POST NEW TRANSFER
 	@PostMapping("transfers")
 	public TokenTx create(HttpServletRequest req, 
 			HttpServletResponse resp, 
@@ -79,6 +71,35 @@ public class TokenTxController {
 		}
 		return transfer;
 	}
+///// GET A ALL BIDS FOR A USER
+@GetMapping("bids/{userId}")
+public List<Bid> userBids(HttpServletRequest req,
+		HttpServletResponse resp,
+		@PathVariable int userId) {
+	return txSvc.userBids(userId);
+}
+//	DELETE BID BY BID ID
+@DeleteMapping("bids/delete/{bidId}")
+public void destroyBid(HttpServletResponse res,
+		HttpServletRequest req,
+		@PathVariable int bidId) {
+	if(txSvc.destroyBid(bidId)){
+		res.setStatus(204);
+	}else {
+		res.setStatus(401);
+	}
+}
+// POST NEW BID
+@PostMapping("bids")
+public Bid create(HttpServletRequest req, 
+		HttpServletResponse resp, 
+		@RequestBody Bid bid) {
+	txSvc.create(bid);
+	if (bid == null) {
+		resp.setStatus(404);
+	}
+	return bid;
+}
 }
 
 	

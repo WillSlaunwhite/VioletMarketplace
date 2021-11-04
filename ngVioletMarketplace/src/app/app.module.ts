@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ModalModule, BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+
 
 import { AppComponent } from './app.component';
 import { BlockComponent } from './components/block/block.component';
@@ -59,6 +61,7 @@ import { BidNFTComponent } from './components/bid-nft/bid-nft.component';
     BrowserAnimationsModule,
     CollapseModule,
     HttpClientModule,
+    AccordionModule.forRoot(),
     ToastrModule.forRoot(),
     ModalModule.forRoot(),
   ],

@@ -1,6 +1,7 @@
 package com.skilldistillery.marketplace.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,9 +50,31 @@ public class TokenTxServiceImpl implements TokenTxService {
 		}
 		return newTransfer;
 	}
+	
+	// --------- BID METHODS BELOW ------------
 	@Override
 	public List<Bid> userBids(int userId) {
 		return bidRepo.findByUser(userId);
+	}
+	@Override
+	public boolean destroyBid(int bidId) {
+		boolean confirm = false;
+		Optional<Bid> bid = bidRepo.findById(bidId);
+		if(bid.isPresent()) {
+		Bid realBid = bid.get();
+		bidRepo.delete(realBid);
+		confirm = true;
+		}
+		return confirm;
+		
+	}
+	@Override
+	public Bid create(Bid bid) {
+		Bid newBid = bid;
+		if (newBid != null) {
+			bidRepo.saveAndFlush(newBid);
+		}
+		return newBid;
 	}
 //	@Override
 //	public Token create(String username, Token token) {

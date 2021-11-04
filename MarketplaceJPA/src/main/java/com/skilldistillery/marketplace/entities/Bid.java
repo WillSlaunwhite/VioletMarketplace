@@ -37,6 +37,22 @@ public class Bid {
 	@CreationTimestamp
 	private LocalDateTime bidDate;
 	
+	@Column(name="offer_amount")
+	private double offerAmount;
+	
+	public double getOfferAmount() {
+		return offerAmount;
+	}
+
+	public void setOfferAmount(double offerAmount) {
+		this.offerAmount = offerAmount;
+	}
+
+	public void setBidDate(LocalDateTime bidDate) {
+		this.bidDate = bidDate;
+	}
+
+	
 	public User getSeller() {
 		return seller;
 	}
@@ -100,8 +116,8 @@ public class Bid {
 
 	@Override
 	public String toString() {
-		return "TokenTx [id=" + id + ", token=" + token + ", description=" + description + ", seller=" + seller
-				+ ", buyer=" + buyer + ", transferDate=" + bidDate + "]";
+		return "Bid [id=" + id + ", token=" + token + ", description=" + description + ", seller=" + seller + ", buyer="
+				+ buyer + ", bidDate=" + bidDate + ", offerAmount=" + offerAmount + "]";
 	}
 	
 	
