@@ -94,7 +94,7 @@ create(bid: Bid): Observable<Bid> {
   }
 
   getAllUserTransfers(): Observable<Tokentx[]> {
-    return this.http.get<Tokentx[]>(this.url).pipe(
+    return this.http.get<Tokentx[]>(this.url + 'transfers/' + this.auth.getUsername()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('transactionService.getAllUserTransfers(): Error retrieving Token Transaction list');
@@ -103,8 +103,8 @@ create(bid: Bid): Observable<Bid> {
   }
 
 
-  getAllBids(): Observable<Bid[]> {
-    return this.http.get<Bid[]>(this.url + 'bids/1').pipe(
+  getAllBids(username: string): Observable<Bid[]> {
+    return this.http.get<Bid[]>(this.url + 'bids/' + username).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('transactionService.getAllBids(): Error retrieving Bid list');
