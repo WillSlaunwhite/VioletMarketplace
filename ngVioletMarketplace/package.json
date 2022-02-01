@@ -35,8 +35,8 @@
     "core-js": "3.8.1",
     "crypto-js": "^4.1.1",
     "d3-scale": "3.2.1",
-    "devextreme": "19.2.6",
-    "devextreme-angular": "19.2.6",
+    "devextreme": "^21.2.5",
+    "devextreme-angular": "^21.2.5",
     "fullcalendar": "3.10.1",
     "jasmin": "^0.0.2",
     "jasmine": "^3.10.0",
@@ -55,7 +55,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.2.10",
+    "@angular-devkit/build-angular": "^13.2.1",
     "@angular/cli": "~12.2.10",
     "@angular/compiler-cli": "~12.2.0",
     "@types/jasmine": "~3.8.0",
