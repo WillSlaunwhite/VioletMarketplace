@@ -1,15 +1,14 @@
-<div class="x-logobar row " >
-  <!-- <div class="pony"><img src="https://www.freepnglogos.com/uploads/little-pony-png/little-pony-release-november-the-shillong-6.png" height="75" ></div> -->
+<!-- <div class="x-logobar row " >
+<div class="pony"><img src="https://www.freepnglogos.com/uploads/little-pony-png/little-pony-release-november-the-shillong-6.png" height="75" ></div>
   <div class="container-fluid pony"><img class="center-block img-responsive" src="https://live.staticflickr.com/65535/51639936281_88fbb6c452_z.jpg " height="120px" ></div>
   <div class="pony"><img src="https://www.freepnglogos.com/uploads/little-pony-png/little-pony-release-november-the-shillong-6.png" height="75" ></div>
-</div>
+</div> -->
 
 
 
-      <ul class="nav nav-pills nav-fill">
+      <ul class="nav nav-pills nav-fill p-1">
         <li class="nav-item">
-          <a class="navbar-brand nav-link home-link"  routerLink='/home'  [routerLinkActive]="['active', 'btn-primary']">Violet NFT Marketplace
-            <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" alt="Logo" style="width:30px;" class="rounded-pill">
+          <a class="nav-link home-link"  routerLink='/home'  [routerLinkActive]="['active', 'btn-primary']">Violet NFT Marketplace
           </a>
         </li>
         <!-- <li class="nav-item">
@@ -31,8 +30,8 @@
           <a class="nav-link" (click)="logout()">Logout</a>
         </li>
         <li class="nav-item user-pfp" *ngIf="loggedIn()">
-          <a class="navbar-brand nav-link"  routerLink='/user/{{username}}'  [routerLinkActive]="['active', 'btn-primary']">
-            <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" alt="Logo" style="width:30px;" class="rounded-pill" color="white"> {{username}}'s profile
+          <a class="nav-link"  routerLink='/user/{{username}}'  [routerLinkActive]="['active', 'btn-primary']">
+            <img src="https://live.staticflickr.com/65535/51633352877_8852dea13b_w.jpg" alt="Logo" style="width:30px; margin-top: -3px;" class="rounded-pill" color="white"> {{username}}'s profile
           </a>
         </li>
       </ul>
