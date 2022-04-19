@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
-  <!-- <div class="column side">
+<div class="row">
+  <div class="column side">
     <h2>What's Hot!</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
@@ -67,7 +68,7 @@
       voluptate aliquam
     </p>
     <br />
-  </div> -->
+  </div>
 
   <!-- ////////////////////////////////////////////////////////////////// -->
 
@@ -77,9 +78,10 @@
       class="container-fluid bg-trasparent my-4 p-1"
       style="position: relative"
     >
-      <div class="row row-cols-sm-5">
+      <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-sm-3 g-3">
         <div *ngFor="let token of tokens">
-          <div class="card col ">
+          <div class="col"></div>
+          <div class="card" style="width: 25rem">
             <a routerLink="/token/id/{{ token.id }}">
               <img
                 class="card-img-top"
@@ -91,17 +93,18 @@
                 <p class="card-text">{{ token.description }}</p>
                 <p class="card-text">Price: ${{ token.price }}</p>
                 <a routerLink="/token/id/{{ token.id }}" class="btn btn-primary"
-                  >Buy this NFT</a>
-              </div></a>
+                  >Buy this NFT</a
+                >
+              </div></a
+            >
           </div>
         </div>
       </div>
     </div>
   </div>
 
-
   <!-- ////////////////////////////////////////////////////////////////// -->
-  <!-- <div class="column side">
+  <div class="column side">
     <h2>News</h2>
     <h3></h3>
     <p></p>
@@ -152,4 +155,4 @@
       <br />
     </ul>
   </div>
-</div> -->
+</div>
