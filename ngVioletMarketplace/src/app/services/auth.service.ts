@@ -49,7 +49,8 @@ export class AuthService {
     let credentials = this.getCredentials();
     let options = {
       headers: {
-        'X-Requestd-With': 'XMLHttpRequest',
+        "Content-type": "application/json",
+        // 'X-Requestd-With': 'XMLHttpRequest',
         Authorization: `Basic ${credentials}`,
       },
     };
