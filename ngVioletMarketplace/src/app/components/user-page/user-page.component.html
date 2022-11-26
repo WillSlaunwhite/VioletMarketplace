@@ -2,9 +2,9 @@
   <div class=" row">
     <div class=" col-md-8">
       <div class=" card">
-        <h1>{{user.username}} </h1>
-        <H1>{{user.biography}}</H1>
-        <div class=" card-header"(click)="editProfile=!editProfile"><h3 class=" title">Edit Profile</h3></div>
+        <div class="display-4 p-3" style="color: white;">{{user.username}} </div>
+        <div class="display-4 p-3" style="color: white;">{{user.biography}}</div>
+        <button class="btn btn-primary btn-fill" style="width:25%; margin-left: 1em;"  (click)="editProfile=!editProfile">Edit Profile</button>
         <div class=" card-body">
           <form *ngIf="editProfile">
             <div class=" row">
@@ -86,7 +86,7 @@
             </div>
           </form>
         </div>
-        <div class=" card-footer">
+        <div *ngIf="editProfile" class=" card-footer">
           <button class=" btn btn-fill btn-primary" type="submit">Save and Update</button>
         </div>
       </div>
