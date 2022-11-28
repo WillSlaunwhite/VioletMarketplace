@@ -16,4 +16,26 @@ public class UserServiceImpl implements UserService {
 		return userRepo.findByUsername(username);
 	}
 
+	@Override
+	public User show(int userId) {
+		return userRepo.findById(userId).get();
+	}
+
+	@Override
+	public User create(User user) {
+		return userRepo.saveAndFlush(user);
+	}
+
+	@Override
+	public User update(int userId, User user) {
+		user.setId(userId);
+		return userRepo.saveAndFlush(user);
+	}
+
+	@Override
+	public boolean delete(int userId) {
+		userRepo.deleteById(userId);
+		return !userRepo.existsById(userId);
+	}
+
 }

@@ -32,7 +32,7 @@ public class TokenController {
 	
 	
 //	find non-principal user's tokens index method
-	@GetMapping("tokens/{username}")
+	@GetMapping("tokens/user/{username}")
 	public Set<Token> indexNonPrincipal(HttpServletRequest req,
 			HttpServletResponse resp,
 			@PathVariable String username) {
