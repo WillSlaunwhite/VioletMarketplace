@@ -27,14 +27,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+        .cors().and()
         .csrf().disable()
         .authorizeRequests()
         .antMatchers(HttpMethod.OPTIONS, "/api/**").permitAll() // For CORS, the preflight request
         .antMatchers(HttpMethod.OPTIONS, "/**").permitAll() 
         .antMatchers(HttpMethod.GET, "/api/user/*").permitAll() 
         .antMatchers(HttpMethod.GET, "/api/home/tokens").permitAll() 
+        .antMatchers(HttpMethod.GET, "/api/tokens/user/*").permitAll() 
         .antMatchers(HttpMethod.GET, "/api/tokens/id/*").permitAll() 
         .antMatchers(HttpMethod.GET, "/api/bids/*").permitAll() 
+        .antMatchers(HttpMethod.POST, "/api/user").permitAll() 
         .antMatchers("/api/**").authenticated() // Requests for our REST API must be authorized.
         .anyRequest().permitAll()               // All other requests are allowed without authorization.
         .and()

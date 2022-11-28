@@ -26,6 +26,7 @@ import com.skilldistillery.marketplace.services.TokenTxService;
 @RequestMapping("api")
 @CrossOrigin({ "*", "http://localhost:4301" })
 public class TokenTxController {
+	
 	@Autowired
 	private TokenTxService txSvc;
 
@@ -33,17 +34,17 @@ public class TokenTxController {
 	 * THIS IS THE TOKEN ** TX ** CONTROLLER. ENSURE YOU MEANT TO BE HERE AND NOT
 	 * THE TOKEN CONTROLLER
 	 */
+	
+	/////////////// GET METHODS ///////////////////
 
 //	GET ALL TRANSFERS WHERE USER IS SELLER
 	@GetMapping("transfers/seller/{userId}")
-	public List<TokenTx> sellerTransferRecord(HttpServletRequest req,
-			HttpServletResponse resp,
+	public List<TokenTx> sellerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
 			@PathVariable int userId) {
 		return txSvc.sellerTransfers(userId);
 	}
-	
 
-	//GET ALL TRANSFERS WHERE USER IS BUYER
+	// GET ALL TRANSFERS WHERE USER IS BUYER
 	@GetMapping("transfers/buyer/{userId}")
 	public List<TokenTx> buyerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
 			@PathVariable int userId) {
@@ -52,56 +53,21 @@ public class TokenTxController {
 
 //		GET ALL TRANSFERS FOR USER REGARDLESS OF ROLE 
 	@GetMapping("transfers/{userId}")
-	public List<TokenTx> index(HttpServletRequest req,
-			HttpServletResponse resp,
-			@PathVariable int userId) {
+	public List<TokenTx> index(HttpServletRequest req, HttpServletResponse resp, @PathVariable int userId) {
 		return txSvc.userIndex(userId);
 	}
 
 	/////////////// POST METHODS ///////////////////
-	
+
 //	POST NEW TRANSFER
 	@PostMapping("transfers")
-	public TokenTx create(HttpServletRequest req, 
-			HttpServletResponse resp, 
-			@RequestBody TokenTx transfer) {
+	public TokenTx create(HttpServletRequest req, HttpServletResponse resp, @RequestBody TokenTx transfer) {
 		txSvc.create(transfer);
 		if (transfer == null) {
 			resp.setStatus(404);
 		}
 		return transfer;
 	}
-///// GET A ALL BIDS FOR A USER
-@GetMapping("bids/{userId}")
-public List<Bid> userBids(HttpServletRequest req,
-		HttpServletResponse resp,
-		@PathVariable int userId) {
-	return txSvc.userBids(userId);
-}
-//	DELETE BID BY BID ID
-@DeleteMapping("bids/delete/{bidId}")
-public void destroyBid(HttpServletResponse res,
-		HttpServletRequest req,
-		@PathVariable int bidId) {
-	if(txSvc.destroyBid(bidId)){
-		res.setStatus(204);
-	}else {
-		res.setStatus(401);
-	}
-}
-// POST NEW BID
-@PostMapping("bids")
-public Bid create(HttpServletRequest req, 
-		HttpServletResponse resp, 
-		@RequestBody Bid bid) {
-	txSvc.create(bid);
-	if (bid == null) {
-		resp.setStatus(404);
-	}
-	return bid;
-}
-}
 
-	
-	
 
+}

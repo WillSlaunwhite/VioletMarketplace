@@ -25,7 +25,7 @@ public class AuthServicImpl implements AuthService {
 			user.setPassword(encodedPW); 
 
 			user.setEnabled(true);
-			user.setRole("standard");
+			user.setRole("user");
 			
 			
 //			may have to set these field for user to persist
