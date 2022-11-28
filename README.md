@@ -1,7 +1,4 @@
-# FinalProject
-
-# VioletMarketplace
-
+# FinalProject (VioletMarketplace)
 
 ## Topics
 - How to Run
