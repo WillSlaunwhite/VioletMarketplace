@@ -8,9 +8,8 @@
   - Rest Endpoints
   - UML Diagram
   - Description
-    - VioletMarketplace is a full-stack Java(Spring Boot)/Angular project that allows users to create and trade NFTs. Going into this project (Nov '21), I didn't know what NFTs were. Throughout the course of this project I learned a ton about NFTs and Web3 technology in general.
+    - VioletMarketplace is a full-stack Java(Spring Boot)/Angular project that allows users to create and trade NFTs. Going into this (Nov '21), I didn't know what NFTs were. Throughout the course of this project I learned a ton about NFTs and Web3 technology in general.
     <!-- Need more details about how a user can interact with the website  -->
-<!-- This is a full-stack group project that allows users to search for date night inspiration. Unregistered users have limited navigation but can browse all the date nights or search by category. Logged in users have the ability to review date night ideas, blog about their experiences and respond to others blogs. Blogs can have comments added. -->
 
 ## Team
 
@@ -18,12 +17,23 @@
   - Caleb Gardner
   - Dave Roberts
   - Brandon Pope
+
+## Technologies Used
+
+  - Java 8 (Spring Boot)
+  - Angular
+  - HTML/CSS/SCSS
+  - MySQL
+  - JPA2
+  - Gradle
+  - Postman
+  - AWS EC2
+
+## Concepts Used
+<!-- OOP, MVC Pattern, Web Forms, Proof of Work, DBMS, ORM, Encryption and Authorization, Configuring REST Endpoints, Integrating Angular frontend, CRUD, dependency management, Test Driven Development, 
+
 <!--
 
-Meet The Team
-Jordy Castorena
-Diego Escutia
-Steph Karlsen
 Topics
 Creating a SQL database and subsequent tables
 
