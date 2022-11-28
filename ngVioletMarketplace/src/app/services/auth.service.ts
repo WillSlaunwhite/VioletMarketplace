@@ -49,7 +49,8 @@ export class AuthService {
     let credentials = this.getCredentials();
     let options = {
       headers: {
-        'X-Requestd-With': 'XMLHttpRequest',
+        "Content-type": "application/json",
+        // 'X-Requestd-With': 'XMLHttpRequest',
         Authorization: `Basic ${credentials}`,
       },
     };
@@ -58,7 +59,6 @@ export class AuthService {
 
   register(user: User) {
     // create request to register a new account
-    
     return this.http.post(this.baseUrl + 'register', user).pipe(
       catchError((err: any) => {
         console.log(err);

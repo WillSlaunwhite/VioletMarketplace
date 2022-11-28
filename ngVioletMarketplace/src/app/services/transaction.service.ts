@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Bid } from '../models/bid';
@@ -16,9 +15,7 @@ export class TransactionService {
   constructor(
     private http: HttpClient,
     private auth: AuthService,
-    private tokenSvc: TokenService,
-    private route: ActivatedRoute,
-    private router: Router
+    private tokenSvc: TokenService
   ) {}
   private baseUrl = 'http://localhost:8090/';
   private url = this.baseUrl + 'api/';
@@ -97,7 +94,7 @@ create(bid: Bid): Observable<Bid> {
   }
 
   getAllUserTransfers(): Observable<Tokentx[]> {
-    return this.http.get<Tokentx[]>(this.url + 'transfers/' + this.auth.getUsername()).pipe(
+    return this.http.get<Tokentx[]>(this.url).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('transactionService.getAllUserTransfers(): Error retrieving Token Transaction list');
@@ -106,36 +103,8 @@ create(bid: Bid): Observable<Bid> {
   }
 
 
-
-  // ngOnInit(): void {
-    //   if (!this.selected && this.route.snapshot.paramMap.get('id')) {
-    //     this.todoService.show(this.route.snapshot.params['id']).subscribe(
-    //       (success) => {
-    //         this.reloadTodos();
-    //         this.selected = success;
-    //       },
-    //       (fail) => {
-    //         console.error('TodoListComponent.ngOnInit(): error initializing todo by id');
-    //         console.error(fail);
-    //         this.router.navigateByUrl('notfound');
-    //       }
-    //     );
-    //   } else {
-    //     this.reloadTodos();
-    //   }
-    // }
-
   getAllBids(): Observable<Bid[]> {
-    return this.http.get<Bid[]>(this.url + 'bids/').pipe(
-      catchError((err: any) => {
-        console.log(err);
-        return throwError('transactionService.getAllBids(): Error retrieving Bid list');
-      })
-    );
-  }
-
-  getAllBidsUser(): Observable<Bid[]> {
-    return this.http.get<Bid[]>(this.url + 'bids/' + this.route.snapshot.paramMap.get("userId")).pipe(
+    return this.http.get<Bid[]>(this.url + 'bids/1').pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError('transactionService.getAllBids(): Error retrieving Bid list');

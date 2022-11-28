@@ -22,49 +22,57 @@
   padding: 0.5rem;
 }
 
-.column {
-  float: left;
-}
+/* STUFF WILL ADDED */
 
-/* Left and right column */
-.column.side {
-  width: 20%;
-}
-
-/* Middle column */
-.column.middle {
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-  width: 50%;
-
-}
-
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column.side, .column.middle {
-    width: 100%;
+@media (min-width: 1024px) {
+  .item--wrapper {
+      flex-direction: row;
+  }
+  .item--wrapper {
+      display: flex;
+      flex-direction: column;
+  }
+  *, ::before, ::after {
+      box-sizing: border-box;
+  }
+  div {
+      display: block;
   }
 }
 
-/*  */
-tr.hide-table-padding td {
-  padding: 0;
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
 }
 
-.expand-button {
-	position: relative;
+.item-container {
+  height: 50vh;
+  background-color: aquamarine;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.transaction-table {
+  height: 80%;
+  background: gray;
+  border-radius: 10px;
 }
 
-.accordion-toggle .expand-button:after
-{
-  position: absolute;
-  left:.75rem;
-  top: 50%;
-  transform: translate(0, -50%);
-  content: '-';
+.token-history {
+  border-radius: 10px;
+  width: 25%;
+  justify-content: center;
+  background-color:darkcyan;
 }
-.accordion-toggle.collapsed .expand-button:after
-{
-  content: '+';
-}
+
+
+
+
+
+
+
+/* ENDS HERE */
