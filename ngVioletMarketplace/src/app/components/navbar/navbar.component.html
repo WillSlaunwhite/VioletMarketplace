@@ -8,7 +8,7 @@
 
       <ul class="nav nav-pills nav-fill p-1">
         <li class="nav-item">
-          <a class="nav-link home-link"  routerLink='/home'  [routerLinkActive]="['active', 'btn-primary']">Violet NFT Marketplace
+          <a class="nav-link home-link"  routerLink='/home'  [routerLinkActive]="['active', 'btn-primary']">Violet Marketplace
           </a>
         </li>
         <!-- <li class="nav-item">
@@ -27,7 +27,7 @@
           <a class="nav-link" routerLink='/register' [routerLinkActive]="['active', 'btn-primary']">Register Account</a>
         </li>
         <li class="nav-item" *ngIf="loggedIn()">
-          <a class="nav-link" (click)="logout()">Logout</a>
+          <a class="nav-link" (click)="logout()" [routerLinkActive]="['active', 'btn-primary']">Logout</a>
         </li>
         <li class="nav-item user-pfp" *ngIf="loggedIn()">
           <a class="nav-link"  routerLink='/user/{{username}}'  [routerLinkActive]="['active', 'btn-primary']">

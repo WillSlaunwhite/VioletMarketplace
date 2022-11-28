@@ -1,28 +1,82 @@
-/* .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
-} */
-.card {
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
-  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
-    0.3s box-shadow,
-    0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
-  border: 0;
-  border-radius: 1rem;
-}
-
 .actionLink {
+  margin: 5px;
   color: rgb(255, 255, 255) !important;
-  background-color: violet !important;
+  background-color: rgb(114, 0, 104) !important;
   border-radius: 8px;
   max-height: 40px;
   border: none;
   padding: 0.5rem;
 }
 
-/* STUFF WILL ADDED */
+/* Card Styling */
+
+.card-text{
+  margin: 5px;
+  margin-bottom: 15px;
+}
+
+.card-container {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.item-container {
+  height: 50vh;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 25em;
+  margin-top: 1em;
+  margin-bottom: 0;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 1rem;
+}
+
+.card-img,
+.card-img-top {
+  border-top-left-radius: calc(1rem - 1px);
+  border-top-right-radius: calc(1rem - 1px);
+  height: 20em;
+  width: 100%;
+  background-color: white;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Text Styling */
+
+.adjacent-text-container {
+  background-color: aquamarine;
+  float: right;
+  top: 0;
+  right: 0;
+  position: absolute;
+}
+
+.adjacent-text {
+  margin-inline: 5px;
+  color: white;
+}
+
+
+
+
+
+
+
+
 
 @media (min-width: 1024px) {
   .item--wrapper {
@@ -39,40 +93,3 @@
       display: block;
   }
 }
-
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
-
-.item-container {
-  height: 50vh;
-  background-color: aquamarine;
-  border-radius: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.transaction-table {
-  height: 80%;
-  background: gray;
-  border-radius: 10px;
-}
-
-.token-history {
-  border-radius: 10px;
-  width: 25%;
-  justify-content: center;
-  background-color:darkcyan;
-}
-
-
-
-
-
-
-
-/* ENDS HERE */

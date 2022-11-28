@@ -90,110 +90,64 @@
 </tbody>
 </table> -->
 
-
 <div class="row">
-  <div class="column" style="background-color:#aaa;">
-    <table class="table table-bordered table-striped table-hover" style="background-color: goldenrod;">
-      <thead>
-      <tr>
-        <th>id</th>
-        <th>description</th>
+  <div class="col card-container token">
+    <div id="tokenDetails" *ngIf="selected">
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="{{ selected.tokenLocation }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h4 class="card-title">{{ selected.name }}</h4>
+          <p class="card-text">{{ selected.description }}</p>
+          <p class="card-text">Price: ${{ selected.price }}</p>
 
-
-        <th>buyer</th>
-        <th>seller</th>
-        <th>token</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let bid of bids">
-        <td><h1>Token name:</h1>{{ bid.token.name }}</td>
-        <td>{{ bid.description }}</td>
-        <td>{{ bid.buyer }}</td>
-        <td>{{ bid.seller }}</td>
-        <td>{{ bid.token }}</td>
-        <td>{{ bid.transaction }}</td>
-
-      </tr>
-    </tbody>
-    </table>
-  </div>
-  <div class="column" style="background-color: lightslategray;">
-    <h2>Column 2</h2>
-    <p>Some text..</p>
-  </div>
-</div>
-
-
-
-
-<div class="item-container row">
-  <div class="col">
-    <table class="table table-bordered table-striped table-hover w-35">
-      <thead>
-      <tr>
-        <th>id</th>
-        <th>description</th>
-        <th>buyer</th>
-        <th>seller</th>
-        <th>token</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let transaction of tokenTransactions">
-        <td>{{ transaction.id }}</td>
-        <td>{{ transaction.description }}</td>
-        <td>{{ transaction.buyer.displayName }}</td>
-        <td>{{ transaction.seller.displayName }}</td>
-        <td>{{ transaction.token.name }}</td>
-
-      </tr>
-    </tbody>
-    </table>
-  </div>
-  <div class="row bid-table">
-    <table class="table table-bordered table-striped table-hover">
-      <thead>
-      <tr>
-        <th>id</th>
-        <th>description</th>
-
-
-        <th>buyer</th>
-        <th>seller</th>
-        <th>token</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let bid of bids">
-        <td><h1>Token name:</h1>{{ bid.token.name }}</td>
-        <td>{{ bid.description }}</td>
-        <td>{{ bid.buyer }}</td>
-        <td>{{ bid.seller }}</td>
-        <td>{{ bid.token }}</td>
-        <td>{{ bid.transaction }}</td>
-
-      </tr>
-    </tbody>
-    </table>
-  </div>
-  <div class="row token">
-    <div class="card w-50">
-            <div id="tokenDetails" *ngIf="selected">
-
-              <p>{{ selected.id }}</p>
-              <p>Token: {{ selected.name }}</p>
-              <p>Description: {{ selected.description }}</p>
-              <p>Rarity: {{ selected.rarity }}</p>
-              <p>Price: {{ selected.price }}</p>
-              <p>Token Location: {{ selected.tokenLocation }}</p>
-              <p>Offered: {{ selected.offered }}</p>
-              <a class="actionLink" routerLink='/bid' >Bid Now</a>
-              <a class="actionLink" routerLink='/buy' [routerLinkActive]="['active', 'btn-primary']">Buy Now</a>
+          <a class="actionLink bid" routerLink="/bid">Bid Now</a>
+          <a
+          class="actionLink buy"
+          routerLink="/buy"
+          [routerLinkActive]="['active', 'btn-primary']"
+          >Buy Now</a
+          >
+        </div>
       </div>
     </div>
+    <div class="column w-50 adjacent-text-container">
+      <p class="adjacent-text">Owner: <a routerLink="/user/{{selected?.owner?.username}}" >{{selected?.owner?.displayName}}</a></p>
+    </div>
   </div>
+
+
+
+  <div class="column w-50" style=" height: 100% !important; float: right;">
+      <div class="row" >
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>description</th>
+              <th>buyer</th>
+              <th>seller</th>
+              <th>token</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaction of tokenTransactions">
+              <td>{{ transaction.id }}</td>
+              <td>{{ transaction.description }}</td>
+              <td>{{ transaction.buyer.displayName }}</td>
+              <td>{{ transaction.seller.displayName }}</td>
+              <td>{{ transaction.token.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 </div>
+
+
 <!--
 <h1>BIDS TABLE</h1>
 <table class="table table-bordered table-striped table-hover">
