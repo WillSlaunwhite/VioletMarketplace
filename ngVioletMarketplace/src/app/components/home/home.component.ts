@@ -23,19 +23,12 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.tokens.length);
-
     this.getTokens();
-
-    console.log(this.tokens.length);
-
   }
 
   getTokens(): void {
     this.tokenService.index().subscribe(
       tokenList => {
-        console.log(tokenList.length);
-
         this.tokens = tokenList;
       },
       failed => {
