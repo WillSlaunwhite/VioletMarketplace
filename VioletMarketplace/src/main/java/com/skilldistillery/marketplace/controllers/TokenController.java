@@ -28,7 +28,9 @@ public class TokenController {
 	private TokenService tokenSvc;
 	
 	
+	
 	/////////////// UNAUTH METHODS ///////////////////
+	
 	
 	
 //	find non-principal user's tokens index method
@@ -60,6 +62,7 @@ public class TokenController {
 		return tokenSvc.indexByUsername(principal.getName());
 	}
 	
+//	Get a specific token by id
 	@GetMapping("tokens/id/{tid}")
 	public Token show(HttpServletRequest req,
 			HttpServletResponse resp,
@@ -130,7 +133,6 @@ public class TokenController {
 	
 	
 	/////////////// DELETE METHODS ///////////////////
-	
 	
 	
 	@DeleteMapping("tokens/{tid}")
