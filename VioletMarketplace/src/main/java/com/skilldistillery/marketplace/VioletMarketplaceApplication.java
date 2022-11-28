@@ -8,7 +8,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"src/main/java/com.skilldistillery.marketplace/controllers"})
 public class VioletMarketplaceApplication {
 
 	public static void main(String[] args) {
