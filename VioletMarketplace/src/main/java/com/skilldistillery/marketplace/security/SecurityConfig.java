@@ -8,11 +8,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfig  {
 
     // this you get for free when you configure the db connection in application.properties file
@@ -26,6 +28,7 @@ public class SecurityConfig  {
     @Bean
     public SecurityFilterChain createFilterChain(HttpSecurity http) throws Exception {
         http
+        .cors().and()
         .csrf().disable()
         .authorizeRequests()
         .antMatchers(HttpMethod.OPTIONS, "/api/**").permitAll() // For CORS, the preflight request
@@ -49,7 +52,7 @@ public class SecurityConfig  {
     }
     
     @Autowired
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // Check if username/password are valid, and user currently allowed to authenticate
         String userQuery = "SELECT username, password, enabled FROM user WHERE username=?";
         // Check what authorities the user has
