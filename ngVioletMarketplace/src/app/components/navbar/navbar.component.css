@@ -10,15 +10,15 @@ li {
   padding-bottom: -20px !important;
 }
 
-
 .nav-item {
   max-width: 400px;
+  margin-top: 5px;
 }
 
 .nav {
   background-color: rgb(114, 0, 104) !important;
    white-space: nowrap;
-  max-height: 50px;
+  max-height: 75px;
  }
  .btn-primary {
   color: rgb(255, 255, 255) !important;
