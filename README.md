@@ -12,9 +12,9 @@
 ## Description
 
     This was our group final project for Skill Distillery, a full-stack Java Bootcamp. The concept was
-    an NFT marketplace that allows user's to bid on/purchase tokens. Skill Distillery generated our team
-    names using a My Little Pony name generator, so we rolled with the idea and made our first NFT
-    Collection My Little Pony based.
+    an NFT marketplace that allows user's to bid on/purchase tokens. Skill Distillery generated our
+    team names using a My Little Pony name generator, so we rolled with the idea and made our first
+    NFT Collection My Little Pony based.
 
     Users visiting our site have the ability to create an account, with authorization and encryption
     from Spring Security. User's can view their token collection and bid on/purchase tokens posted by

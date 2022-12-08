@@ -318,6 +318,7 @@ CREATE TABLE IF NOT EXISTS `bid` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `bid_date` DATETIME NOT NULL,
   `description` VARCHAR(100) NULL,
+  `offer_amount` INT NOT NULL,
   `token_id` INT NOT NULL,
   `seller_id` INT NOT NULL,
   `buyer_id` INT NOT NULL,
@@ -357,8 +358,11 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (1, 'admin', '$2a$12$sFk3F2vpHmUzA9NQBgQzOOXKVbLQU3V092l1WMom/ON7W1gGyMmKS', 1, NULL, '2020-01-01 10:10:10', 'admin@email.com', 'Mr. Manager', 'url here', 'Mr. Managers Journey To The Top');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (2, 'secondUser', 'admin', 0, NULL, '2020-01-01 10:10:10', 'second@email.com', 'Mr. Worker', 'url here', 'Shit Rolls Downhill');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (1, 'will', '$2a$12$.aXI64OEVlXoGf8fNHOlhef6SFgQzI4bqn2unNELnfIWTPwJj.zR6', 1, 'admin', '2020-01-01 10:10:10', 'will@email.com', 'tristan', 'https://i.imgur.com/3ANsr4E.jpg', '');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (2, 'dave', '$2a$12$R3Gj2zoDDSmxyIPjxfeRcuAP87PMJ.u6UZmNuUdoqihFaFsM7gIbG', 1, 'user', '2022-11-25 00:00:00', 'brando@email.com', 'Mr. Manager', 'url here', 'Brandon Discovered his love for ponies at the bottom of a bottle, once blew his mortgage at a furry convention');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (3, 'caleb', '$2a$12$NMv8KhaOlQXCjWaqNz9AKeGZeIZgetYyE/lThHcStVdWFNPUnWUgu', 1, 'user', '2020-01-01 10:10:10', 'dealindave@email.com', 'Frank Reynolds', 'url here', 'Daves claim to fame is that you have never seen someone work so hard for $5 (or a mcDouble you pick)');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (4, 'peyton', '$2a$12$InIDf.XH4fNZiztDLAzS1OvuQZEAR61eD31.BJoSt4SK0zurAlV0K', 1, 'user', '2020-01-01 10:10:10', 'technicallyinnocent@email.com', 'KingOfRats', 'url here', 'Some say he is a monster, some say hes human garbage, but none of them can prove a damn thing');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (5, 'john', '$2a$12$jfwtmyxQVyMrGaeDO3bx2eOfaHpMA5cUmySNldej4iyVDYe.Dcssi', 1, 'user', '2020-01-01 10:10:10', 'sixhead@email.com', 'MantisToboggan', 'url here', 'Peyton was a big deal until his arm turned into a wet noodle. Scientists say his forehead will expand until it explodes');
 
 COMMIT;
 
@@ -379,7 +383,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (1, 'Violet Glow', 'Purple Pony', 'rare', '2020-01-01 10:10:10', 500, 1, 1, 1, 1, 'test url ');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (1, 'Violet Glow', 'Loyal, dependable', 'Extremely rare', '2010-12-01 10:10:10', 5000, 1, 1, 1, 1, 'https://i.imgur.com/j1sqmhy.jpg');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (2, 'Princess Luna', 'Honest, brave', 'rare', '2019-07-15 10:10:10', 199, 1, 2, 1, 2, 'https://i.imgur.com/ZrKjIWb.jpg');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (3, 'Pinkie Pie', 'Fashionable', 'rare', '2021-10-05 10:10:10', 200, 1, 3, 1, 3, 'https://i.imgur.com/boDxU4a.jpg');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (4, 'Granny Smith', 'Friendly, Sweet', 'rare', '2018-03-05 10:10:10', 350, 1, 4, 1, 4, 'https://i.imgur.com/1cDuhpI.jpg');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (5, 'Applejack', 'Silly, Upbeat', 'rare', '2021-01-03 10:10:10', 980, 1, 5, 1, 5, 'https://i.imgur.com/UKWFq4O.png');
 
 COMMIT;
 
@@ -438,6 +446,19 @@ COMMIT;
 START TRANSACTION;
 USE `nftdb`;
 INSERT INTO `favorite` (`user_id`, `token_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `bid`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `nftdb`;
+INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `seller_id`, `buyer_id`) VALUES (1, '2021-11-03', 'Purchase', 100, 1, 1, 2);
+INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `seller_id`, `buyer_id`) VALUES (2, '2021-11-03', 'Purchase', 98, 3, 3, 1);
+INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `seller_id`, `buyer_id`) VALUES (3, '2021-11-03', 'Purchase', 45, 2, 2, 4);
+INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `seller_id`, `buyer_id`) VALUES (4, '2021-11-03', 'Purchase', 60, 5, 5, 1);
 
 COMMIT;
 
