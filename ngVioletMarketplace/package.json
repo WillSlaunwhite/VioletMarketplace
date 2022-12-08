@@ -37,6 +37,8 @@
     "d3-scale": "3.2.1",
     "devextreme": "^21.2.5",
     "devextreme-angular": "^21.2.5",
+    "esbuild": "^0.16.1",
+    "esbuild-loader": "^2.20.0",
     "fullcalendar": "3.10.1",
     "g": "^2.0.1",
     "jasmin": "^0.0.2",

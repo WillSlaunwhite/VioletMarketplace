@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.marketplace.entities.Token;
+import com.skilldistillery.marketplace.entities.User;
+import com.skilldistillery.marketplace.services.AuthService;
 import com.skilldistillery.marketplace.services.TokenService;
 
 @RestController
@@ -26,7 +28,8 @@ import com.skilldistillery.marketplace.services.TokenService;
 public class TokenController {
 	@Autowired
 	private TokenService tokenSvc;
-	
+	@Autowired
+	private AuthService authSvc;
 	
 	
 	/////////////// UNAUTH METHODS ///////////////////
@@ -101,8 +104,9 @@ public class TokenController {
 		HttpServletResponse resp,
 		Principal principal,
 		@PathVariable int tid) {
-		
 		Token token = new Token();
+		User user = userSvc.getUserByUsername(principal.getName());
+		
 		token = tokenSvc.showByUsernameId(principal.getName(), tid);
 
 		if (token == null) {

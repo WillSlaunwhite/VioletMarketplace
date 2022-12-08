@@ -23,7 +23,6 @@ public class Message {
 	@Column(name="created_at")
 	private LocalDateTime createdAt;
 	
-	
 
 	@Override
 	public String toString() {

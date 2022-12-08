@@ -1,14 +1,20 @@
 # FinalProject (VioletMarketplace)
 
 ## Topics
-  - How to Run
+  - Description
+  <!-- - How to Run -->
   - Technologies
   - Concepts
   - Challenges and Lessons We Learned
   - Rest Endpoints
   - UML Diagram
-  - Description
-    - VioletMarketplace is a full-stack Java(Spring Boot)/Angular project that allows users to create and trade NFTs. Going into this (Nov '21), I didn't know what NFTs were. Throughout the course of this project I learned a ton about NFTs and Web3 technology in general.
+
+
+## Description
+    - This was our group final project for Skill Distillery, a full-stack Java Bootcamp. The concept was an NFT marketplace that allows user's to bid on/purchase tokens. Skill Distillery generated our team names using a My Little Pony name generator, so we rolled with the idea and made our first NFT Collection My Little Pony based.
+    - Users visiting our site have the ability to create an account, with authorization and encryption from Spring Security. User's can view their token collection and bid on/purchase tokens posted by other users. CRUD has been implemented for Users, Tokens, Bids and Transactions.  
+<!--  Move to LESSONS LEARNED
+    - VioletMarketplace is a full-stack Java(Spring Boot)/Angular project that allows users to create and trade NFTs. Going into this (Nov '21), I didn't know what NFTs were. Throughout the course of this project I learned a ton about NFTs and Web3 technology in general. -->
     <!-- Need more details about how a user can interact with the website  -->
 
 ## Team
@@ -21,143 +27,302 @@
 ## Technologies Used
 
   - Java 8 (Spring Boot)
+  - Javascript/TypeScript
   - Angular
-  - HTML/CSS/SCSS
+  - HTML/CSS/SCSS/Angular Material
   - MySQL
   - JPA2
   - Gradle
   - Postman
   - AWS EC2
 
-## Concepts Used
-<!-- OOP, MVC Pattern, Web Forms, Proof of Work, DBMS, ORM, Encryption and Authorization, Configuring REST Endpoints, Integrating Angular frontend, CRUD, dependency management, Test Driven Development, 
+## Concepts
+<!-- OOP, MVC Pattern, Web Forms, Proof of Work, DBMS, ORM, Encryption and Authorization, Configuring REST Endpoints, Integrating Angular frontend, CRUD, dependency management, Test Driven Development, -->
+  - Object Oriented Programming
+  - Model View Controller pattern
+  - Object Realational Mapping
+  - Relational Database Management Systems
+  - Configuring REST Endpoints
+  - Web Forms
+  - Test Driven Development
+  - Integrating Angular into Java Project
+
+
+<!-- ## Challenges and Lessons Learned  -->
+
+
+
+## REST Endpoints
+
+# Token
+
+
+|   Request Method     | URI                               | Request Body                  | Response Body                          
+|------------------- --|-----------------------------------|-------------------------------|---------------------------
+| GET  (No Auth)       |`/api/tokens/user/username`        |                               | Tokens by Username                     
+| GET  (No Auth)       |`/api/home/tokens`                 |                               | All Tokens                             
+| GET                  |`/api/tokens/myTokens`             |                               | Principal's Token's                    
+| GET                  |`/api/tokens/id/{id}`              |                               | Token's by ID                          
+| POST                 |`/api/tokens`                      | JSON for new Token            | Create Token                           
+| PUT                  |`/api/tokens/{tid}`                | JSON to update Token          | Update Token                           
+| DELETE               |`/api/tokens/{tid}`                |                               | Delete Token                           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--
+# Final Project
 
-Topics
-Creating a SQL database and subsequent tables
+- [Toon Throwback](#final-project)
+  - [Description](#description)
+  - [Technologies](#technologies)
+  - [Concepts](#concepts)
+  - [Auth Rest Endpoints](#rest-endpoints-auth)
+  - [Cartoon Rest Endpoints](#rest-endpoints-cartoon)
+  - [Comment Rest Endpoints](#rest-endpoints-comment)
+  - [Fact Rest Endpoints](#rest-endpoints-fact)
+  - [Media Rest Endpoints](#rest-endpoints-media)
+  - [Merchandise Rest Endpoints](#rest-endpoints-merchandise)
+  - [Trivia Rest Endpoints](#rest-endpoints-trivia)
+  - [User Rest Endpoints](#rest-endpoints-user)
+  - [Lessons Learned](#lessons-learned)
 
-Configuring a JPA project
 
-Configuring REST API's
 
-Using Postman to test back-end functionality
+## EC2 URL
 
-Mapping Entities to SQL tables
+http://18.144.181.105:8080/ToonThrowback/#/home
 
-Creating JUnit tests to ensure JPA mappings are correct
 
-Integrating a Spring MVC project with a JPA project
 
-Performing basic CRUD operations
+## Description
 
-Gradle dependency management
+This is a full stack group project that implements full CRUD for a user and their respective media and merchandise uploads to the site as well as a search bar to look up nostalgia inducing cartoons of the 90s/early 00s by keyword.
 
-Angular front-end funcionality
 
-Back to Top
 
-How to Run
-Perfect Date URL
-Technologies
-Angular
+- [Back to Top](#final-project)
 
-JavaScript
 
-Typescript
 
-REST API
+# Technologies
 
-JSON
+-   JSON
+-   REST API
+-   Bootstrap 5
+-   Git
+-   MySQL Workbench
+-   Spring Web MVC Framework
+-   Gradle
+-   TypeScript
+-   Angular
+-   Postman
+-   JUnit
+-   MAMP
+-   JPA
+-   Github
+-   CSS
+-   SpringToolSuite 4
+-   Java
+-   AWS EC2
+-   SQL
+-   Persistence
+-   Hibernate
+-   HTML
 
-Postman
 
-MySQL 5.7
 
-Spring Web MVC Framework
+- [Back to Top](#final-project)
 
-Java Persistance API
 
-JPA
 
-JPQL
+# Concepts
 
-JUnit 5
+-   Try/Catch Statements and Exceptions
+-   Request Mapping (Get, Post, Delete, Put)
+-   Object Oriented Programming (Abstraction, Polymorphism, Inheritance, Encapsulation)
+-   Interfaces
+-   Web Forms
+-   Services
+-   Controllers
+-   Entities
+-   Database extraction with Repository
+-   Encryption and Authorization
 
-Hibernate
 
-Bootstrap 5.2
 
-CSS
+- [Back to Top](#final-project)
 
-HTML 5
 
-JSP
 
-MySQL Workbench
+## REST Endpoints Auth
 
-Gradle
+Postman routes for Auth:
 
-MAMP
+|   HTTP Verb Purpose |URI                                |Request Body                   |Response Body                           | Operation
+|---------------------|-----------------------------------|-------------------------------|----------------------------------------|-----------
+|POST                 |`register`                         |JSON for new user registration |Create registered user                  |Register
+|GET                  |`authenticate`                     |                               |Authorize User name                     |Authorize
 
-Git
 
-Github
 
-Spring Tool Suite 4
+- [Back to Top](#final-project)
 
-macOS on Monterey
 
-Back to Top
 
-Concepts
-Http Request Mapping
+## REST Endpoints Cartoon
 
-Get, Post, Delete, Put
+Postman routes for Cartoon:
 
-Database extraction with Repository
+|   HTTP Verb Purpose |URI                                |Request Body                   |Response Body                           | Operation
+|---------------------|-----------------------------------|-------------------------------|----------------------------------------|-----------
+|GET                  |`/api/cartoons`                    |                               |List of Cartoons                        |Read
+|GET                  |`/api/cartoons/networks`           |                               |List of Networks                        |Read
+|GET                  |`/api/cartoons/ratings`            |                               |List of Ratings                         |Read
+|GET                  |`/api/users/{id}/cartoons`         |                               |List of User's Cartoons                 |Read
+|GET                  |`/api/cartoons/{cid}`              |                               |View Cartoon by id                      |Read
+|GET                  |`/api/cartoons/search/{keyword}`   |                               |List of Cartoons by keyword             |Read      
+|GET                  |`/api/cartoons/favorites/{favs}`   |                               |List of Cartoons favorited by User      |Read
+|POST                 |`/api/cartoons`                    |JSON for new Cartoon           |Create Cartoon                          |Create
+|PUT                  |`/api/cartoons/{id}`               |JSON to update Cartoon         |Update Cartoon                          |Update
+|DELETE               |`/api/cartoons/{cid}`              |                               |Delete review                           |Delete
+|DELETE               |`/api/comments/{id}`               |                               |Delete comment                          |Delete
 
-Style Pages - Object Oriented Programming
 
-Class hierarchies
 
-Interfaces
 
-APIE (Abstraction - Polymorphism - Inheritance - Encapsulation)
+- [Back to Top](#final-project)
 
-Implementation
 
-Lists
 
-Collections
+## REST Endpoints Comment
 
-Try/Catch Statements and Exceptions
+Postman routes for Comment:  
 
-Web Forms
+|   HTTP Verb Purpose |URI                                      |Request Body                    |Response Body                           | Operation
+|---------------------|-----------------------------------------|-------------------------------|----------------------------------------|-----------
+|GET                  |`api/cartoons/{cid}/comments`            |                               |List of Cartoon Comments                |Read
+|GET                  |`/api/cartoons/{cid}/comments/{id}`      |                               |View Cartoon Comment by ID              |Read
+|POST                 |`/api/cartoons/{cid}/comments`           |JSON for new Cartoon Comment   |create Comment for Cartoon              |Create
+|POST                 |`/api/cartoons/{cid}/comments{commentId}`|JSON for new Reply Comment     |Create Reply Comment                    |Create
+|PUT                  |`/api/cartoons/{cid}/comments/{id}       |JSON for updating Comment      |Update Cartoon Comment                  |Update
+|DELETE               |`/cartoons/{cid}/comments/{id}           |                               |Delete Cartoon Comment                  |Delete
 
-Back to Top
 
-REST Endpoints
-Examples of our Postman routes:
 
-HTTP Verb Purpose	URI	Request Body	Response Body	Operation
-POST	/api/datenights	JSON for new datenight	Create datenight	Create
-POST	/api//reviews/{datenightId}	JSON for new review	Create review by datenight id	Create
-POST	/api/users/{userId}/blogs	JSON for new blog	Create blog	Create
-POST	/api/users	JSON for user	Create user	Create
-GET	/api/datenights		List of datenights	Read
-GET	/api/reviews/datenights/{dateNightId}		List of reviews by Datenight	Read
-GET	/api/users/{userId}/blogs		List of blogs by user	Read
-GET	/api/review/datenights/{datenightId}		View review by datenight id	Read
-PUT	/api/datenights/{datenightId}	JSON to update datenight	Update datenight	Update
-PUT	/api/reviews/{reviewId}	JSON to update review	Update review	Update
-PUT	/api blog/{userId}	JSON to update blog	Update cblog by user id	Update
-DELETE	/api/datenights/{id}		Delete datenight	Delete
-DELETE	/api/reviews/{id}		Delete review	Delete
-DELETE	/api/blog/{id}		Delete comment	Delete
-Challenges and Lessons We Learned
-Jordy - This project was the culmination of our efforts during this BootCamp. There were various challenges throughout the sprint. My own personal challenge was populating a thread with replies to a Blog and persisting new replies. Combining JavaScript with HTML required me to do a great amount of research to make it all work. When working with others, you always have to learn to be open to diverse ideas and suggestions.
+- [Back to Top](#final-project)
 
-Diego - In this project, the foundations of REST really cemented, while also improving my familiarity with MySQL Workbench. One of the requirements for the project is to have encrypted login capabilities. I developed a better understanding on how to give users authorized access to the website. Once we started the Angular side of the project, I further understood the relationship between Models, Services, and Components.
 
-Steph - Our final group project for me was a great experience to get more practice working in a group. Relying on a group is something I have struggled with in the past but my team members made that very easy and we all worked very well together. -->
+
+## REST Endpoints Fact
+
+Postman routes for Fact:  
+
+|   HTTP Verb Purpose |URI                                      |Request Body                    |Response Body                           | Operation
+|---------------------|-----------------------------------------|-------------------------------|----------------------------------------|-----------
+|GET                  |`/api/{cid}/fact`                        |                               |List of Cartoon Facts                   |Read
+|GET                  |`/api/{cid}/fact/{id}`                   |                               |View Cartoon Fact by ID                 |Read
+|POST                 |`/api/{cid}/fact`                        |JSON for new Cartoon Fact      |create Fact for Cartoon                 |Create
+|PUT                  |`/api/{cid}/fact/{id}`                   |JSON for updating Cartoon Fact |Update Cartoon Fact                     |Update
+|DELETE               |`/cartoons/{cid}/comments/{id}           |                               |Delete Cartoon Comment                  |Delete
+
+
+
+- [Back to Top](#final-project)
+
+
+
+## REST Endpoints Media
+
+Postman routes for Media:
+
+|   HTTP Verb Purpose |URI                                |Request Body                   |Response Body                           | Operation
+|---------------------|-----------------------------------|-------------------------------|----------------------------------------|-----------
+|GET                  |`/api/media`                       |                               |List of Media                           |Read
+|GET                  |`/api/cartoons/{cid}/media`        |                               |View Cartoon Media by ID                |Read
+|GET                  |`/api/media/{id}`                  |                               |View Media by ID                        |Read
+|POST                 |`/api/{cid}/media`                 |JSON for new Media             |Create Cartoon Media                    |Create
+|PUT                  |`/api/media/{id}`                  |JSON for updating Media        |Update Media                            |Update
+|DELETE               |`/api/media/{id}`                  |                               |Delete Media                            |Delete      
+|GET                  |`/api/users/{id}/media`            |                               |List of Media by User                   |Read
+
+
+
+- [Back to Top](#final-project)
+
+
+
+## REST Endpoints Merchandise
+
+Postman routes for Merchandise:  
+
+|   HTTP Verb Purpose |URI                                |Request Body                   |Response Body                           | Operation
+|---------------------|-----------------------------------|-------------------------------|----------------------------------------|-----------
+|GET                  |`/api/merch`                       |                               |List of Merchandise                     |Read
+|GET                  |`/api/cartoons/{cid}/merch`        |                               |List of Merchandise by Cartoon          |Read
+|GET                  |`/api/users/{id}/merch`            |                               |List of Merchandise by User             |Read
+|GET                  |`/api/{cid}/merch/{id}`            |                               |View Merchandise by ID                  |Read
+|POST                 |`/api/{cid}/merch`                 |JSON for new Merchandise       |Create Merchandise                      |Create
+|PATCH                |`/api/{cid}/merch/{id}`            |JSON for updating Merchandise  |Update Merchandise                      |Update      
+|DELETE               |`/api/merch/{id}`                  |                               |Delete Merchandise                      |Delete
+
+
+
+- [Back to Top](#final-project)
+
+
+
+## REST Endpoints Trivia
+
+Postman routes for Trivia:  
+
+|   HTTP Verb Purpose |URI                                |Request Body                   |Response Body                           | Operation
+|---------------------|-----------------------------------|-------------------------------|----------------------------------------|-----------
+|GET                  |`/api/trivia`                      |                               |List of Trvia                           |Read
+|GET                  |`/api/trivia/{id}`                 |                               |View Trivia by ID                       |Read
+|POST                 |`/api/trivia`                      |JSON for new Trivia            |Create new Trivia                       |Create
+|PUT                  |`/api/trivia/{id}`                 |JSON for updating Trivia       |Update Trivia                           |Update  
+|DELETE               |`/api/trivia/{id}`                 |                               |Delete Trivia                           |Delete
+
+
+
+- [Back to Top](#final-project)
+
+
+
+## REST Endpoints User
+
+Postman routes for User:   
+
+|   HTTP Verb Purpose |URI                                |Request Body                   |Response Body                           | Operation
+|---------------------|-----------------------------------|-------------------------------|----------------------------------------|-----------
+|GET                  |`/api/users`                       |                               |List of Users                           |Read
+|GET                  |`/api/users/{id}/comments`         |                               |List of User Comments                   |Read
+|GET                  |`/api/users/profile`               |                               |View Registered User                    |Read
+|POST                 |`/api/users`                       |JSON for new User              |Create User                             |Create
+|PUT                  |`/api/users/{id}`                  |JSON for updating User         |Update User                             |Update
+|DELETE               |`/api/users/{id}`                  |                               |Delete User                             |Delete
+
+
+
+- [Back to Top](#final-project)
+
+
+
+## Lessons Learned
+Ryan: This project was my first role as DBA; it was a intimidating to take on a previously untried role, but around the middle of our time on this project, I felt I had a full grasp on MYSQLWorkbench, forward engineering, and schema uploading. I was also able to gain experience working with the proper API routing through frontend and backend and the myriad of problems that can occur with this process.
+
+
+
+- [Back to Top](#final-project) -->
