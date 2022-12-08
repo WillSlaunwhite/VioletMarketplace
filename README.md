@@ -1,20 +1,19 @@
-# FinalProject (VioletMarketplace)
+### FinalProject (VioletMarketplace)
 
 ## Topics
   - Description
-  <!-- - How to Run -->
   - Technologies
   - Concepts
   - Challenges and Lessons We Learned
   - Rest Endpoints
   - UML Diagram
-
+  <!-- - How to Run -->
 
 ## Description
     - This was our group final project for Skill Distillery, a full-stack Java Bootcamp. The concept was an NFT marketplace that allows user's to bid on/purchase tokens. Skill Distillery generated our team names using a My Little Pony name generator, so we rolled with the idea and made our first NFT Collection My Little Pony based.
     - Users visiting our site have the ability to create an account, with authorization and encryption from Spring Security. User's can view their token collection and bid on/purchase tokens posted by other users. CRUD has been implemented for Users, Tokens, Bids and Transactions.  
 <!--  Move to LESSONS LEARNED
-    - VioletMarketplace is a full-stack Java(Spring Boot)/Angular project that allows users to create and trade NFTs. Going into this (Nov '21), I didn't know what NFTs were. Throughout the course of this project I learned a ton about NFTs and Web3 technology in general. 
+    - VioletMarketplace is a full-stack Java(Spring Boot)/Angular project that allows users to create and trade NFTs. Going into this (Nov '21), I didn't know what NFTs were. Throughout the course of this project I learned a ton about NFTs and Web3 technology in general.
      Need more details about how a user can interact with the website  -->
 
 ## Team
@@ -37,7 +36,7 @@
   - AWS EC2
 
 ## Concepts
-<!-- OOP, MVC Pattern, Web Forms, Proof of Work, DBMS, ORM, Encryption and Authorization, Configuring REST Endpoints, Integrating Angular frontend, CRUD, dependency management, Test Driven Development, -->
+
   - Object Oriented Programming
   - Model View Controller pattern
   - Object Realational Mapping
@@ -46,10 +45,9 @@
   - Web Forms
   - Test Driven Development
   - Integrating Angular into Java Project
-
+<!-- OOP, MVC Pattern, Web Forms, Proof of Work, DBMS, ORM, Encryption and Authorization, Configuring REST Endpoints, Integrating Angular frontend, CRUD, dependency management, Test Driven Development, -->
 
 <!-- ## Challenges and Lessons Learned  -->
-
 
 
 ## REST Endpoints
@@ -57,15 +55,15 @@
 # Token
 
 
-|   Request Method     | URI                               | Request Body                  | Response Body                          
-|------------------- --|-----------------------------------|-------------------------------|---------------------------
-| GET  (No Auth)       |`/api/tokens/user/username`        |                               | Tokens by Username                     
-| GET  (No Auth)       |`/api/home/tokens`                 |                               | All Tokens                             
-| GET                  |`/api/tokens/myTokens`             |                               | Principal's Token's                    
-| GET                  |`/api/tokens/id/{id}`              |                               | Token's by ID                          
-| POST                 |`/api/tokens`                      | JSON for new Token            | Create Token                           
-| PUT                  |`/api/tokens/{tid}`                | JSON to update Token          | Update Token                           
-| DELETE               |`/api/tokens/{tid}`                |                               | Delete Token                           
+|   Request Method    | URI                               | Request Body                  |Response Body                          
+|---------------------|-----------------------------------|-------------------------------|---------------------------
+|GET  (No Auth)       |`/api/tokens/user/username`        |                               |Tokens by Username                     
+|GET  (No Auth)       |`/api/home/tokens`                 |                               |All Tokens                             
+|GET                  |`/api/tokens/myTokens`             |                               |Principal's Token's                    
+|GET                  |`/api/tokens/id/{id}`              |                               |Token's by ID                          
+|POST                 |`/api/tokens`                      |JSON for new Token             |Create Token                           
+|PUT                  |`/api/tokens/{tid}`                |JSON to update Token           |Update Token                           
+|DELETE               |`/api/tokens/{tid}`                |                               |Delete Token                           
 
 
 
