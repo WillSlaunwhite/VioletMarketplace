@@ -9,14 +9,15 @@
   <!-- - How to Run -->
 
 ## Description
-    This was our group final project for Skill Distillery, a full-stack Java Bootcamp. The concept was
-    an NFT marketplace that allows user's to bid on/purchase tokens. Skill Distillery generated our
-    team names using a My Little Pony name generator, so we rolled with the idea and made our first
-    NFT Collection My Little Pony based.
 
-    Users visiting our site have the ability to create an account, with authorization and encryption
-    from Spring Security. User's can view their token collection and bid on/purchase tokens posted by
-    other users. CRUD has been implemented for Users, Tokens, Bids and Transactions.  
+This was our group final project for Skill Distillery, a full-stack Java Bootcamp. The concept was
+an NFT marketplace that allows user's to bid on/purchase tokens. Skill Distillery generated our
+team names using a My Little Pony name generator, so we rolled with the idea and made our first
+NFT Collection My Little Pony based.
+
+Users visiting our site have the ability to create an account, with authorization and encryption
+from Spring Security. User's can view their token collection and bid on/purchase tokens posted by
+other users. CRUD has been implemented for Users, Tokens, Bids and Transactions.  
 <!--  Move to LESSONS LEARNED
     - VioletMarketplace is a full-stack Java(Spring Boot)/Angular project that allows users to create and trade NFTs. Going into this (Nov '21), I didn't know what NFTs were. Throughout the course of this project I learned a ton about NFTs and Web3 technology in general.
      Need more details about how a user can interact with the website  -->
