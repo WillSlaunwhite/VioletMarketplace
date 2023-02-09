@@ -6,11 +6,9 @@
   - Concepts
   - Challenges and Lessons We Learned
   - Rest Endpoints
-  - UML Diagram
   <!-- - How to Run -->
 
 ## Description
-
     This was our group final project for Skill Distillery, a full-stack Java Bootcamp. The concept was
     an NFT marketplace that allows user's to bid on/purchase tokens. Skill Distillery generated our
     team names using a My Little Pony name generator, so we rolled with the idea and made our first
