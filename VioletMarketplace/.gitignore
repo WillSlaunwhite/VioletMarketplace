@@ -25,7 +25,8 @@ bin/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-
+/.idea
+/API_REWRITE
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
