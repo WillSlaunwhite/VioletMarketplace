@@ -35,7 +35,14 @@ public class TokenController {
 	/////////////// UNAUTH METHODS ///////////////////
 	
 	
-	
+
+//	return all tokens
+	@GetMapping("home/tokens")
+	public Set<Token> indexHome(HttpServletRequest req,
+			HttpServletResponse resp) {
+		return tokenSvc.index();
+	}
+
 //	find non-principal user's tokens index method
 	@GetMapping("tokens/user/{username}")
 	public Set<Token> indexNonPrincipal(HttpServletRequest req,
@@ -43,20 +50,22 @@ public class TokenController {
 			@PathVariable String username) {
 		return tokenSvc.indexByUsername(username);
 	}
-	
-	
-	
-	/////////////// GET METHODS ///////////////////
-	
-	
-	
-//	return all tokens
-	@GetMapping("home/tokens")
-	public Set<Token> indexHome(HttpServletRequest req,
-			HttpServletResponse resp) {
-		return tokenSvc.index();
+
+//	Get a specific token by id
+	@GetMapping("tokens/id/{tid}")
+	public Token show(HttpServletRequest req,
+			HttpServletResponse resp,
+
+			@PathVariable int tid) {
+		return tokenSvc.showById(tid);
 	}
-	
+
+
+
+	/////////////// GET METHODS ///////////////////
+
+
+
 //	Get principal's list of tokens
 	@GetMapping("tokens/myTokens")
 	public Set<Token> indexByUsername(HttpServletRequest req,
@@ -64,16 +73,7 @@ public class TokenController {
 			Principal principal) {
 		return tokenSvc.indexByUsername(principal.getName());
 	}
-	
-//	Get a specific token by id
-	@GetMapping("tokens/id/{tid}")
-	public Token show(HttpServletRequest req,
-			HttpServletResponse resp,
-			
-			@PathVariable int tid) {
-		return tokenSvc.showById(tid);
-	}
-	
+
 	
 	
 	/////////////// POST METHODS ///////////////////
@@ -100,7 +100,7 @@ public class TokenController {
 	
 	// method has extra params it probably doesn't need 
 	@PutMapping("tokens/{tid}")
-	public Token sellMyToken(HttpServletRequest req,
+	public Token purchaseToken(HttpServletRequest req,
 		HttpServletResponse resp,
 		Principal principal,
 		@PathVariable int tid) {

@@ -7,13 +7,13 @@ import com.skilldistillery.marketplace.entities.TokenTx;
 
 public interface TokenTxService {
 	
-	public List<Bid> userBids(int userId);
-	public TokenTx show(int transferId);
+	List<Bid> userBids(int userId);
+	TokenTx show(int transferId);
 	
-	public List<TokenTx> buyerTransfers(int buyerId);
-	public List<TokenTx> sellerTransfers(int sellerId);
+	List<TokenTx> buyerTransfers(int buyerId);
+	List<TokenTx> sellerTransfers(int sellerId);
 
-	public TokenTx create(TokenTx transfer);
+	TokenTx create(TokenTx transfer);
 
 	List<TokenTx> userIndex(int userId);
 	boolean destroyBid(int bidId);

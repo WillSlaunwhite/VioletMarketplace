@@ -133,6 +133,7 @@ export class TokenComponent implements OnInit {
           console.error('Succeeded routing to index, getting transfers');
 
           this.getAllTransfers();
+
           console.log(this.tokenTransactions.length);
 
           console.error('succeded getting transfers');
