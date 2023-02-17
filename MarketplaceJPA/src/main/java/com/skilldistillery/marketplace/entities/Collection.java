@@ -86,10 +86,9 @@ public class Collection {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Collection [id=").append(id).append(", name=").append(name).append(", description=")
-				.append(description).append(", releaseDate=").append(releaseDate).append("]");
-		return builder.toString();
+        String builder = "Collection [id=" + id + ", name=" + name + ", description=" +
+                description + ", releaseDate=" + releaseDate + "]";
+		return builder;
 	}
 
 }

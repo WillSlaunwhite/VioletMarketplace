@@ -58,10 +58,9 @@ public class Category {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Category [id=").append(id).append(", type=").append(type).append(", description=")
-				.append(description).append("]");
-		return builder.toString();
+        String builder = "Category [id=" + id + ", type=" + type + ", description=" +
+                description + "]";
+		return builder;
 	}
 
 }
