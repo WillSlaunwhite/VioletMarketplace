@@ -1,0 +1,84 @@
+// TOP LEVEL ELEMENT CHANGES
+a {  text-decoration: none; font-weight: 300; color: white;  }
+input {  background: transparent; }
+
+// TOP LEVEL NAVBAR
+.toolbar {
+  justify-content: space-between !important;
+  height: 4em;
+
+  /* Created with https://www.css-gradient.com */
+  background: #471D90;
+  background: -webkit-linear-gradient(top left, #471D90, #270269D3);
+  background: -moz-linear-gradient(top left, #471D90, #270269D3);
+  background: linear-gradient(to bottom right, #471D90, #270269D3);
+}
+
+// FAR LEFT LOGO
+.brand-container {
+  transition: ease .3s;
+  padding-left: 2.5em;
+
+  &.brand-container:hover {
+    transform: scale(1.05);
+    transition: ease .3s;
+  }
+}
+
+.brand {
+  font-weight: 300;
+  letter-spacing: 2.25px;
+}
+
+// SEARCH BAR
+.search {
+  width: 40%;
+  color: rgba(255, 255, 255, 0.666);
+  border-radius: 4px;
+  margin-top: 10px;
+
+  &.search:focus{
+    color: white;
+  }
+}
+
+// ADDS PADDING TO LAST LINK
+.links:last-child {
+  padding-right: 2.5em !important;
+}
+
+// THE A TAGS FOR THE NAV LINKS
+.mat-button {
+  font-size: 20px;
+  font-weight: 300;
+  align-items: center;
+  color: gray;
+  text-decoration: none;
+  padding-inline: .5em;
+  transition: ease .3s;
+
+  &.mat-button:hover {
+    transition: ease .25s;
+    transform: scale(1.05);
+    color:white;
+
+    display: inline-block;
+    border-bottom: 1px solid white;
+  }
+}
+
+// THE SPAN FOR THE NAV LINKS
+.toolbar-button {
+  margin-inline: .5em;
+}
+
+// DIVIDER COLOR
+.mat-divider {
+  border-top-color: rgb(58, 83, 158);
+}
+
+// ACTIVE LINK BECOMES WHITE
+.active {
+  color: white;
+}
+

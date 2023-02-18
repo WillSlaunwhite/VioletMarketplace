@@ -1,0 +1,189 @@
+p {
+  border-radius: 15px;
+  font-size: x-large;
+}
+
+.container-fluid {
+  background-color: rgb(7, 21, 36);
+  height: 92vh;
+  overflow-y: hidden !important;
+}
+
+.login-container {
+  // rgba(96, 2, 96, 0.935); original color
+  // background-color: rgba(96, 2, 96, 0.935); material primary color
+  // background-color: rgb(71, 29, 144);
+
+  // background: #471D90;
+// background: -webkit-linear-gradient(top, #471D90, #334884E3);
+// background: -moz-linear-gradient(top, #471D90, #334884E3);
+// background: linear-gradient(to bottom, #471D90, #334884E3);
+
+/* Created with https://www.css-gradient.com */
+// background: #471D90;
+// background: -webkit-linear-gradient(top, #471D90, #334884);
+// background: -moz-linear-gradient(top, #471D90, #334884);
+// background: linear-gradient(to bottom, #471D90, #334884);
+
+/* Created with https://www.css-gradient.com */
+background: #471D90;
+background: -webkit-linear-gradient(top, #471D90, #5B4C75);
+background: -moz-linear-gradient(top, #471D90, #5B4C75);
+background: linear-gradient(to bottom, #471D90, #5B4C75);
+
+/* Created with https://www.css-gradient.com */
+// background: #471D90;
+// background: -webkit-linear-gradient(top, #471D90, #524888);
+// background: -moz-linear-gradient(top, #471D90, #524888);
+// background: linear-gradient(to bottom, #471D90, #524888);
+
+
+  overflow-x: hidden !important;
+  overflow-y: hidden;
+  border-radius: 15px;
+  width: 60%;
+  height: 90%;
+  margin-bottom: 1.5em;
+  z-index: 1.25;
+  box-shadow: 0 0 15px black;
+}
+
+.login-header {
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 300;
+  padding-top: 1em;
+}
+
+
+.form-container {
+  color: white;
+  height: 60vh;
+  width: 35vw;
+  margin-top: 1em;
+  border-radius: 10px;
+  background-color: rgb(7, 21, 36);
+}
+
+.form-field {
+  background-color: rgb(7, 21, 36);
+  text-align: center;
+  width: 100%;
+  padding-top: 1em;
+}
+.form-field:first-of-type {
+  padding-top: 2em;
+}
+
+.mat-icon {
+  padding-right: 1em;
+}
+
+mat-form-field, mat-label, input, mat-hint {
+  color: white !important;
+  font-size: x-large !important;
+  // font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Poppin, sans-serif;
+  font-weight: 300;
+}
+
+mat-form-field {
+  width: 70%;
+  font-size: x-large !important;
+  // font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Poppin, sans-serif;
+  font-weight: 300;
+}
+
+form {
+  caret-color: white !important;
+}
+input {
+  font-size: xx-large !important;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 300;
+  height: 1.25em !important;
+}
+
+.submit-button {
+  width:50%;
+  align-self: center;
+  transition: ease .2s;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  font-size: x-large;
+  padding: .25em 0;
+  margin-bottom: 1em;
+}
+
+.submit-button:hover {
+  transition: ease .4s;
+  transform: scale(1.05);
+}
+.google-button:hover em{
+  transition: .2s;
+  color: rgba(255, 255, 255, 0.832) !important;
+}
+
+
+.form-field-test {
+  border: 3px;
+  border-color: white !important;
+}
+
+.social-icon, svg-icon {
+  background-color: transparent !important;
+  color: transparent;
+  transition: ease .2s;
+}
+
+.social-icon:hover {
+  transition: ease .4s;
+  transform: scale(1.1);
+
+}
+
+.socials-container {
+  margin-top: .5em;
+}
+
+
+// CHANGES INPUT BORDER COLOR
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline  {
+  color: gray !important;
+}
+// CHANGES BORDER COLOR ON FOCUS
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+  color:white !important;
+}
+::ng-deep .mat-input-element  {
+  height: 1.5em !important;
+  caret-color: white;
+  padding-left: .25em;
+}
+
+
+
+
+
+
+// CHANGES BACKGROUND OF AUTOFILL AND AUTOFILL TEXT (sort of, Chrome has issues
+// when hovering over suggestions.
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px  rgb(7, 21, 36) inset !important;
+  -webkit-text-fill-color: white;
+}
+input:-webkit-autofill::first-line,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  font-size: xx-large !important;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 300;
+}
+
+

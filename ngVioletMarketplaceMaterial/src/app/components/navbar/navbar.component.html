@@ -1,0 +1,50 @@
+
+<!-- <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
+      >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>ngVioletMarketplaceMaterial</span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+<mat-toolbar class="toolbar d-flex">
+  <div class="brand-container"><a class="brand" routerLink="/home">VioletMarketplace</a></div>
+  <mat-form-field class="search">
+    <mat-label>Search...</mat-label>
+    <input matInput type="text" [(ngModel)]="searchTerm">
+    <button class="clear" *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="searchTerm=''">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-form-field>
+  <div class="links d-flex">
+      <span class="toolbar-button"><a class="mat-button" routerLink="/home" routerLinkActive='active'>Collections</a></span>
+      <span class="toolbar-button"><a class="mat-button" routerLink='/about' routerLinkActive='active'>About Us</a></span>
+      <span *ngIf="!loggedIn()" class="toolbar-button"><a class="mat-button" routerLink='/register' routerLinkActive='active'>Register Account</a></span>
+      <span *ngIf="!loggedIn()" class="toolbar-button"><a class="mat-button" routerLink='/login' routerLinkActive='active'>Login</a></span>
+      <span *ngIf="loggedIn()" class="toolbar-button"><a class="mat-button" (click)="logout()" routerLink='/home'>Logout</a></span>
+      <span *ngIf="loggedIn()" class="toolbar-button"><a class="mat-button" routerLink='/user/{username}'>My Account</a></span>
+  </div>
+
+</mat-toolbar>
+<mat-divider ></mat-divider>

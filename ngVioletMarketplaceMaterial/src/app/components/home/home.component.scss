@@ -1,0 +1,132 @@
+* { text-decoration: none; box-sizing: content-box;}
+p { display: flex; color: white; font-weight: 300; font-size: large;}
+a { border-radius: 4px; }
+button { color: white; }
+img { height: 70%; max-height: 200px; background-color: white; }
+// CONTAINER DIMENSIONS AND SPACING
+.container-fluid {
+  height: calc(100vh - 5em);
+  width: auto;
+  background-color: rgb(7, 21, 36);
+  justify-content: space-around;
+}
+
+// CARDS CONTAINER
+.token-container {
+  width: 80%;
+  margin-top: 1.5em;
+  height: 95%;
+  justify-content: space-around;
+}
+
+// CARDS
+.mat-card {
+  height: 16em;
+  width: 16em;
+  border-radius: 4px;
+  transition: ease .4s;
+  // background-color: #3a539e ;
+  /* Created with https://www.css-gradient.com */
+  background: #471D90;
+  background: -webkit-linear-gradient(top, #471D90, #334884E3);
+  background: -moz-linear-gradient(top, #471D90, #334884E3);
+  background: linear-gradient(to bottom, #471D90, #334884E3);
+
+  &.mat-card:hover {
+    transform: scale(1.025);
+    transition: ease .4s;
+    backface-visibility: hidden;
+    box-shadow: 0 0 15px gray;
+  }
+}
+
+// TEXT FOR TOP OF CARD
+.token-text {
+  margin-bottom: .5em;
+  margin-top: -.75em !important;
+  padding-top: .4em;
+  padding-inline-end: .75em;
+  padding-inline-start: .25em;
+  letter-spacing: .06em;
+  &.token-name {
+    width: 14em;
+  }
+}
+
+.actions {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.purchase-button{
+  flex: 1;
+  width: 50%;
+  font-weight: 300;
+  letter-spacing: 1.25px;
+  font-size: medium;
+
+  &.purchase-button-bid:hover {
+    background-color: transparent !important;
+  }
+}
+
+.mat-button {
+  padding:0;
+  margin: 0;
+}
+
+.purchase-button-bid {
+  padding-right: 15%;
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  border-bottom-left-radius: 4px;
+  margin-left: -.3em !important;
+}
+.purchase-button-buy {
+  padding-left: 15%;
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  border-bottom-right-radius: 4px;
+  margin-right: -.3em !important;
+}
+
+
+
+
+
+
+
+.sidenav-container {
+/* Created with https://www.css-gradient.com */
+// background: #471D90;
+// background: -webkit-linear-gradient(top, #471D90, #334884E3);
+// background: -moz-linear-gradient(top, #471D90, #334884E3);
+// background: linear-gradient(to bottom, #471D90, #334884E3);
+
+/* Created with https://www.css-gradient.com */
+// background: #471D90;
+// background: -webkit-linear-gradient(top, #471D90, #334884);
+// background: -moz-linear-gradient(top, #471D90, #334884);
+// background: linear-gradient(to bottom, #471D90, #334884);
+
+/* Created with https://www.css-gradient.com */
+  background: #471D90;
+  background: -webkit-linear-gradient(top, #471D90, #5B4C75);
+  background: -moz-linear-gradient(top, #471D90, #5B4C75);
+  background: linear-gradient(to bottom, #471D90, #5B4C75);
+
+/* Created with https://www.css-gradient.com */
+// background: #471D90;
+// background: -webkit-linear-gradient(top, #471D90, #524888);
+// background: -moz-linear-gradient(top, #471D90, #524888);
+// background: linear-gradient(to bottom, #471D90, #524888);
+
+  color: white;
+  width: 18%;
+  height: 92.5%;
+  border-radius: 8px;
+  margin: 1.5em 0;
+}
