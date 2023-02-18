@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="MarketplaceJPA" target="1.8" />
+      <module name="MarketplaceJPA.main" target="1.8" />
+      <module name="MarketplaceJPA.test" target="1.8" />
+      <module name="VioletMarketplace" target="1.8" />
+      <module name="VioletMarketplace.main" target="1.8" />
+      <module name="VioletMarketplace.MarketplaceJPA" target="1.8" />
+      <module name="VioletMarketplace.MarketplaceJPA.main" target="1.8" />
+      <module name="VioletMarketplace.MarketplaceJPA.test" target="1.8" />
+      <module name="VioletMarketplace.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
