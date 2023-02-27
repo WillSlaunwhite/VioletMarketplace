@@ -42,10 +42,6 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="MarketplaceJPA" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="VioletMarketplace" type="f1a62948:ProjectNode" />
               </path>
               <path>
@@ -58,12 +54,6 @@
                 <item name="VioletMarketplace" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="VioletMarketplace" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -98,22 +88,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace",
-    "settings.build.tools.auto.reload": "ALL",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace&quot;,
+    &quot;settings.build.tools.auto.reload&quot;: &quot;ALL&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="gradle build" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.VioletMarketplace [war]">
+  <component name="RunManager" selected="Gradle./Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/VioletMarketplace [bootRun]">
     <configuration name="VioletMarketplace [bootWar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -196,6 +186,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/VioletMarketplace [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/VioletMarketplace" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootRun" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/VioletMarketplace" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -218,12 +229,14 @@
     <list>
       <item itemvalue="Gradle./Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/VioletMarketplace" />
       <item itemvalue="Gradle./Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/MarketplaceJPA" />
+      <item itemvalue="Gradle./Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/VioletMarketplace [bootRun]" />
       <item itemvalue="Gradle.VioletMarketplace [bootWar]" />
       <item itemvalue="Gradle.VioletMarketplace [war]" />
       <item itemvalue="Gradle./Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace [build]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle./Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/VioletMarketplace [bootRun]" />
         <item itemvalue="Gradle.VioletMarketplace [war]" />
         <item itemvalue="Gradle.VioletMarketplace [bootWar]" />
         <item itemvalue="Gradle./Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace [build]" />

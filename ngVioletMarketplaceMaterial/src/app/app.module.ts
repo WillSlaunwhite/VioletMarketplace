@@ -31,6 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularSvgIconPreloaderModule } from 'angular-svg-icon-preloader';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -68,6 +70,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     AngularSvgIconPreloaderModule.forRoot({
       configUrl: './assets/json/icons.json',
     }),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

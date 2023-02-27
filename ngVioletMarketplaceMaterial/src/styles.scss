@@ -1,9 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
-
-
-html, body { height: 100%; }
-body { margin: 0 !important; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Nunito:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&family=Ubuntu:wght@300&display=swap');
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+html, body { height: 100%; }
+body { margin: 0 !important; font-family: "Nunito" }
+
+:root {
+  font-size: 16px;
+  font-family: "Nunito";
+  --bg-primary: #471D90;
+  --bg-secondary: #5B4C75;
+  --bg-text-primary: #b6b6b6;
+  --bg-text-secondary: #ececec;
+}
+
+.gradient-light {
+  /* Created with https://www.css-gradient.com */
+  background: #471D90;
+  background: -webkit-linear-gradient(top, #471D90, #5B4C75);
+  background: -moz-linear-gradient(top, #471D90, #5B4C75);
+  background: linear-gradient(to bottom, #471D90, #5B4C75);
+}
+
+.gradient-blue {
+  /* Created with https://www.css-gradient.com */
+  background: #471D90;
+  background: -webkit-linear-gradient(top, #471D90, #334884E3);
+  background: -moz-linear-gradient(top, #471D90, #334884E3);
+  background: linear-gradient(to bottom, #471D90, #334884E3);
+
+}
+.gradient-purple {
+  /* Created with https://www.css-gradient.com */
+  background: #471D90;
+  background: -webkit-linear-gradient(top, #471D90, #524888);
+  background: -moz-linear-gradient(top, #471D90, #524888);
+  background: linear-gradient(to bottom, #471D90, #524888);
+}
+
+.gradient-purple-secondary {
+  background: #471D90;
+  background: -webkit-linear-gradient(top left, #471D90, #270269D3);
+  background: -moz-linear-gradient(top left, #471D90, #270269D3);
+  background: linear-gradient(to bottom right, #471D90, #270269D3);
+}
+
+body::-webkit-scrollbar {
+  overflow: auto;
+  width: .5rem;
+  height: .5rem;
+
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background: #524888;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(71, 29, 144, 0.3);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}

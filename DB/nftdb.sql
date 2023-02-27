@@ -374,6 +374,7 @@ START TRANSACTION;
 USE `nftdb`;
 INSERT INTO `collection` (`id`, `name`, `description`, `release_date`, `created_by`) VALUES (1, 'Ponies', 'My little Pony Characters', '2020-01-01 10:10:10', 1);
 INSERT INTO `collection` (`id`, `name`, `description`, `release_date`, `created_by`) VALUES (2, 'Sport', 'Tokens related to sports or athletics', '2020-01-01 10:10:10', 2);
+INSERT INTO `collection` (`id`, `name`, `description`, `release_date`, `created_by`) VALUES (3, 'Movies and Television', 'Tokens related to movies or television.', '2023-02-27 10:10:10', 3);
 
 COMMIT;
 
@@ -388,6 +389,13 @@ INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `pri
 INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (3, 'Pinkie Pie', 'Fashionable', 'rare', '2021-10-05 10:10:10', 200, 1, 3, 1, 3, 'https://i.imgur.com/boDxU4a.jpg');
 INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (4, 'Granny Smith', 'Friendly, Sweet', 'rare', '2018-03-05 10:10:10', 350, 1, 4, 1, 4, 'https://i.imgur.com/1cDuhpI.jpg');
 INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (5, 'Applejack', 'Silly, Upbeat', 'rare', '2021-01-03 10:10:10', 980, 1, 5, 1, 5, 'https://i.imgur.com/UKWFq4O.png');
+
+
+-- MOVIES
+
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (6, 'Princess Bride', 'A bedridden boy''s grandfather reads him the story of a farmboy-turned-pirate who encounters numerous obstacles, enemies and allies in his quest to be reunited with his true love.', 'common', '2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'https://i.imgur.com/eAJOMYg.jpg');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (7, 'The Dark Knight', 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.', 'common', '2023-02-27 12:00:00', 25, 3, 1, 1, 1, 'https://i.imgur.com/E5d2TNn.jpg');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (8, 'Django Unchained', 'With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation owner in Mississippi.', 'common', '2023-02-27 12:00:00', 25, 3, 1, 1, 1, 'https://i.imgur.com/BVL64WS.jpg');
 
 COMMIT;
 
