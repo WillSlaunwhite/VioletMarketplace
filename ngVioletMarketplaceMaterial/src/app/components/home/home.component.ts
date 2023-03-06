@@ -12,7 +12,7 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class HomeComponent implements OnInit {
   tokens: Token[] = [];
-
+  token: Token | null = new Token();
   constructor(
     private tokenSvc: TokenService,
     private auth: AuthService,
@@ -29,6 +29,11 @@ export class HomeComponent implements OnInit {
     this.tokenSvc.index().subscribe({
       next: (tokenList) => {
         this.tokens = tokenList;
+        this.tokens.forEach((token) => {
+          if(token.name === 'Pulp Fiction') {
+            this.token = token;
+          }
+        });
       },
       error: (failed) => {
         console.error('homeComponent.getTokens(): Error getting Token List');
