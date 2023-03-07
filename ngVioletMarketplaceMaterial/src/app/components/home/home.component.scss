@@ -60,17 +60,18 @@ html, body { min-height: 100%; height: 100%; margin: 0px; }
 }
 
 // TEXT FOR TOP OF CARD
-.token-text {
-  margin-bottom: .5em;
-  margin-top: -.75em !important;
-  padding-top: .4em;
-  padding-inline-end: .75em;
-  padding-inline-start: .25em;
-  letter-spacing: .06em;
-  &.token-name {
-    width: 14rem;
-  }
-}
+// .token-text {
+//   margin-bottom: .5em;
+//   margin-top: -.75em !important;
+//   padding-top: .4em;
+//   padding-inline-end: .75em;
+//   padding-inline-start: .25em;
+//   letter-spacing: .06em;
+//   &.token-name {
+//     width: 14rem;
+//   }
+// }
+
 
 // CARDS
 .mat-card {
@@ -81,6 +82,12 @@ html, body { min-height: 100%; height: 100%; margin: 0px; }
   opacity: .75;
   overflow: hidden;
   padding: 0;
+  text-align: center;
+
+  &.mat-card a {
+    display: flex;
+    justify-content: center;
+  }
 
   &.mat-card:hover {
     opacity: 1;
@@ -98,13 +105,30 @@ html, body { min-height: 100%; height: 100%; margin: 0px; }
       mask-size: 300% 100%;
     animation: clip-fade 5s infinite alternate;
   }
-  &.mat-card:hover .card-img-text {
+  &.mat-card:hover .card-img-title {
     opacity: 0;
     pointer-events: none;
     color: orange;
-    transition: ease .5s;
+    transition: ease-out .1s;
+  }
+  &.mat-card:hover .token-price {
+    opacity: 1;
+    pointer-events: none;
+    transition: ease-out .4s;
+  }
+  &.mat-card:hover .card-img-description {
+    transition: ease-out .4s;
+    pointer-events: none;
+
+    // LIMIT PARAGRAPH TEXT TO N LINES
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* number of lines to show */
+            line-clamp: 5;
+    -webkit-box-orient: vertical;
   }
 }
+
 
 .mat-card-image {
   -webkit-mask-image: linear-gradient(180deg, #ffffff5f, #fff, #0000);
@@ -124,16 +148,40 @@ html, body { min-height: 100%; height: 100%; margin: 0px; }
   align-items: center;
 }
 
-.card-img-text {
+.card-img-title {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: ease 1s;
   width: 16em;
   justify-content: center;
+
 }
 
+.card-img-description {
+  position: absolute;
+  height: 7.5em;
+  top: 10%;
+  transition: ease .4s;
+  width: 15em;
+  margin: 0;
+  padding: 0;
+  display: none;
+  overflow: hidden;
+
+}
+
+.token-price {
+  opacity: 0;
+  width: 15rem;
+  position: absolute;
+  top: 70%;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  transition: ease-out .4s;
+
+}
 
 
 

@@ -13,6 +13,8 @@ import { TokenService } from 'src/app/services/token.service';
 export class HomeComponent implements OnInit {
   tokens: Token[] = [];
   token: Token | null = new Token();
+  descriptionShowing: boolean = false;
+
   constructor(
     private tokenSvc: TokenService,
     private auth: AuthService,
