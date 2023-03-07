@@ -61,9 +61,10 @@ input {  background: transparent; }
     transition: ease .25s;
     transform: scale(1.05);
     color:white;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 2px;
 
-    display: inline-block;
-    border-bottom: 1px solid white;
   }
 }
 

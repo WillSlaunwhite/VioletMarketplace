@@ -5,23 +5,15 @@
 p { display: flex; color: white; font-weight: 300; font-size: large; font-family: "Nunito";}
 a { border-radius: 4px;  font-family: "Nunito";}
 button { color: white; }
-img { height: 11.5rem; max-height: 15rem; background-color: white; }
-
+img { background-color: white; }
+html, body { min-height: 100%; height: 100%; margin: 0px; }
 // CONTAINER DIMENSIONS AND SPACING
 .container-fluid {
-  height: calc(100vh - 5rem);
+  height: 100%;
   width: auto;
-  background-color: rgba(10, 32, 55, 0.974);
+  gap: 2rem;
   justify-content: space-around;
-}
-
-// SIDENAV CONTAINER
-.sidenav-container {
-  color: white;
-  width: 18%;
-  height: 92.5%;
-  border-radius: 8px;
-  margin: 1.5em 0;
+  // flex-wrap: wrap;
 }
 
 // CARDS CONTAINER
@@ -30,7 +22,8 @@ img { height: 11.5rem; max-height: 15rem; background-color: white; }
   margin-top: 1.5em;
   height: auto;
   justify-content: space-around;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 // BUY AND BID BUTTONS
@@ -81,11 +74,14 @@ img { height: 11.5rem; max-height: 15rem; background-color: white; }
 
 // CARDS
 .mat-card {
-  height: 16em;
-  width: 16em;
+  height: 14rem;
+  width: 18rem;
   border-radius: 4px;
   transition: ease-in-out .35s;
   opacity: .75;
+  overflow: hidden;
+  padding: 0;
+
   &.mat-card:hover {
     opacity: 1;
     transform: translateY(-5px);
@@ -100,7 +96,13 @@ img { height: 11.5rem; max-height: 15rem; background-color: white; }
       mask-image: linear-gradient(90deg, #0000, #fff, #0000);
     -webkit-mask-size: 300% 100%;
       mask-size: 300% 100%;
-    animation: clip-fade 5s infinite alternate ;
+    animation: clip-fade 5s infinite alternate;
+  }
+  &.mat-card:hover .card-img-text {
+    opacity: 0;
+    pointer-events: none;
+    color: orange;
+    transition: ease .5s;
   }
 }
 
@@ -111,7 +113,29 @@ img { height: 11.5rem; max-height: 15rem; background-color: white; }
     mask-size: 20% 20%;
   -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
+
+  display: flex;
+  position: absolute;
+  height: 100%;
+  margin-top: 0 !important;
+  margin-inline: auto !important;
+  opacity: .8;
+  justify-content: center;
+  align-items: center;
 }
+
+.card-img-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: ease 1s;
+  width: 16em;
+  justify-content: center;
+}
+
+
+
 
 @keyframes clip-fade {
   100% {

@@ -5,7 +5,7 @@ ul { margin: 0; padding: 0;}
 
 .sidenav-container {
   width: 15rem;
-  height: 92.5%;
+  height: calc(100vh - 15%);
   border-radius: 8px;
   margin: 1.5em 0;
 }
@@ -37,10 +37,10 @@ li:first-of-type {
 
 .user-image {
   height: 13rem;
-  width: 13.5rem;
-  margin: .75rem;
+  width: 13rem;
+  margin: 1.25rem;
   margin-inline: auto;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 fa-icon {
