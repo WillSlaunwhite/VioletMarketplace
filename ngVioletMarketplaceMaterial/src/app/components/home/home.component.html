@@ -5,8 +5,9 @@
   <div class="token-container d-flex flex-wrap">
     <mat-card class="gradient-blue" *ngFor="let token of tokens">
       <a routerLink="/token/id/{{ token.id }}"><img mat-card-image src="{{ token.tokenLocation }}" />
-      <p class="card-img-title">{{ token.name }}</p>
-      <p class="card-img-description">{{ token.description }}</p></a>
+        <p class="card-img-title">{{ token.name }}</p>
+        <p class="card-img-description">{{ token.description }}</p>
+      </a>
       <mat-card-content class="d-flex flex-row text-align-center justify-content-center">
         <p class="token-text token-price">${{ token.price }}</p>
       </mat-card-content>

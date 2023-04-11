@@ -16,7 +16,7 @@ import com.skilldistillery.marketplace.repositories.UserRepository;
 public class TokenTxServiceImpl implements TokenTxService {
 	@Autowired
 	private TokenTxRepository tokenRepo;
-	
+
 	@Autowired
 	private UserRepository userRepo;
 	@Autowired
@@ -25,7 +25,7 @@ public class TokenTxServiceImpl implements TokenTxService {
 		@Override
 		public List<TokenTx> userIndex(int userId) {
 			List<TokenTx> transfers = tokenRepo.findByUser(userId);
-			
+
 			return transfers;
 	}
 	public TokenTx show(int tokenTxId) {
@@ -50,7 +50,7 @@ public class TokenTxServiceImpl implements TokenTxService {
 		}
 		return newTransfer;
 	}
-	
+
 	// --------- BID METHODS BELOW ------------
 	@Override
 	public List<Bid> userBids(int userId) {
@@ -66,7 +66,7 @@ public class TokenTxServiceImpl implements TokenTxService {
 		confirm = true;
 		}
 		return confirm;
-		
+
 	}
 	@Override
 	public Bid create(Bid bid) {
@@ -99,7 +99,7 @@ public class TokenTxServiceImpl implements TokenTxService {
 //		// TODO Auto-generated method stub
 //		return null;
 //	}
-//	
-//	
-//	
+//
+//
+//
 }

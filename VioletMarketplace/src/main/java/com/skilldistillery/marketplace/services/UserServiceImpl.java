@@ -10,7 +10,7 @@ import com.skilldistillery.marketplace.repositories.UserRepository;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepo;
-	
+
 	@Override
 	public User getUserByUsername(String username) {
 		return userRepo.findByUsername(username);

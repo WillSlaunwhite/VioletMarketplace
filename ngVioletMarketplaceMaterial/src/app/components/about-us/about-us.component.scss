@@ -1,4 +1,34 @@
+.card-container {
 
-.container-fluid {
-  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  background-color: #423c4c;
+  color: #ececec;
+  width: 20rem;
+}
+
+.links-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+fa-icon {
+  color: #471D90;
+  transition: ease-out .3s;
+  transform: translateY(2px);
+
+  &:hover {
+    display: inline-block;
+    transition: .5s;
+    color: #ececec;
+    transform: translateY(-2px);
+  }
+}
+
+img {
+  border-radius: 4px;
+  width: 16rem;
 }
