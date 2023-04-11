@@ -1,5 +1,7 @@
 package com.skilldistillery.marketplace.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,90 +16,91 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Message {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	
-	private String content;
-	
-	@Column(name="created_at")
-	private LocalDateTime createdAt;
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	@Override
-	public String toString() {
-		return "Message [id=" + id + ", content=" + content + ", createdAt=" + createdAt + ", sender=" + sender
-				+ ", recipient=" + recipient + ", replies=" + replies + ", message=" + message + "]";
-	}
+    private String content;
 
-	public int getId() {
-		return id;
-	}
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    @ManyToOne
+    @JoinColumn(name = "sender_id")
+    private User sender;
 
-	public String getContent() {
-		return content;
-	}
+    @ManyToOne
+    @JoinColumn(name = "recipient_id")
+    private User recipient;
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    @OneToMany(mappedBy = "message")
+    private List<Message> replies;
 
-	public LocalDateTime getCreatedAt() {
-		return createdAt;
-	}
+    @ManyToOne
+    @JoinColumn(name = "in_reply_to")
+    private Message message;
 
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
-	}
+    @Override
+    public String toString() {
+        return "Message [id=" + id + ", content=" + content + ", createdAt=" + createdAt + ", sender=" + sender
+                + ", recipient=" + recipient + ", replies=" + replies + ", message=" + message + "]";
+    }
 
-	public User getSender() {
-		return sender;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setSender(User sender) {
-		this.sender = sender;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public User getRecipient() {
-		return recipient;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public void setRecipient(User recipient) {
-		this.recipient = recipient;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public List<Message> getReplies() {
-		return replies;
-	}
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
-	public void setReplies(List<Message> replies) {
-		this.replies = replies;
-	}
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
-	public Message getMessage() {
-		return message;
-	}
+    public User getSender() {
+        return sender;
+    }
 
-	public void setMessage(Message message) {
-		this.message = message;
-	}
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
 
-	@ManyToOne
-	@JoinColumn(name="sender_id")
-	private User sender;
-	
-	@ManyToOne
-	@JoinColumn(name="recipient_id")
-	private User recipient;
-	
-	@OneToMany(mappedBy="message")
-	private List<Message> replies;
-	
-	@ManyToOne
-	@JoinColumn(name="in_reply_to")
-	private Message message;
+    public User getRecipient() {
+        return recipient;
+    }
+
+    public void setRecipient(User recipient) {
+        this.recipient = recipient;
+    }
+
+    public List<Message> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Message> replies) {
+        this.replies = replies;
+    }
+
+    public Message getMessage() {
+        return message;
+    }
+
+    public void setMessage(Message message) {
+        this.message = message;
+    }
+
 }

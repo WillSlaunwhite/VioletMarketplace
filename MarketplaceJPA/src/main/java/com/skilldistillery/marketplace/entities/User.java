@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class User {
@@ -25,7 +26,8 @@ public class User {
 	private String role;
 	private String email;
 	private String biography;
-	
+
+	@CreationTimestamp
 	@Column(name="created_on")
 	private LocalDateTime createdOn;
 	
