@@ -8,6 +8,8 @@
   - Rest Endpoints
   <!-- - How to Run -->
 
+Deployed Link: http://3.23.245.108:8080/VioletMarketplace/#/home
+
 ## Description
 
 This was our group final project for Skill Distillery, a full-stack Java Bootcamp. The concept was
