@@ -1,16 +1,5 @@
 <div class="container-fluid d-flex justify-content-center align-items-center">
   <div class="register-container gradient-light d-flex flex-column bg-transparent text-white">
     <h2 class="register-header">Welcome! Finish creating your account. </h2>
-
-    <div class="carousel-container">
-      <div class="carousel-slider" [@slideAnimation]="currentSlide">
-        <div class="carousel-card" *ngFor="let card of cards; let i = index;" [class.active]="i === currentSlide">
-          <p>{{ card.title }}</p>
-          <p>{{ card.description }}</p>
-        </div>
-      </div>
-      <button (click)="prevSlide()" [disabled]="currentSlide === 0">Prev</button>
-      <button (click)="nextSlide()" [disabled]="currentSlide === cards.length - 1">Next</button>
-    </div>
   </div>
 </div>

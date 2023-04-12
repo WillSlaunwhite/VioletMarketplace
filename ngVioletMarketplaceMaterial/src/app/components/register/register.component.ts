@@ -8,6 +8,7 @@ import {
   transition,
   query,
 } from '@angular/animations';
+import User from 'src/app/models/user';
 
 @Component({
   selector: 'app-register',
@@ -46,30 +47,7 @@ import {
 })
 export class RegisterComponent implements OnInit {
   constructor() {}
+  registerUser: User | null = null;
 
   ngOnInit(): void {}
-  cards = [
-    { title: 'Card 1', description: 'This is card 1' },
-    { title: 'Card 2', description: 'This is card 2' },
-    { title: 'Card 3', description: 'This is card 3' },
-    { title: 'Card 4', description: 'This is card 4' },
-    { title: 'Card 5', description: 'This is card 5' },
-  ];
-
-  registering: boolean = true;
-
-  currentSlide = 0;
-
-  prevSlide() {
-    if (this.currentSlide > 0) {
-      this.currentSlide--;
-    }
-  }
-
-  nextSlide() {
-    // You can replace the condition below with the actual number of slides in your carousel
-    if (this.currentSlide < 2) {
-      this.currentSlide++;
-    }
-  }
 }

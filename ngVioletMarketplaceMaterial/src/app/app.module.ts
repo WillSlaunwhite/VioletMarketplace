@@ -25,14 +25,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularSvgIconPreloaderModule } from 'angular-svg-icon-preloader';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
 
 @NgModule({
   declarations: [
@@ -44,7 +43,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     UserPageComponent,
     LoginComponent,
     AboutUsComponent,
-    SidenavComponent
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,16 +63,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientModule,
     MatCardModule,
     MatGridListModule,
-    Spinne
     NgbModule,
     MatFormFieldModule,
     AngularSvgIconModule.forRoot(),
     AngularSvgIconPreloaderModule.forRoot({
       configUrl: './assets/json/icons.json',
     }),
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
