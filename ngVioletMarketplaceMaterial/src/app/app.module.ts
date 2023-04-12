@@ -64,6 +64,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientModule,
     MatCardModule,
     MatGridListModule,
+    Spinne
     NgbModule,
     MatFormFieldModule,
     AngularSvgIconModule.forRoot(),

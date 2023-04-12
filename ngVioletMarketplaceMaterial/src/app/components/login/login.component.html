@@ -1,25 +1,21 @@
 <div class="container-fluid d-flex justify-content-center align-items-center">
     <div class="login-container d-flex flex-column align-items-center" color="primary">
-        <h2 class="login-header" >Welcome back! Please sign in.</h2>
-        <form class="form-container d-flex flex-column">
-            <p class="form-field">
-                <mat-form-field appearance="outline">
-                    <mat-label>Username</mat-label>
-                    <input name='username' matInput [(ngModel)]="loginUser.username">
-                    <button class="clear" *ngIf="loginUser.username" matSuffix mat-icon-button aria-label="Clear" (click)="loginUser.username=''">
-                        <mat-icon [color]="'white'">clear</mat-icon>
-                    </button>
-                </mat-form-field>
-            </p>
-            <p class="form-field">
-                <mat-form-field  appearance="outline">
-                <mat-label >Password</mat-label>
+        <h2 class="login-header">Welcome back! Please sign in.</h2>
+        <form class="form-container d-flex flex-column align-items-center">
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Username</mat-label>
+                <input name='username' matInput [(ngModel)]="loginUser.username">
+                <button class="clear" *ngIf="loginUser.username" matSuffix mat-icon-button aria-label="Clear" (click)="loginUser.username=''">
+                    <mat-icon [color]="'white'">clear</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Password</mat-label>
                 <input name="password" [(ngModel)]="loginUser.password" matInput [type]="'password'">
                 <button class="clear" *ngIf="loginUser.password" matSuffix mat-icon-button aria-label="Clear" (click)="loginUser.password=''">
                     <mat-icon [color]="'white'">clear</mat-icon>
                 </button>
-                </mat-form-field>
-            </p>
+            </mat-form-field>
             <button (click)="login()" class="submit-button" type="submit" mat-raised-button color="primary">
                 Sign In
             </button>
@@ -27,11 +23,13 @@
                 <button class="google-button social-icon" mat-button style="font-size: 32px">
                     <em style="color: rgb(170, 167, 167);" class="bi bi-google"></em>
                 </button>
-                <button class="coinbase-button social-icon" mat-button >
-                    <svg-icon src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Coinbase.svg" [class]="'meta-icon'"  [svgStyle]="{ 'fill-rule':'evenodd', 'background-color':'transparent', 'width.px': 48, 'height.px':48}"></svg-icon>
+                <button class="coinbase-button social-icon" mat-button>
+                    <svg-icon src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Coinbase.svg" [class]="'meta-icon'"
+                        [svgStyle]="{ 'fill-rule':'evenodd', 'background-color':'transparent', 'width.px': 48, 'height.px':48}"></svg-icon>
                 </button>
                 <button class="metamask-button social-icon" mat-button>
-                    <svg-icon src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" [class]="'metamask-icon'"  [svgStyle]="{ 'background-color':'transparent', 'width.px':40, 'height.px':40}"></svg-icon>
+                    <svg-icon src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" [class]="'metamask-icon'"
+                        [svgStyle]="{ 'background-color':'transparent', 'width.px':40, 'height.px':40}"></svg-icon>
                 </button>
             </div>
         </form>
