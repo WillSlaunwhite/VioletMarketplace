@@ -1,5 +1,45 @@
-<div class="container-fluid d-flex justify-content-center align-items-center">
-  <div class="register-container gradient-light d-flex flex-column bg-transparent text-white">
-    <h2 class="register-header">Welcome! Finish creating your account. </h2>
+<!-- Registration Page HTML Template -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card gradient-light text-white">
+        <div class="card-header">
+          <h4 class="text-center">Registration</h4>
+        </div>
+        <div class="card-body">
+          <form>
+            <!-- Email Field -->
+            <mat-form-field [ngClass]="{'white-text': true}" class="w-100">
+              <mat-label>Email</mat-label>
+              <input matInput type="email" placeholder="Email" [(ngModel)]="registerUser.email" (ngModelChange)="registerUser.email" name="email" required>
+            </mat-form-field>
+
+            <!-- Username Field -->
+            <mat-form-field class="w-100" color="secondary">
+              <mat-label>Username</mat-label>
+              <input matInput placeholder="Username" [(ngModel)]="registerUser.username" (ngModelChange)="registerUser.username" name="username" required>
+            </mat-form-field>
+
+            <!-- Password Field -->
+            <mat-form-field class="w-100">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" placeholder="Password" [(ngModel)]="registerUser.password" name="password" required>
+            </mat-form-field>
+
+            <!-- Confirm Password Field -->
+            <mat-form-field class="w-100">
+              <mat-label>Confirm Password</mat-label>
+              <input matInput type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+            </mat-form-field>
+
+            <!-- Password Match Error -->
+            <div *ngIf="registerUser.password != confirmPassword" class="text-danger">Passwords do not match</div>
+
+            <!-- Register Button -->
+            <button mat-button [ngStyle]="'background-color': 'transparent'" class="w-100 mt-4 shadow-none" (click)="register()">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

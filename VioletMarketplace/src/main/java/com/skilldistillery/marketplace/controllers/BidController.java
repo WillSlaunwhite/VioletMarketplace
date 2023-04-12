@@ -21,7 +21,7 @@ import com.skilldistillery.marketplace.services.TokenTxService;
 @RestController
 @RequestMapping("api")
 @CrossOrigin({ "*", "http://localhost:4301" })
-public class BidController {
+public class 	BidController {
 
 	@Autowired
 	private TokenTxService txSvc;

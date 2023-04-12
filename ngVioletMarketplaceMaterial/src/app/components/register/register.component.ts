@@ -9,6 +9,8 @@ import {
   query,
 } from '@angular/animations';
 import User from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -46,8 +48,33 @@ import User from 'src/app/models/user';
   ],
 })
 export class RegisterComponent implements OnInit {
-  constructor() {}
-  registerUser: User | null = null;
-
+  constructor(private authService: AuthService, private router: Router) {}
+  registerUser: User = new User();
+  confirmPassword: string | null = '';
+  textColor = 'white';
   ngOnInit(): void {}
+
+  register(): void {
+    this.authService.register(this.registerUser).subscribe(
+      (success) => {
+        this.loginNewUser(this.registerUser);
+      },
+      (error) => {
+        console.error(
+          'RegisterComponent.register(): registration failed\n' + error
+        );
+      }
+    );
+  }
+
+  loginNewUser(user: User): void {
+    this.authService.login(user.username, user.password).subscribe(
+      (success) => {
+        this.router.navigateByUrl('/home');
+      },
+      (error) => {
+        console.error('RegisterComponent.loginNewUser: login failed\n' + error);
+      }
+    );
+  }
 }

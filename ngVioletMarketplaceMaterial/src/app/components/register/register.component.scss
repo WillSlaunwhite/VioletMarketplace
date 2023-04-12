@@ -4,25 +4,42 @@
   text-align: center;
 }
 
-.carousel-container {
-  display: flex;
-  align-items: center;
+
+
+
+
+
+
+
+// HANDLING THE PLACEHOLDER TEXT AND DECORATIONS
+// AS WELL AS AUTOFILL BACKGROUND
+
+mat-label,
+input,
+mat-hint,
+mat-form-field,
+::placeholder,
+.mat-form-field-required-marker {
+  color: white;
+  font-size: x-large;
+  // font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Poppin, sans-serif;
+  font-weight: 300;
+  caret-color: white !important;
+  text-decoration: white;
 }
 
-.carousel-slider {
-  display: flex;
-  transition: transform 300ms ease-in-out;
-  overflow: hidden;
-  white-space: nowrap;
+mat-button {
+  transition: none !important;
+  box-shadow: none !important;
 }
 
-.carousel-card {
-  flex: 0 0 100%;
-  padding: 16px;
-  background-color: lightgray;
-  opacity: 0.5;
-}
-
-.carousel-card.active {
-  opacity: 1;
+// CHANGES BACKGROUND OF AUTOFILL AND AUTOFILL TEXT (sort of, Chrome has issues
+// when hovering over suggestions.
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important;
 }
