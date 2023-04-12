@@ -1,3 +1,28 @@
-.container-fluid {
-  height: 100vh;
+.register-container {
+  width: 60%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+}
+
+.carousel-slider {
+  display: flex;
+  transition: transform 300ms ease-in-out;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.carousel-card {
+  flex: 0 0 100%;
+  padding: 16px;
+  background-color: lightgray;
+  opacity: 0.5;
+}
+
+.carousel-card.active {
+  opacity: 1;
 }
