@@ -389,7 +389,7 @@ USE `nftdb`;
 -- INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (2, 'Princess Luna', 'Honest, brave', 'rare', '2019-07-15 10:10:10', 199, 1, 2, 1, 2, 'https://i.imgur.com/ZrKjIWb.jpg');
 INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (1, 'Pinkie Pie', 'Fashionable', 'rare', '2021-10-05 10:10:10', 200, 1, 3, 1, 3, 'https://i.imgur.com/boDxU4a.jpg');
 INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (2, 'Granny Smith', 'Friendly, Sweet', 'rare', '2018-03-05 10:10:10', 350, 1, 4, 1, 4, 'https://i.imgur.com/1cDuhpI.jpg');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (3, 'Applejack', 'Silly, Upbeat', 'rare', '2021-01-03 10:10:10', 980, 1, 5, 1, 5, 'assets/icons/other_token_images/applejack.png');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (3, 'Applejack', 'Silly, Upbeat', 'rare', '2021-01-03 10:10:10', 980, 1, 5, 1, 5, 'assets/other_token_images/applejack.png');
 
 
 -- MOVIES

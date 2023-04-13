@@ -1,54 +1,76 @@
-li { flex:1; list-style-type: none; margin: 1.5rem; }
-ul { margin: 0; padding: 0;}
-.mat-divider { border-top-color: #b6b6b6; width: 15rem;}
-.navbar { padding: 0; margin: 0; }
-
 .sidenav-container {
   width: 15rem;
-  height: calc(100vh - 15%);
+  height: calc(100vh - 10%);
   border-radius: 8px;
   margin: 1.5em 0;
-}
+  position: sticky;
 
-.nav-items {
-  color: var(--text-primary) ;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100% !important;
-}
 
-li:first-of-type {
-  margin: 2rem 0 0 !important;
-}
+  .navbar {
+    padding: 0;
+    margin: 0;
 
-.link-text {
-  font-size: 1.4rem;
-  font-weight: 300;
-  color: #b6b6b6;
-  transition: ease-in .25s;
-  &:hover {
-    transition: ease-out .5s;
-    color: #ececec;
-  }
-}
+    .user-image {
+      height: 13rem;
+      width: 13rem;
+      margin: 1.25rem;
+      margin-inline: auto;
+      border-radius: 6px;
+    }
 
-.user-image {
-  height: 13rem;
-  width: 13rem;
-  margin: 1.25rem;
-  margin-inline: auto;
-  border-radius: 6px;
-}
+    .nav-items {
+      color: var(--text-primary);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+      gap: 2rem;
+      width: 100% !important;
+    }
 
-fa-icon {
-  padding-inline: 1rem;
-  color: #b6b6b6;
-  transition: ease-in .25s;
-  &:hover {
-    transition: ease-out .5s;
-    color: #ececec;
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        flex: 1;
+        list-style-type: none;
+        margin: 1.5rem;
+
+        .link-text {
+          font-size: 1.4rem;
+          font-weight: 300;
+          color: #b6b6b6;
+          transition: ease-in .25s;
+
+          &:hover {
+            transition: ease-out .5s;
+            color: #ececec;
+          }
+        }
+
+        .icons {
+          fa-icon {
+            padding-inline: 1em;
+            color: #b6b6b6;
+            transition: ease-in .25s;
+
+            &:hover {
+              transition: ease-out .5s;
+              color: #ececec;
+            }
+          }
+        }
+      }
+
+      li:first-of-type {
+        margin: 2rem 0 0 !important;
+      }
+
+      .mat-divider {
+        border-top-color: #b6b6b6;
+        width: 15rem;
+      }
+    }
   }
 }
