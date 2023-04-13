@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.skilldistillery.marketplace.services.BidService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,7 +25,7 @@ import com.skilldistillery.marketplace.services.TokenTxService;
 public class 	BidController {
 
 	@Autowired
-	private TokenTxService txSvc;
+	private BidService bidService;
 
 
 	
@@ -35,13 +36,13 @@ public class 	BidController {
 	///// GET ALL BIDS FOR A TOKEN
 	@GetMapping("bids/{tokenId}")
 	public List<Bid> tokenBids(HttpServletRequest req, HttpServletResponse resp, @PathVariable int tokenId) {
-		return txSvc.userBids(tokenId);
+		return bidService.userBids(tokenId);
 	}
 
 	///// GET A ALL BIDS FOR A USER
 	@GetMapping("bids/{userId}")
 	public List<Bid> userBids(HttpServletRequest req, HttpServletResponse resp, @PathVariable int userId) {
-		return txSvc.userBids(userId);
+		return bidService.userBids(userId);
 	}
 
 	
@@ -60,7 +61,7 @@ public class 	BidController {
 	// POST NEW BID
 	@PostMapping("bids")
 	public Bid create(HttpServletRequest req, HttpServletResponse resp, @RequestBody Bid bid) {
-		txSvc.create(bid);
+		bidService.create(bid);
 		if (bid == null) {
 			resp.setStatus(404);
 		}
@@ -76,7 +77,7 @@ public class 	BidController {
 	//	DELETE BID BY BID ID
 	@DeleteMapping("bids/delete/{bidId}")
 	public void destroyBid(HttpServletResponse res, HttpServletRequest req, @PathVariable int bidId) {
-		if (txSvc.destroyBid(bidId)) {
+		if (bidService.destroyBid(bidId)) {
 			res.setStatus(204);
 		} else {
 			res.setStatus(401);

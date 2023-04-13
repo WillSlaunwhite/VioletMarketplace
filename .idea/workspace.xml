@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e3deb8b0-afe8-456f-926b-da4a71d921a2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ngVioletMarketplaceMaterial/src/app/components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ngVioletMarketplaceMaterial/src/app/components/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ngVioletMarketplaceMaterial/src/app/components/navbar/navbar.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ngVioletMarketplaceMaterial/src/app/components/navbar/navbar.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ngVioletMarketplaceMaterial/src/app/components/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ngVioletMarketplaceMaterial/src/app/components/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ngVioletMarketplaceMaterial/src/app/components/register/register.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ngVioletMarketplaceMaterial/src/app/components/register/register.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VioletMarketplace/src/main/java/com/skilldistillery/marketplace/controllers/BidController.java" beforeDir="false" afterPath="$PROJECT_DIR$/VioletMarketplace/src/main/java/com/skilldistillery/marketplace/controllers/BidController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VioletMarketplace/src/main/java/com/skilldistillery/marketplace/services/TokenTxService.java" beforeDir="false" afterPath="$PROJECT_DIR$/VioletMarketplace/src/main/java/com/skilldistillery/marketplace/services/TokenTxService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VioletMarketplace/src/main/java/com/skilldistillery/marketplace/services/TokenTxServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/VioletMarketplace/src/main/java/com/skilldistillery/marketplace/services/TokenTxServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +54,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -74,6 +74,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2LsjHO1WUrNMwDJnItgX99XYPlc" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
