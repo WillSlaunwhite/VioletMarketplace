@@ -22,8 +22,7 @@ public class TokenServiceImpl implements TokenService {
 	
 	@Override
 	public Set<Token> index() {
-		Set<Token> tokens = new HashSet<Token>();
-		tokens.addAll(tokenRepo.findByOfferedTrue());
+		Set<Token> tokens = new HashSet<>(tokenRepo.findByOfferedTrue());
 		return tokens;
 	}
 	

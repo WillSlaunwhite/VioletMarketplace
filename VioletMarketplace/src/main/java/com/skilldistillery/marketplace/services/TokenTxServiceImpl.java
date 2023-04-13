@@ -1,6 +1,6 @@
 package com.skilldistillery.marketplace.services;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class TokenTxServiceImpl implements TokenTxService {
     private TokenTxRepository tokenRepo;
 
     @Override
-    public List<TokenTx> userIndex(int userId) {
+    public Set<TokenTx> userIndex(int userId) {
 
         return tokenRepo.findByUser(userId);
     }
@@ -24,12 +24,12 @@ public class TokenTxServiceImpl implements TokenTxService {
     }
 
     @Override
-    public List<TokenTx> buyerTransfers(int buyerId) {
+    public Set<TokenTx> buyerTransfers(int buyerId) {
         return tokenRepo.findByBuyer(buyerId);
     }
 
     @Override
-    public List<TokenTx> sellerTransfers(int sellerId) {
+    public Set<TokenTx> sellerTransfers(int sellerId) {
         return tokenRepo.findBySeller(sellerId);
     }
 
@@ -41,31 +41,4 @@ public class TokenTxServiceImpl implements TokenTxService {
         return transfer;
     }
 
-
-//	@Override
-//	public Token create(String username, Token token) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public Set<Token> index(String username) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public boolean destroy(String username, int tid) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//
-//	@Override
-//	public Token update(String ownerName, String buyerName, int tid, Token token) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//
-//
 }
