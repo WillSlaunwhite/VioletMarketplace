@@ -11,6 +11,7 @@ import {
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -48,12 +49,38 @@ import { Router } from '@angular/router';
   ],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
   registerUser: User = new User();
   confirmPassword: string | null = '';
-  textColor = 'white';
-  ngOnInit(): void {}
+  registerForm: FormGroup = new FormGroup({});
+  registering: boolean = false;
+  ngOnInit(): void {
+    // Initialize register form with validation
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
 
+  onRegister(): void {
+    if (this.registerForm.valid) {
+      // Perform register logic here, e.g. send data to server
+      this.registering = true;
+      setTimeout(() => {
+        // Simulate register success
+        this.registering = false;
+        // Reset form
+        this.registerForm.reset();
+      }, 2000);
+    }
+  }
   register(): void {
     this.authService.register(this.registerUser).subscribe(
       (success) => {

@@ -1,6 +1,13 @@
 // TOP LEVEL ELEMENT CHANGES
-a {  text-decoration: none; font-weight: 300; color: white;  }
-input {  background: transparent; }
+a {
+  text-decoration: none;
+  font-weight: 300;
+  color: white;
+}
+
+input {
+  background: transparent;
+}
 
 // TOP LEVEL NAVBAR
 .toolbar {
@@ -34,10 +41,9 @@ input {  background: transparent; }
 .search {
   width: 40%;
   color: rgba(255, 255, 255, 0.666);
-  border-radius: 4px;
   margin-top: 10px;
 
-  &.search:focus{
+  &.search:focus {
     color: white;
   }
 }
@@ -60,7 +66,7 @@ input {  background: transparent; }
   &.mat-button:hover {
     transition: ease .25s;
     transform: scale(1.05);
-    color:white;
+    color: white;
     text-decoration: underline;
     text-underline-offset: 10px;
     text-decoration-thickness: .01rem;
@@ -82,4 +88,3 @@ input {  background: transparent; }
 .active {
   color: white;
 }
-
