@@ -27,19 +27,6 @@ public class AuthServicImpl implements AuthService {
 			user.setEnabled(true);
 			user.setRole("user");
 			
-			
-//			may have to set these field for user to persist
-//			private String biography;
-//			
-//			@Column(name="created_on")
-//			private LocalDateTime createdOn;
-//			
-//			@Column(name="display_name")
-//			private String displayName;
-//			
-//			@Column(name="picture_url")
-//			private String pictureUrl;
-
 			userRepo.saveAndFlush(user);
 			return user;
 		}
