@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,34 +42,62 @@ public class TokenTxController {
 
     //	GET ALL TRANSFERS WHERE USER IS SELLER
     @GetMapping("transfers/seller/{userId}")
-    public Set<TokenTx> sellerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
-                                             @PathVariable int userId) {
-        return txSvc.sellerTransfers(userId);
+    public ResponseEntity<Set<TokenTx>> sellerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
+                                                             @PathVariable int userId) {
+        try {
+            Set<TokenTx> txList = txSvc.sellerTransfers(userId);
+            if (txList.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok(txList);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     // GET ALL TRANSFERS WHERE USER IS BUYER
     @GetMapping("transfers/buyer/{userId}")
-    public Set<TokenTx> buyerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
-                                             @PathVariable int userId) {
-        return txSvc.sellerTransfers(userId);
+    public ResponseEntity<Set<TokenTx>> buyerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
+                                                            @PathVariable int userId) {
+        try {
+            Set<TokenTx> txList = txSvc.buyerTransfers(userId);
+            if (txList.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok(txList);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
-
     //		GET ALL TRANSFERS FOR USER REGARDLESS OF ROLE
     @GetMapping("transfers/{userId}")
-    public Set<TokenTx> index(HttpServletRequest req, HttpServletResponse resp, @PathVariable int userId) {
-        return txSvc.userIndex(userId);
+    public ResponseEntity<Set<TokenTx>> index(HttpServletRequest req, HttpServletResponse resp,
+                                              @PathVariable int userId) {
+        try {
+            Set<TokenTx> txList = txSvc.userIndex(userId);
+            if (txList.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+            return ResponseEntity.ok(txList);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
-
     /////////////// POST METHODS ///////////////////
 
     //	POST NEW TRANSFER
     @PostMapping("transfers")
-    public TokenTx create(HttpServletRequest req, HttpServletResponse resp, @RequestBody TokenTx transfer) {
-        txSvc.create(transfer);
-        if (transfer == null) {
-            resp.setStatus(404);
+    public ResponseEntity<TokenTx> create(HttpServletRequest req, HttpServletResponse resp,
+                                          @RequestBody TokenTx transfer) {
+        try {
+            if (transfer == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            txSvc.create(transfer);
+            return ResponseEntity.status(HttpStatus.CREATED).body(transfer);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-        return transfer;
     }
 
 
