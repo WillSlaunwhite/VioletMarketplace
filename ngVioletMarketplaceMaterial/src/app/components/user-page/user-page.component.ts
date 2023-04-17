@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { secretKey } from 'key';
 import { throwError } from 'rxjs';
 import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
@@ -13,6 +14,10 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./user-page.component.scss'],
 })
 export class UserPageComponent implements OnInit {
+  // COIN BASE API KEY
+  publicKey = 'RKgBiI3QrJDhUNPD';
+  secretKey = secretKey;
+
   editProfile: boolean = false;
   user: User = new User();
   username: string | null = '';
@@ -56,13 +61,17 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = this.auth.getUsername();
-    if (this.username != null && this.username != '') {
-      this.auth.getUser(this.username).subscribe({
+    console.log(this.auth.getUsername());
+
+    if (this.auth.getUsername() != null && this.auth.getUsername() != '') {
+      console.log('hello');
+      this.auth.getUser(this.auth.getUsername()!).subscribe({
         next: (user) => {
           this.user = user;
           this.tokenSvc.getByUsername(user.username).subscribe({
             next: (tokens) => {
               this.tokens = tokens;
+              console.log('hello' + tokens);
             },
             error: (err) => {
               console.error('UserComponent.init(): error getting user tokens');

@@ -29,9 +29,9 @@
       <mat-card-title>My NFT Collection</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <div *ngFor="let nft of nfts">
+      <div *ngFor="let nft of tokens">
         <p>{{nft.name}}</p>
-        <img [src]="nft.image" alt="{{nft.name}}" />
+        <img [src]="nft.tokenLocation" alt="{{nft.name}}" />
       </div>
     </mat-card-content>
 
