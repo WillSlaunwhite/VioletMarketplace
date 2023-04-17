@@ -36,7 +36,6 @@ p {
   // background: -moz-linear-gradient(top, #471D90, #524888);
   // background: linear-gradient(to bottom, #471D90, #524888);
 
-
   overflow-x: hidden !important;
   overflow-y: hidden;
   border-radius: 15px;
@@ -96,12 +95,14 @@ input {
   font-size: x-large;
   padding: .25em 0;
   margin-bottom: 1em;
+
+  &:hover {
+    transition: ease .4s;
+    transform: scale(1.015);
+  }
 }
 
-.submit-button:hover {
-  transition: ease .4s;
-  transform: scale(1.015);
-}
+
 
 .google-button:hover em {
   transition: .2s;
@@ -135,6 +136,9 @@ svg-icon {
 }
 
 
+
+
+
 // CHANGES INPUT BORDER COLOR
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: gray !important;
@@ -150,10 +154,6 @@ svg-icon {
 }
 
 
-
-
-
-
 // CHANGES BACKGROUND OF AUTOFILL AND AUTOFILL TEXT (sort of, Chrome has issues
 // when hovering over suggestions.
 
@@ -165,13 +165,3 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: white;
   -webkit-text-size-adjust: 50%;
 }
-
-// input:-webkit-autofill::first-line,
-// input:-webkit-autofill,
-// input:-webkit-autofill:hover,
-// input:-webkit-autofill:focus,
-// input:-webkit-autofill:active {
-//   font-size: xx-large !important;
-//   font-family: Georgia, 'Times New Roman', Times, serif;
-//   font-weight: 300;
-// }

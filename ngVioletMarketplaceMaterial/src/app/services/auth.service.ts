@@ -5,15 +5,13 @@ import { environment } from 'src/environments/environment';
 import User from '../models/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   private baseUrl = environment.baseUrl;
   private url = this.baseUrl + 'api/user';
-
 
   getUser(username: string): Observable<User> {
     return this.http.get<User>(`${this.url}/${username}`).pipe(
@@ -28,7 +26,7 @@ export class AuthService {
     let credentials = this.getCredentials();
     let options = {
       headers: {
-        "Content-type": "application/json",
+        'Content-type': 'application/json',
         'X-Requestd-With': 'XMLHttpRequest',
         Authorization: `Basic ${credentials}`,
       },
@@ -41,7 +39,9 @@ export class AuthService {
     return this.http.post(this.baseUrl + 'register', user).pipe(
       catchError((err: any) => {
         console.log(err);
-        return throwError( () => 'AuthService.register(): error registering user.');
+        return throwError(
+          () => 'AuthService.register(): error registering user.'
+        );
       })
     );
   }
@@ -53,7 +53,7 @@ export class AuthService {
     const httpOptions = {
       headers: new HttpHeaders({
         Authorization: `Basic ${credentials}`,
-        'X-Requested-With': 'XMLHttpRequest'
+        'X-Requested-With': 'XMLHttpRequest',
       }),
     };
 
@@ -61,13 +61,15 @@ export class AuthService {
     return this.http.get(this.baseUrl + 'authenticate', httpOptions).pipe(
       tap((res) => {
         localStorage.setItem('credentials', credentials);
+        localStorage.setItem('username', username);
       }),
       catchError((err: any) => {
         console.error(err);
-        return throwError(() => new Error('AuthService.login(): Error logging in.'));
+        return throwError(
+          () => new Error('AuthService.login(): Error logging in.')
+        );
       })
-    )
-
+    );
   }
 
   logout() {
