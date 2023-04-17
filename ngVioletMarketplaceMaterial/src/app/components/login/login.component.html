@@ -2,16 +2,16 @@
   <div class="login-container d-flex flex-column align-items-center" color="primary">
     <h2 class="login-header">Welcome back! Please sign in.</h2>
     <form class="form-container d-flex flex-column align-items-center">
-      <mat-form-field class="form-field" appearance="outline">
+      <mat-form-field class="form-field">
         <mat-label>Username</mat-label>
         <input name='username' matInput [(ngModel)]="loginUser.username">
         <button class="clear" *ngIf="loginUser.username" matSuffix mat-icon-button aria-label="Clear" (click)="loginUser.username=''">
           <mat-icon [color]="'white'">clear</mat-icon>
         </button>
       </mat-form-field>
-      <mat-form-field class="form-field" appearance="outline">
+      <mat-form-field class="form-field">
         <mat-label>Password</mat-label>
-        <input name="password" [(ngModel)]="loginUser.password" matInput [type]="'password'">
+        <input name=" password" [(ngModel)]="loginUser.password" matInput [type]="'password'">
         <button class="clear" *ngIf="loginUser.password" matSuffix mat-icon-button aria-label="Clear" (click)="loginUser.password=''">
           <mat-icon [color]="'white'">clear</mat-icon>
         </button>
