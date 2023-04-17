@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { secretKey } from 'key';
-import { throwError } from 'rxjs';
+import { filter, forkJoin, switchMap, throwError } from 'rxjs';
 import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
@@ -61,28 +61,68 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = this.auth.getUsername();
-    console.log(this.auth.getUsername());
-
-    if (this.auth.getUsername() != null && this.auth.getUsername() != '') {
-      console.log('hello');
-      this.auth.getUser(this.auth.getUsername()!).subscribe({
-        next: (user) => {
+    this.auth
+      .getUser(this.username!)
+      .pipe(
+        switchMap((username) =>
+          forkJoin([
+            this.auth.getUser(username.username),
+            this.tokenSvc.getByUsername(username.username),
+          ])
+        )
+      )
+      .subscribe({
+        next: ([user, tokens]: [User, Token[]]) => {
           this.user = user;
-          this.tokenSvc.getByUsername(user.username).subscribe({
-            next: (tokens) => {
-              this.tokens = tokens;
-              console.log('hello' + tokens);
-            },
-            error: (err) => {
-              console.error('UserComponent.init(): error getting user tokens');
-            },
-          });
+          this.tokens = tokens;
         },
         error: (err) => {
-          console.error('UserComponent.init(): error getting User:\n' + err);
+          console.error(
+            'UserComponent.init(): error getting User and tokens:\n' + err
+          );
         },
       });
-    }
+
+    //    v2
+    // if (this.username) {
+    //   this.auth
+    //     .getUser(this.username)
+    //     .pipe(switchMap((user) => this.tokenSvc.getByUsername(user.username)))
+    //     .subscribe({
+    //       next: (tokens) => {
+    //         this.tokens = tokens;
+    //         console.log(tokens);
+
+    //         // You may not need to set this.user separately, depending on your use case
+    //         // this.user = this.auth.getUser(this.username!).getValue();
+    //       },
+    //       error: (err) => {
+    //         console.error(
+    //           'UserComponent.init(): error getting User and tokens:\n' + err
+    //         );
+    //       },
+    //     });
+    // }
+
+    //    v1
+    // if (this.auth.getUsername() != null && this.auth.getUsername() != '') {
+    //   this.auth.getUser(this.auth.getUsername()!).subscribe({
+    //     next: (user) => {
+    //       this.user = user;
+    //       this.tokenSvc.getByUsername(user.username).subscribe({
+    //         next: (tokens) => {
+    //           this.tokens = tokens;
+    //         },
+    //         error: (err) => {
+    //           console.error('UserComponent.init(): error getting user tokens');
+    //         },
+    //       });
+    //     },
+    //     error: (err) => {
+    //       console.error('UserComponent.init(): error getting User:\n' + err);
+    //     },
+    //   });
+    // }
   }
 
   onSubmit(): void {
