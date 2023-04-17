@@ -1,10 +1,15 @@
+* {
+  color: white;
+  font-family: "Nunito";
+}
+
 .container-fluid {
   height: calc(100vh - 5em);
 }
 
 .user-info-container {
   height: 90%;
-  width:95%;
+  width: 95%;
   margin: auto;
   padding-top: 2em;
   border-radius: 6px;
@@ -17,3 +22,13 @@
   background: linear-gradient(to bottom, #471D90, #5B4C75);
 }
 
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.transaction-table {
+  width: 100%;
+}

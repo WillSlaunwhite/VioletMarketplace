@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { throwError } from 'rxjs';
+import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-user-page',
@@ -13,21 +16,73 @@ export class UserPageComponent implements OnInit {
   editProfile: boolean = false;
   user: User = new User();
   username: string | null = '';
+  tokens: Token[] = [];
+
+  cryptos = [
+    // Add your user's crypto balances here
+    { name: 'Ethereum', amount: 5 },
+    { name: 'Binance Coin', amount: 10 },
+  ];
+
+  nfts = [
+    // Add your user's NFTs here
+    { name: 'NFT 1', image: 'https://example.com/nft1.png' },
+    { name: 'NFT 2', image: 'https://example.com/nft2.png' },
+  ];
+
+  transactions = [
+    // Add your user's transaction history here
+    { timestamp: '2023-04-17 12:00:00', details: 'Bought NFT 1 for 2 ETH' },
+    { timestamp: '2023-04-16 14:00:00', details: 'Sold NFT 3 for 5 BNB' },
+  ];
+
+  displayedColumns: string[] = ['timestamp', 'details'];
+
+  createForm: FormGroup;
+
   constructor(
     private auth: AuthService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+    private tokenSvc: TokenService,
+    private formBuilder: FormBuilder
+  ) {
+    this.createForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+      image: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     this.username = this.auth.getUsername();
     if (this.username != null && this.username != '') {
       this.auth.getUser(this.username).subscribe({
-        next: (user) => (this.user = user),
+        next: (user) => {
+          this.user = user;
+          this.tokenSvc.getByUsername(user.username).subscribe({
+            next: (tokens) => {
+              this.tokens = tokens;
+            },
+            error: (err) => {
+              console.error('UserComponent.init(): error getting user tokens');
+            },
+          });
+        },
         error: (err) => {
           console.error('UserComponent.init(): error getting User:\n' + err);
-        }
+        },
       });
+    }
+  }
+
+  onSubmit(): void {
+    if (this.createForm.valid) {
+      const tokenData = this.createForm.value;
+      console.log('Token data:', tokenData);
+
+      // Call the function to create the new token using the tokenData
+      // this.createToken(tokenData);
     }
   }
 }

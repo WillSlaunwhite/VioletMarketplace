@@ -26,6 +26,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularSvgIconPreloaderModule } from 'angular-svg-icon-preloader';
@@ -56,6 +57,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatSidenavModule,
     MatIconModule,
     MatInputModule,
+    MatTableModule,
     MatListModule,
     CommonModule,
     FormsModule,
