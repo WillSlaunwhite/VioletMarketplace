@@ -2,6 +2,7 @@ package com.skilldistillery.marketplace.controllers;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,50 +25,50 @@ import com.skilldistillery.marketplace.services.TokenTxService;
 
 @RestController
 @RequestMapping("api")
-@CrossOrigin({ "*", "http://localhost:4301" })
+@CrossOrigin({"*", "http://localhost:4301"})
 public class TokenTxController {
-	
-	@Autowired
-	private TokenTxService txSvc;
 
-	/*
-	 * THIS IS THE TOKEN ** TX ** CONTROLLER. ENSURE YOU MEANT TO BE HERE AND NOT
-	 * THE TOKEN CONTROLLER
-	 */
-	
-	/////////////// GET METHODS ///////////////////
+    @Autowired
+    private TokenTxService txSvc;
 
-//	GET ALL TRANSFERS WHERE USER IS SELLER
-	@GetMapping("transfers/seller/{userId}")
-	public List<TokenTx> sellerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
-			@PathVariable int userId) {
-		return txSvc.sellerTransfers(userId);
-	}
+    /*
+     * THIS IS THE TOKEN ** TX ** CONTROLLER. ENSURE YOU MEANT TO BE HERE AND NOT
+     * THE TOKEN CONTROLLER
+     */
 
-	// GET ALL TRANSFERS WHERE USER IS BUYER
-	@GetMapping("transfers/buyer/{userId}")
-	public List<TokenTx> buyerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
-			@PathVariable int userId) {
-		return txSvc.sellerTransfers(userId);
-	}
+    /////////////// GET METHODS ///////////////////
 
-//		GET ALL TRANSFERS FOR USER REGARDLESS OF ROLE 
-	@GetMapping("transfers/{userId}")
-	public List<TokenTx> index(HttpServletRequest req, HttpServletResponse resp, @PathVariable int userId) {
-		return txSvc.userIndex(userId);
-	}
+    //	GET ALL TRANSFERS WHERE USER IS SELLER
+    @GetMapping("transfers/seller/{userId}")
+    public Set<TokenTx> sellerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
+                                             @PathVariable int userId) {
+        return txSvc.sellerTransfers(userId);
+    }
 
-	/////////////// POST METHODS ///////////////////
+    // GET ALL TRANSFERS WHERE USER IS BUYER
+    @GetMapping("transfers/buyer/{userId}")
+    public Set<TokenTx> buyerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
+                                             @PathVariable int userId) {
+        return txSvc.sellerTransfers(userId);
+    }
 
-//	POST NEW TRANSFER
-	@PostMapping("transfers")
-	public TokenTx create(HttpServletRequest req, HttpServletResponse resp, @RequestBody TokenTx transfer) {
-		txSvc.create(transfer);
-		if (transfer == null) {
-			resp.setStatus(404);
-		}
-		return transfer;
-	}
+    //		GET ALL TRANSFERS FOR USER REGARDLESS OF ROLE
+    @GetMapping("transfers/{userId}")
+    public Set<TokenTx> index(HttpServletRequest req, HttpServletResponse resp, @PathVariable int userId) {
+        return txSvc.userIndex(userId);
+    }
+
+    /////////////// POST METHODS ///////////////////
+
+    //	POST NEW TRANSFER
+    @PostMapping("transfers")
+    public TokenTx create(HttpServletRequest req, HttpServletResponse resp, @RequestBody TokenTx transfer) {
+        txSvc.create(transfer);
+        if (transfer == null) {
+            resp.setStatus(404);
+        }
+        return transfer;
+    }
 
 
 }

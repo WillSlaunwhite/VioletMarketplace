@@ -10,9 +10,10 @@ import {
 } from '@angular/animations';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { slideInAnimation } from 'src/app/animations/animations';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -30,7 +31,8 @@ export class RegisterComponent implements OnInit {
   confirmPassword: string | null = '';
   registerForm: FormGroup = new FormGroup({});
   registering: boolean = false;
-  animationData = '/home';
+  animationData = '';
+  animationDataValue = '';
 
   ngOnInit(): void {
     // Initialize register form with validation
