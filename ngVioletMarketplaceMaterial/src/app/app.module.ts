@@ -14,7 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -59,6 +59,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatListModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,

@@ -1,4 +1,4 @@
-<section class="sidenav-container gradient-light">
+<section [@routeAnimations]="animationData" class="sidenav-container gradient-light">
   <nav class="navbar">
     <img class="user-image" src="https://i.imgur.com/B0lPG6X.jpg">
 
@@ -35,8 +35,8 @@
 
       <li class="nav-item">
         <span class="icons">
-          <fa-icon [icon]="faGithub" size="2x"></fa-icon>
-          <fa-icon [icon]="faLinkedin" size="2x"></fa-icon>
+          <a href="https://github.com/willslaunwhite/violetmarketplace"><fa-icon [icon]="faGithub" size="2x"></fa-icon></a>
+          <a href="https://linkedin.com/in/willslaunwhite"><fa-icon [icon]="faLinkedin" size="2x"></fa-icon></a>
           <fa-icon [icon]="faFile" size="2x"></fa-icon>
         </span>
       </li>

@@ -1,10 +1,8 @@
 .sidenav-container {
   width: 15rem;
-  height: calc(100vh - 10%);
+  height: calc(100vh - 15%);
   border-radius: 8px;
   margin: 1.5em 0;
-  position: sticky;
-
 
   .navbar {
     padding: 0;
@@ -24,7 +22,7 @@
       justify-content: space-around;
       align-items: center;
       flex-direction: column;
-      gap: 2rem;
+      gap: 3rem;
       width: 100% !important;
     }
 
@@ -35,7 +33,6 @@
       li {
         flex: 1;
         list-style-type: none;
-        margin: 1.5rem;
 
         .link-text {
           font-size: 1.4rem;
@@ -64,7 +61,11 @@
       }
 
       li:first-of-type {
-        margin: 2rem 0 0 !important;
+        margin-top: 2rem;
+      }
+
+      li:last-of-type {
+        margin-top: 3rem;
       }
 
       .mat-divider {

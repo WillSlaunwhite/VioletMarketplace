@@ -12,41 +12,13 @@ import User from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { slideInAnimation } from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  animations: [
-    trigger('slideAnimation', [
-      transition(':increment', [
-        query(':enter, :leave', [style({ transform: 'translateX(0%)' })]),
-        query(':leave', [
-          animate(
-            '300ms ease-in-out',
-            style({ transform: 'translateX(-100%)' })
-          ),
-        ]),
-        query(':enter', [
-          style({ transform: 'translateX(100%)' }),
-          animate('300ms ease-in-out', style({ transform: 'translateX(0%)' })),
-        ]),
-      ]),
-      transition(':decrement', [
-        query(':enter, :leave', [style({ transform: 'translateX(0%)' })]),
-        query(':leave', [
-          animate(
-            '300ms ease-in-out',
-            style({ transform: 'translateX(100%)' })
-          ),
-        ]),
-        query(':enter', [
-          style({ transform: 'translateX(-100%)' }),
-          animate('300ms ease-in-out', style({ transform: 'translateX(0%)' })),
-        ]),
-      ]),
-    ]),
-  ],
+  animations: [slideInAnimation],
 })
 export class RegisterComponent implements OnInit {
   constructor(
@@ -58,6 +30,8 @@ export class RegisterComponent implements OnInit {
   confirmPassword: string | null = '';
   registerForm: FormGroup = new FormGroup({});
   registering: boolean = false;
+  animationData = '/home';
+
   ngOnInit(): void {
     // Initialize register form with validation
     this.registerForm = this.formBuilder.group({
