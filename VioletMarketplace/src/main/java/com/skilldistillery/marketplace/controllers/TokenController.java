@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,17 +35,25 @@ public class TokenController {
 	
 	
 	/////////////// UNAUTH METHODS ///////////////////
-	
-	
+
+
 
 //	return all tokens
-	@GetMapping("home/tokens")
-	public Set<Token> indexHome(HttpServletRequest req,
-			HttpServletResponse resp) {
-		return tokenSvc.index();
+@GetMapping("home/tokens")
+public ResponseEntity<Set<Token>> indexHome(HttpServletRequest req, HttpServletResponse resp) {
+	try {
+		Set<Token> tokenList = tokenSvc.index();
+		if (tokenList.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(tokenList);
+	} catch (Exception e) {
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 	}
+}
 
-//	find non-principal user's tokens index method
+
+	//	find non-principal user's tokens index method
 	@GetMapping("tokens/user/{username}")
 	public Set<Token> indexNonPrincipal(HttpServletRequest req,
 			HttpServletResponse resp,
