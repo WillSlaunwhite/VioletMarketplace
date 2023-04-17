@@ -4,6 +4,11 @@
   text-align: center;
 }
 
+app-sidenav {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
 
 
 
@@ -31,33 +36,6 @@
 }
 
 /* Animation styles for the register button */
-@keyframes pulse {
-  0% {
-    transform: scale(0.9);
-  }
-
-  50% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(0.9);
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
-
-
 
 
 

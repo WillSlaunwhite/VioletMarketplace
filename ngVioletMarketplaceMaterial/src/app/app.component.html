@@ -3,6 +3,6 @@
   <title></title>
 </head>
 <app-navbar></app-navbar>
-<main>
-  <router-outlet></router-outlet>
-</main>
+<div>
+  <router-outlet #outlet="outlet" [@routeAnimations]="animationData"></router-outlet>
+</div>
