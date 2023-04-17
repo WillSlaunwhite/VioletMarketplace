@@ -9,6 +9,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { slideInTop } from 'src/app/animations/animations';
 import { AppComponent } from 'src/app/app.component';
 import Token from 'src/app/models/token';
 import { AuthService } from 'src/app/services/auth.service';
@@ -18,6 +19,7 @@ import { TokenService } from 'src/app/services/token.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  animations: [slideInTop],
 })
 export class HomeComponent implements OnInit {
   tokens: Token[] = [];

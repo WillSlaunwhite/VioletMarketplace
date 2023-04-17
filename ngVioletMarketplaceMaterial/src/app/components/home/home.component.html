@@ -2,7 +2,7 @@
 
   <app-sidenav [animationData]="animationData"></app-sidenav>
   <div class="token-container d-flex flex-wrap">
-    <mat-card class="gradient-blue" *ngFor="let token of tokens">
+    <mat-card @slideInTop class="gradient-blue" *ngFor="let token of tokens">
       <a routerLink="/token/id/{{ token.id }}"><img mat-card-image src="{{ token.tokenLocation }}" />
         <p class="card-img-title">{{ token.name }}</p>
         <p class="card-img-description">{{ token.description }}</p>

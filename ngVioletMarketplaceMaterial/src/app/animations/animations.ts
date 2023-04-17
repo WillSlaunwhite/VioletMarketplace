@@ -7,14 +7,37 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { delay } from 'rxjs';
 
-export const slideInAnimation = trigger('routeAnimations', [
+export const slideInAnimation = trigger('slideInRight', [
   transition('* <=> *', [
     style({ transform: 'translateX(-100%)' }),
     animate('1200ms ease-in-out', style({ transform: 'translateX(0%)' })),
   ]),
-  transition(':leave', [
-    animate('5000ms ease-in-out', style({ transform: 'translateX(-100%)' })),
+
+  // transition('* <=> *', [
+  //   style({ position: 'relative' }),
+  //   query(':enter, :leave', [
+  //     style({
+  //       position: 'absolute',
+  //       top: 0,
+  //       left: 0,
+  //       width: '100%',
+  //     }),
+  //   ]),
+  //   query(':enter', [style({ left: '-100%' })]),
+  //   query(':leave', animateChild()),
+  //   group([
+  //     query(':leave', [animate('300ms ease-out', style({ left: '100%' }))]),
+  //     query(':enter', [animate('300ms ease-out', style({ left: '0%' }))]),
+  //   ]),
+  // ]),
+]);
+
+export const slideInTop = trigger('slideInTop', [
+  transition('* <=> *', [
+    style({ transform: 'translateY(-10%)' }),
+    animate('400ms ease-in', style({ transform: 'translateX(0%)' })),
   ]),
 ]);
 
