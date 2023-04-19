@@ -1,40 +1,53 @@
+img {
+  border-radius: 4px;
+  width: 16rem;
+  max-height: 14rem;
+  background-color: white;
+}
+
 h2 {
   font-weight: 300;
 }
 
 .card-container {
-
   display: flex;
-  gap: 2rem;
   margin-top: 2rem;
-  justify-content: center;
-}
+  justify-content: space-evenly;
 
-.card {
-  background-color: #413D47;
-  color: #ececec;
-  width: 20rem;
-}
+  .card {
+    /*
+    * Created with https://www.css-gradient.com
+    * Gradient link: https://www.css-gradient.com/?c1=7131d6&c2=b8a5ab&gt=l&gd=dtl
+    */
+    background: #7131D6;
+    background: linear-gradient(135deg, #B8A5AB, #7131D6);
+    color: #ececec;
+    width: 20rem;
+    filter: grayscale(.25);
+    // .mask {
+    //   position: fixed;
+    //   width: 20rem;
+    //   opacity: .4;
+    //   height: 29rem;
+    // }
 
-.links-container {
-  display: flex;
-  justify-content: space-around;
-}
 
-fa-icon {
-  transition: ease-out .3s;
-  transform: translateY(2px);
-  color: #a2a2a2;
+    .links-container {
+      display: flex;
+      justify-content: space-around;
 
-  &:hover {
-    color: #5B4C75;
-    display: inline-block;
-    transition: .5s;
-    transform: translateY(-2px);
+      fa-icon {
+        transition: ease-out .3s;
+        transform: translateY(2px);
+        color: #a2a2a2;
+
+        &:hover {
+          color: #471D90;
+          display: inline-block;
+          transition: .5s;
+          transform: translateY(-2px);
+        }
+      }
+    }
   }
-}
-
-img {
-  border-radius: 4px;
-  width: 16rem;
 }
