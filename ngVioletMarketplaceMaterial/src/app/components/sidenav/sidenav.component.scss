@@ -3,6 +3,8 @@
   height: 50rem;
   border-radius: 8px;
   margin: 1.5em 0;
+  position: fixed;
+  z-index: 2;
 
   .navbar {
     padding: 0;
