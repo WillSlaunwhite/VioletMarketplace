@@ -1,6 +1,17 @@
 //FONTS
 @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Nunito:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&family=Ubuntu:wght@300&display=swap');
 
+.dot {
+  position: absolute;
+  width: 490px;
+  height: 518px;
+  left: 1200px;
+  top: -26px;
+  border-radius: 50%;
+  background: #703737;
+  z-index: -1;
+}
+
 * {
   text-decoration: none;
   box-sizing: content-box;

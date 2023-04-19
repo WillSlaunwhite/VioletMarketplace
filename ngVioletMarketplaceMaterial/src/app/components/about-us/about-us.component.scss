@@ -1,11 +1,17 @@
+h2 {
+  font-weight: 300;
+}
+
 .card-container {
 
   display: flex;
-  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
 }
 
 .card {
-  background-color: #423c4c;
+  background-color: #413D47;
   color: #ececec;
   width: 20rem;
 }
@@ -16,14 +22,14 @@
 }
 
 fa-icon {
-  color: #471D90;
   transition: ease-out .3s;
   transform: translateY(2px);
+  color: #a2a2a2;
 
   &:hover {
+    color: #5B4C75;
     display: inline-block;
     transition: .5s;
-    color: #ececec;
     transform: translateY(-2px);
   }
 }

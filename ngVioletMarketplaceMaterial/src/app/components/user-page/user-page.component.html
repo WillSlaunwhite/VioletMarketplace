@@ -26,12 +26,12 @@
 
   <mat-card class="nft-collection-section gradient-light">
     <mat-card-header>
-      <mat-card-title>My NFT Collection</mat-card-title>
+      <mat-card-title>My Token Collection</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <div *ngFor="let nft of tokens">
-        <p>{{nft.name}}</p>
-        <img [src]="nft.tokenLocation" alt="{{nft.name}}" />
+      <div *ngFor="let token of tokens">
+        <p>{{token.name}}</p>
+        <img [src]="token.tokenLocation" alt="{{token.name}}" />
       </div>
     </mat-card-content>
 
@@ -83,3 +83,4 @@
 
   </mat-card>
 </div>
+<app-sidenav></app-sidenav>
