@@ -13,82 +13,81 @@ import com.skilldistillery.marketplace.repositories.UserRepository;
 
 @Service
 public class TokenServiceImpl implements TokenService {
-	@Autowired
-	private TokenRepository tokenRepo;
-	
-	@Autowired
-	private UserRepository userRepo;
-	
-	
-	@Override
-	public Set<Token> index() {
-		Set<Token> tokens = new HashSet<>(tokenRepo.findByOfferedTrue());
-		return tokens;
-	}
-	
-	@Override
-	public Set<Token> indexByUsername(String username) {
-		return tokenRepo.findByOwner_Username(username);
-	}
-	
-	@Override
-	public Token showByUsernameId(String username, int tid) {
-		return tokenRepo.findByOwner_UsernameAndId(username, tid);
-	}
-	
-	@Override
-	public Token showById(int tid) {
-		return tokenRepo.queryById(tid);
-	}
-	
-	@Override
-	public Token create(String username, Token token) {
-		User user = userRepo.findByUsername(username);
-		if(user != null) {
-			token.setCreator(user);
-			token.setOwner(user);
+    @Autowired
+    private TokenRepository tokenRepo;
+
+    @Autowired
+    private UserRepository userRepo;
+
+
+    @Override
+    public Set<Token> index() {
+        return new HashSet<>(tokenRepo.findByOfferedTrue());
+    }
+
+    @Override
+    public Set<Token> indexByUsername(String username) {
+        return tokenRepo.findByOwner_Username(username);
+    }
+
+    @Override
+    public Token showByUsernameId(String username, int tid) {
+        return tokenRepo.findByOwner_UsernameAndId(username, tid);
+    }
+
+    @Override
+    public Token showById(int tid) {
+        return tokenRepo.queryById(tid);
+    }
+
+    @Override
+    public Token create(String username, Token token) {
+        User user = userRepo.findByUsername(username);
+        if (user != null) {
+            token.setCreator(user);
+            token.setOwner(user);
 //			token.setCollection(collectionRepo.findById(1))   probably need collection repo
 //			token.setTransfers(transferRepo.findAll());       probably need transfer repo
-			tokenRepo.saveAndFlush(token);
-			return token;
-		} else {
-			return null;
-		}
-	}
-	
-	@Override
-	public Token update(String ownerName, String buyerName, int tid, Token token) {
-		Token existingToken = tokenRepo.findByOwner_UsernameAndId(ownerName, tid);
-		User buyer = userRepo.findByUsername(buyerName);
-		if(existingToken != null) {
-			existingToken.setId(token.getId());
-			existingToken.setName(token.getName());
-			existingToken.setDescription(token.getDescription());
-			existingToken.setOffered(token.isOffered());
-			existingToken.setPrice(token.getPrice());
-			existingToken.setRarity(token.getRarity());
-			existingToken.setReleaseDate(token.getReleaseDate());
-			existingToken.setTokenLocation(token.getTokenLocation());
-			
-			existingToken.setCollection(token.getCollection());
-			existingToken.setTransfers(token.getTransfers());
-			existingToken.setCreator(token.getCreator());
-			existingToken.setOwner(buyer);
-			tokenRepo.saveAndFlush(existingToken);
-			return existingToken;
-		}
-		return null;
-	}
-	
-	@Override
-	public boolean destroy(String username, int tid) {
-		boolean deleted = false;
-		Token token = tokenRepo.findByOwner_UsernameAndId(username, tid);
-		if(token != null) {
-			tokenRepo.delete(token);
-			deleted = true;
-		}
-		return deleted;
-	}
-	
+            tokenRepo.saveAndFlush(token);
+            return token;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public Token update(String ownerName, String buyerName, int tid, Token token) {
+        Token existingToken = tokenRepo.findByOwner_UsernameAndId(ownerName, tid);
+        User buyer = userRepo.findByUsername(buyerName);
+        if (existingToken != null) {
+            existingToken.setId(token.getId());
+            existingToken.setName(token.getName());
+            existingToken.setDescription(token.getDescription());
+            existingToken.setOffered(token.isOffered());
+            existingToken.setPrice(token.getPrice());
+            existingToken.setRarity(token.getRarity());
+            existingToken.setReleaseDate(token.getReleaseDate());
+            existingToken.setTokenLocation(token.getTokenLocation());
+
+            existingToken.setCollection(token.getCollection());
+            existingToken.setTransfers(token.getTransfers());
+            existingToken.setCreator(token.getCreator());
+            existingToken.setOwner(buyer);
+            tokenRepo.saveAndFlush(existingToken);
+            return existingToken;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean destroy(String username, int tid) {
+        boolean deleted = false;
+        Token token = tokenRepo.findByOwner_UsernameAndId(username, tid);
+        if (token != null) {
+            tokenRepo.delete(token);
+            deleted = true;
+        }
+        return deleted;
+    }
+
 }

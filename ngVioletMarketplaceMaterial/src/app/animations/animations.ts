@@ -11,7 +11,7 @@ import { delay } from 'rxjs';
 
 export const slideInAnimation = trigger('slideInRight', [
   transition('* <=> *', [
-    style({ transform: 'translateX(-100%)' }),
+    style({ transform: 'translateX(100%)' }),
     animate('1200ms ease-in-out', style({ transform: 'translateX(0%)' })),
   ]),
 
