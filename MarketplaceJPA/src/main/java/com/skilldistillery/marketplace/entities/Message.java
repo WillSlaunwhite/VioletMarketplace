@@ -40,7 +40,7 @@ public class Message {
     @ManyToOne
     @JoinColumn(name = "in_reply_to")
     private Message message;
-
+ 
     @Override
     public String toString() {
         return "Message [id=" + id + ", content=" + content + ", createdAt=" + createdAt + ", sender=" + sender
