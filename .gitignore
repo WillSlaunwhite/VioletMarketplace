@@ -12,4 +12,4 @@ bin
 VioletMarketplace/src/main/resources/static/assets/images/*
 VioletMarketplace/src/main/resources/static/assets/other_token_images/*
 .idea/*
-
+package-lock.json
