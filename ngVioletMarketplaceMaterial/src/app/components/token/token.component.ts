@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import User from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-token',
@@ -6,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./token.component.scss'],
 })
 export class TokenComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(private auth: AuthService) {}
+  user: User = new User();
+  ngOnInit(): void {
+    this.auth.getUsername();
+    this.auth.getUser(this.auth.getUsername()!).subscribe((user) => {
+      this.user = user;
+    });
+  }
 }

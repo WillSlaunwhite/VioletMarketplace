@@ -37,4 +37,14 @@ export class TokenService {
         })
       );
   }
+
+  createToken(token: Token) {
+    return this.http.post<Token>(this.baseUrl + 'api/tokens', token, this.auth.getHttpOptions()).pipe(
+      catchError((err: any) => {
+        return throwError(
+          () => new Error('TokenService.createToken: error creating Token.')
+        );
+      })
+    )
+  }
 }

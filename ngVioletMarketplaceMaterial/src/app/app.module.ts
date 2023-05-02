@@ -27,6 +27,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularSvgIconPreloaderModule } from 'angular-svg-icon-preloader';
@@ -34,6 +36,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
+import { CreateTokenComponent } from './components/create-token/create-token.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AboutUsComponent,
     SidenavComponent,
     FooterComponent,
+    CreateTokenComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatInputModule,
     MatTableModule,
     MatListModule,
+    MatSnackBarModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -68,8 +73,9 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     MatCardModule,
     MatGridListModule,
-    NgbModule,
+    MatProgressSpinnerModule,
     MatFormFieldModule,
+    NgbModule,
     AngularSvgIconModule.forRoot(),
     AngularSvgIconPreloaderModule.forRoot({
       configUrl: './assets/json/icons.json',
