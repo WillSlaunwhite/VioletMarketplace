@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-content>
+    <h2>Create a Token</h2>
+    <form [formGroup]="tokenForm" (ngSubmit)="onSubmit()" novalidate>
+      <mat-form-field appearance="outline" class="token-field">
+        <mat-label>Token Name</mat-label>
+        <input matInput formControlName="name" autocomplete="off" required />
+        <mat-error *ngIf="tokenForm.hasError('required', 'name') && tokenForm.hasError('touched', 'name')">
+          Token name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="token-field">
+        <mat-label>Token Symbol</mat-label>
+        <input matInput formControlName="description" autocomplete="off" required />
+        <mat-error *ngIf="tokenForm.hasError('required', 'description') && tokenForm.hasError('touched', 'description') ">
+          Token symbol is required
+        </mat-error>
+      </mat-form-field>
+
+      <div class="submit-btn-container">
+        <button mat-raised-button color="primary" [disabled]="tokenForm.invalid || isLoading" type="submit">
+          <mat-spinner *ngIf="isLoading" diameter="24"></mat-spinner>
+          <ng-container *ngIf="!isLoading">Create Token</ng-container>
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

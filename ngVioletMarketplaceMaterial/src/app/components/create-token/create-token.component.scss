@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+mat-card {
+  max-width: 500px;
+  width: 100%;
+  margin: 2rem;
+}
+
+.token-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.submit-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+mat-spinner {
+  margin-right: 0.5rem;
+}
