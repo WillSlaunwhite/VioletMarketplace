@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/app/services/auth.service';
 import User from 'src/app/models/user';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +15,7 @@ import User from 'src/app/models/user';
 })
 export class NavbarComponent implements OnInit {
   constructor(
+    private dialog: MatDialog,
     private breakpointObserver: BreakpointObserver,
     private auth: AuthService
   ) {}
@@ -37,7 +41,17 @@ export class NavbarComponent implements OnInit {
   }
 
 
+  openRegisterDialog(): void {
+    this.dialog.open(RegisterComponent, {
+      hasBackdrop: false
+    });
+  }
 
+  openLoginDialog(): void {
+    const config = new MatDialogConfig();
+    config.hasBackdrop = true;
+    this.dialog.open(LoginComponent, config);
+  }
 
   // isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   //   .pipe(
