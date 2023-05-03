@@ -1,0 +1,41 @@
+//FONTS
+@import url('https://fonts.googleapis.com/css2?family=Gloock&family=Nunito:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&family=Ubuntu:wght@300&display=swap');
+
+* {
+  text-decoration: none;
+  box-sizing: content-box;
+}
+
+p {
+  display: flex;
+  color: white;
+  font-weight: 300;
+  font-size: large;
+  font-family: "Nunito";
+}
+
+a {
+  border-radius: 4px;
+  font-family: "Nunito";
+}
+
+button {
+  color: white !important;
+}
+
+img {
+  background-color: white;
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0 !important;
+  font-family: "Nunito";
+  background-color: #0a0a37 !important;
+}

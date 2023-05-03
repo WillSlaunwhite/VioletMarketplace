@@ -1,0 +1,26 @@
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin transition($properties...) {
+  -webkit-transition: $properties;
+  -moz-transition: $properties;
+  -o-transition: $properties;
+  transition: $properties;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin responsive-font($minSize, $maxSize, $minViewport, $maxViewport) {
+  font-size: $minSize;
+
+  @media (min-width: $minViewport) and (max-width: $maxViewport) {
+    font-size: calc(#{$minSize} + (#{$maxSize} - #{$minSize}) * ((100vw - #{$minViewport}) / (#{$maxViewport} - #{$minViewport})));
+  }
+}

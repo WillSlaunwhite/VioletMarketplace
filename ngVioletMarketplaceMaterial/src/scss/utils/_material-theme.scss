@@ -1,0 +1,81 @@
+@import '~@angular/material/theming';
+
+// Define the custom color palettes
+$my-primary: (
+  50: #e7e2f1,
+  100: #c3b6da,
+  200: #9c87c2,
+  300: #7658aa,
+  400: #593a96,
+  500: #471d90,
+  600: #40188a,
+  700: #381281,
+  800: #300d79,
+  900: #21046d,
+  A100: #b6a8ff,
+  A200: #836dff,
+  A400: #5029ff,
+  A700: #381cff,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$my-secondary: (
+  50: #f1f0f6,
+  100: #dbd8e8,
+  200: #c3bed9,
+  300: #a9a3c9,
+  400: #908bbc,
+  500: #5b4c75,
+  600: #52446d,
+  700: #493b63,
+  800: #40335a,
+  900: #2e244a,
+  A100: #ffffff,
+  A200: #f0e5ff,
+  A400: #bda7ff,
+  A700: #a990ff,
+  contrast: (50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+// Define the theme
+$my-theme: mat-light-theme($my-primary, $my-secondary);
+
+// Include the Angular Material theme styles
+@include angular-material-theme($my-theme);
+// Define the custom color palettes for the light mode
+$my-primary-light: mat-palette($my-primary, 300);
+$my-secondary-light: mat-palette($my-secondary, 300);
+
+// Define the theme for the light mode
+$my-light-theme: mat-light-theme($my-primary-light, $my-secondary-light);
+
+// Include the Angular Material theme styles
+@include angular-material-theme($my-light-theme);
