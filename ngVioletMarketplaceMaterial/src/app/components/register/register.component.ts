@@ -14,6 +14,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { slideInAnimation } from 'src/app/animations/animations';
 import { filter } from 'rxjs';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-register',
@@ -23,6 +24,7 @@ import { filter } from 'rxjs';
 })
 export class RegisterComponent implements OnInit {
   constructor(
+    private dialogRef: MatDialogRef<RegisterComponent>,
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router
@@ -79,5 +81,9 @@ export class RegisterComponent implements OnInit {
         console.error('RegisterComponent.loginNewUser: login failed\n' + error);
       }
     );
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close();
   }
 }

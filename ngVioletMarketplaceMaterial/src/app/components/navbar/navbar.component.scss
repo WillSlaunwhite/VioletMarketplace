@@ -89,3 +89,8 @@ input {
 .active {
   color: white;
 }
+
+::ng-deep .mat-dialog-container {
+  background: none;
+  box-shadow: none;
+}

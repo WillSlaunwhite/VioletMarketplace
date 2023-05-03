@@ -21,3 +21,8 @@
 //   --bg-text-primary: #b6b6b6;
 //   --bg-text-secondary: #ececec;
 // }
+
+::ng-deep .mat-dialog-container {
+  background: none;
+  box-shadow: none;
+}
