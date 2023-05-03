@@ -57,18 +57,21 @@
       -webkit-box-orient: vertical;
     }
 
+    &.mat-card:hover.card-img-title {
+      color: $secondary-dark;
+    }
 
     .mat-card-image {
-      -webkit-mask-image: linear-gradient(180deg, #ffffff5f, #fff, #0000);
-      mask-image: linear-gradient(180deg, #0000, #fff, #0000);
-      -webkit-mask-size: 100% 300%;
-      mask-size: 20% 20%;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      // -webkit-mask-image: linear-gradient(90deg, #dccfcf91, #fff, #0000);
-      // mask-image: linear-gradient(90deg, #0000, #fff, #0000);
-      // -webkit-mask-size: 300% 100%;
-      // mask-size: 300% 100%;
+      // -webkit-mask-image: linear-gradient(180deg, #ffffff5f, #fff, #0000);
+      // mask-image: linear-gradient(180deg, #0000, #fff, #0000);
+      // -webkit-mask-size: 100% 300%;
+      // mask-size: 20% 20%;
+      // -webkit-mask-repeat: no-repeat;
+      // mask-repeat: no-repeat;
+      -webkit-mask-image: linear-gradient(90deg, #dccfcf91, #fff, #0000);
+      mask-image: linear-gradient(90deg, #0000, #fff, #0000);
+      -webkit-mask-size: 300% 100%;
+      mask-size: 300% 100%;
 
       display: flex;
       position: absolute;
@@ -81,6 +84,7 @@
     }
 
     .card-img-title {
+      color: $text-primary-dark;
       position: absolute;
       top: 40%;
       left: 50%;
@@ -117,16 +121,22 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      color: $text-primary-dark;
+
 
       .purchase-button {
         transition: ease-in-out .6s;
         width: 50%;
-        font-weight: 300;
+        font-weight: 200;
         letter-spacing: .1rem;
         font-size: 1.05rem;
 
         position: absolute;
         bottom: 0;
+
+        &:hover {
+          color: $text-secondary-dark
+        }
 
         &.purchase-button-bid {
           left: 5px;
