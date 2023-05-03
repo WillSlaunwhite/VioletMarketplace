@@ -1,0 +1,31 @@
+.fill-forward {
+  transition: 5s ease-in-out;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@keyframes fade {
+  from {
+    position: fixed;
+  }
+
+  to {
+    animation-fill-mode: forwards;
+    position: absolute;
+    right: 25%;
+  }
+}
+
+.fade {
+  animation: fade 5s;
+}
+
+@keyframes clip-fade {
+  100% {
+    -webkit-mask-position: bottom;
+    mask-position: bottom;
+    // -webkit-mask-image: linear-gradient(180deg, #ffffff71, #fff, #0000);
+    // mask-image: linear-gradient(180deg, #0000, #fff, #0000);
+  }
+}

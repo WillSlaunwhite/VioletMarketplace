@@ -1,0 +1,19 @@
+// CONTAINER DIMENSIONS AND SPACING
+.container-fluid {
+  width: auto;
+  gap: 2rem;
+  justify-content: space-around;
+  // flex-wrap: wrap;
+}
+
+// CARDS CONTAINER
+.token-container {
+  width: 80%;
+  margin-top: 1.5em;
+  height: auto;
+  justify-content: space-around;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 10vh;
+
+}
