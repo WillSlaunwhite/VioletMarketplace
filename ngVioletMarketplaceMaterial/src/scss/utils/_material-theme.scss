@@ -70,6 +70,9 @@ $my-theme: mat-light-theme($my-primary, $my-secondary);
 
 // Include the Angular Material theme styles
 @include angular-material-theme($my-theme);
+
+
+
 // Define the custom color palettes for the light mode
 $my-primary-light: mat-palette($my-primary, 300);
 $my-secondary-light: mat-palette($my-secondary, 300);
