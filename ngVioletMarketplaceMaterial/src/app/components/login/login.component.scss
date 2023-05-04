@@ -1,33 +1,8 @@
-p {
-  border-radius: 15px;
-  font-size: x-large;
-}
-
-.container-fluid {
-  height: 92vh;
-  overflow-y: hidden !important;
-}
-
 .login-container {
-  /* Created with https://www.css-gradient.com */
-  background: #471D90;
-  background: -webkit-linear-gradient(top, #471D90, #5B4C75);
-  background: -moz-linear-gradient(top, #471D90, #5B4C75);
-  background: linear-gradient(to bottom, #471D90, #5B4C75);
-
-  /* Created with https://www.css-gradient.com */
-  // background: #471D90;
-  // background: -webkit-linear-gradient(top, #471D90, #524888);
-  // background: -moz-linear-gradient(top, #471D90, #524888);
-  // background: linear-gradient(to bottom, #471D90, #524888);
-
-  overflow-x: hidden !important;
-  overflow-y: hidden;
-  border-radius: 15px;
-  width: 60%;
-  height: 90%;
-  margin-bottom: 1.5em;
-  z-index: 1.25;
+  border-radius: 10px;
+  width: 60vmin;
+  z-index: 1;
+  padding-bottom: 5em;
 }
 
 .login-header {
@@ -37,33 +12,10 @@ p {
   padding-top: 1em;
 }
 
-
 .form-container {
   color: white;
-  height: 60vh;
-  width: 35vw;
-  margin-top: 6em;
+  width: 50vmin;
   border-radius: 10px;
-}
-
-.form-field:first-of-type {
-  padding-top: 2em;
-}
-
-.mat-icon {
-  padding-right: 1em;
-}
-
-mat-label,
-input,
-mat-hint,
-mat-form-field {
-  color: white;
-  font-size: x-large;
-  // font-family: Georgia, 'Times New Roman', Times, serif;
-  font-family: Poppin, sans-serif;
-  font-weight: 300;
-  caret-color: white !important;
 }
 
 input {
@@ -118,24 +70,6 @@ svg-icon {
 
 .socials-container {
   margin-top: .5em;
-}
-
-
-
-
-
-// CHANGES INPUT BORDER COLOR
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-  color: gray !important;
-}
-
-// CHANGES BORDER COLOR ON FOCUS
-::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
-  color: white !important;
-}
-
-::ng-deep .mat-input-element {
-  caret-color: white;
 }
 
 

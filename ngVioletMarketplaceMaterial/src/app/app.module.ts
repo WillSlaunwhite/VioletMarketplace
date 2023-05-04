@@ -38,6 +38,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateTokenComponent } from './components/create-token/create-token.component';
+import { TokenCardComponent } from './components/token-card/token-card.component';
+import { TokenCardButtonComponent } from './components/token-card-button/token-card-button.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { CreateTokenComponent } from './components/create-token/create-token.com
     SidenavComponent,
     FooterComponent,
     CreateTokenComponent,
+    TokenCardComponent,
+    TokenCardButtonComponent,
   ],
   imports: [
     BrowserModule,
