@@ -1,24 +1,27 @@
-// HANDLING THE PLACEHOLDER TEXT AND DECORATIONS
-// AS WELL AS AUTOFILL BACKGROUND
-
-mat-label,
-input,
-mat-hint,
-mat-form-field,
-::placeholder,
-.mat-form-field-required-marker {
-  color: white;
-  font-size: x-large;
-  // font-family: Georgia, 'Times New Roman', Times, serif;
-  font-family: Poppin, sans-serif;
-  font-weight: 300;
-  caret-color: white !important;
-  text-decoration: white;
+.mat-form-field {
+  line-height: 1.5;
 }
 
-mat-button {
-  transition: none !important;
-  box-shadow: none !important;
+.register-button {
+  margin: 1.5em auto 3.5em;
+
+  &:hover {
+    transition: ease .4s;
+    transform: scale(1.015);
+  }
+}
+
+.container-fluid {
+  border-radius: 10px;
+  padding-top: 1em;
+}
+
+.card-header {
+  margin-top: -.25em;
+}
+
+input {
+  margin: .5em auto;
 }
 
 // CHANGES BACKGROUND OF AUTOFILL AND AUTOFILL TEXT (sort of, Chrome has issues

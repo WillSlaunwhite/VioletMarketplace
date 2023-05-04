@@ -1,3 +1,41 @@
 .mat-form-field-required-marker {
   color: white;
 }
+
+form {
+  text-align: center;
+}
+
+mat-label,
+input,
+mat-hint,
+mat-form-field,
+.mat-input-element::placeholder,
+.mat-form-field-required-marker {
+  color: white;
+  font-size: x-large;
+  font-family: Poppin, sans-serif;
+  font-weight: 300;
+  caret-color: white !important;
+  text-decoration: white;
+}
+
+// CHANGES INPUT BORDER COLOR
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: gray !important;
+}
+
+// CHANGES BORDER COLOR ON FOCUS
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+  color: white !important;
+}
+
+// HANDLING THE PLACEHOLDER TEXT AND DECORATIONS
+// AS WELL AS AUTOFILL BACKGROUND
+::ng-deep .mat-input-element {
+  caret-color: white;
+}
+
+.mat-input-element::placeholder {
+  font-size: medium;
+}

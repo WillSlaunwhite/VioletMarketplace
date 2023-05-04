@@ -1,3 +1,5 @@
+  @import '/src/scss/utils/variables';
+
   // CARDS
   .mat-card {
     height: 14rem;
@@ -120,41 +122,6 @@
     .actions {
       flex-wrap: wrap;
       justify-content: space-between;
-      align-items: center;
-      color: $text-primary-dark;
 
-
-      .purchase-button {
-        transition: ease-in-out .6s;
-        width: 50%;
-        font-family: "Nunito";
-        font-weight: 200;
-        letter-spacing: .1rem;
-        font-size: 1.05rem;
-
-        position: absolute;
-        bottom: 0;
-
-        &:hover {
-          color: $text-secondary-dark
-        }
-
-        &.purchase-button-bid {
-          left: 5px;
-          border-bottom-left-radius: 4px;
-          margin-left: -.3em !important;
-        }
-
-        &.purchase-button-buy {
-          right: 5px;
-          border-bottom-right-radius: 4px;
-          margin-right: -.3em !important;
-        }
-
-        &.purchase-button:hover {
-          transition: ease-in-out .4s;
-          background-color: hsla(262, 66%, 34%, 0.4);
-        }
-      }
     }
   }

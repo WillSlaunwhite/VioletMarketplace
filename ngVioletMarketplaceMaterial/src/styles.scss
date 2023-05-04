@@ -4,25 +4,11 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'scss/base/base';
 @import 'scss/components/card';
+@import 'scss/components/forms';
 @import 'scss/layout/containers';
 @import 'scss/utils/utilities';
 @import 'scss/utils/gradients';
 @import 'scss/utils/variables';
+@import 'scss/utils/scrollbar';
+
 // @import 'scss/utils/material-theme';
-
-
-
-
-// :root {
-//   font-size: 16px;
-//   font-family: "Nunito";
-//   --bg-primary: #471D90;
-//   --bg-secondary: #5B4C75;
-//   --bg-text-primary: #b6b6b6;
-//   --bg-text-secondary: #ececec;
-// }
-
-::ng-deep .mat-dialog-container {
-  background: none;
-  box-shadow: none;
-}

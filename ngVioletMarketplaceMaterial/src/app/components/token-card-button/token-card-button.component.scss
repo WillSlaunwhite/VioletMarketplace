@@ -1,0 +1,71 @@
+@import '/src/scss/utils/variables';
+
+// // Shared styles for all buttons
+// button {
+//   // Common styles for all buttons
+//   font-size: 1.05rem;
+//   font-weight: 300;
+//   letter-spacing: .1rem;
+//   transition: ease-in-out .6s;
+
+//   &.purchase-button {
+//     // Styles specific to purchase buttons
+//     width: 50%;
+//     position: absolute;
+//     bottom: 0;
+//   }
+
+//   &.purchase-button-bid {
+//     // Styles specific to bid buttons
+//     left: 5px;
+//     border-bottom-left-radius: 4px;
+//     margin-left: -.3em !important;
+//   }
+
+//   &.purchase-button-buy {
+//     // Styles specific to buy buttons
+//     right: 5px;
+//     border-bottom-right-radius: 4px;
+//     margin-right: -.3em !important;
+//   }
+
+//   // Other button variations can be added here
+// }
+
+// button:hover {
+//   background-color: hsla(262, 66%, 34%, 0.4);
+//   transition: ease-in-out .4s;
+// }
+.purchase-button {
+  transition: ease-in-out .6s;
+  width: 50%;
+  font-family: "Nunito";
+  font-weight: 200;
+  letter-spacing: .1rem;
+  font-size: 1.05rem;
+  background: transparent;
+  position: absolute;
+  bottom: 0;
+  color: $text-primary-dark;
+
+  &:hover {
+    color: $text-secondary-dark;
+  }
+
+  &.purchase-button-bid {
+    left: 5px;
+    border-bottom-left-radius: 4px;
+    margin-left: -.3em !important;
+  }
+
+  &.purchase-button-buy {
+    right: 5px;
+    border-bottom-right-radius: 4px;
+    margin-right: -.3em !important;
+  }
+
+  &.purchase-button:hover {
+    transition: ease-in-out .4s;
+    background-color: hsla(262, 66%, 34%, 0.4);
+  }
+}

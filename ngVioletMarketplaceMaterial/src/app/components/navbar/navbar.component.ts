@@ -42,15 +42,11 @@ export class NavbarComponent implements OnInit {
 
 
   openRegisterDialog(): void {
-    this.dialog.open(RegisterComponent, {
-      hasBackdrop: false
-    });
+    this.dialog.open(RegisterComponent);
   }
 
   openLoginDialog(): void {
-    const config = new MatDialogConfig();
-    config.hasBackdrop = true;
-    this.dialog.open(LoginComponent, config);
+    this.dialog.open(LoginComponent);
   }
 
   // isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
