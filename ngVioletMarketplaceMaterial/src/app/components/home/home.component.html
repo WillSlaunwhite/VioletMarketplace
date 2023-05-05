@@ -1,15 +1,7 @@
 <div class="container-fluid d-flex">
-  <app-sidenav [animationData]="animationData"></app-sidenav>
   <div class="token-container d-flex flex-wrap">
     <div *ngFor="let token of tokens">
       <app-token-card [token]="token"></app-token-card>
     </div>
   </div>
 </div>
-<!--
-mat-card {
-
-}
-
-
- -->

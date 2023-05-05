@@ -1,0 +1,31 @@
+<mat-toolbar class="d-flex" color="primary">
+  <a routerLink="/" class="logo">
+    <mat-icon ngClass="vm-logo" svgIcon="my-icon"></mat-icon>
+  </a>
+  <div class="search-container d-flex justify-content-end w-50 align-items-center ">
+    <mat-form-field appearance="standard" class="search-bar">
+      <mat-label>Search</mat-label>
+      <input matInput type="text" (input)="onSearch($event)" />
+      <button mat-button matSuffix mat-icon-button aria-label="Search">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="right-links d-flex justify-content-end w-10 align-items-center ">
+    <button mat-icon-button (click)="toggleSidePanel()" class="filter-button">
+      <mat-icon>filter_list</mat-icon>
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" class="avatar-icon">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item>My Tokens</button>
+  <button mat-menu-item>Account Settings</button>
+  <button mat-menu-item>Logout</button>
+</mat-menu>
+
+<ng-content></ng-content>
