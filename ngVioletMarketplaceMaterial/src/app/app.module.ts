@@ -30,6 +30,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularSvgIconPreloaderModule } from 'angular-svg-icon-preloader';
@@ -40,6 +41,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CreateTokenComponent } from './components/create-token/create-token.component';
 import { TokenCardComponent } from './components/token-card/token-card.component';
 import { TokenCardButtonComponent } from './components/token-card-button/token-card-button.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -56,13 +58,14 @@ import { TokenCardButtonComponent } from './components/token-card-button/token-c
     CreateTokenComponent,
     TokenCardComponent,
     TokenCardButtonComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule,
     LayoutModule,
+    MatSliderModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -71,16 +74,17 @@ import { TokenCardButtonComponent } from './components/token-card-button/token-c
     MatTableModule,
     MatListModule,
     MatSnackBarModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    HttpClientModule,
     MatCardModule,
     MatGridListModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatMenuModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
     NgbModule,
     AngularSvgIconModule.forRoot(),
     AngularSvgIconPreloaderModule.forRoot({

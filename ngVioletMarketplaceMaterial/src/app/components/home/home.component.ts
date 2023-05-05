@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   tokens: Token[] = [];
   token: Token | null = new Token();
   descriptionShowing: boolean = false;
-  move = false;
   constructor(
     private tokenSvc: TokenService,
     private auth: AuthService,
@@ -41,25 +40,12 @@ export class HomeComponent implements OnInit {
     this.tokenSvc.index().subscribe({
       next: (tokenList) => {
         this.tokens = tokenList;
-        this.tokens.forEach((token) => {
-          if (token.name === 'Pulp Fiction') {
-            this.token = token;
-          }
-        });
       },
       error: (failed) => {
         console.error('homeComponent.getTokens(): Error getting Token List');
         console.log(failed);
       },
     });
-  }
-
-  toggleMove() {
-    this.move = !this.move;
-  }
-
-  get stateName() {
-    return this.move ? 'move' : 'stay';
   }
 
   onAnimationEnd(event: AnimationEvent) {
