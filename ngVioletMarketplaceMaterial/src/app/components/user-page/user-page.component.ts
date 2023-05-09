@@ -103,6 +103,18 @@ export class UserPageComponent implements OnInit, AfterViewInit {
     }
   }
 
+
+assignRandomAnimations() {
+  const buttons = document.querySelectorAll('.button-container .button-wrapper');
+  buttons.forEach((button) => {
+    const animationClass = `floating-${Math.floor(Math.random() * 4) + 1}`; // Random number between 1 and 4
+    button.classList.add(animationClass);
+  });
+}
+
+
+
+
   generateRandomAnimations() {
   const buttons = document.querySelectorAll('.button-container .button-wrapper');
   buttons.forEach((button) => {
