@@ -37,6 +37,7 @@
   height: 80vh;
   margin-left: 3em;
   position: relative; // Add this line to position the button wrappers absolutely
+  z-index: 0; // Add this line to set the z-index value for the container
 }
 
 .button-wrapper {
@@ -46,6 +47,12 @@
   padding: 2px;
   border-radius: 6px;
   overflow: hidden;
+  z-index: 1; // Change this value from -1 to 1
+  will-change: transform;
+  background: transparent;
+
+  // Add this line:
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
 
   &.tokens-button-wrapper {
     top: 40%;
@@ -79,7 +86,8 @@
   font-weight: 200 !important;
   color: lightgray;
   background-size: 150% 150%;
-  animation: gradient 8s linear 6s infinite;
+  animation: gradient 8s linear 5s infinite;
+
 }
 
 .tokens-button::before,
@@ -100,6 +108,8 @@
   border-radius: 6px;
   background-size: 150% 150%;
   transition: all .8s ease-out;
+  will-change: transform;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
 }
 
 .tokens-button::before,
@@ -164,32 +174,56 @@
   background-image: linear-gradient(to bottom, #FD241D 0%, #77B388 100%);
 }
 
-
-
-
-
-
-@keyframes moveGradientBorder {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-
-  25% {
-    transform: translateX(95%) translateY(0);
-  }
-
-  50% {
-    transform: translateX(95%) translateY(95%);
-  }
-
-  75% {
-    transform: translateX(0) translateY(95%);
-  }
-
-  100% {
-    transform: translateX(0) translateY(0);
-  }
+.glass-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  z-index: 2;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.279) 0%, rgba(255, 255, 255, 0.1) 100%),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0) 70%);
+  // backdrop-filter: blur(5px);
+  // box-shadow: 0 0 2px rgba(0, 0, 0, 0.02);
+  // background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%),
+  //   linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.2) 100%);
 }
+
+.glass-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.05) 100%),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, .05) 70%);
+  z-index: -1;
+  border-radius: 6px;
+  padding: 0;
+  margin: 0;
+}
+
+
+.text-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3; // Add this line to position the text on top of the glass effect
+  pointer-events: none; // Add this line to make sure the button is still clickable
+  will-change: transform;
+  -webkit-font-smoothing: antialiased;
+}
+
+
 
 
 
@@ -214,10 +248,9 @@
 
 .user-image {
   position: absolute;
-  top: 2em;
+  top: 1.5em;
   height: 13rem;
   width: 16rem;
-  margin-top: .5rem;
   margin-inline: auto;
   border-radius: 6px;
 }
@@ -252,4 +285,64 @@
   100% {
     transform: translate(0, 0);
   }
+}
+
+@keyframes moveGradientBorder {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+
+  25% {
+    transform: translateX(95%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(95%) translateY(95%);
+  }
+
+  75% {
+    transform: translateX(0) translateY(95%);
+  }
+
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+// Update the mixin in the SCSS code:
+@mixin floating-animation($name, $directionX, $directionY) {
+  @keyframes #{$name} {
+
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+      transform: translate3d($directionX, $directionY, 0);
+    }
+  }
+}
+
+// Generate multiple animations
+@include floating-animation(floating-1, -8px, -8px);
+@include floating-animation(floating-2, 8px, 8px);
+@include floating-animation(floating-3, -8px, 8px);
+@include floating-animation(floating-4, 8px, -8px);
+
+// Assign animations to classes
+.floating-1 {
+  animation: floating-1 6s ease-in-out infinite;
+}
+
+.floating-2 {
+  animation: floating-2 7s ease-in-out infinite;
+}
+
+.floating-3 {
+  animation: floating-3 8s ease-in-out infinite;
+}
+
+.floating-4 {
+  animation: floating-4 9s ease-in-out infinite;
 }
