@@ -107,7 +107,7 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   const buttons = document.querySelectorAll('.button-container .button-wrapper');
   buttons.forEach((button) => {
     const animationDuration = Math.random() * 8 + 4; // Random number between 5 and 8
-    const animationDelay = Math.random() * 8 + 30; // Random number between 0 and 8
+    const animationDelay = Math.random() * 8; // Random number between 0 and 8
     const directionX = Math.random() * 16 - 8; // Random number between -12 and 12
     const directionY = Math.random() * 16 - 8; // Random number between -12 and 12
 
