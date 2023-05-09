@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { secretKey } from 'key';
 import { filter, forkJoin, switchMap, throwError } from 'rxjs';
@@ -13,10 +15,11 @@ import { TokenService } from 'src/app/services/token.service';
   templateUrl: './user-page.component.html',
   styleUrls: ['./user-page.component.scss'],
 })
-export class UserPageComponent implements OnInit {
+export class UserPageComponent implements OnInit, AfterViewInit {
   // COIN BASE API KEY
   publicKey = 'RKgBiI3QrJDhUNPD';
   secretKey = secretKey;
+
 
   editProfile: boolean = false;
   user: User = new User();
@@ -42,16 +45,18 @@ export class UserPageComponent implements OnInit {
   ];
 
   displayedColumns: string[] = ['timestamp', 'details'];
-
   createForm: FormGroup;
 
   constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
     private auth: AuthService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private tokenSvc: TokenService,
     private formBuilder: FormBuilder
   ) {
+    this.matIconRegistry.addSvgIcon('my-icon', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/logos/retro_vm_logo.svg'));
     this.createForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
@@ -59,70 +64,33 @@ export class UserPageComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit(): void {
+    this.generateRandomAnimations();
+  }
+
   ngOnInit(): void {
-    this.username = this.auth.getUsername();
-    this.auth
-      .getUser(this.username!)
-      .pipe(
-        switchMap((username) =>
-          forkJoin([
-            this.auth.getUser(username.username),
-            this.tokenSvc.getByUsername(username.username),
-          ])
-        )
-      )
-      .subscribe({
-        next: ([user, tokens]: [User, Token[]]) => {
-          this.user = user;
-          this.tokens = tokens;
-        },
-        error: (err) => {
-          console.error(
-            'UserComponent.init(): error getting User and tokens:\n' + err
-          );
-        },
-      });
-
-    //    v2
-    // if (this.username) {
-    //   this.auth
-    //     .getUser(this.username)
-    //     .pipe(switchMap((user) => this.tokenSvc.getByUsername(user.username)))
-    //     .subscribe({
-    //       next: (tokens) => {
-    //         this.tokens = tokens;
-    //         console.log(tokens);
-
-    //         // You may not need to set this.user separately, depending on your use case
-    //         // this.user = this.auth.getUser(this.username!).getValue();
-    //       },
-    //       error: (err) => {
-    //         console.error(
-    //           'UserComponent.init(): error getting User and tokens:\n' + err
-    //         );
-    //       },
-    //     });
-    // }
-
-    //    v1
-    // if (this.auth.getUsername() != null && this.auth.getUsername() != '') {
-    //   this.auth.getUser(this.auth.getUsername()!).subscribe({
-    //     next: (user) => {
+    // this.username = this.auth.getUsername();
+    // this.auth
+    //   .getUser(this.username!)
+    //   .pipe(
+    //     switchMap((username) =>
+    //       forkJoin([
+    //         this.auth.getUser(username.username),
+    //         this.tokenSvc.getByUsername(username.username),
+    //       ])
+    //     )
+    //   )
+    //   .subscribe({
+    //     next: ([user, tokens]: [User, Token[]]) => {
     //       this.user = user;
-    //       this.tokenSvc.getByUsername(user.username).subscribe({
-    //         next: (tokens) => {
-    //           this.tokens = tokens;
-    //         },
-    //         error: (err) => {
-    //           console.error('UserComponent.init(): error getting user tokens');
-    //         },
-    //       });
+    //       this.tokens = tokens;
     //     },
     //     error: (err) => {
-    //       console.error('UserComponent.init(): error getting User:\n' + err);
+    //       console.error(
+    //         'UserComponent.init(): error getting User and tokens:\n' + err
+    //       );
     //     },
-    //   });
-    // }
+    // });
   }
 
   onSubmit(): void {
@@ -134,4 +102,29 @@ export class UserPageComponent implements OnInit {
       // this.createToken(tokenData);
     }
   }
+
+  generateRandomAnimations() {
+  const buttons = document.querySelectorAll('.button-container .button-wrapper');
+  buttons.forEach((button) => {
+    const animationDuration = Math.random() * 8 + 4; // Random number between 5 and 8
+    const animationDelay = Math.random() * 8 + 30; // Random number between 0 and 8
+    const directionX = Math.random() * 16 - 8; // Random number between -12 and 12
+    const directionY = Math.random() * 16 - 8; // Random number between -12 and 12
+
+    button.animate(
+      [
+        { transform: 'translate(0, 0)' },
+        { transform: `translate(${directionX}px, ${directionY}px)` },
+        { transform: 'translate(0, 0)' },
+      ],
+      {
+        duration: animationDuration * 1000,
+        iterations: Infinity,
+        easing: 'ease-in-out',
+        delay: animationDelay * 1000, // Add this line to include the random delay
+      }
+    );
+  });
+}
+
 }
