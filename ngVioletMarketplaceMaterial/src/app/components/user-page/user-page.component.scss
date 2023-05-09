@@ -80,16 +80,16 @@
   color: lightgray;
   background-size: 150% 150%;
   animation: gradient 8s linear 6s infinite;
-
-  &:hover::before {
-    animation: moveGradientBorder 1s ease-in;
-  }
 }
 
 .tokens-button::before,
 .wallet-button::before,
 .collections-button::before,
-.create-button::before {
+.create-button::before,
+.tokens-button::after,
+.wallet-button::after,
+.collections-button::after,
+.create-button::after {
   position: absolute;
   content: '';
   top: -2px;
@@ -99,8 +99,37 @@
   z-index: -1;
   border-radius: 6px;
   background-size: 150% 150%;
+  transition: all .8s ease-out;
+}
 
-  // animation: moveGradientBorder 8s linear infinite;
+.tokens-button::before,
+.wallet-button::before,
+.collections-button::before,
+.create-button::before {
+  background-position: top left;
+  clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+}
+
+.tokens-button::after,
+.wallet-button::after,
+.collections-button::after,
+.create-button::after {
+  background-position: bottom right;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.tokens-button:hover::before,
+.wallet-button:hover::before,
+.collections-button:hover::before,
+.create-button:hover::before {
+  transform: translateY(-35%) translateX(35%);
+}
+
+.tokens-button:hover::after,
+.wallet-button:hover::after,
+.collections-button:hover::after,
+.create-button:hover::after {
+  transform: translateY(35%) translateX(-35%);
 }
 
 .tokens-button::before {
@@ -135,21 +164,26 @@
   background-image: linear-gradient(to bottom, #FD241D 0%, #77B388 100%);
 }
 
+
+
+
+
+
 @keyframes moveGradientBorder {
   0% {
     transform: translateX(0) translateY(0);
   }
 
   25% {
-    transform: translateX(100%) translateY(0);
+    transform: translateX(95%) translateY(0);
   }
 
   50% {
-    transform: translateX(100%) translateY(100%);
+    transform: translateX(95%) translateY(95%);
   }
 
   75% {
-    transform: translateX(0) translateY(100%);
+    transform: translateX(0) translateY(95%);
   }
 
   100% {
