@@ -3,18 +3,18 @@
   font-family: "Nunito";
 }
 
-.user-info-container {
-  margin: 1.5em 3.5em 0;
-  border-radius: 6px;
-  color: white;
-  text-align: center;
-  width: 75vw;
-  height: 80vh;
-  filter: sepia(.1) saturate(1.2) brightness(.90);
-  background: linear-gradient(101.23deg, rgba(131, 58, 180, 0.35) -3.44%, rgba(255, 0, 0, 0.35) 80.82%), linear-gradient(45.82deg, rgba(71, 29, 144, 0.8) -3.46%, rgba(255, 177, 29, 0.8) 146.44%), linear-gradient(301.57deg, rgba(12, 211, 255, 0.9) -21.51%, rgba(128, 232, 255, 0.9) 38.48%, rgba(128, 232, 255, 0.9) 167.32%), linear-gradient(73.25deg, #5C2E8C 24.07%, #3635DB 32.24%);
-  gap: 5em;
-  flex-wrap: wrap;
-}
+// .user-info-container {
+//   margin: 1.5em 3.5em 0;
+//   border-radius: 6px;
+//   color: white;
+//   text-align: center;
+//   width: 75vw;
+//   height: 80vh;
+//   filter: sepia(.1) saturate(1.2) brightness(.90);
+//   background: linear-gradient(101.23deg, rgba(131, 58, 180, 0.35) -3.44%, rgba(255, 0, 0, 0.35) 80.82%), linear-gradient(45.82deg, rgba(71, 29, 144, 0.8) -3.46%, rgba(255, 177, 29, 0.8) 146.44%), linear-gradient(301.57deg, rgba(12, 211, 255, 0.9) -21.51%, rgba(128, 232, 255, 0.9) 38.48%, rgba(128, 232, 255, 0.9) 167.32%), linear-gradient(73.25deg, #5C2E8C 24.07%, #3635DB 32.24%);
+//   gap: 5em;
+//   flex-wrap: wrap;
+// }
 
 .top-container {
   height: auto;
@@ -22,239 +22,283 @@
   display: flex;
   justify-content: center;
   align-content: center;
+
+  .button-container {
+    margin-inline: auto;
+    width: 280px;
+    height: 80vh;
+    margin-left: 3em;
+    position: relative; // Add this line to position the button wrappers absolutely
+    z-index: 0; // Add this line to set the z-index value for the container
+
+    .user-image {
+      position: absolute;
+      top: 1.5em;
+      height: 13rem;
+      width: 16rem;
+      margin-inline: auto;
+      border-radius: 6px;
+    }
+
+    .button-wrapper {
+      position: absolute;
+      width: 244px;
+      height: 74px;
+      padding: 2px;
+      border-radius: 6px;
+      overflow: hidden;
+      z-index: 1;
+      will-change: transform;
+      background: transparent;
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
+
+
+      // BUTTONS AND BORDERS
+      .tokens-button,
+      .wallet-button,
+      .collections-button,
+      .create-button {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        border-radius: 6px;
+        outline: none;
+        border: none;
+        font-size: 1.4em;
+        font-weight: 200 !important;
+        color: lightgray;
+        background-size: 150% 150%;
+        animation: gradient 8s linear 5s infinite;
+
+
+
+        .glass-wrapper {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 6px;
+          z-index: 2;
+          padding: 0;
+          margin: 0;
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%),
+            radial-gradient(circle at center, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, .15) 70%);
+        }
+
+        .glass-wrapper::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+            radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+          z-index: -1;
+          border-radius: 6px;
+          padding: 0;
+          margin: 0;
+        }
+
+        .text-wrapper {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 3; // Add this line to position the text on top of the glass effect
+          pointer-events: none; // Add this line to make sure the button is still clickable
+          will-change: transform;
+          -webkit-font-smoothing: antialiased;
+        }
+      }
+
+      &.tokens-button-wrapper {
+        top: 40%;
+
+        .tokens-button {
+          background-image: linear-gradient(88.33deg, #3635AC 0.81%, #304B7E 51.46%, #471D90 102.11%);
+        }
+
+        .tokens-button::before {
+          background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
+        }
+
+        .tokens-button::after {
+          background-image: linear-gradient(to bottom, #34D1C8 33.56%, #FD241D 78.08%);
+        }
+
+      }
+
+      &.wallet-button-wrapper {
+        top: 58%;
+
+        .wallet-button::before {
+          background-image: linear-gradient(to right, #FCB045 0%, #77B388 100%);
+        }
+
+        .wallet-button::after {
+          background-image: linear-gradient(to bottom, #FCB045 0%, #77B388 100%);
+        }
+
+        .wallet-button {
+          background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%), linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
+
+        }
+      }
+
+      &.collections-button-wrapper {
+        top: 76%;
+
+        .collections-button {
+          background-image: linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%), linear-gradient(95.71deg, rgba(14, 14, 69, 0.7) 19.97%, rgba(136, 181, 223, 0.7) 85.88%), linear-gradient(93.24deg, #77B388 0.65%, #D5752A 74.14%);
+
+          .collections-button::before {
+            background-image: linear-gradient(to right, #88B5DF 0%, #D5752A 100%);
+          }
+        }
+
+        .collections-button::after {
+          background-image: linear-gradient(to bottom, #88B5DF 0%, #D5752A 100%);
+        }
+      }
+
+      &.create-button-wrapper {
+        top: 94%;
+
+        .create-button::after {
+          background-image: linear-gradient(to bottom, #FD241D 0%, #77B388 100%);
+        }
+
+        .create-button::before {
+          background-image: linear-gradient(to right, #FD241D 0%, #77B388 100%);
+        }
+
+        .create-button {
+          background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+            linear-gradient(91.5deg, rgba(71, 29, 144, 0.6) 1.28%, rgba(39, 91, 47, 0.6) 93.7%),
+            linear-gradient(89.23deg, #275B2F 0.38%, #5B4C75 99.34%);
+        }
+      }
+
+      .tokens-button::before,
+      .wallet-button::before,
+      .collections-button::before,
+      .create-button::before,
+      .tokens-button::after,
+      .wallet-button::after,
+      .collections-button::after,
+      .create-button::after {
+        position: absolute;
+        content: '';
+        top: -2px;
+        bottom: -2px;
+        left: -2px;
+        right: -2px;
+        width: calc(100% + 6px);
+        height: calc(100% + 6px);
+        z-index: -1;
+        border-radius: 6px;
+        background-size: 150% 100%;
+        transition: all .6s ease-in-out;
+        filter: hue-rotate(15deg);
+      }
+
+      .tokens-button:hover::before,
+      .wallet-button:hover::before,
+      .collections-button:hover::before,
+      .create-button:hover::before {
+        transform: rotate(0.125turn);
+      }
+
+      .tokens-button:hover::after,
+      .wallet-button:hover::after,
+      .collections-button:hover::after,
+      .create-button:hover::after {
+        transform: rotate(0.125turn);
+      }
+    }
+  }
 }
 
-.transaction-table {
-  width: 100%;
-}
+// MAIN UI
 
-
-
-
-.button-container {
-  margin-inline: auto;
-  width: 280px;
+.user-info-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
   height: 80vh;
-  margin-left: 3em;
-  position: relative; // Add this line to position the button wrappers absolutely
-  z-index: 0; // Add this line to set the z-index value for the container
-}
-
-.button-wrapper {
-  position: absolute;
-  width: 244px;
-  height: 74px;
-  padding: 2px;
+  position: relative;
+  background: transparent;
   border-radius: 6px;
   overflow: hidden;
-  z-index: 1; // Change this value from -1 to 1
-  will-change: transform;
-  background: transparent;
+  margin: 1.5em 2em 0 0;
+  padding-bottom: 2em;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(255, 255, 255, 0.1) inset, 0 0 20px rgba(255, 255, 255, 0.1) inset;
+  transition: transform 0.3s ease-in-out;
 
-  // Add this line:
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
-
-  &.tokens-button-wrapper {
-    top: 40%;
+  &:hover {
+    transform: scale(1.002);
   }
 
-  &.wallet-button-wrapper {
-    top: 58%;
+  .tokens-section,
+  .wallet-section,
+  .collections-section,
+  .create-section {
+    transition: none;
+    background: rgba(149, 149, 149, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 2px;
+
+    &.hover {
+      -webkit-animation: color-change-2x 2s linear infinite alternate both;
+      animation: color-change-2x 2s linear infinite alternate both;
+    }
   }
 
-  &.collections-button-wrapper {
-    top: 76%;
+  .tokens-section {
+    width: 100%;
+    height: calc(18rem + 1.25rem);
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
-  &.create-button-wrapper {
-    top: 94%;
+  .wallet-section {
+    width: calc(50% - 1rem);
+    height: calc((80vh - (18rem + 3.5rem)) / 2);
+    position: absolute;
+    top: calc(18rem + 2rem);
+    left: 0;
+    margin-right: 2em;
+  }
+
+  .collections-section {
+    width: calc(50% - 1rem);
+    height: calc((80vh - (18rem + 2rem)) / 2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 2em;
+  }
+
+  .create-section {
+    width: 50%;
+    height: calc(80vh - (18rem + 2rem));
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-top: 2em;
   }
 }
 
-.tokens-button,
-.wallet-button,
-.collections-button,
-.create-button {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
-  outline: none;
-  border: none;
-  font-size: 1.4em;
-  font-weight: 200 !important;
-  color: lightgray;
-  background-size: 150% 150%;
-  animation: gradient 8s linear 5s infinite;
 
-}
-
-.tokens-button::before,
-.wallet-button::before,
-.collections-button::before,
-.create-button::before,
-.tokens-button::after,
-.wallet-button::after,
-.collections-button::after,
-.create-button::after {
-  position: absolute;
-  content: '';
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  z-index: -1;
-  border-radius: 6px;
-  background-size: 150% 150%;
-  transition: all .8s ease-out;
-  will-change: transform;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
-}
-
-.tokens-button::before,
-.wallet-button::before,
-.collections-button::before,
-.create-button::before {
-  background-position: top left;
-  clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
-}
-
-.tokens-button::after,
-.wallet-button::after,
-.collections-button::after,
-.create-button::after {
-  background-position: bottom right;
-  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
-}
-
-.tokens-button:hover::before,
-.wallet-button:hover::before,
-.collections-button:hover::before,
-.create-button:hover::before {
-  transform: translateY(-35%) translateX(35%);
-}
-
-.tokens-button:hover::after,
-.wallet-button:hover::after,
-.collections-button:hover::after,
-.create-button:hover::after {
-  transform: translateY(35%) translateX(-35%);
-}
-
-.tokens-button::before {
-  background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
-}
-
-.wallet-button::before {
-  background-image: linear-gradient(to right, #FCB045 0%, #77B388 100%);
-}
-
-.collections-button::before {
-  background-image: linear-gradient(to right, #88B5DF 0%, #D5752A 100%);
-}
-
-.create-button::before {
-  background-image: linear-gradient(to right, #FD241D 0%, #77B388 100%);
-}
-
-.tokens-button::after {
-  background-image: linear-gradient(to bottom, #34D1C8 33.56%, #FD241D 78.08%);
-}
-
-.wallet-button::after {
-  background-image: linear-gradient(to bottom, #FCB045 0%, #77B388 100%);
-}
-
-.collections-button::after {
-  background-image: linear-gradient(to bottom, #88B5DF 0%, #D5752A 100%);
-}
-
-.create-button::after {
-  background-image: linear-gradient(to bottom, #FD241D 0%, #77B388 100%);
-}
-
-.glass-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
-  z-index: 2;
-  padding: 0;
-  margin: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.279) 0%, rgba(255, 255, 255, 0.1) 100%),
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0) 70%);
-  // backdrop-filter: blur(5px);
-  // box-shadow: 0 0 2px rgba(0, 0, 0, 0.02);
-  // background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%),
-  //   linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.2) 100%);
-}
-
-.glass-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.05) 100%),
-    radial-gradient(circle at center, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, .05) 70%);
-  z-index: -1;
-  border-radius: 6px;
-  padding: 0;
-  margin: 0;
-}
-
-
-.text-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3; // Add this line to position the text on top of the glass effect
-  pointer-events: none; // Add this line to make sure the button is still clickable
-  will-change: transform;
-  -webkit-font-smoothing: antialiased;
-}
-
-
-
-
-
-
-.tokens-button {
-  background-image: linear-gradient(88.33deg, #3635AC 0.81%, #304B7E 51.46%, #471D90 102.11%);
-}
-
-.wallet-button {
-  background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%), linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
-}
-
-.collections-button {
-  background-image: linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%), linear-gradient(95.71deg, rgba(14, 14, 69, 0.7) 19.97%, rgba(136, 181, 223, 0.7) 85.88%), linear-gradient(93.24deg, #77B388 0.65%, #D5752A 74.14%);
-}
-
-.create-button {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    linear-gradient(91.5deg, rgba(71, 29, 144, 0.6) 1.28%, rgba(39, 91, 47, 0.6) 93.7%),
-    linear-gradient(89.23deg, #275B2F 0.38%, #5B4C75 99.34%);
-}
-
-.user-image {
-  position: absolute;
-  top: 1.5em;
-  height: 13rem;
-  width: 16rem;
-  margin-inline: auto;
-  border-radius: 6px;
-}
-
+// ANIMATIONS
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -345,4 +389,40 @@
 
 .floating-4 {
   animation: floating-4 9s ease-in-out infinite;
+}
+
+
+
+// NEED TO TURN THIS INTO MIXIN
+
+/* ----------------------------------------------
+ * Generated by Animista on 2023-5-9 14:57:11
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info.
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation color-change-2x
+ * ----------------------------------------
+ */
+@-webkit-keyframes color-change-2x {
+  0% {
+    background: #19dcea;
+  }
+
+  100% {
+    background: #b22cff;
+  }
+}
+
+@keyframes color-change-2x {
+  0% {
+    background: #19dcea;
+  }
+
+  100% {
+    background: #b22cff;
+  }
 }
