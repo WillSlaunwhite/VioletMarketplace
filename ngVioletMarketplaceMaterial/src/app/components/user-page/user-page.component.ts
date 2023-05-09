@@ -117,6 +117,7 @@ assignRandomAnimations() {
 
   generateRandomAnimations() {
   const buttons = document.querySelectorAll('.button-container .button-wrapper');
+  const container = document.querySelectorAll('.user-info-container');
   buttons.forEach((button) => {
     const animationDuration = Math.random() * 8 + 4; // Random number between 5 and 8
     const animationDelay = Math.random() * 8; // Random number between 0 and 8
