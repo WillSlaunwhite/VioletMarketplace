@@ -3,10 +3,12 @@
   overflow-y: scroll !important;
 }
 
+
 body,
 html {
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 #container {
@@ -16,8 +18,9 @@ html {
 }
 
 canvas {
+  overflow: hidden;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: -1;

@@ -35,7 +35,7 @@ export class AppComponent implements AfterViewInit {
     }
 
     // Draw 200 stars
-    for (let i = 0; i < 500; i++) {
+    for (let i = 0; i < 750; i++) {
       drawStar(random(canvas.width), random(canvas.height), Math.random());
     }
   }

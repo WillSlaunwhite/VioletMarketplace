@@ -119,10 +119,10 @@ assignRandomAnimations() {
   const buttons = document.querySelectorAll('.button-container .button-wrapper');
   const container = document.querySelectorAll('.user-info-container');
   buttons.forEach((button) => {
-    const animationDuration = Math.random() * 8 + 4; // Random number between 5 and 8
-    const animationDelay = Math.random() * 8; // Random number between 0 and 8
-    const directionX = Math.random() * 16 - 8; // Random number between -12 and 12
-    const directionY = Math.random() * 16 - 8; // Random number between -12 and 12
+    const animationDuration = Math.random() * 10 + 10; // Random number between 4 and 8
+    const animationDelay = Math.random() * 3; // Random number between 0 and 8
+    const directionX = Math.random() * 10 + 10; // Random number between -8 and 8
+    const directionY = Math.random() * 10 + 10; // Random number between -8 and 8
 
     button.animate(
       [
