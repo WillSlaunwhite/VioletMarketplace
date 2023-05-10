@@ -3,19 +3,6 @@
   font-family: "Nunito";
 }
 
-// .user-info-container {
-//   margin: 1.5em 3.5em 0;
-//   border-radius: 6px;
-//   color: white;
-//   text-align: center;
-//   width: 75vw;
-//   height: 80vh;
-//   filter: sepia(.1) saturate(1.2) brightness(.90);
-//   background: linear-gradient(101.23deg, rgba(131, 58, 180, 0.35) -3.44%, rgba(255, 0, 0, 0.35) 80.82%), linear-gradient(45.82deg, rgba(71, 29, 144, 0.8) -3.46%, rgba(255, 177, 29, 0.8) 146.44%), linear-gradient(301.57deg, rgba(12, 211, 255, 0.9) -21.51%, rgba(128, 232, 255, 0.9) 38.48%, rgba(128, 232, 255, 0.9) 167.32%), linear-gradient(73.25deg, #5C2E8C 24.07%, #3635DB 32.24%);
-//   gap: 5em;
-//   flex-wrap: wrap;
-// }
-
 .top-container {
   height: auto;
   width: 100vw;
@@ -27,7 +14,7 @@
     margin-inline: auto;
     width: 280px;
     height: 80vh;
-    margin-left: 3em;
+    margin-left: 2em;
     position: relative; // Add this line to position the button wrappers absolutely
     z-index: 0; // Add this line to set the z-index value for the container
 
@@ -69,8 +56,7 @@
         font-weight: 200 !important;
         color: lightgray;
         background-size: 150% 150%;
-        animation: gradient 8s linear 5s infinite;
-
+        animation: gradient 4s linear 5s infinite;
 
 
         .glass-wrapper {
@@ -83,8 +69,10 @@
           z-index: 2;
           padding: 0;
           margin: 0;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.15) 100%),
-            radial-gradient(circle at center, rgba(255, 255, 255, 0.15), rgba(0, 0, 0, .15) 70%);
+          background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+            radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%);
         }
 
         .glass-wrapper::before {
@@ -111,10 +99,10 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 3; // Add this line to position the text on top of the glass effect
+          z-index: 3;
           pointer-events: none; // Add this line to make sure the button is still clickable
-          will-change: transform;
-          -webkit-font-smoothing: antialiased;
+          -webkit-font-smoothing: subpixel-antialiased;
+          text-rendering: geometricPrecision;
         }
       }
 
