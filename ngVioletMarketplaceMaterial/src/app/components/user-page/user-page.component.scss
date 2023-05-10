@@ -3,9 +3,18 @@
   font-family: "Nunito";
 }
 
+canvas {
+  height: 150vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 .top-container {
   height: auto;
   width: 100vw;
+  padding-top: 1.5em;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -14,13 +23,13 @@
     margin-inline: auto;
     width: 280px;
     height: 80vh;
-    margin-left: 2em;
+    margin-left: .35em;
     position: relative; // Add this line to position the button wrappers absolutely
     z-index: 0; // Add this line to set the z-index value for the container
 
     .user-image {
       position: absolute;
-      top: 1.5em;
+      top: 1em;
       height: 13rem;
       width: 16rem;
       margin-inline: auto;
@@ -53,7 +62,7 @@
         outline: none;
         border: none;
         font-size: 1.4em;
-        font-weight: 200 !important;
+        font-weight: 300 !important;
         color: lightgray;
         background-size: 150% 150%;
         animation: gradient 4s linear 5s infinite;
@@ -107,7 +116,7 @@
       }
 
       &.tokens-button-wrapper {
-        top: 40%;
+        top: 35%;
 
         .tokens-button {
           background-image: linear-gradient(88.33deg, #3635AC 0.81%, #304B7E 51.46%, #471D90 102.11%);
@@ -124,7 +133,7 @@
       }
 
       &.wallet-button-wrapper {
-        top: 58%;
+        top: 54%;
 
         .wallet-button::before {
           background-image: linear-gradient(to right, #FCB045 0%, #77B388 100%);
@@ -141,7 +150,7 @@
       }
 
       &.collections-button-wrapper {
-        top: 76%;
+        top: 73%;
 
         .collections-button {
           background-image: linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%), linear-gradient(95.71deg, rgba(14, 14, 69, 0.7) 19.97%, rgba(136, 181, 223, 0.7) 85.88%), linear-gradient(93.24deg, #77B388 0.65%, #D5752A 74.14%);
@@ -157,7 +166,7 @@
       }
 
       &.create-button-wrapper {
-        top: 94%;
+        top: 91%;
 
         .create-button::after {
           background-image: linear-gradient(to bottom, #FD241D 0%, #77B388 100%);
@@ -225,9 +234,9 @@
   background: transparent;
   border-radius: 6px;
   overflow: hidden;
-  margin: 1.5em 2em 0 0;
+  margin-right: .75em;
   padding-bottom: 2em;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(255, 255, 255, 0.1) inset, 0 0 20px rgba(255, 255, 255, 0.1) inset;
+  // box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(255, 255, 255, 0.1) inset, 0 0 20px rgba(255, 255, 255, 0.1) inset;
   transition: transform 0.3s ease-in-out;
 
   &:hover {
