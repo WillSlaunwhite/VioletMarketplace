@@ -1,3 +1,5 @@
+@import '/src/scss/utils/variables';
+
 * {
   color: white;
   font-family: "Nunito";
@@ -45,8 +47,8 @@ canvas {
       overflow: hidden;
       z-index: 1;
       will-change: transform;
-      background: transparent;
-      box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
+      background-color: $primary-dark;
+      box-shadow: 0 0 4px rgba(255, 255, 255, 0.746);
       margin-right: .5em;
 
       // &:hover {
@@ -236,8 +238,9 @@ canvas {
       .create-button:hover::before {
         // pointer-events: none;
         // transform: rotate(0.125turn);
-        animation-timing-function: ease-in-out;
-        transform: rotate3d(50deg, 50deg);
+        transform: rotate(60deg) scale(2.5);
+        animation-timing-function: ease-out;
+        // transform: rotate3d(50deg, 50deg);
       }
 
       .tokens-button:hover::after,
@@ -246,8 +249,8 @@ canvas {
       .create-button:hover::after {
         // pointer-events: none;
         // transform: rotate(0.125turn);
-        transform: rotate(180deg);
-        animation-timing-function: ease-in-out;
+        transform: rotate(60deg) scale(2.5);
+        animation-timing-function: ease-out;
       }
     }
   }
