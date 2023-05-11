@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  HostBinding,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -20,11 +26,33 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   publicKey = 'RKgBiI3QrJDhUNPD';
   secretKey = secretKey;
 
-
   editProfile: boolean = false;
   user: User = new User();
   username: string | null = '';
   tokens: Token[] = [];
+
+  buttons = [
+    {
+      wrapperClass: 'tokens-button-wrapper button-wrapper',
+      buttonClass: 'tokens-button',
+      text: 'tokens',
+    },
+    {
+      wrapperClass: 'wallet-button-wrapper button-wrapper',
+      buttonClass: 'wallet-button',
+      text: 'wallet',
+    },
+    {
+      wrapperClass: 'collections-button-wrapper button-wrapper',
+      buttonClass: 'collections-button',
+      text: 'collections',
+    },
+    {
+      wrapperClass: 'create-button-wrapper button-wrapper',
+      buttonClass: 'create-button',
+      text: 'create',
+    },
+  ];
 
   cryptos = [
     // Add your user's crypto balances here
@@ -56,7 +84,12 @@ export class UserPageComponent implements OnInit, AfterViewInit {
     private tokenSvc: TokenService,
     private formBuilder: FormBuilder
   ) {
-    this.matIconRegistry.addSvgIcon('my-icon', this.domSanitizer.bypassSecurityTrustResourceUrl('assets/logos/retro_vm_logo.svg'));
+    this.matIconRegistry.addSvgIcon(
+      'my-icon',
+      this.domSanitizer.bypassSecurityTrustResourceUrl(
+        'assets/logos/retro_vm_logo.svg'
+      )
+    );
     this.createForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
@@ -66,6 +99,7 @@ export class UserPageComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.generateRandomAnimations();
+    // this.assignRandomAnimations();
   }
 
   ngOnInit(): void {
@@ -103,41 +137,65 @@ export class UserPageComponent implements OnInit, AfterViewInit {
     }
   }
 
+  assignRandomAnimations() {
+    const buttons = document.querySelectorAll('.button-container .button-wrapper');
+    buttons.forEach((button: any) => {
+      const animationDuration = Math.random() * 10 + 10;
+      const animationDelay = Math.random() * 3;
+      const directionX = Math.random() * 20 - 10;
+      const directionY = Math.random() * 20 - 10;
+      button.animate(
+        [
+          { transform: 'translate(0, 0)' },
+          { transform: `translate(${directionX}px, ${directionY}px)` },
+          { transform: 'translate(0, 0)' }
+        ],
+        {
+          duration: animationDuration * 1000,
+          iterations: Infinity,
+          easing: 'ease-in-out',
+          delay: animationDelay * 1000,
+        }
+      );
+    });
+    // const buttons = document.querySelectorAll(
+    //   '.button-container .button-wrapper'
+    // );
+    // buttons.forEach((button: any) => {
+    //   const htmlButton = button as HTMLElement;
+    //   const animationClass = `floating-${Math.floor(Math.random() * 4) + 1}`; // Random number between 1 and 4
+    //   htmlButton.classList.add(animationClass);
 
-assignRandomAnimations() {
-  const buttons = document.querySelectorAll('.button-container .button-wrapper');
-  buttons.forEach((button) => {
-    const animationClass = `floating-${Math.floor(Math.random() * 4) + 1}`; // Random number between 1 and 4
-    button.classList.add(animationClass);
-  });
-}
+    //   htmlButton.addEventListener('mousemove', (event: MouseEvent) => {
+    //     const rect = htmlButton.getBoundingClientRect();
+    //     const x = event.clientX - rect.left; //x position within the element.
+    //     const y = event.clientY - rect.top; //y position within the element.
 
-
-
+    //     htmlButton.style.transform = `translate(${50}px, ${y + 5}px)`;
+    //   });
+    // });
+  }
 
   generateRandomAnimations() {
-  const buttons = document.querySelectorAll('.button-container .button-wrapper');
-  const container = document.querySelectorAll('.user-info-container');
-  buttons.forEach((button) => {
-    const animationDuration = Math.random() * 10 + 10; // Random number between 4 and 8
-    const animationDelay = Math.random() * 3; // Random number between 0 and 8
-    const directionX = Math.random() * 10 + 10; // Random number between -8 and 8
-    const directionY = Math.random() * 10 + 10; // Random number between -8 and 8
+    const buttons = Array.from(document.querySelectorAll('.button-container .button-wrapper button'));
 
-    button.animate(
-      [
-        { transform: 'translate(0, 0)' },
-        { transform: `translate(${directionX}px, ${directionY}px)` },
-        { transform: 'translate(0, 0)' },
-      ],
-      {
-        duration: animationDuration * 1000,
-        iterations: Infinity,
-        easing: 'ease-in-out',
-        delay: animationDelay * 1000, // Add this line to include the random delay
+    buttons.forEach((button: any) => {
+      button.onmousemove = (e: MouseEvent) => {
+        let rect = button.getBoundingClientRect();
+        let x = e.clientX - rect.left - button.offsetWidth / 2;
+        let y = e.clientY - rect.top - button.offsetHeight / 2;
+
+        x /= button.offsetWidth / 2;
+        y /= button.offsetHeight / 2;
+
+        const multiplier = 10;
+        button.style.transform = `rotateX(${multiplier * -y}deg) rotateY(${multiplier * x}deg)`;
       }
-    );
-  });
-}
+
+      button.onmouseout = () => {
+        button.style.transform = '';
+      }
+    });
+  }
 
 }

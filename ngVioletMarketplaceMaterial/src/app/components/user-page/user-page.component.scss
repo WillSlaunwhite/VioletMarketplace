@@ -47,6 +47,24 @@ canvas {
       will-change: transform;
       background: transparent;
       box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
+      margin-right: .5em;
+
+      // &:hover {
+      //   transform: rotate3d(1, -1, 0, 20deg);
+      //   transform: skew(-10deg, 10deg);
+      // }
+      // &.button-wrapper button {
+      //   transition: transform .1s ease-out;
+      //   transform-style: preserve-3d;
+      // }
+
+      // &.button-wrapper button::before,
+      // .button-wrapper button::after {
+      //   transform-style: preserve-3d;
+      // }
+
+
+
 
 
       // BUTTONS AND BORDERS
@@ -67,6 +85,10 @@ canvas {
         background-size: 150% 150%;
         animation: gradient 4s linear 5s infinite;
 
+        // &:hover {
+        //   transform: rotate3d(1, -1, 0, 20deg);
+        //   transform: skew(-10deg, 10deg);
+        // }
 
         .glass-wrapper {
           position: absolute;
@@ -203,7 +225,7 @@ canvas {
         border-radius: 6px;
         background-size: 150% 100%;
         transition: all .6s ease-in-out;
-        filter: hue-rotate(15deg);
+        // filter: hue-rotate(15deg);
       }
 
       .tokens-button:hover::before,
@@ -217,7 +239,7 @@ canvas {
       .wallet-button:hover::after,
       .collections-button:hover::after,
       .create-button:hover::after {
-        transform: rotate(0.125turn);
+        transform: rotate(0.125turn) !important;
       }
     }
   }
