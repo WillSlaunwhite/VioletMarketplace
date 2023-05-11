@@ -42,6 +42,7 @@ import { CreateTokenComponent } from './components/create-token/create-token.com
 import { TokenCardComponent } from './components/token-card/token-card.component';
 import { TokenCardButtonComponent } from './components/token-card-button/token-card-button.component';
 import { NavComponent } from './components/nav/nav.component';
+import { ProfileManagementComponent } from './components/profile-management/profile-management.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { NavComponent } from './components/nav/nav.component';
     TokenCardComponent,
     TokenCardButtonComponent,
     NavComponent,
+    ProfileManagementComponent,
   ],
   imports: [
     BrowserModule,

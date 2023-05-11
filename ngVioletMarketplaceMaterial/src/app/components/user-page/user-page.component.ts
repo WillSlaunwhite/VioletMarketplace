@@ -99,32 +99,32 @@ export class UserPageComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.generateRandomAnimations();
-    // this.assignRandomAnimations();
+    this.assignFloatingAnimations();
   }
 
   ngOnInit(): void {
-    // this.username = this.auth.getUsername();
-    // this.auth
-    //   .getUser(this.username!)
-    //   .pipe(
-    //     switchMap((username) =>
-    //       forkJoin([
-    //         this.auth.getUser(username.username),
-    //         this.tokenSvc.getByUsername(username.username),
-    //       ])
-    //     )
-    //   )
-    //   .subscribe({
-    //     next: ([user, tokens]: [User, Token[]]) => {
-    //       this.user = user;
-    //       this.tokens = tokens;
-    //     },
-    //     error: (err) => {
-    //       console.error(
-    //         'UserComponent.init(): error getting User and tokens:\n' + err
-    //       );
-    //     },
-    // });
+    this.username = this.auth.getUsername();
+    this.auth
+      .getUser(this.username!)
+      .pipe(
+        switchMap((username) =>
+          forkJoin([
+            this.auth.getUser(username.username),
+            this.tokenSvc.getByUsername(username.username),
+          ])
+        )
+      )
+      .subscribe({
+        next: ([user, tokens]: [User, Token[]]) => {
+          this.user = user;
+          this.tokens = tokens;
+        },
+        error: (err) => {
+          console.error(
+            'UserComponent.init(): error getting User and tokens:\n' + err
+          );
+        },
+      });
   }
 
   onSubmit(): void {
@@ -137,7 +137,7 @@ export class UserPageComponent implements OnInit, AfterViewInit {
     }
   }
 
-  assignRandomAnimations() {
+  assignFloatingAnimations() {
     const buttons = document.querySelectorAll('.button-container .button-wrapper');
     buttons.forEach((button: any) => {
       const animationDuration = Math.random() * 10 + 10;
@@ -189,7 +189,9 @@ export class UserPageComponent implements OnInit, AfterViewInit {
         y /= button.offsetHeight / 2;
 
         const multiplier = 10;
-        button.style.transform = `rotateX(${multiplier * -y}deg) rotateY(${multiplier * x}deg)`;
+        // button.style.transform = `rotateX(${multiplier * -y}deg) rotateY(${multiplier * x}deg)`;
+        // button.style.transform = `rotate(${multiplier * -y}deg, ${multiplier * x}deg)`;
+        button.style.transform = `rotate3d(${multiplier * (-x + y)}, ${multiplier * (-y + x)})`;
       }
 
       button.onmouseout = () => {
