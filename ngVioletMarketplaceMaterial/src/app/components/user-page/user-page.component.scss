@@ -226,20 +226,28 @@ canvas {
         background-size: 150% 100%;
         transition: all .6s ease-in-out;
         // filter: hue-rotate(15deg);
+        pointer-events: none;
+        /* Add this line */
       }
 
       .tokens-button:hover::before,
       .wallet-button:hover::before,
       .collections-button:hover::before,
       .create-button:hover::before {
-        transform: rotate(0.125turn);
+        // pointer-events: none;
+        // transform: rotate(0.125turn);
+        animation-timing-function: ease-in-out;
+        transform: rotate3d(50deg, 50deg);
       }
 
       .tokens-button:hover::after,
       .wallet-button:hover::after,
       .collections-button:hover::after,
       .create-button:hover::after {
-        transform: rotate(0.125turn) !important;
+        // pointer-events: none;
+        // transform: rotate(0.125turn);
+        transform: rotate(180deg);
+        animation-timing-function: ease-in-out;
       }
     }
   }
