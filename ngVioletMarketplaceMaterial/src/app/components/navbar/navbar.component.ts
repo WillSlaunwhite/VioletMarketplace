@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
     private dialog: MatDialog,
     private breakpointObserver: BreakpointObserver,
     private auth: AuthService
-  ) {}
+  ) { }
   username: string | null = null;
   user: User | null = new User();
   searchTerm: string | null = null;
@@ -31,13 +31,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.username = this.auth.getUsername();
-    this.auth.getUser(this.username!).subscribe({
-      next: (user) => (this.user = user),
-      error: (err) => {
-        console.log('Navbar Component: Not logged in.');
-      }
-    });
+    this.user = this.auth.currentUserValue;
   }
 
 

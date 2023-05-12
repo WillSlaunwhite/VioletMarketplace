@@ -8,12 +8,11 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./token.component.scss'],
 })
 export class TokenComponent implements OnInit {
-  constructor(private auth: AuthService) {}
   user: User = new User();
+
+  constructor(private auth: AuthService) { }
+
   ngOnInit(): void {
-    this.auth.getUsername();
-    this.auth.getUser(this.auth.getUsername()!).subscribe((user) => {
-      this.user = user;
-    });
+    this.user = this.auth.currentUserValue;
   }
 }

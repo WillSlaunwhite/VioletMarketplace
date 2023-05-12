@@ -30,6 +30,8 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   user: User = new User();
   username: string | null = '';
   tokens: Token[] = [];
+  displayedColumns: string[] = ['timestamp', 'details'];
+  createForm: FormGroup;
 
   buttons = [
     {
@@ -72,8 +74,6 @@ export class UserPageComponent implements OnInit, AfterViewInit {
     { timestamp: '2023-04-16 14:00:00', details: 'Sold NFT 3 for 5 BNB' },
   ];
 
-  displayedColumns: string[] = ['timestamp', 'details'];
-  createForm: FormGroup;
 
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -103,28 +103,7 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.username = this.auth.getUsername();
-    this.auth
-      .getUser(this.username!)
-      .pipe(
-        switchMap((username) =>
-          forkJoin([
-            this.auth.getUser(username.username),
-            this.tokenSvc.getByUsername(username.username),
-          ])
-        )
-      )
-      .subscribe({
-        next: ([user, tokens]: [User, Token[]]) => {
-          this.user = user;
-          this.tokens = tokens;
-        },
-        error: (err) => {
-          console.error(
-            'UserComponent.init(): error getting User and tokens:\n' + err
-          );
-        },
-      });
+    this.user = this.auth.currentUserValue;
   }
 
   onSubmit(): void {
