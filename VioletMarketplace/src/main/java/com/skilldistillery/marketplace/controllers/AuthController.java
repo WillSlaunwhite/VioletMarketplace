@@ -15,7 +15,7 @@ import com.skilldistillery.marketplace.entities.User;
 import com.skilldistillery.marketplace.services.AuthService;
 
 @RestController
-@CrossOrigin({"*", "http://localhost:4301"})
+@CrossOrigin({"*", "http://localhost"})
 public class AuthController {
 
 	@Autowired

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { RegisterComponent } from '../register/register.component';
+import { Observable, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -12,22 +13,31 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class LoginComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<RegisterComponent>,
-    private auth: AuthService, private router: Router) {}
+    private auth: AuthService, private router: Router) { }
   loginUser = new User();
   showPage = false;
 
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   login() {
     this.auth.login(this.loginUser.username, this.loginUser.password).subscribe(
-      (success) => {
-        this.router.navigateByUrl('/home');
+      response => {
+        this.loginUser = response;
+        this.router.navigate(['/home']);
       },
-      (error) => {
-        console.error('LoginComponent.login(): login failed\n' + error);
+      error => {
+        console.error('loginComponent: Unable to log in: ' + error);
       }
     );
+    // .subscribe(
+    //   (success) => {
+    //     this.router.navigateByUrl('/home');
+    //   },
+    //   (error) => {
+    //     console.error('LoginComponent.login(): login failed\n' + error);
+    //   }
+    // );
   }
 
   closeDialog(): void {

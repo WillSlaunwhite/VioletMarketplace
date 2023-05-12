@@ -1,1 +1,35 @@
 <p>profile-management works!</p>
+<div @slideInRight class="gradient-light text-white container-fluid w-50">
+  <button mat-icon-button class="close-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <div class="card-header">
+    <h4 class="text-center" style="font-weight: 300;">Profile Management</h4>
+  </div>
+  <div class="card-body w-100 d-flex justify-content-center flex-column align-items-center">
+    <form [formGroup]="profileForm">
+      <!-- Username Field -->
+      <mat-form-field class="w-75" color="secondary">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+
+      <!-- Email Field -->
+      <mat-form-field [ngClass]="{'white-text': true}" class="w-75">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+      </mat-form-field>
+
+      <!-- Password Field -->
+      <mat-form-field class="w-75">
+        <mat-label>Password</mat-label>
+        <input matInput color="white" type="password" formControlName="password">
+      </mat-form-field>
+
+      <!-- Update Button -->
+      <button mat-raised-button color="primary" style="font-weight: 300;" class="w-50 mt-4 shadow-none update-button" (click)="updateProfile()">Update</button>
+    </form>
+    <div *ngIf="updateError" class="text-danger">Update failed</div>
+    <div *ngIf="updateSuccess" class="text-success">Profile updated successfully</div>
+  </div>
+</div>
