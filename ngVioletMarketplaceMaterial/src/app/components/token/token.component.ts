@@ -13,6 +13,8 @@ export class TokenComponent implements OnInit {
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.user = this.auth.currentUserValue;
+    if (this.auth.currentUserValue) {
+      this.user = this.auth.currentUserValue;
+    }
   }
 }

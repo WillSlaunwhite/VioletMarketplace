@@ -103,7 +103,9 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.user = this.auth.currentUserValue;
+    if (this.auth.currentUserValue) {
+      this.user = this.auth.currentUserValue;
+    }
   }
 
   onSubmit(): void {
