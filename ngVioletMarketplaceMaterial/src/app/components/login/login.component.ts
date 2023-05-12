@@ -23,21 +23,13 @@ export class LoginComponent implements OnInit {
   login() {
     this.auth.login(this.loginUser.username, this.loginUser.password).subscribe(
       response => {
-        this.loginUser = response;
+        this.loginUser = this.auth.currentUserValue!;
         this.router.navigate(['/home']);
       },
       error => {
         console.error('loginComponent: Unable to log in: ' + error);
       }
     );
-    // .subscribe(
-    //   (success) => {
-    //     this.router.navigateByUrl('/home');
-    //   },
-    //   (error) => {
-    //     console.error('LoginComponent.login(): login failed\n' + error);
-    //   }
-    // );
   }
 
   closeDialog(): void {

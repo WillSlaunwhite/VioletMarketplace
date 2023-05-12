@@ -1,68 +1,64 @@
 package com.skilldistillery.marketplace.security;
 
-import javax.sql.DataSource;
-
+import com.skilldistillery.marketplace.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig  {
-
-    // this you get for free when you configure the db connection in application.properties file
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    private DataSource dataSource;
+    private UserService userService;
 
-    // this bean is created in the application starter class if you're looking for it
+    @Autowired
+    private JwtRequestFilter jwtRequestFilter;
+
     @Autowired
     private PasswordEncoder encoder;
-    
-    @Bean
-    public SecurityFilterChain createFilterChain(HttpSecurity http) throws Exception {
-        http
-        .cors().and()
-        .csrf().disable()
-        .authorizeRequests()
-        .antMatchers(HttpMethod.OPTIONS, "/api/**").permitAll() // For CORS, the preflight request
-        .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()     // will hit the OPTIONS on the route
-        .antMatchers(HttpMethod.GET, "/api/user/*").permitAll() 
-        .antMatchers(HttpMethod.GET, "/api/home/tokens").permitAll() 
-        .antMatchers(HttpMethod.GET, "/api/tokens/user/*").permitAll() 
-        .antMatchers(HttpMethod.GET, "/api/tokens/id/*").permitAll() 
-        .antMatchers(HttpMethod.GET, "/api/bids/*").permitAll() 
-        .antMatchers(HttpMethod.POST, "/api/user").permitAll() 
-        .antMatchers("/api/**").authenticated() // Requests for our REST API must be authorized.
-        .anyRequest().permitAll()               // All other requests are allowed without authentication.
-        .and()
-        .httpBasic();                           // Use HTTP Basic Authentication
 
-        http
-        .sessionManagement()
-        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        
-        return http.build();
-    }
-    
-    @Autowired
+    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // Check if username/password are valid, and user currently allowed to authenticate
-        String userQuery = "SELECT username, password, enabled FROM user WHERE username=?";
-        // Check what authorities the user has
-        String authQuery = "SELECT username, role FROM user WHERE username=?";
-        auth
-        .jdbcAuthentication()
-        .dataSource(dataSource)
-        .usersByUsernameQuery(userQuery)
-        .authoritiesByUsernameQuery(authQuery)
-        .passwordEncoder(encoder);
+        auth.userDetailsService((UserDetailsService)userService).passwordEncoder(encoder);
     }
-    
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors().and()
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.OPTIONS, "/api/**").permitAll()
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/user/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/home/tokens").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/tokens/user/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/tokens/id/*").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/bids/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/user").permitAll()
+                .antMatchers("/authenticate").permitAll()
+                .antMatchers("/api/**").authenticated()
+                .anyRequest().permitAll()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+
+    @Override
+    @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 }

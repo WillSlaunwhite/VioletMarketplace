@@ -3,6 +3,7 @@ package com.skilldistillery.marketplace.controllers;
 import com.skilldistillery.marketplace.entities.Token;
 import com.skilldistillery.marketplace.services.TokenService;
 import com.skilldistillery.marketplace.services.UserService;
+import com.skilldistillery.marketplace.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 import java.util.Set;
 
+
 @RestController
 @RequestMapping("api")
 @CrossOrigin({"*", "http://localhost:4301"})
@@ -21,7 +23,8 @@ public class TokenController {
     private TokenService tokenSvc;
     @Autowired
     private UserService userSvc;
-
+    @Autowired
+    private JwtUtil jwtUtil;
 
     /////////////// UNAUTH METHODS ///////////////////
 
@@ -78,9 +81,12 @@ public class TokenController {
 
     //	Get principal's list of tokens
     @GetMapping("tokens/myTokens")
-    public ResponseEntity<Set<Token>> indexByUsername(Principal principal) {
+    public ResponseEntity<Set<Token>> indexByUsername(HttpServletRequest request) {
         try {
-            Set<Token> tokenList = tokenSvc.indexByUsername(principal.getName());
+            String jwt = request.getHeader("Authorization").substring(7);
+            String username = jwtUtil.extractUsername(jwt);
+
+            Set<Token> tokenList = tokenSvc.indexByUsername(username);
             if (tokenList.isEmpty()) {
                 return ResponseEntity.notFound().build();
             }

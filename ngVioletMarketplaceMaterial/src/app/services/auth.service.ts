@@ -9,18 +9,18 @@ import User from '../models/user';
   providedIn: 'root',
 })
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<User>;
+  private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser: Observable<User | null>;
   private baseUrl = environment.baseUrl;
   private url = this.baseUrl + 'api/user';
 
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')!));
+    this.currentUserSubject = new BehaviorSubject<User | null>(JSON.parse(localStorage.getItem('currentUser')!));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue(): User {
+  public get currentUserValue(): User | null {
     return this.currentUserSubject.value;
   }
 
@@ -45,21 +45,43 @@ export class AuthService {
     );
   }
 
-  login(username: string, password: string): Observable<User> {
-    // Create credentials
-    const credentials = this.generateBasicAuthCredentials(username, password);
-    // Send credentials as Authorization header (this is spring security convention for basic auth)
-    const httpOptions = {
-      headers: new HttpHeaders({
-        Authorization: `Basic ${credentials}`,
-        'X-Requested-With': 'XMLHttpRequest',
-      }),
-    };
+  // login(username: string, password: string): Observable<User> {
+  //   // Create credentials
+  //   const credentials = this.generateBasicAuthCredentials(username, password);
+  //   // Send credentials as Authorization header (this is spring security convention for basic auth)
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({
+  //       Authorization: `Basic ${credentials}`,
+  //       'X-Requested-With': 'XMLHttpRequest',
+  //     }),
+  //   };
 
+  //   // Create request to authenticate credentials
+  //   return this.http.get<User>(this.baseUrl + 'authenticate', httpOptions).pipe(
+  //     tap((loggedIn: User) => {
+  //       this.setUser(loggedIn);
+  //     }),
+  //     catchError((err: Error) => {
+  //       return throwError(() => new Error('AuthService.login(): Error logging in: ' + err));
+  //     })
+  //   );
+  // }
+
+  login(username: string, password: string): Observable<string> {
+    // Send credentials as JSON
+    const credentials = { username: username, password: password };
     // Create request to authenticate credentials
-    return this.http.get<User>(this.baseUrl + 'authenticate', httpOptions).pipe(
-      tap((loggedIn: User) => {
-        this.setUser(loggedIn);
+    return this.http.post<string>(this.baseUrl + 'authenticate', credentials).pipe(
+      tap((jwt: string) => {
+        this.storeJwt(jwt);
+        this.getUserByUsername(username).subscribe(
+          user => {
+            this.setUser(user);
+          },
+          error => {
+            console.error('AuthService.login(): Error retrieving user details: ' + error);
+          }
+        );
       }),
       catchError((err: Error) => {
         return throwError(() => new Error('AuthService.login(): Error logging in: ' + err));
@@ -82,14 +104,18 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('credentials');
     localStorage.removeItem('username');
+    localStorage.removeItem('jwt');
+    this.currentUserSubject.next(null);
   }
 
+
   isUserLoggedIn(): boolean {
-    if (localStorage.getItem('credentials')) {
+    if (localStorage.getItem('jwt')) {
       return true;
     }
     return false;
   }
+
 
   generateBasicAuthCredentials(username: string, password: string): string {
     return btoa(`${username}:${password}`);
@@ -100,16 +126,17 @@ export class AuthService {
   }
 
   getHttpOptions(): Object {
-    let credentials = this.getCredentials();
+    let jwt = this.getJwt();
     let options = {
       headers: {
         'Content-type': 'application/json',
         'X-Requestd-With': 'XMLHttpRequest',
-        Authorization: `Basic ${credentials}`,
+        Authorization: `Bearer ${jwt}`,
       },
     };
     return options;
   }
+
 
   getLoggedInUsername(): string | null {
     return localStorage.getItem('username');
@@ -119,6 +146,13 @@ export class AuthService {
     this.currentUserSubject.next(user);
   }
 
+  storeJwt(jwt: string) {
+    localStorage.setItem('jwt', jwt);
+  }
+
+  getJwt(): string | null {
+    return localStorage.getItem('jwt');
+  }
 
 
 }

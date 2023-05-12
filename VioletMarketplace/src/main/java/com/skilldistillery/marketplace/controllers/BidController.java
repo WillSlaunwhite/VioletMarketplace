@@ -21,67 +21,57 @@ import com.skilldistillery.marketplace.services.TokenTxService;
 
 @RestController
 @RequestMapping("api")
-@CrossOrigin({ "*", "http://localhost:4301" })
-public class 	BidController {
+@CrossOrigin({"*", "http://localhost:4301"})
+public class BidController {
 
-	@Autowired
-	private BidService bidService;
+    @Autowired
+    private BidService bidService;
 
 
-	
-	/////////////// GET METHODS ///////////////////
+    /////////////// GET METHODS ///////////////////
 
-	
-	
-	///// GET ALL BIDS FOR A TOKEN
-	@GetMapping("bids/{tokenId}")
-	public List<Bid> tokenBids(HttpServletRequest req, HttpServletResponse resp, @PathVariable int tokenId) {
-		return bidService.userBids(tokenId);
-	}
 
-	///// GET A ALL BIDS FOR A USER
-	@GetMapping("bids/{userId}")
-	public List<Bid> userBids(HttpServletRequest req, HttpServletResponse resp, @PathVariable int userId) {
-		return bidService.userBids(userId);
-	}
+    ///// GET ALL BIDS FOR A TOKEN
+    @GetMapping("bids/{tokenId}")
+    public List<Bid> tokenBids(HttpServletRequest req, HttpServletResponse resp, @PathVariable int tokenId) {
+        return bidService.userBids(tokenId);
+    }
 
-	
-	
-	/////////////// PUT METHODS ///////////////////
-	
-	
-	
-	
-	
-	
-	/////////////// POST METHODS ///////////////////
+    ///// GET A ALL BIDS FOR A USER
+    @GetMapping("bids/{userId}")
+    public List<Bid> userBids(HttpServletRequest req, HttpServletResponse resp, @PathVariable int userId) {
+        return bidService.userBids(userId);
+    }
 
-	
-	
-	// POST NEW BID
-	@PostMapping("bids")
-	public Bid create(HttpServletRequest req, HttpServletResponse resp, @RequestBody Bid bid) {
-		bidService.create(bid);
-		if (bid == null) {
-			resp.setStatus(404);
-		}
-		return bid;
-	}
-	
-	
-	
-	/////////////// DELETE METHODS ///////////////////
-	
-	
-	
-	//	DELETE BID BY BID ID
-	@DeleteMapping("bids/delete/{bidId}")
-	public void destroyBid(HttpServletResponse res, HttpServletRequest req, @PathVariable int bidId) {
-		if (bidService.destroyBid(bidId)) {
-			res.setStatus(204);
-		} else {
-			res.setStatus(401);
-		}
-	}
+
+    /////////////// PUT METHODS ///////////////////
+
+
+    /////////////// POST METHODS ///////////////////
+
+
+    // POST NEW BID
+    @PostMapping("bids")
+    public Bid create(HttpServletRequest req, HttpServletResponse resp, @RequestBody Bid bid) {
+        bidService.create(bid);
+        if (bid == null) {
+            resp.setStatus(404);
+        }
+        return bid;
+    }
+
+
+    /////////////// DELETE METHODS ///////////////////
+
+
+    //	DELETE BID BY BID ID
+    @DeleteMapping("bids/delete/{bidId}")
+    public void destroyBid(HttpServletResponse res, HttpServletRequest req, @PathVariable int bidId) {
+        if (bidService.destroyBid(bidId)) {
+            res.setStatus(204);
+        } else {
+            res.setStatus(401);
+        }
+    }
 
 }

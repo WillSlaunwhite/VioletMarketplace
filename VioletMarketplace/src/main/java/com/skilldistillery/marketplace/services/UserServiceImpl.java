@@ -1,13 +1,18 @@
 package com.skilldistillery.marketplace.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.marketplace.entities.User;
 import com.skilldistillery.marketplace.repositories.UserRepository;
 
+import java.util.ArrayList;
+
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, UserDetailsService {
 	@Autowired
 	private UserRepository userRepo;
 
@@ -39,6 +44,16 @@ public class UserServiceImpl implements UserService {
 	public boolean delete(int userId) {
 		userRepo.deleteById(userId);
 		return !userRepo.existsById(userId);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userRepo.findByUsername(username);
+		if (user == null) {
+			throw new UsernameNotFoundException("User not found with username: " + username);
+		}
+		return new org.springframework.security.core.userdetails.User(user.getUsername(),
+				user.getPassword(), new ArrayList<>());
 	}
 
 }
