@@ -4,11 +4,13 @@ import { MatDialogRef } from '@angular/material/dialog';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+import { slideInAnimation } from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-profile-management',
   templateUrl: './profile-management.component.html',
-  styleUrls: ['./profile-management.component.scss']
+  styleUrls: ['./profile-management.component.scss'],
+  animations: [slideInAnimation]
 })
 export class ProfileManagementComponent implements OnInit {
   profileForm: FormGroup;
@@ -32,7 +34,7 @@ export class ProfileManagementComponent implements OnInit {
 
     // Populate the form with the current user's info
     // const currentUser = this.authService.getUserByUsername(this.authService.getLoggedInUsername());
-    const currentUser = new User();
+    const currentUser = this.authService.currentUserValue != null ? this.authService.currentUserValue : new User();
     this.profileForm.patchValue({
       username: currentUser.username,
       email: currentUser.email,

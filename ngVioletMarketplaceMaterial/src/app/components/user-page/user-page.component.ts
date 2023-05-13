@@ -6,6 +6,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,6 +16,7 @@ import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
+import { ProfileManagementComponent } from '../profile-management/profile-management.component';
 
 @Component({
   selector: 'app-user-page',
@@ -82,7 +84,8 @@ export class UserPageComponent implements OnInit, AfterViewInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private tokenSvc: TokenService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog
   ) {
     this.matIconRegistry.addSvgIcon(
       'my-icon',
@@ -94,6 +97,17 @@ export class UserPageComponent implements OnInit, AfterViewInit {
       name: ['', Validators.required],
       description: ['', Validators.required],
       image: ['', Validators.required],
+    });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ProfileManagementComponent, {
+      width: '25em',
+      data: { name: "hello", animal: "world" }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 
