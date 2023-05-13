@@ -226,7 +226,7 @@ canvas {
         z-index: -1;
         border-radius: 6px;
         background-size: 150% 100%;
-        transition: all .6s ease-in-out;
+        transition: all .8s ease-in-out;
         // filter: hue-rotate(15deg);
         pointer-events: none;
         /* Add this line */
@@ -238,8 +238,8 @@ canvas {
       .create-button:hover::before {
         // pointer-events: none;
         // transform: rotate(0.125turn);
-        transform: rotate(60deg) scale(2.5);
-        animation-timing-function: ease-out;
+        transform: rotate(45deg) scale(2);
+        animation-timing-function: ease-in-out;
         // transform: rotate3d(50deg, 50deg);
       }
 
@@ -249,8 +249,8 @@ canvas {
       .create-button:hover::after {
         // pointer-events: none;
         // transform: rotate(0.125turn);
-        transform: rotate(60deg) scale(2.5);
-        animation-timing-function: ease-out;
+        transform: rotate(45deg) scale(2);
+        animation-timing-function: ease-in-out;
       }
     }
   }

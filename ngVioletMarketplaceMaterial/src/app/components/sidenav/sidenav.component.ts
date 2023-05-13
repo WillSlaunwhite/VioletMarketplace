@@ -15,8 +15,8 @@ export class SidenavComponent implements OnInit {
   faLinkedin = faLinkedin;
   faGithub = faGithub;
   faFile = faFile;
-  constructor() {}
+  constructor() { }
   @Input() animationData: string | undefined;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

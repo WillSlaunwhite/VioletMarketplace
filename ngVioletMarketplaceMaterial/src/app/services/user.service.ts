@@ -8,13 +8,9 @@ import User from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
-  private currentUserSubject: BehaviorSubject<User | null>;
-  public currentUser: Observable<User | null>;
   private baseUrl = environment.baseUrl;
   private url = this.baseUrl + 'api/user';
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User | null>(JSON.parse(localStorage.getItem('currentUser')!));
-    this.currentUser = this.currentUserSubject.asObservable();
   }
 
   updateProfile(user: User): Observable<User> {

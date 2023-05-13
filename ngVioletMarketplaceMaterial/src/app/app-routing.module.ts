@@ -17,7 +17,6 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    data: { animations: [slideInAnimation] },
   },
   {
     path: 'token',
@@ -28,13 +27,8 @@ const routes: Routes = [
     component: TokenComponent,
   },
   {
-    path: 'sidebar',
-    component: SidenavComponent,
-  },
-  {
     path: 'register',
     component: RegisterComponent,
-    data: { animations: [slideInAnimation] },
   },
   {
     path: 'login',
@@ -60,4 +54,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

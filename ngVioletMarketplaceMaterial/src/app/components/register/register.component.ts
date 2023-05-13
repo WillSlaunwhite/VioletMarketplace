@@ -1,13 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AnimationTriggerMetadata,
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  query,
-} from '@angular/animations';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { NavigationEnd, Router } from '@angular/router';

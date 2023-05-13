@@ -6,13 +6,11 @@ import {
   RouterOutlet,
 } from '@angular/router';
 import { filter } from 'rxjs';
-import { slideInAnimation } from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [slideInAnimation],
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('starfield') starfield!: ElementRef<HTMLCanvasElement>;
@@ -30,7 +28,7 @@ export class AppComponent implements AfterViewInit {
     }
 
     // Function to generate a random number
-    function random(max:any) {
+    function random(max: any) {
       return Math.floor(Math.random() * max);
     }
 
@@ -43,7 +41,7 @@ export class AppComponent implements AfterViewInit {
   title = 'ngVioletMarketplaceMaterial';
   animationData: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.router.events
