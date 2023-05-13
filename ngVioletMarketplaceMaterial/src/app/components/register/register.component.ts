@@ -15,6 +15,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { slideInAnimation } from 'src/app/animations/animations';
 import { filter } from 'rxjs';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -26,9 +27,10 @@ export class RegisterComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<RegisterComponent>,
     private formBuilder: FormBuilder,
+    private userService: UserService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
   registerUser: User = new User();
   confirmPassword: string | null = '';
   registerForm: FormGroup = new FormGroup({});
@@ -60,7 +62,7 @@ export class RegisterComponent implements OnInit {
     }
   }
   register(): void {
-    this.authService.register(this.registerUser).subscribe(
+    this.userService.register(this.registerUser).subscribe(
       (success) => {
         this.loginNewUser(this.registerUser);
       },
