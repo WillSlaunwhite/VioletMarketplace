@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile-management',
@@ -17,6 +18,7 @@ export class ProfileManagementComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<ProfileManagementComponent>,
     private formBuilder: FormBuilder,
+    private userService: UserService,
     private authService: AuthService
   ) {
     this.profileForm = this.formBuilder.group({
@@ -40,8 +42,9 @@ export class ProfileManagementComponent implements OnInit {
 
   updateProfile(): void {
     if (this.profileForm.valid) {
-      this.authService.updateProfile(this.profileForm.value).subscribe(
-        (success: User) => {
+      this.userService.updateProfile(this.profileForm.value).subscribe(
+        (updated: User) => {
+          this.authService.setUser(updated);
           this.updateSuccess = true;
           this.updateError = false;
           setTimeout(() => {

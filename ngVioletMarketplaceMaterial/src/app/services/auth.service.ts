@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, switchMap, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import User from '../models/user';
+import { UserService } from './user.service';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class AuthService {
   private url = this.baseUrl + 'api/user';
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
     this.currentUserSubject = new BehaviorSubject<User | null>(JSON.parse(localStorage.getItem('currentUser')!));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -24,80 +25,22 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  getUserByUsername(username: string): Observable<User> {
-    return this.http.get<User>(`${this.url}/${username}`).pipe(
-      catchError((err: Error) => {
-        console.error(err);
-        return throwError(() => 'tokenService.getUser(): Error retreiving user');
-      })
-    );
-  }
-
-  register(user: User) {
-    // create request to register a new account
-    return this.http.post(this.baseUrl + 'register', user).pipe(
-      catchError((err: Error) => {
-        console.log(err);
-        return throwError(
-          () => 'AuthService.register(): error registering user.'
-        );
-      })
-    );
-  }
-
-  // login(username: string, password: string): Observable<User> {
-  //   // Create credentials
-  //   const credentials = this.generateBasicAuthCredentials(username, password);
-  //   // Send credentials as Authorization header (this is spring security convention for basic auth)
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       Authorization: `Basic ${credentials}`,
-  //       'X-Requested-With': 'XMLHttpRequest',
-  //     }),
-  //   };
-
-  //   // Create request to authenticate credentials
-  //   return this.http.get<User>(this.baseUrl + 'authenticate', httpOptions).pipe(
-  //     tap((loggedIn: User) => {
-  //       this.setUser(loggedIn);
-  //     }),
-  //     catchError((err: Error) => {
-  //       return throwError(() => new Error('AuthService.login(): Error logging in: ' + err));
-  //     })
-  //   );
-  // }
-
-  login(username: string, password: string): Observable<string> {
+  login(username: string, password: string): Observable<User> {
     // Send credentials as JSON
     const credentials = { username: username, password: password };
     // Create request to authenticate credentials
     return this.http.post<string>(this.baseUrl + 'authenticate', credentials).pipe(
-      tap((jwt: string) => {
+      switchMap((jwt: string) => {
         this.storeJwt(jwt);
-        this.getUserByUsername(username).subscribe(
-          user => {
-            this.setUser(user);
-          },
-          error => {
-            console.error('AuthService.login(): Error retrieving user details: ' + error);
-          }
-        );
+        return this.userService.getUserByUsername(username);
+      }),
+      tap((user: User) => {
+        this.setUser(user);
       }),
       catchError((err: Error) => {
-        return throwError(() => new Error('AuthService.login(): Error logging in: ' + err));
-      })
-    );
-  }
-
-  updateProfile(user: User): Observable<User> {
-    const url = `${this.baseUrl}/users/${user.id}`;
-    return this.http.put<User>(url, user, this.getHttpOptions()).pipe(
-      tap((updatedUser: User) => {
-        this.setUser(updatedUser);
-      }),
-      catchError((err: any) => {
-        return throwError(() => 'AuthService.register(): error updating user: ' + err);
-      })
+        return throwError(() => new Error('AuthService.login(): Error logging in'));
+      }
+      )
     );
   }
 
@@ -108,17 +51,11 @@ export class AuthService {
     this.currentUserSubject.next(null);
   }
 
-
   isUserLoggedIn(): boolean {
     if (localStorage.getItem('jwt')) {
       return true;
     }
     return false;
-  }
-
-
-  generateBasicAuthCredentials(username: string, password: string): string {
-    return btoa(`${username}:${password}`);
   }
 
   getCredentials(): string | null {
@@ -153,6 +90,5 @@ export class AuthService {
   getJwt(): string | null {
     return localStorage.getItem('jwt');
   }
-
 
 }

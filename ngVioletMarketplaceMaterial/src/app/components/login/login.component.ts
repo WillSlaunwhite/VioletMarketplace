@@ -22,9 +22,12 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.auth.login(this.loginUser.username, this.loginUser.password).subscribe(
-      response => {
-        this.loginUser = this.auth.currentUserValue!;
-        this.router.navigate(['/home']);
+      user => {
+        if (this.auth.isUserLoggedIn()) {
+          this.loginUser = user;
+          this.closeDialog();
+          this.router.navigate(['/home']);
+        }
       },
       error => {
         console.error('loginComponent: Unable to log in: ' + error);
