@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import User from 'src/app/models/user';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/modules/shared/services/auth.service';
 import { RegisterComponent } from '../register/register.component';
 import { Observable, throwError } from 'rxjs';
 
