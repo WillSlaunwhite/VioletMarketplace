@@ -1,14 +1,9 @@
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
-
 
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,10 +23,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
 @NgModule({
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    LayoutModule,
     CommonModule,
+    LayoutModule,
     FormsModule,
     ReactiveFormsModule,
     MatSliderModule,

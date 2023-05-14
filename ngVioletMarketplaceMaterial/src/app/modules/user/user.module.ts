@@ -10,7 +10,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { MaterialModule } from '../material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     CommonModule,
-    BrowserAnimationsModule,
     LayoutModule,
     FormsModule,
     ReactiveFormsModule,
