@@ -38,7 +38,8 @@ import { BrowserModule } from '@angular/platform-browser';
       configUrl: './assets/json/icons.json',
     }),
     FontAwesomeModule,
-    UserModule
+    UserModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,16 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/components/home/home.component';
 import { slideInAnimation } from 'src/app/animations/animations';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent,
-    data: { animations: [slideInAnimation] },
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
+    path: 'about',
+    component: AboutUsComponent,
     data: { animations: [slideInAnimation] },
   },
 ];

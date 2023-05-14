@@ -10,6 +10,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { MaterialModule } from '../material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
+import { SharedModule } from '../shared/shared.module';
+import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,16 +26,16 @@ import { LayoutModule } from '@angular/cdk/layout';
     FormsModule,
     ReactiveFormsModule,
     AngularSvgIconModule,
-    MaterialModule, AngularSvgIconModule.forRoot(),
+    MaterialModule,
+    AngularSvgIconModule.forRoot(),
     AngularSvgIconPreloaderModule.forRoot({
       configUrl: './assets/json/icons.json',
     }),
     FontAwesomeModule,
+    UserRoutingModule
   ],
   exports: [
-    LoginComponent,
     ProfileManagementComponent,
-    RegisterComponent,
     UserPageComponent
   ]
 })
