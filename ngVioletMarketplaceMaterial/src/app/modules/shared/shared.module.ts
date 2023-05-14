@@ -11,6 +11,7 @@ import { TokenModule } from "../tokens/token.module";
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserModule } from '../user/user.module';
+import { SharedRoutingModule } from './shared-routing.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { UserModule } from '../user/user.module';
     FontAwesomeModule,
     TokenModule,
     UserModule,
+    SharedRoutingModule
   ]
 })
 export class SharedModule { }
