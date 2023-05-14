@@ -44,18 +44,6 @@ export class AppComponent implements AfterViewInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(() => {
-        const animationData = this.getRouteAnimationData(this.router);
-        this.animationData = animationData;
-      });
   }
 
-  getRouteAnimationData(router: Router) {
-    const routeData = router.getCurrentNavigation()?.extractedUrl;
-    const animationData = routeData ? routeData.toString() : '';
-
-    return animationData;
-  }
 }

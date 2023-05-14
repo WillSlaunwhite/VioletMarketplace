@@ -1,23 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MaterialModule } from '../material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TokenModule } from "../tokens/token.module";
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserModule } from '../user/user.module';
 
 @NgModule({
   declarations: [
     FooterComponent,
-    HomeComponent,
     NavComponent,
     NavbarComponent,
     SidenavComponent,
@@ -25,7 +22,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   exports: [
     FooterComponent,
-    HomeComponent,
     NavComponent,
     NavbarComponent,
     SidenavComponent,
@@ -34,14 +30,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   imports: [
     CommonModule,
     MaterialModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     LayoutModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    TokenModule
+    TokenModule,
+    UserModule,
   ]
 })
 export class SharedModule { }
