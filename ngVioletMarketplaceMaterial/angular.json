@@ -3,6 +3,35 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "module": {
+      "root": "projects/module",
+      "sourceRoot": "projects/module/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "projects/module/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/projects/module"
+          ],
+          "options": {
+            "jestConfig": "projects/module/jest.config.ts",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "ngVioletMarketplaceMaterial": {
       "projectType": "application",
       "schematics": {

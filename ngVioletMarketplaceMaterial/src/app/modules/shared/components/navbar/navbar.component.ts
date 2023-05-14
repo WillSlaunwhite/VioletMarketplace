@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { AuthService } from 'src/app/services/auth.service';
 import User from 'src/app/models/user';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { LoginComponent } from '../login/login.component';
-import { RegisterComponent } from '../register/register.component';
+import { LoginComponent } from 'src/app/modules/user/components/login/login.component';
+import { RegisterComponent } from 'src/app/modules/user/components/register/register.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',

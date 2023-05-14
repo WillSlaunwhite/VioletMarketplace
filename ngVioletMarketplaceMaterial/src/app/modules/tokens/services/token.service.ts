@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import Token from '../models/token';
-import { AuthService } from './auth.service';
+import Token from 'src/app/models/token';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenService {
-  constructor(private http: HttpClient, private auth: AuthService) {}
+  constructor(private http: HttpClient, private auth: AuthService) { }
   private baseUrl = environment.baseUrl;
   private url = this.baseUrl + 'api/tokens';
 

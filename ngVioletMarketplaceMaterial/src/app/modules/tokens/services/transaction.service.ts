@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Token } from 'typescript';
-import { Bid } from '../models/bid';
-import { AuthService } from './auth.service';
+import { Bid } from 'src/app/models/bid';
+import { AuthService } from '../../shared/services/auth.service';
 import { TokenService } from './token.service';
-import Transaction from '../models/transaction';
+import Transaction from 'src/app/models/transaction';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class TransactionService {
     private http: HttpClient,
     private auth: AuthService,
     private tokenSvc: TokenService
-  ) {}
+  ) { }
   private baseUrl = 'http://localhost:8090/';
   private url = this.baseUrl + 'api/';
 

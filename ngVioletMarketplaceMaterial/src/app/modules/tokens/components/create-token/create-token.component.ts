@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Token from 'src/app/models/token';
-import { TokenService } from 'src/app/services/token.service';
+import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-create-token',
@@ -19,14 +19,14 @@ export class CreateTokenComponent implements OnInit {
     private formBuilder: FormBuilder,
     private tokenService: TokenService,
     private snackBar: MatSnackBar
-    ) {
-      this.tokenForm = this.formBuilder.group({
+  ) {
+    this.tokenForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', Validators.required]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit() {
     if (this.tokenForm.invalid) {
