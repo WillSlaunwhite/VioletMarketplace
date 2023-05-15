@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import User from 'src/app/models/user';
-import { AuthService } from 'src/app/modules/shared/services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { slideInAnimation } from 'src/app/animations/animations';
 import { filter } from 'rxjs';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UserService } from 'src/app/modules/shared/services/user.service';
-import { MaterialModule } from 'src/app/modules/material/material.module';
 
 @Component({
   selector: 'app-register',

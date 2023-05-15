@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import User from 'src/app/models/user';
-import { AuthService } from 'src/app/modules/shared/services/auth.service';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { UserService } from 'src/app/modules/shared/services/user.service';
 import { slideInAnimation } from 'src/app/animations/animations';
 
