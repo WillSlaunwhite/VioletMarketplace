@@ -7,6 +7,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { RegisterComponent } from 'src/app/modules/auth/components/register/register.component';
 import { LoginComponent } from 'src/app/modules/auth/components/login/login.component';
+import { Store } from '@ngrx/store';
+import { isLoggedIn, selectCurrentUser } from 'src/app/modules/auth/state/auth.selectors';
 
 @Component({
   selector: 'app-navbar',
@@ -14,15 +16,22 @@ import { LoginComponent } from 'src/app/modules/auth/components/login/login.comp
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(
-    private dialog: MatDialog,
-    private breakpointObserver: BreakpointObserver,
-    private auth: AuthService
-  ) { }
   username: string | null = null;
   user: User | null = new User();
   searchTerm: string | null = null;
+  isLoggedIn$: Observable<boolean>;
+  user$: Observable<User | null>;
 
+  constructor(private store: Store,
+    private dialog: MatDialog,
+    private breakpointObserver: BreakpointObserver,
+    private auth: AuthService
+  ) {
+    this.isLoggedIn$ = this.store.select(isLoggedIn);
+    this.user$ = this.auth.user$;
+    console.log(this.store);
+
+  }
   loggedIn(): boolean {
     return this.auth.isUserLoggedIn();
   }
