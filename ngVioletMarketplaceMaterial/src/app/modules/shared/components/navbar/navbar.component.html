@@ -9,6 +9,7 @@
   </mat-form-field>
   <div class="links d-flex">
     <span class="toolbar-button"><a class="mat-button" routerLink="/home" routerLinkActive='active'>Collections</a></span>
+    <span class="toolbar-button"><a class="mat-button" routerLink="/home" routerLinkActive='active'>{{ user$ | async }}</a></span>
     <span class="toolbar-button"><a class="mat-button" routerLink='/about' routerLinkActive='active'>About Us</a></span>
     <span *ngIf="!loggedIn()" class="toolbar-button"><a class="mat-button" (click)="openRegisterDialog()">Register Account</a></span>
     <span *ngIf="!loggedIn()" class="toolbar-button"><a class="mat-button" (click)="openLoginDialog()">Login</a></span>

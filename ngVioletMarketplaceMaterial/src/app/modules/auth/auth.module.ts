@@ -8,6 +8,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { MaterialModule } from '../material/material.module';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './state/auth.reducer';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { MaterialModule } from '../material/material.module';
     AngularSvgIconModule,
     FontAwesomeModule,
     AuthRoutingModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('auth', reducer)
   ],
   exports: [
     RegisterComponent,
