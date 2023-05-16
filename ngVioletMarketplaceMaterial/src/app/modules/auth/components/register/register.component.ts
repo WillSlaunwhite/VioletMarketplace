@@ -3,7 +3,7 @@ import User from 'src/app/models/user';
 import { AuthService } from '../../services/auth.service';
 import { NavigationEnd, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { slideInAnimation } from 'src/app/animations/animations';
+import { slideInTop } from 'src/app/animations/animations';
 import { filter } from 'rxjs';
 import { MatDialogRef } from '@angular/material/dialog';
 import { UserService } from 'src/app/modules/shared/services/user.service';
@@ -12,7 +12,7 @@ import { UserService } from 'src/app/modules/shared/services/user.service';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  animations: [slideInAnimation],
+  animations: [slideInTop],
 })
 export class RegisterComponent implements OnInit {
   constructor(

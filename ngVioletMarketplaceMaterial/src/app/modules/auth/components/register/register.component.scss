@@ -11,9 +11,27 @@
   }
 }
 
-.container-fluid {
+.form-header {
+  margin: 1em 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  transform: translate(50%, -50%);
+}
+
+.register-container {
+  min-width: 35vw;
+  width: 60vmin;
   border-radius: 10px;
-  padding-top: 1em;
+  padding-top: 2em;
+  position: relative;
+}
+
+.form-container {
+  width: 40vmin;
 }
 
 .card-header {

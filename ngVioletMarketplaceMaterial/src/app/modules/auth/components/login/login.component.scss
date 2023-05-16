@@ -1,19 +1,33 @@
+* {
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .login-container {
   border-radius: 10px;
-  width: 60vmin;
+  width: 50vmin;
   z-index: 1;
-  padding-bottom: 5em;
+  padding-bottom: 3.5em;
 }
 
 .login-header {
   color: white;
   font-family: 'Courier New', Courier, monospace;
   font-weight: 300;
-  padding-top: 1em;
+  padding-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+.close-button {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  transform: translate(50%, -50%);
 }
 
 .form-container {
   color: white;
+  position: relative;
   width: 50vmin;
   border-radius: 10px;
 }
@@ -31,15 +45,13 @@ input {
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   font-size: x-large;
   padding: .25em 0;
-  margin-bottom: 1em;
+  margin: 1em 0;
 
   &:hover {
     transition: ease .4s;
     transform: scale(1.015);
   }
 }
-
-
 
 .google-button:hover em {
   transition: .2s;
@@ -69,9 +81,8 @@ svg-icon {
 }
 
 .socials-container {
-  margin-top: .5em;
+  margin-top: 1em;
 }
-
 
 // CHANGES BACKGROUND OF AUTOFILL AND AUTOFILL TEXT (sort of, Chrome has issues
 // when hovering over suggestions.
