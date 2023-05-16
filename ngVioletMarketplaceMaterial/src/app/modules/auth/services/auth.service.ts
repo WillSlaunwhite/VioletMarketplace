@@ -1,12 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, Observable, of, switchMap, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, switchMap, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import User from '../../../models/user';
 import { UserService } from '../../shared/services/user.service';
-import { Store } from '@ngrx/store';
-import { login } from '../state/auth.actions';
-import { selectCurrentUser } from '../state/auth.selectors';
 
 
 @Injectable({
@@ -17,12 +14,11 @@ export class AuthService {
   public currentUser: Observable<User | null>;
   private baseUrl = environment.baseUrl;
   private url = this.baseUrl + 'api/user';
-  public user$: Observable<User | null>;
 
-  constructor(private store: Store, private http: HttpClient, private userService: UserService) {
+
+  constructor(private http: HttpClient, private userService: UserService) {
     this.currentUserSubject = new BehaviorSubject<User | null>(JSON.parse(localStorage.getItem('currentUser')!));
     this.currentUser = this.currentUserSubject.asObservable();
-    this.user$ = this.store.select(selectCurrentUser);
   }
 
   public get currentUserValue(): User | null {
@@ -36,7 +32,6 @@ export class AuthService {
     return this.http.post<string>(this.baseUrl + 'authenticate', credentials).pipe(
       switchMap((jwt: string) => {
         this.storeJwt(jwt);
-        this.store.dispatch(login(credentials));
         return this.userService.getUserByUsername(username);
       }),
       tap((user: User) => {
@@ -49,11 +44,11 @@ export class AuthService {
     );
   }
 
-  logout(): Observable<void> {
+  logout(): void {
     localStorage.removeItem('credentials');
     localStorage.removeItem('username');
     localStorage.removeItem('jwt');
-    return of(this.currentUserSubject.next(null));
+    this.currentUserSubject.next(null);
   }
 
   isUserLoggedIn(): boolean {

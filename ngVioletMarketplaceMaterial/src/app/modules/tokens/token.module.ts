@@ -8,8 +8,6 @@ import { TokenCardButtonComponent } from './components/token-card-button/token-c
 import { TokenCardComponent } from './components/token-card/token-card.component';
 import { TokenRoutingModule } from './token-routing.module';
 import { MaterialModule } from '../material/material.module';
-import { StoreModule } from '@ngrx/store';
-import { reducer } from './state/tokens.reducer';
 
 @NgModule({
   declarations: [
@@ -24,9 +22,7 @@ import { reducer } from './state/tokens.reducer';
     ReactiveFormsModule,
     AngularSvgIconModule,
     TokenRoutingModule,
-    MaterialModule,
-    StoreModule.forRoot({}),
-    StoreModule.forFeature('token', reducer)
+    MaterialModule
   ],
   exports: [
     TokenComponent,

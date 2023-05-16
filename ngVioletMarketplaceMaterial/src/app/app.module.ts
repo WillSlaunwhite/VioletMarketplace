@@ -18,7 +18,6 @@ import { SharedModule } from './modules/shared/shared.module';
 import { HomeModule } from './modules/home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthModule } from './modules/auth/auth.module';
-import { StoreModule } from '@ngrx/store';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +38,6 @@ import { StoreModule } from '@ngrx/store';
     AngularSvgIconPreloaderModule.forRoot({
       configUrl: './assets/json/icons.json',
     }),
-    StoreModule.forRoot({}),
     FontAwesomeModule,
     UserModule,
     SharedModule,
