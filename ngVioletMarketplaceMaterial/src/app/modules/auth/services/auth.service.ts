@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import User from '../../../models/user';
 import { UserService } from '../../shared/services/user.service';
 import { Store } from '@ngrx/store';
-import { login } from '../state/auth.actions';
+import { login, loginSuccess, loginFailure, logout } from '../state/auth.actions';
 import { selectCurrentUser } from '../state/auth.selectors';
 
 
@@ -28,32 +28,27 @@ export class AuthService {
   public get currentUserValue(): User | null {
     return this.currentUserSubject.value;
   }
-
   login(username: string, password: string): Observable<User> {
     // Send credentials as JSON
     const credentials = { username: username, password: password };
     // Create request to authenticate credentials
     return this.http.post<string>(this.baseUrl + 'authenticate', credentials).pipe(
       switchMap((jwt: string) => {
-        this.storeJwt(jwt);
         this.store.dispatch(login(credentials));
         return this.userService.getUserByUsername(username);
       }),
       tap((user: User) => {
-        this.setUser(user);
+        this.store.dispatch(loginSuccess({ user }));
       }),
       catchError((err: Error) => {
+        this.store.dispatch(loginFailure({ error: err }));
         return throwError(() => new Error('AuthService.login(): Error logging in'));
-      }
-      )
+      })
     );
   }
 
   logout(): Observable<void> {
-    localStorage.removeItem('credentials');
-    localStorage.removeItem('username');
-    localStorage.removeItem('jwt');
-    return of(this.currentUserSubject.next(null));
+    return of(this.store.dispatch(logout()));
   }
 
   isUserLoggedIn(): boolean {
