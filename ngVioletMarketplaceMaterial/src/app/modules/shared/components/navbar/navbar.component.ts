@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import User from 'src/app/models/user';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
-import { RegisterComponent } from 'src/app/modules/auth/components/register/register.component';
-import { LoginComponent } from 'src/app/modules/auth/components/login/login.component';
+import { LoginComponent } from 'src/app/modules/user/components/login/login.component';
+import { RegisterComponent } from 'src/app/modules/user/components/register/register.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',

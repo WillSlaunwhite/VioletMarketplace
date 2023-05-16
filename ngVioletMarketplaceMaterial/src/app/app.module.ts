@@ -17,7 +17,6 @@ import { UserModule } from './modules/user/user.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { HomeModule } from './modules/home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { AuthModule } from './modules/auth/auth.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,8 +39,7 @@ import { AuthModule } from './modules/auth/auth.module';
     }),
     FontAwesomeModule,
     UserModule,
-    SharedModule,
-    AuthModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],

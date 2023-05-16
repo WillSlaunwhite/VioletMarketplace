@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { slideInTop } from 'src/app/animations/animations';
 import { AppComponent } from 'src/app/app.component';
 import Token from 'src/app/models/token';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { AuthService } from 'src/app/modules/shared/services/auth.service';
 import { TokenService } from 'src/app/modules/tokens/services/token.service';
 
 @Component({

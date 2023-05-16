@@ -14,7 +14,7 @@ import { secretKey } from 'key';
 import { filter, forkJoin, switchMap, throwError } from 'rxjs';
 import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { AuthService } from 'src/app/modules/shared/services/auth.service';
 import { TokenService } from 'src/app/modules/tokens/services/token.service';
 import { ProfileManagementComponent } from '../profile-management/profile-management.component';
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable, switchMap, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import User from '../../../models/user';
-import { UserService } from '../../shared/services/user.service';
+import { UserService } from './user.service';
 
 
 @Injectable({
