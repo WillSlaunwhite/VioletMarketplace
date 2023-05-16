@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit {
 
   logout(): void {
     this.store.dispatch(logout());
+    window.location.reload();
   }
 
 
