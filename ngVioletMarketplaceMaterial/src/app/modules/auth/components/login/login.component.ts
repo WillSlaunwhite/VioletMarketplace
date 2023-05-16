@@ -5,11 +5,13 @@ import User from 'src/app/models/user';
 import { AuthService } from '../../services/auth.service';
 import { Observable, throwError } from 'rxjs';
 import { RegisterComponent } from '../register/register.component';
+import { slideInTop } from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  animations: [slideInTop]
 })
 export class LoginComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<RegisterComponent>,

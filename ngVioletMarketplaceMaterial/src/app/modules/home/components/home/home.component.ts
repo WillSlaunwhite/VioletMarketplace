@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { slideInTop } from 'src/app/animations/animations';
 import { AppComponent } from 'src/app/app.component';
 import Token from 'src/app/models/token';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { TokenService } from 'src/app/modules/tokens/services/token.service';
 
 @Component({
@@ -19,11 +19,11 @@ export class HomeComponent implements OnInit {
   descriptionShowing: boolean = false;
   constructor(
     private tokenSvc: TokenService,
-    private auth: AuthService,
     private router: Router,
     private route: ActivatedRoute,
     private http: HttpClient,
-    private appComponent: AppComponent
+    private appComponent: AppComponent,
+    private store: Store
   ) {
     this.animationData = this.getRouteAnimationData();
   }

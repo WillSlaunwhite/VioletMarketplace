@@ -46,3 +46,4 @@ key.ts
 
 # Images
 src/assets
+src/main/resources/static/assets/*

@@ -5,7 +5,9 @@ import {
   Router,
   RouterOutlet,
 } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { filter } from 'rxjs';
+import { loadTokens } from './modules/tokens/state/tokens.actions';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +26,12 @@ export class AppComponent implements AfterViewInit {
     // Function to draw a star
     function drawStar(x: any, y: any, brightness: any) {
       ctx!.fillStyle = `rgba(255, 255, 255, ${brightness})`;
-      ctx!.fillRect(x, y, 1, 1);
+      if (Math.floor(Math.random() * 10) % 3 == 0) {
+        ctx!.fillRect(x, y, 2, 2);
+      }
+      else {
+        ctx!.fillRect(x, y, 1, 1);
+      }
     }
 
     // Function to generate a random number
@@ -33,7 +40,7 @@ export class AppComponent implements AfterViewInit {
     }
 
     // Draw 200 stars
-    for (let i = 0; i < 750; i++) {
+    for (let i = 0; i < 1000; i++) {
       drawStar(random(canvas.width), random(canvas.height), Math.random());
     }
   }
@@ -41,9 +48,10 @@ export class AppComponent implements AfterViewInit {
   title = 'ngVioletMarketplaceMaterial';
   animationData: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private store: Store) { }
 
   ngOnInit() {
+    this.store.dispatch(loadTokens());
   }
 
 }

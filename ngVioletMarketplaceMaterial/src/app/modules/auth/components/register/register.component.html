@@ -1,17 +1,14 @@
 <!-- Registration Page HTML Template -->
-<div @slideInRight class="gradient-light text-white container-fluid w-50">
-  <button mat-icon-button class="close-button" (click)="closeDialog()">
-    <mat-icon>close</mat-icon>
-  </button>
+<div @slideInTop class="register-container gradient-light text-white container-fluid w-50">
   <div class="card-header">
-    <h4 class="text-center" style="font-weight: 300;">Registration</h4>
+    <h4 class="text-center form-header" style="font-weight: 300;">Registration</h4>
   </div>
   <div class="card-body w-100 d-flex justify-content-center flex-column align-items-center">
-    <form>
+    <form class="form-container">
       <!-- Email Field -->
       <mat-form-field [ngClass]=" {'white-text': true}" class="w-75 ">
         <mat-label>Email</mat-label>
-        <input matInput type="email" [(ngModel)]="registerUser.email" (ngModelChange)="registerUser.email" name="email" required>
+        <input autofocus matInput type="email" [(ngModel)]="registerUser.email" (ngModelChange)="registerUser.email" name="email" required>
       </mat-form-field>
 
       <!-- Username Field -->
@@ -37,6 +34,9 @@
 
       <!-- Register Button -->
       <button mat-raised-button color="primary" style="font-weight: 300;" class="w-50 mt-4 shadow-none register-button" (click)="register()">Register</button>
+      <button mat-icon-button class="close-button" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+      </button>
     </form>
   </div>
 </div>
