@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import Token from 'src/app/models/token';
-import { loadTokens } from '../../state/tokens.actions';
-import { Observable } from 'rxjs';
+import { Observable, filter, tap } from 'rxjs';
 import { getAllTokens } from '../../state/tokens.selectors';
 
 @Component({
@@ -14,11 +13,12 @@ export class TokenListComponent implements OnInit {
   tokens$: Observable<Token[] | null>;
 
   constructor(private store: Store) {
-    this.tokens$ = this.store.select(getAllTokens);
+    this.tokens$ = this.store.select(getAllTokens).pipe(
+      filter(tokens => tokens !== null)
+    );
   }
 
   ngOnInit(): void {
-    this.store.dispatch(loadTokens());
   }
 
 }

@@ -36,8 +36,8 @@ export const slideInAnimation = trigger('slideInRight', [
 
 export const slideInTop = trigger('slideInTop', [
   transition('* <=> *', [
-    style({ transform: 'translateY(-20%)' }),
-    animate('700ms ease-in-out', style({ transform: 'translateX(0%)' })),
+    style({ transform: 'translateY(-12%)' }),
+    animate('1000ms ease-in', style({ transform: 'translateX(0%)' })),
   ]),
 ]);
 

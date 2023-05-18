@@ -1,12 +1,8 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import {
-  ChildrenOutletContexts,
-  NavigationEnd,
   Router,
-  RouterOutlet,
 } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { filter } from 'rxjs';
 import { loadTokens } from './modules/tokens/state/tokens.actions';
 
 @Component({
