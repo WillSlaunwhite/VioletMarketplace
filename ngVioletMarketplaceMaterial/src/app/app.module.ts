@@ -19,6 +19,7 @@ import { HomeModule } from './modules/home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthModule } from './modules/auth/auth.module';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { StoreModule } from '@ngrx/store';
       configUrl: './assets/json/icons.json',
     }),
     StoreModule.forRoot({}),
+    EffectsModule.forRoot(),
     FontAwesomeModule,
     UserModule,
     SharedModule,

@@ -47,6 +47,3 @@ Thumbs.db
 # API Key
 key.ts
 
-# Images
-src/assets
-src/main/resources/static/assets/*
