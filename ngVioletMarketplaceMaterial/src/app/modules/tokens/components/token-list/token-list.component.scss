@@ -1,0 +1,11 @@
+.tokens-container {
+  height: 35vmin;
+  width: 135vmin;
+  overflow-x: scroll;
+  margin: 2em auto;
+  flex-wrap: nowrap
+}
+
+app-token-card {
+  margin: auto 1em;
+}
