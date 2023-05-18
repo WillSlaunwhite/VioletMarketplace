@@ -10,13 +10,17 @@ import { TokenRoutingModule } from './token-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './state/tokens.reducer';
+import { TokenListComponent } from './components/token-list/token-list.component';
+import { EffectsModule } from '@ngrx/effects';
+import { TokenEffects } from './state/tokens.effects';
 
 @NgModule({
   declarations: [
     TokenComponent,
     CreateTokenComponent,
     TokenCardComponent,
-    TokenCardButtonComponent
+    TokenCardButtonComponent,
+    TokenListComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,8 @@ import { reducer } from './state/tokens.reducer';
     TokenRoutingModule,
     MaterialModule,
     StoreModule.forRoot({}),
-    StoreModule.forFeature('token', reducer)
+    StoreModule.forFeature('token', reducer),
+    EffectsModule.forFeature([TokenEffects])
   ],
   exports: [
     TokenComponent,

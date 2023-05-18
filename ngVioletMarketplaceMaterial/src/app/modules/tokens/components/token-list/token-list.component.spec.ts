@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TokenCreateFormComponent } from './token-create-form.component';
+import { TokenListComponent } from './token-list.component';
 
-describe('TokenCreateFormComponent', () => {
-  let component: TokenCreateFormComponent;
-  let fixture: ComponentFixture<TokenCreateFormComponent>;
+describe('TokenListComponent', () => {
+  let component: TokenListComponent;
+  let fixture: ComponentFixture<TokenListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TokenCreateFormComponent ]
+      declarations: [ TokenListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TokenCreateFormComponent);
+    fixture = TestBed.createComponent(TokenListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,12 +2,12 @@ import { createReducer, on } from '@ngrx/store';
 import { loadTokens, loadTokensSuccess, loadTokensFailure } from './tokens.actions';
 import Token from 'src/app/models/token';
 
-export interface State {
+export interface TokensState {
   tokens: Token[];
   error: any;
 }
 
-export const initialState: State = {
+export const initialState: TokensState = {
   tokens: [],
   error: null
 };

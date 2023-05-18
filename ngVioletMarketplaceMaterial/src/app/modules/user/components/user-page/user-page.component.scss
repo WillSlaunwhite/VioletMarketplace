@@ -5,14 +5,6 @@
   font-family: "Nunito";
 }
 
-canvas {
-  height: 150vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
 .top-container {
   height: auto;
   width: 100vw;
@@ -37,6 +29,9 @@ canvas {
       margin-inline: auto;
       border-radius: 6px;
     }
+
+
+    // BUTTONS
 
     .button-wrapper {
       position: absolute;

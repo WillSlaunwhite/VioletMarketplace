@@ -9,7 +9,6 @@ bin
 *.war
 *.bak
 *.angular
-VioletMarketplace/src/main/resources/static/assets/images/*
-VioletMarketplace/src/main/resources/static/assets/other_token_images/*
+VioletMarketplace/src/main/resources/static/*
 .idea/*
 package-lock.json
