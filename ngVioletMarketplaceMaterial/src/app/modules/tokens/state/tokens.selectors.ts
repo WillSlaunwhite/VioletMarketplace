@@ -7,5 +7,5 @@ export const selectTokensState = createFeatureSelector<TokensState>('token');
 export const getAllTokens = createSelector(
   selectTokensState,
   (tokenState: TokensState) =>
-    tokenState.tokens
-)
+    tokenState.tokens.length ? tokenState.tokens : null
+);

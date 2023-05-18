@@ -118,6 +118,8 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    console.log('ngOnInit user-page');
+
     if (this.auth.currentUserValue) {
       this.user = this.auth.currentUserValue;
     }

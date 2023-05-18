@@ -67,7 +67,7 @@
   }
 
   &.purchase-button:hover {
-    transition: ease-in-out .4s;
-    background-color: hsla(262, 66%, 34%, 0.4);
+    transition: opacity .2s;
+    background-color: hsla(262, 66%, 34%, 0.6);
   }
 }
