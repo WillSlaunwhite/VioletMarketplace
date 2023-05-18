@@ -22,8 +22,6 @@ export class NavbarComponent implements OnInit {
 
   constructor(private store: Store, private dialog: MatDialog) {
     this.user$ = this.store.select(selectCurrentUser);
-    console.log(this.user$);
-
     this.isLoggedIn$ = this.store.select(isLoggedIn);
   }
 

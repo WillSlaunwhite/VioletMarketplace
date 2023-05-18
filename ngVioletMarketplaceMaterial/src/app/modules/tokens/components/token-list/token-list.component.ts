@@ -15,8 +15,6 @@ export class TokenListComponent implements OnInit {
 
   constructor(private store: Store) {
     this.tokens$ = this.store.select(getAllTokens);
-    console.log(this.tokens$);
-
   }
 
   ngOnInit(): void {

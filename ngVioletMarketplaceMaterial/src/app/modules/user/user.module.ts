@@ -8,6 +8,7 @@ import { UserPageComponent } from './components/user-page/user-page.component';
 import { MaterialModule } from '../material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UserRoutingModule } from './user-routing.module';
+import { TokenModule } from '../tokens/token.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserRoutingModule } from './user-routing.module';
     AngularSvgIconModule,
     MaterialModule,
     FontAwesomeModule,
-    UserRoutingModule
+    UserRoutingModule,
+    TokenModule
   ],
   exports: [
     ProfileManagementComponent,
