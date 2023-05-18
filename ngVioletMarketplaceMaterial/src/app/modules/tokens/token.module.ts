@@ -37,7 +37,8 @@ import { TokenEffects } from './state/tokens.effects';
     TokenComponent,
     CreateTokenComponent,
     TokenCardComponent,
-    TokenCardButtonComponent
+    TokenCardButtonComponent,
+    TokenListComponent
   ]
 })
 export class TokenModule { }

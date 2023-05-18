@@ -1,11 +1,23 @@
 .tokens-container {
-  height: 35vmin;
-  width: 135vmin;
+  height: 100%;
+  width: 100%;
   overflow-x: scroll;
-  margin: 2em auto;
-  flex-wrap: nowrap
+  margin: auto;
+  flex-wrap: nowrap;
+  gap: 1.5em;
+  background: transparent;
 }
 
 app-token-card {
-  margin: auto 1em;
+  margin: auto;
+  overflow-wrap: normal;
+}
+
+.tokens-container:first-child {
+  margin-left: .5em;
+}
+
+
+.tokens-container:last-child {
+  margin-right: 2.5em;
 }
