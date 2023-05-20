@@ -59,7 +59,13 @@ export class AppComponent implements AfterViewInit {
         this.store.dispatch(loadUserTokens({ username }));
         // this.store.dispatch(loginSuccess({ user : selectCurrentUser}))
         // TODO Finish dispatching user in app.component
-        // this.store.dispatch(loginSuccess({ user:
+        this.authService.currentUser.subscribe(
+          user => {
+            if (user) {
+              this.store.dispatch(loginSuccess({ user }));
+            }
+          }
+        )
       }
     }
   }
