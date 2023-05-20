@@ -3,7 +3,10 @@ import {
   Router,
 } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { loadTokens } from './modules/tokens/state/tokens.actions';
+import { loadTokens, loadUserTokens } from './modules/tokens/state/tokens.actions';
+import { AuthService } from './modules/auth/services/auth.service';
+import { loginSuccess } from './modules/auth/state/auth.actions';
+import { selectCurrentUser } from './modules/auth/state/auth.selectors';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +16,7 @@ import { loadTokens } from './modules/tokens/state/tokens.actions';
 export class AppComponent implements AfterViewInit {
   @ViewChild('starfield') starfield!: ElementRef<HTMLCanvasElement>;
 
+  // * create background
   ngAfterViewInit() {
     const canvas = this.starfield.nativeElement;
     const ctx = canvas.getContext('2d');
@@ -44,10 +48,19 @@ export class AppComponent implements AfterViewInit {
   title = 'ngVioletMarketplaceMaterial';
   animationData: string = '';
 
-  constructor(private router: Router, private store: Store) { }
+  constructor(private router: Router, private store: Store, private authService: AuthService) { }
 
   ngOnInit() {
-    this.store.dispatch(loadTokens());
+    // * check for valid jwt
+    const jwt = this.authService.getValidJwt();
+    if (jwt !== null) {
+      const username = this.authService.getLoggedInUsername();
+      if (username) {
+        this.store.dispatch(loadUserTokens({ username }));
+        // this.store.dispatch(loginSuccess({ user : selectCurrentUser}))
+        // TODO Finish dispatching user in app.component
+        // this.store.dispatch(loginSuccess({ user:
+      }
+    }
   }
-
 }

@@ -7,5 +7,10 @@ export const selectTokensState = createFeatureSelector<TokensState>('token');
 export const getAllTokens = createSelector(
   selectTokensState,
   (tokenState: TokensState) =>
-    tokenState.tokens.length ? tokenState.tokens : null
+    tokenState.allTokens.length ? tokenState.allTokens : null
+);
+
+export const getUserTokens = createSelector(
+  selectTokensState,
+  (tokenState: TokensState) => tokenState.userTokens
 );

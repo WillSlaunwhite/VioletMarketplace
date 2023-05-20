@@ -27,7 +27,7 @@ import { ProfileManagementComponent } from '../profile-management/profile-manage
 export class UserPageComponent implements OnInit, AfterViewInit {
   // COIN BASE API KEY
   publicKey = 'RKgBiI3QrJDhUNPD';
-  secretKey = secretKey;
+  private secretKey = secretKey;
 
   editProfile: boolean = false;
   user: User = new User();
@@ -120,8 +120,10 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     console.log('ngOnInit user-page');
 
-    if (this.auth.currentUserValue) {
-      this.user = this.auth.currentUserValue;
+    if (this.auth.currentUser) {
+      this.auth.currentUser.subscribe(user => {
+        this.user = user!;
+      });
     }
   }
 
@@ -131,7 +133,7 @@ export class UserPageComponent implements OnInit, AfterViewInit {
       console.log('Token data:', tokenData);
 
       // Call the function to create the new token using the tokenData
-      // this.createToken(tokenData);
+      this.tokenSvc.createToken(tokenData);
     }
   }
 

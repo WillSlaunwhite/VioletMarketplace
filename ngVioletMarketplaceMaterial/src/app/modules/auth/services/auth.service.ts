@@ -13,21 +13,16 @@ import { selectCurrentUser } from '../state/auth.selectors';
   providedIn: 'root',
 })
 export class AuthService {
-  private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser: Observable<User | null>;
   private baseUrl = environment.baseUrl;
   private url = this.baseUrl + 'api/user';
-  public user$: Observable<User | null>;
 
   constructor(private store: Store, private http: HttpClient, private userService: UserService) {
-    this.currentUserSubject = new BehaviorSubject<User | null>(JSON.parse(localStorage.getItem('currentUser')!));
-    this.currentUser = this.currentUserSubject.asObservable();
-    this.user$ = this.store.select(selectCurrentUser);
+    this.currentUser = this.store.select(selectCurrentUser);
   }
 
-  public get currentUserValue(): User | null {
-    return this.currentUserSubject.value;
-  }
+
+
   login(username: string, password: string): Observable<User> {
     // Send credentials as JSON
     const credentials = { username: username, password: password };
@@ -58,11 +53,17 @@ export class AuthService {
     return false;
   }
 
-  getCredentials(): string | null {
-    return localStorage.getItem('credentials');
+
+  getValidJwt(): string | null {
+    // Check the token is present and not expired
+    // Note: This is a simplified check, in reality you'd
+    // also want to check the token hasn't been tampered with, among other things.
+    return localStorage.getItem('jwt') ? localStorage.getItem('jwt') : null;
   }
 
+
   getHttpOptions(): Object {
+    // TODO Combine isValidToken and getHttpOptions
     let jwt = this.getJwt();
     let options = {
       headers: {
@@ -77,14 +78,6 @@ export class AuthService {
 
   getLoggedInUsername(): string | null {
     return localStorage.getItem('username');
-  }
-
-  setUser(user: User) {
-    this.currentUserSubject.next(user);
-  }
-
-  storeJwt(jwt: string) {
-    localStorage.setItem('jwt', jwt);
   }
 
   getJwt(): string | null {
