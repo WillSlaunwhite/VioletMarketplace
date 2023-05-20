@@ -120,11 +120,11 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     console.log('ngOnInit user-page');
 
-    if (this.auth.currentUser) {
-      this.auth.currentUser.subscribe(user => {
-        this.user = user!;
-      });
-    }
+    this.auth.currentUser.subscribe(user => {
+      if (user) {
+        this.user = user;
+      }
+    });
   }
 
   onSubmit(): void {
