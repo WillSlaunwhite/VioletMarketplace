@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Token } from 'typescript';
 import { Bid } from 'src/app/models/bid';
-import { AuthService } from '../../shared/services/auth.service';
 import { TokenService } from './token.service';
 import Transaction from 'src/app/models/transaction';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -63,7 +63,7 @@ export class TransactionService {
   }
 
   getBuyerTransfers(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.url).pipe(
+    return this.http.get<Transaction[]>(this.url, this.auth.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(
@@ -74,7 +74,7 @@ export class TransactionService {
   }
 
   getSellerTransfers(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.url).pipe(
+    return this.http.get<Transaction[]>(this.url, this.auth.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(
@@ -85,7 +85,7 @@ export class TransactionService {
   }
 
   getAllUserTransfers(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.url).pipe(
+    return this.http.get<Transaction[]>(this.url, this.auth.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(
@@ -96,7 +96,7 @@ export class TransactionService {
   }
 
   getAllBids(): Observable<Bid[]> {
-    return this.http.get<Bid[]>(this.url + 'bids/1').pipe(
+    return this.http.get<Bid[]>(this.url + 'bids/1', this.auth.getHttpOptions()).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(
