@@ -27,7 +27,7 @@ export class AuthService {
     // Send credentials as JSON
     const credentials = { username: username, password: password };
     // Create request to authenticate credentials
-    return this.http.post<string>(this.baseUrl + 'authenticate', credentials).pipe(
+    return this.http.post<string>(this.baseUrl + 'authenticate', credentials, this.getHttpOptions()).pipe(
       switchMap((jwt: string) => {
         this.store.dispatch(login(credentials));
         return this.userService.getUserByUsername(username);
@@ -63,18 +63,26 @@ export class AuthService {
 
 
   getHttpOptions(): Object {
-    // TODO Combine isValidToken and getHttpOptions
-    let jwt = this.getJwt();
-    let options = {
-      headers: {
-        'Content-type': 'application/json',
-        'X-Requestd-With': 'XMLHttpRequest',
-        Authorization: `Bearer ${jwt}`,
-      },
-    };
-    return options;
+    let jwt = this.getValidJwt();
+    if (jwt) {
+      let options = {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Authorization': `Bearer ${jwt}`,
+        },
+      };
+      return options;
+    } else {
+      // return some default options or throw an error if a valid JWT is required
+      return {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      };
+    }
   }
-
 
   getLoggedInUsername(): string | null {
     return localStorage.getItem('username');

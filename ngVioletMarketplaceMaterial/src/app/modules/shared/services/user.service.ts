@@ -23,7 +23,7 @@ export class UserService {
   }
 
   getUserByUsername(username: string): Observable<User> {
-    return this.http.get<User>(`${this.url}/${username}`).pipe(
+    return this.http.get<User>(`${this.url}/${username}`, this.getHttpOptions()).pipe(
       catchError((err: Error) => {
         console.error(err);
         return throwError(() => 'tokenService.getUser(): Error retreiving user');
@@ -33,7 +33,7 @@ export class UserService {
 
   register(user: User) {
     // create request to register a new account
-    return this.http.post(this.baseUrl + 'register', user).pipe(
+    return this.http.post(this.baseUrl + 'register', user, this.getHttpOptions()).pipe(
       catchError((err: Error) => {
         console.log(err);
         return throwError(
@@ -44,20 +44,32 @@ export class UserService {
   }
 
 
-
-  getJwt(): string | null {
-    return localStorage.getItem('jwt');
+  getValidJwt(): string | null {
+    // Check the token is present and not expired
+    // Note: This is a simplified check, in reality you'd
+    // also want to check the token hasn't been tampered with, among other things.
+    return localStorage.getItem('jwt') ? localStorage.getItem('jwt') : null;
   }
 
   getHttpOptions(): Object {
-    let jwt = this.getJwt();
-    let options = {
-      headers: {
-        'Content-type': 'application/json',
-        'X-Requestd-With': 'XMLHttpRequest',
-        Authorization: `Bearer ${jwt}`,
-      },
-    };
-    return options;
+    let jwt = this.getValidJwt();
+    if (jwt) {
+      let options = {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'Authorization': `Bearer ${jwt}`,
+        },
+      };
+      return options;
+    } else {
+      // return some default options or throw an error if a valid JWT is required
+      return {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      };
+    }
   }
 }

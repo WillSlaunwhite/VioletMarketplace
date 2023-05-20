@@ -14,7 +14,7 @@ export class TokenService {
   private url = this.baseUrl + 'api/tokens';
 
   index(): Observable<Token[]> {
-    return this.http.get<Token[]>(this.baseUrl + 'api/home/tokens').pipe(
+    return this.http.get<Token[]>(this.baseUrl + 'api/home/tokens', this.auth.getHttpOptions()).pipe(
       catchError((err: any) => {
         return throwError(
           () => new Error('TokenService.index(): error retrieving Token list.')
@@ -25,7 +25,7 @@ export class TokenService {
 
   getByUsername(username: string): Observable<Token[]> {
     return this.http
-      .get<Token[]>(this.baseUrl + 'api/tokens/user/' + username)
+      .get<Token[]>(this.baseUrl + 'api/tokens/user/' + username, this.auth.getHttpOptions())
       .pipe(
         catchError((err: any) => {
           return throwError(
