@@ -5,6 +5,8 @@ import User from 'src/app/models/user';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { UserService } from 'src/app/modules/shared/services/user.service';
 import { slideInAnimation } from 'src/app/animations/animations';
+import { Store, select } from '@ngrx/store';
+import { selectCurrentUser } from 'src/app/modules/auth/state/auth.selectors';
 
 @Component({
   selector: 'app-profile-management',
@@ -21,7 +23,8 @@ export class ProfileManagementComponent implements OnInit {
     private dialogRef: MatDialogRef<ProfileManagementComponent>,
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private store: Store
   ) {
     this.profileForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -34,19 +37,26 @@ export class ProfileManagementComponent implements OnInit {
 
     // Populate the form with the current user's info
     // const currentUser = this.authService.getUserByUsername(this.authService.getLoggedInUsername());
-    const currentUser = this.authService.currentUserValue != null ? this.authService.currentUserValue : new User();
-    this.profileForm.patchValue({
-      username: currentUser.username,
-      email: currentUser.email,
-      password: currentUser.password,
-    });
+    this.store.pipe(select(selectCurrentUser)).subscribe(
+      user => {
+        if (user) {
+          this.profileForm.patchValue({
+            username: user.username,
+            email: user.email,
+            password: user.password,
+          });
+        }
+      }
+    );
   }
 
   updateProfile(): void {
     if (this.profileForm.valid) {
       this.userService.updateProfile(this.profileForm.value).subscribe(
         (updated: User) => {
-          this.authService.setUser(updated);
+          // TODO finish dispatching updated user
+          // this.authService.setUser(updated);
+          // this.store.dispatch(update)
           this.updateSuccess = true;
           this.updateError = false;
           setTimeout(() => {
