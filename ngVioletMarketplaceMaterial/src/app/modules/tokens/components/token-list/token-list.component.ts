@@ -14,11 +14,8 @@ import User from 'src/app/models/user';
 })
 export class TokenListComponent implements OnInit {
   tokens$: Observable<Token[] | null> = of(null);
-  // @ViewChild('tokens-container', { read: ElementRef }) tokensContainer: ElementRef | null;
-
 
   constructor(private store: Store, private auth: AuthService) {
-    // this.tokensContainer = document.getElementById('tokens-container');
   }
 
   ngOnInit(): void {
@@ -47,16 +44,13 @@ export class TokenListComponent implements OnInit {
 
   scrollLeft(tokensContainer: HTMLElement): void {
     if (tokensContainer) {
-      console.log('hello');
 
       tokensContainer.scrollLeft -= 250;
     }
   }
 
   scrollRight(tokensContainer: HTMLElement): void {
-    console.log('hello3');
     if (tokensContainer) {
-      console.log('hello2');
       tokensContainer.scrollLeft += 250;
     }
   }
