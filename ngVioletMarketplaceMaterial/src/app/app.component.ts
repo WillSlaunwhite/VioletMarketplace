@@ -54,7 +54,6 @@ export class AppComponent implements AfterViewInit {
     // * check for valid jwt
     const jwt = this.authService.getValidJwt();
     if (jwt !== null) {
-      console.log('hello');
 
       const username = this.authService.getLoggedInUsername();
       if (username) {
@@ -63,9 +62,7 @@ export class AppComponent implements AfterViewInit {
         // TODO Finish dispatching user in app.component
         this.authService.currentUser.subscribe(
           user => {
-            console.log('hello2');
             if (user) {
-              console.log('hello3');
               this.store.dispatch(loginSuccess({ user }));
             }
           }
