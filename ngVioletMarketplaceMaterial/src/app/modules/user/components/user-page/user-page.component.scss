@@ -279,7 +279,7 @@
     border-radius: 2px;
 
     &:hover {
-      transition: ease-out .35s;
+      transition: ease-in-out .5s;
       transform: scale(1.004);
       cursor: pointer;
     }
