@@ -273,15 +273,14 @@
   .wallet-section,
   .collections-section,
   .create-section {
-    transition: none;
     background: rgba(149, 149, 149, 0.2);
     backdrop-filter: blur(10px);
     border-radius: 2px;
+    transition: ease-out 5s;
 
     &:hover {
-      transition: ease-in-out .5s;
-      transform: scale(1.004);
-      cursor: pointer;
+      transition: ease-out 1.5s;
+      transform: scale(1.006);
     }
   }
 

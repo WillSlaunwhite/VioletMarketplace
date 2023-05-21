@@ -1,9 +1,6 @@
 import {
   AfterViewInit,
-  Component,
-  HostBinding,
-  OnInit,
-  ViewEncapsulation,
+  Component, OnInit
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,10 +8,8 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { secretKey } from 'key';
-import { filter, forkJoin, switchMap, throwError } from 'rxjs';
 import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
-import { TokenListComponent } from 'src/app/modules/tokens/components/token-list/token-list.component';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { TokenService } from 'src/app/modules/tokens/services/token.service';
 import { ProfileManagementComponent } from '../profile-management/profile-management.component';
@@ -62,7 +57,8 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ProfileManagementComponent, {
       width: '25em',
-      data: { name: "hello", animal: "world" }
+      data: { name: "hello", animal: "world" },
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
