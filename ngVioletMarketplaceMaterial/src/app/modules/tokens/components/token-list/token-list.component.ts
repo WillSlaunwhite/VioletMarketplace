@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import Token from 'src/app/models/token';
-import { Observable, filter, tap } from 'rxjs';
+import { Observable, filter, of, tap } from 'rxjs';
 import { getAllTokens, getUserTokens } from '../../state/tokens.selectors';
-import { loadUserTokens } from '../../state/tokens.actions';
+import { loadTokens, loadUserTokens } from '../../state/tokens.actions';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 @Component({
@@ -12,18 +12,34 @@ import { AuthService } from 'src/app/modules/auth/services/auth.service';
   styleUrls: ['./token-list.component.scss']
 })
 export class TokenListComponent implements OnInit {
-  tokens$: Observable<Token[] | null>;
+  tokens$: Observable<Token[] | null> = of(null);
 
   constructor(private store: Store, private auth: AuthService) {
-    this.tokens$ = this.store.select(getAllTokens).pipe(
-      filter(tokens => tokens !== null)
+    // this.tokens$ = this.store.select(getAllTokens).pipe(
+    //   filter(tokens => tokens !== null)
+    // );
+    this.auth.currentUser.subscribe(
+      user => {
+        if (user) {
+          this.store.dispatch(loadUserTokens({ username: 'will' }));
+          this.tokens$ = this.store.select(getUserTokens)
+        } else {
+          this.tokens$ = this.store.select(getAllTokens);
+        }
+      }
     );
   }
 
   ngOnInit(): void {
-    if (this.auth.isUserLoggedIn()) {
-      this.store.dispatch(loadUserTokens({ username: 'will' }));
-    }
+    this.store.dispatch(loadTokens());
+    this.auth.currentUser.subscribe(
+      user => {
+        if (user) {
+          this.store.dispatch(loadUserTokens({ username: 'will' }));
+          this.tokens$ = this.store.select(getUserTokens)
+        }
+      }
+    );
   }
 
 }
