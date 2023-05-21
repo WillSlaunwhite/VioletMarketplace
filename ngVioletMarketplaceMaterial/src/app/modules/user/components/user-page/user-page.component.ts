@@ -36,48 +36,6 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['timestamp', 'details'];
   createForm: FormGroup;
 
-  buttons = [
-    {
-      wrapperClass: 'tokens-button-wrapper button-wrapper',
-      buttonClass: 'tokens-button',
-      text: 'tokens',
-    },
-    {
-      wrapperClass: 'wallet-button-wrapper button-wrapper',
-      buttonClass: 'wallet-button',
-      text: 'wallet',
-    },
-    {
-      wrapperClass: 'collections-button-wrapper button-wrapper',
-      buttonClass: 'collections-button',
-      text: 'collections',
-    },
-    {
-      wrapperClass: 'create-button-wrapper button-wrapper',
-      buttonClass: 'create-button',
-      text: 'create',
-    },
-  ];
-
-  cryptos = [
-    // Add your user's crypto balances here
-    { name: 'Ethereum', amount: 5 },
-    { name: 'Binance Coin', amount: 10 },
-  ];
-
-  nfts = [
-    // Add your user's NFTs here
-    { name: 'NFT 1', image: 'https://example.com/nft1.png' },
-    { name: 'NFT 2', image: 'https://example.com/nft2.png' },
-  ];
-
-  transactions = [
-    // Add your user's transaction history here
-    { timestamp: '2023-04-17 12:00:00', details: 'Bought NFT 1 for 2 ETH' },
-    { timestamp: '2023-04-16 14:00:00', details: 'Sold NFT 3 for 5 BNB' },
-  ];
-
-
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
@@ -118,8 +76,6 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit user-page');
-
     this.auth.currentUser.subscribe(user => {
       if (user) {
         this.user = user;

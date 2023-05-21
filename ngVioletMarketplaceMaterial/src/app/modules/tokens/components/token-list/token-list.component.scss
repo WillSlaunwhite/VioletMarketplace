@@ -1,26 +1,38 @@
 .tokens-container {
   height: 100%;
-  width: 100%;
+  width: 92.5%;
   overflow-x: scroll;
-  margin: auto;
   flex-wrap: nowrap;
   gap: 1.5em;
   background: transparent;
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 
 app-token-card {
   margin: auto;
   overflow-wrap: normal;
+  transition: all ease-in-out 1s;
 }
 
 .tokens-container:first-child {
-  margin-left: .5em;
+  margin-left: 2.5em;
 }
 
-
-.tokens-container:last-child {
+app-token-card:last-of-type {
   margin-right: 5em;
+}
+
+.scroll-button {
+  position: absolute;
+  top: 0;
+}
+
+.scroll-button-left {
+  left: 0;
+}
+
+.scroll-button-right {
+  right: 0
 }
 
 // WEBKIT SCROLLBAR IS NON-STANDARD
