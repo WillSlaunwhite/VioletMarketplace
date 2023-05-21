@@ -6,7 +6,7 @@
   flex-wrap: nowrap;
   gap: 1.5em;
   background: transparent;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   margin: auto;
 
   app-token-card {
@@ -22,10 +22,10 @@
   .scroll-button {
     position: fixed;
     top: 0%;
-    width: 5em;
+    width: 3em;
     height: 100%;
     padding-top: 1em;
-    z-index: 1;
+    z-index: 2;
     opacity: .45;
     cursor: pointer;
   }
