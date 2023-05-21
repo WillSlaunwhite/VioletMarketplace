@@ -17,13 +17,13 @@
     margin-inline: auto;
     width: 280px;
     height: 80vh;
-    margin-left: .35em;
+    margin-left: 1.75em;
     position: relative; // Add this line to position the button wrappers absolutely
     z-index: 0; // Add this line to set the z-index value for the container
 
     .user-image {
       position: absolute;
-      top: 1em;
+      top: 1.5em;
       height: 13rem;
       width: 16rem;
       margin-inline: auto;
@@ -262,14 +262,12 @@
   background: transparent;
   border-radius: 6px;
   overflow: hidden;
-  margin-right: .75em;
+  margin-right: 2.5em;
+  margin-block-start: 1em;
   padding-bottom: 2em;
   // box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(255, 255, 255, 0.1) inset, 0 0 20px rgba(255, 255, 255, 0.1) inset;
   transition: transform 0.3s ease-in-out;
 
-  &:hover {
-    transform: scale(1.002);
-  }
 
   .tokens-section,
   .wallet-section,
@@ -280,9 +278,10 @@
     backdrop-filter: blur(10px);
     border-radius: 2px;
 
-    &.hover {
-      -webkit-animation: color-change-2x 2s linear infinite alternate both;
-      animation: color-change-2x 2s linear infinite alternate both;
+    &:hover {
+      transition: ease-out .35s;
+      transform: scale(1.004);
+      cursor: pointer;
     }
   }
 
