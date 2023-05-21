@@ -19,15 +19,19 @@ export class TokenListComponent implements OnInit {
 
   ngOnInit(): void {
     this.tokens$ = this.store.select(getUserTokens);
+    console.log(this.tokens$);
+
 
     this.tokens$.pipe(
       take(1),
       tap((tokens: Token[] | null) => {
         if (!tokens) {
+          console.log('in tokens2 ' + tokens + " " + this.tokens$);
           this.store.dispatch(loadTokens());
+          this.tokens$ = this.store.select(getAllTokens);
         }
       })
-    ).subscribe();
+    ).subscribe((tokens) => console.log(tokens));
 
     this.auth.currentUser.pipe(
       filter(user => user !== null),  // * ensure user is logged in
