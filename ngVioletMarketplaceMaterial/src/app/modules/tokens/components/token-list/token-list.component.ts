@@ -60,58 +60,87 @@ export class TokenListComponent implements OnInit {
   scrollInterval: any;
   velocity: any;
 
-  // startScrollLeft(tokensContainer: HTMLElement): void {
-  //   this.stopScroll(); // Stop any existing scroll
-  //   const scrollStep = () => {
-  //     if (tokensContainer) {
-  //       tokensContainer.scrollLeft -= 9; // Small step for smooth scrolling
-  //       this.scrollInterval = requestAnimationFrame(scrollStep);
-  //     }
-  //   }; // Adjust time for faster or slower scrolling
-  //   this.scrollInterval = requestAnimationFrame(scrollStep);
-  // }
-
-  // startScrollRight(tokensContainer: HTMLElement): void {
-  //   this.stopScroll(); // Stop any existing scroll
-  //   const scrollStep = () => {
-  //     if (tokensContainer) {
-  //       tokensContainer.scrollLeft += 5.5; // Small step for smooth scrolling
-  //       this.scrollInterval = requestAnimationFrame(scrollStep);
-  //     }
-  //   }; // Adjust time for faster or slower scrolling
-  //   this.scrollInterval = requestAnimationFrame(scrollStep);
-  // }
-
-
   startScrollLeft(tokensContainer: HTMLElement): void {
-    this.stopScroll();
-    this.velocity = -10; // initial velocity
+    this.stopScroll(); // Stop any existing scroll
     const scrollStep = () => {
       if (tokensContainer) {
-        tokensContainer.scrollLeft += this.velocity;
-        this.velocity *= 0.95; // deceleration factor
-        if (Math.abs(this.velocity) > 0.5) { // stop when velocity is low enough
-          this.scrollInterval = requestAnimationFrame(scrollStep);
-        }
+        tokensContainer.scrollLeft -= 9; // Small step for smooth scrolling
+        this.scrollInterval = requestAnimationFrame(scrollStep);
       }
-    };
+    }; // Adjust time for faster or slower scrolling
     this.scrollInterval = requestAnimationFrame(scrollStep);
   }
 
   startScrollRight(tokensContainer: HTMLElement): void {
-    this.stopScroll();
-    this.velocity = 10; // initial velocity
+    this.stopScroll(); // Stop any existing scroll
     const scrollStep = () => {
       if (tokensContainer) {
-        tokensContainer.scrollLeft += this.velocity;
-        this.velocity *= 0.95; // deceleration factor
-        if (Math.abs(this.velocity) > 0.5) { // stop when velocity is low enough
-          this.scrollInterval = requestAnimationFrame(scrollStep);
-        }
+        tokensContainer.scrollLeft += 5.5; // Small step for smooth scrolling
+        this.scrollInterval = requestAnimationFrame(scrollStep);
       }
-    };
+    }; // Adjust time for faster or slower scrolling
     this.scrollInterval = requestAnimationFrame(scrollStep);
   }
+
+  mouseleaveScroll(): void {
+    // Call this method on mouseleave instead of stopScroll
+    this.velocity *= 0.5; // rapid deceleration factor
+  }
+  // startScrollLeft(tokensContainer: HTMLElement): void {
+  //   this.stopScroll();
+  //   this.velocity = -10; // initial velocity
+  //   const scrollStep = () => {
+  //     if (tokensContainer) {
+  //       tokensContainer.scrollLeft += this.velocity;
+  //       this.velocity *= 0.95; // deceleration factor
+  //       if (Math.abs(this.velocity) > 0.5) { // stop when velocity is low enough
+  //         this.scrollInterval = requestAnimationFrame(scrollStep);
+  //       }
+  //     }
+  //   };
+  //   this.scrollInterval = requestAnimationFrame(scrollStep);
+  // }
+
+  // startScrollRight(tokensContainer: HTMLElement): void {
+  //   this.velocity = 8; // initial velocity
+  //   const scrollStep = () => {
+  //     if (tokensContainer) {
+  //       tokensContainer.scrollLeft += this.velocity;
+  //       // this.velocity *= 0.99; // deceleration factor
+  //       if (this.velocity > 2.5) { // stop when velocity is low enough
+  //         this.velocity *= 0.99; // deceleration factor
+  //         console.log(this.velocity);
+  //         this.scrollInterval = requestAnimationFrame(scrollStep);
+  //       } else {
+  //         this.velocity = 0; // deceleration factor
+  //         console.log(this.velocity);
+  //         // this.scrollInterval = requestAnimationFrame(scrollStep);
+
+  //       }
+  //     }
+  //   };
+  //   this.scrollInterval = requestAnimationFrame(scrollStep);
+  // }
+
+  // mouseleaveScroll(): void {
+  //   this.velocity *= .7;
+  //   if (Math.abs(this.velocity) <= 0) {
+  //     console.log('HELLLLLOOOOOOOO' + this.velocity);
+  //     this.mouseleaveScroll();
+  //   }
+  // Call this method on mouseleave instead of stopScroll
+  // if (Math.abs(this.velocity) < 3) {
+  //   this.velocity = 0;
+  //   console.log(this.velocity + '3');
+  // }
+  // else if (Math.abs(this.velocity) < 7) {
+  //   this.velocity *= .2;
+  //   console.log(this.velocity + '7');
+  // } else {
+  //   console.log(this.velocity);
+  //   this.velocity *= 0.45; // rapid deceleration factor
+  // }
+  // }
 
 
 
@@ -123,15 +152,11 @@ export class TokenListComponent implements OnInit {
   }
 
   scrollFarLeft(tokensContainer: HTMLElement): void {
-    tokensContainer.scrollLeft -= 100; // adjust this value as needed
+    tokensContainer.scrollLeft -= 50; // adjust this value as needed
   }
 
   scrollFarRight(tokensContainer: HTMLElement): void {
-    tokensContainer.scrollLeft += 100; // adjust this value as needed
+    tokensContainer.scrollLeft += 50; // adjust this value as needed
   }
 
-  mouseleaveScroll(): void {
-    // Call this method on mouseleave instead of stopScroll
-    this.velocity *= 0.5; // rapid deceleration factor
-  }
 }
