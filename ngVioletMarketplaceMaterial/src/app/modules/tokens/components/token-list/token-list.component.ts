@@ -14,6 +14,8 @@ import User from 'src/app/models/user';
 })
 export class TokenListComponent implements OnInit {
   tokens$: Observable<Token[] | null> = of(null);
+  scrollInterval: any;
+  velocity: any;
 
   constructor(private store: Store, private auth: AuthService) {
   }
@@ -41,9 +43,6 @@ export class TokenListComponent implements OnInit {
       })
     ).subscribe();
   }
-
-  scrollInterval: any;
-  velocity: any;
 
   startScrollLeft(tokensContainer: HTMLElement): void {
     this.stopScroll();
@@ -79,11 +78,9 @@ export class TokenListComponent implements OnInit {
       }
     };
     this.scrollInterval = requestAnimationFrame(scrollStep);
-    console.log(this.velocity);
   }
 
   mouseleaveScroll(): void {
-    // Call this method on mouseleave instead of stopScroll
     this.velocity *= .45; // rapid deceleration factor
   }
 

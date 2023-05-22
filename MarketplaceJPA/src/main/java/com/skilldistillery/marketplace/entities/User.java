@@ -17,277 +17,254 @@ import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String username;
-	private String password;
-	private boolean enabled;
-	private String role;
-	private String email;
-	private String biography;
-
-	@CreationTimestamp
-	@Column(name="created_on")
-	private LocalDateTime createdOn;
-	
-	@Column(name="display_name")
-	private String displayName;
-	
-	@Column(name="picture_url")
-	private String pictureUrl;
-	
-	
-	// added a bunch of json ignore
-	@JsonIgnore
-	@OneToMany(mappedBy="user")
-	private List<Cart> carts;
-	
-	@JsonBackReference(value="sender")
-	@OneToMany(mappedBy="sender")
-	private List<Message> sentMessages;
-	
-	@JsonBackReference(value="recipient")
-	@OneToMany(mappedBy="recipient")
-	private List<Message> receivedMessages;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy="creator")
-	private List<Token> createdTokens;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy="owner")
-	private List<Token> ownedTokens;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy="creator")
-	private List<Collection> collectionsCreated;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy="seller")
-	private List<TokenTx> sellerTransfers;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy="buyer")
-	private List<TokenTx> buyerTransfers;
-	
-	public User() { super(); }
-	
-	public List<Cart> getCarts() {
-		return carts;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String username;
+    private String password;
+    private boolean enabled;
+    private String role;
+    private String email;
+    private String biography;
 
+    @CreationTimestamp
+    @Column(name = "created_on")
+    private LocalDateTime createdOn;
 
+    @Column(name = "display_name")
+    private String displayName;
 
-	public void setCarts(List<Cart> carts) {
-		this.carts = carts;
-	}
+    @Column(name = "picture_url")
+    private String pictureUrl;
 
 
+    // added a bunch of json ignore
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private List<Cart> carts;
 
-	public List<Message> getSentMessages() {
-		return sentMessages;
-	}
+    @JsonBackReference(value = "sender")
+    @OneToMany(mappedBy = "sender")
+    private List<Message> sentMessages;
 
+    @JsonBackReference(value = "recipient")
+    @OneToMany(mappedBy = "recipient")
+    private List<Message> receivedMessages;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "creator")
+    private List<Token> createdTokens;
 
-	public void setSentMessages(List<Message> sentMessages) {
-		this.sentMessages = sentMessages;
-	}
+    @JsonIgnore
+    @OneToMany(mappedBy = "owner")
+    private List<Token> ownedTokens;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "creator")
+    private List<Collection> collectionsCreated;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "seller")
+    private List<TokenTx> sellerTransfers;
 
-	public List<Message> getReceivedMessages() {
-		return receivedMessages;
-	}
+    @JsonIgnore
+    @OneToMany(mappedBy = "buyer")
+    private List<TokenTx> buyerTransfers;
 
+    public User() {
+        super();
+    }
 
+    public List<Cart> getCarts() {
+        return carts;
+    }
 
-	public void setReceivedMessages(List<Message> receivedMessages) {
-		this.receivedMessages = receivedMessages;
-	}
 
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
+    }
 
 
-	public List<Token> getCreatedTokens() {
-		return createdTokens;
-	}
+    public List<Message> getSentMessages() {
+        return sentMessages;
+    }
 
 
+    public void setSentMessages(List<Message> sentMessages) {
+        this.sentMessages = sentMessages;
+    }
 
-	public void setCreatedTokens(List<Token> createdTokens) {
-		this.createdTokens = createdTokens;
-	}
 
+    public List<Message> getReceivedMessages() {
+        return receivedMessages;
+    }
 
 
-	public List<Token> getOwnedTokens() {
-		return ownedTokens;
-	}
+    public void setReceivedMessages(List<Message> receivedMessages) {
+        this.receivedMessages = receivedMessages;
+    }
 
 
+    public List<Token> getCreatedTokens() {
+        return createdTokens;
+    }
 
-	public void setOwnedTokens(List<Token> ownedTokens) {
-		this.ownedTokens = ownedTokens;
-	}
 
+    public void setCreatedTokens(List<Token> createdTokens) {
+        this.createdTokens = createdTokens;
+    }
 
 
-	public List<Collection> getCollectionsCreated() {
-		return collectionsCreated;
-	}
+    public List<Token> getOwnedTokens() {
+        return ownedTokens;
+    }
 
 
+    public void setOwnedTokens(List<Token> ownedTokens) {
+        this.ownedTokens = ownedTokens;
+    }
 
-	public void setCollectionsCreated(List<Collection> collectionsCreated) {
-		this.collectionsCreated = collectionsCreated;
-	}
 
+    public List<Collection> getCollectionsCreated() {
+        return collectionsCreated;
+    }
 
 
-	public List<TokenTx> getSellerTransfers() {
-		return sellerTransfers;
-	}
+    public void setCollectionsCreated(List<Collection> collectionsCreated) {
+        this.collectionsCreated = collectionsCreated;
+    }
 
 
+    public List<TokenTx> getSellerTransfers() {
+        return sellerTransfers;
+    }
 
-	public void setSellerTransfers(List<TokenTx> sellerTransfers) {
-		this.sellerTransfers = sellerTransfers;
-	}
 
+    public void setSellerTransfers(List<TokenTx> sellerTransfers) {
+        this.sellerTransfers = sellerTransfers;
+    }
 
 
-	public List<TokenTx> getBuyerTransfers() {
-		return buyerTransfers;
-	}
+    public List<TokenTx> getBuyerTransfers() {
+        return buyerTransfers;
+    }
 
 
+    public void setBuyerTransfers(List<TokenTx> buyerTransfers) {
+        this.buyerTransfers = buyerTransfers;
+    }
 
-	public void setBuyerTransfers(List<TokenTx> buyerTransfers) {
-		this.buyerTransfers = buyerTransfers;
-	}
 
+    public int getId() {
+        return id;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public boolean isEnabled() {
+        return enabled;
+    }
 
-	public boolean isEnabled() {
-		return enabled;
-	}
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
+    public String getRole() {
+        return role;
+    }
 
-	public String getRole() {
-		return role;
-	}
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getEmail() {
-		return email;
-	}
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getBiography() {
+        return biography;
+    }
 
 
+    public void setBiography(String biography) {
+        this.biography = biography;
+    }
 
-	public String getBiography() {
-		return biography;
-	}
 
+    public LocalDateTime getCreatedOn() {
+        return createdOn;
+    }
 
 
-	public void setBiography(String biography) {
-		this.biography = biography;
-	}
+    public void setCreatedOn(LocalDateTime createdOn) {
+        this.createdOn = createdOn;
+    }
 
 
+    public String getDisplayName() {
+        return displayName;
+    }
 
-	public LocalDateTime getCreatedOn() {
-		return createdOn;
-	}
 
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
 
 
-	public void setCreatedOn(LocalDateTime createdOn) {
-		this.createdOn = createdOn;
-	}
+    public String getPictureUrl() {
+        return pictureUrl;
+    }
 
 
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
 
-	public String getDisplayName() {
-		return displayName;
-	}
 
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", username=" + username + ", enabled=" + enabled + ", role=" + role + ", createdOn="
+                + createdOn + "]";
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
-	public void setDisplayName(String displayName) {
-		this.displayName = displayName;
-	}
-
-
-
-	public String getPictureUrl() {
-		return pictureUrl;
-	}
-
-
-
-	public void setPictureUrl(String pictureUrl) {
-		this.pictureUrl = pictureUrl;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", enabled=" + enabled + ", role=" + role + ", createdOn="
-				+ createdOn + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		return id == other.id;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        User other = (User) obj;
+        return id == other.id;
+    }
 }
