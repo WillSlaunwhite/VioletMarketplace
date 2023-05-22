@@ -17,13 +17,6 @@ public class Collection {
 	private int id;
 
 	private String name;
-	public User getCreator() {
-		return creator;
-	}
-
-	public void setCreator(User creator) {
-		this.creator = creator;
-	}
 
 	private String description;
 	
@@ -84,11 +77,18 @@ public class Collection {
 		this.releaseDate = releaseDate;
 	}
 
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
+	}
+
 	@Override
 	public String toString() {
-        String builder = "Collection [id=" + id + ", name=" + name + ", description=" +
-                description + ", releaseDate=" + releaseDate + "]";
-		return builder;
+		return "Collection [id=" + id + ", name=" + name + ", description=" +
+				description + ", releaseDate=" + releaseDate + "]";
 	}
 
 }

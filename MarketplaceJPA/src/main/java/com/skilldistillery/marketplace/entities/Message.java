@@ -40,12 +40,6 @@ public class Message {
     @ManyToOne
     @JoinColumn(name = "in_reply_to")
     private Message message;
- 
-    @Override
-    public String toString() {
-        return "Message [id=" + id + ", content=" + content + ", createdAt=" + createdAt + ", sender=" + sender
-                + ", recipient=" + recipient + ", replies=" + replies + ", message=" + message + "]";
-    }
 
     public int getId() {
         return id;
@@ -103,4 +97,16 @@ public class Message {
         this.message = message;
     }
 
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", createdAt=" + createdAt +
+                ", sender=" + sender +
+                ", recipient=" + recipient +
+                ", replies=" + replies +
+                ", message=" + message +
+                '}';
+    }
 }

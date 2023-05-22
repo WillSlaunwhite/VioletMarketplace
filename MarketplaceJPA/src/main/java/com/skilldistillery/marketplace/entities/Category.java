@@ -58,9 +58,8 @@ public class Category {
 
 	@Override
 	public String toString() {
-        String builder = "Category [id=" + id + ", type=" + type + ", description=" +
-                description + "]";
-		return builder;
+		return "Category [id=" + id + ", type=" + type + ", description=" +
+				description + "]";
 	}
 
 }
