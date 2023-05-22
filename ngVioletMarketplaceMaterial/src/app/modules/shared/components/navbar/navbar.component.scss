@@ -7,6 +7,11 @@ a {
 
 input {
   background: transparent;
+  font-size: larger;
+
+  &:focus {
+    color: white !important;
+  }
 }
 
 
@@ -41,9 +46,7 @@ input {
 }
 
 mat-label {
-  color: #ababab;
   font-size: large;
-
 }
 
 // SEARCH BAR
@@ -52,10 +55,23 @@ mat-label {
   min-width: 35%;
   color: #ababab;
   margin-top: 10px;
+  position: relative;
+  outline: none !important;
 
-  &.search:focus {
-    color: #e7e7e7;
-  }
+}
+
+.search ::ng-deep .mat-form-field-underline {
+  display: none !important;
+}
+
+.search ::ng-deep .mat-form-field-wrapper:focus-within::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  margin-top: 3em;
+  background: #e7e7e7;
 }
 
 // ADDS PADDING TO LAST LINK
@@ -103,4 +119,10 @@ mat-label {
 ::ng-deep .mat-dialog-container {
   background: none;
   box-shadow: none;
+}
+
+::ng-deep .search ::ng-deep .mat-form-field-wrapper {
+  overflow: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
 }

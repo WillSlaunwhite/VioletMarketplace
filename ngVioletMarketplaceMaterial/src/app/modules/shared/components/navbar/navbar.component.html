@@ -1,8 +1,8 @@
 <mat-toolbar class="toolbar d-flex">
   <div class="brand-container"><a class="brand" routerLink="/home">VioletMarketplace</a></div>
-  <mat-form-field class="search">
+  <mat-form-field #search [ngClass]="{'focused': isSearchFieldFocused}" class="search">
     <mat-label>Search...</mat-label>
-    <input matInput type="text" [(ngModel)]="searchTerm">
+    <input matInput type="text" [(ngModel)]="searchTerm" (focus)="toggleSearchFocus()" (blur)="toggleSearchFocus()">
     <button class="clear" *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="searchTerm=''">
       <mat-icon>clear</mat-icon>
     </button>

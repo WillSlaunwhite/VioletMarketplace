@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Observable } from 'rxjs';
 import User from 'src/app/models/user';
 import { MatDialog } from '@angular/material/dialog';
@@ -21,8 +21,9 @@ export class NavbarComponent implements OnInit {
   searchTerm: string | null = null;
   isLoggedIn$: Observable<boolean>;
   user$: Observable<User | null>;
+  isSearchFieldFocused: boolean = false;
 
-  constructor(private store: Store, private dialog: MatDialog) {
+  constructor(private store: Store, private dialog: MatDialog, private renderer: Renderer2, private el: ElementRef) {
     this.user$ = this.store.select(selectCurrentUser);
     this.isLoggedIn$ = this.store.select(isLoggedIn);
   }
@@ -45,4 +46,13 @@ export class NavbarComponent implements OnInit {
     this.dialog.open(LoginComponent);
   }
 
+
+  toggleSearchFocus() {
+    this.isSearchFieldFocused = !this.isSearchFieldFocused;
+    if (this.isSearchFieldFocused) {
+      this.renderer.addClass(this.el.nativeElement.querySelector('.search'), 'focused');
+    } else {
+      this.renderer.removeClass(this.el.nativeElement.querySelector('.search'), 'focused');
+    }
+  }
 }
