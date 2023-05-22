@@ -2,7 +2,7 @@
 a {
   text-decoration: none;
   font-weight: 300;
-  color: white;
+  color: #e7e7e7;
 }
 
 input {
@@ -13,19 +13,21 @@ input {
 // TOP LEVEL NAVBAR
 .toolbar {
   justify-content: space-between !important;
-  height: 4em;
+  height: 5em;
+  background: transparent;
+
 
   /* Created with https://www.css-gradient.com */
-  background: #471D90;
-  background: -webkit-linear-gradient(top left, #471D90, #270269D3);
-  background: -moz-linear-gradient(top left, #471D90, #270269D3);
-  background: linear-gradient(to bottom right, #471D90, #270269D3);
+  // background: #471D90;
+  // background: -webkit-linear-gradient(top left, #471D90, #270269D3);
+  // background: -moz-linear-gradient(top left, #471D90, #270269D3);
+  // background: linear-gradient(to bottom right, #471D90, #270269D3);
 }
 
 // FAR LEFT LOGO
 .brand-container {
   transition: ease .3s;
-  padding-left: 2.5em;
+  padding-left: .5em;
 
   &.brand-container:hover {
     transform: scale(1.05);
@@ -38,28 +40,35 @@ input {
   letter-spacing: 2.25px;
 }
 
+mat-label {
+  color: #ababab;
+  font-size: large;
+
+}
+
 // SEARCH BAR
 .search {
-  width: 40%;
-  color: rgba(255, 255, 255, 0.666);
+  width: 50vmin;
+  min-width: 35%;
+  color: #ababab;
   margin-top: 10px;
 
   &.search:focus {
-    color: white;
+    color: #e7e7e7;
   }
 }
 
 // ADDS PADDING TO LAST LINK
 .links:last-child {
-  padding-right: 2.5em !important;
+  margin-right: 1.25em !important;
 }
 
 // THE A TAGS FOR THE NAV LINKS
 .mat-button {
-  font-size: 20px;
+  font-size: 1.05em;
   font-weight: 300;
   align-items: center;
-  color: gray;
+  color: #ababab;
   text-decoration: none;
   padding-inline: .5em;
   transition: ease .3s;
@@ -67,7 +76,7 @@ input {
   &.mat-button:hover {
     transition: ease .25s;
     transform: scale(1.05);
-    color: white;
+    color: #e7e7e7;
     text-decoration: underline;
     text-underline-offset: 10px;
     text-decoration-thickness: .01rem;
@@ -82,13 +91,14 @@ input {
 
 // DIVIDER COLOR
 .mat-divider {
-  border-top-color: rgb(58, 83, 158);
+  border-top-color: #e7e7e7;
+  opacity: .5;
 }
 
-// ACTIVE LINK BECOMES WHITE
-.active {
-  color: white;
-}
+// // ACTIVE LINK BECOMES WHITE
+// .active {
+//   color: white;
+// }
 
 ::ng-deep .mat-dialog-container {
   background: none;

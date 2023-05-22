@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import User from 'src/app/models/user';
 import { MatDialog } from '@angular/material/dialog';
+import { MatDivider, MatDividerModule } from '@angular/material/divider';
+import { } from '@angular/material/divider';
 import { RegisterComponent } from 'src/app/modules/auth/components/register/register.component';
 import { LoginComponent } from 'src/app/modules/auth/components/login/login.component';
 import { Store } from '@ngrx/store';
