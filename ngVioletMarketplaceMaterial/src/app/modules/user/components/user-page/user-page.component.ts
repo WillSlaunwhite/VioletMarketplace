@@ -67,7 +67,7 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.generateRandomAnimations();
+    // this.generateRandomAnimations();
     this.assignFloatingAnimations();
   }
 
@@ -110,26 +110,10 @@ export class UserPageComponent implements OnInit, AfterViewInit {
         }
       );
     });
-    // const buttons = document.querySelectorAll(
-    //   '.button-container .button-wrapper'
-    // );
-    // buttons.forEach((button: any) => {
-    //   const htmlButton = button as HTMLElement;
-    //   const animationClass = `floating-${Math.floor(Math.random() * 4) + 1}`; // Random number between 1 and 4
-    //   htmlButton.classList.add(animationClass);
-
-    //   htmlButton.addEventListener('mousemove', (event: MouseEvent) => {
-    //     const rect = htmlButton.getBoundingClientRect();
-    //     const x = event.clientX - rect.left; //x position within the element.
-    //     const y = event.clientY - rect.top; //y position within the element.
-
-    //     htmlButton.style.transform = `translate(${50}px, ${y + 5}px)`;
-    //   });
-    // });
   }
 
   generateRandomAnimations() {
-    const buttons = Array.from(document.querySelectorAll('.button-container .button-wrapper button'));
+    const buttons = Array.from(document.querySelectorAll('.button-container .button-wrapper'));
 
     buttons.forEach((button: any) => {
       button.onmousemove = (e: MouseEvent) => {

@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { FormsModule } from '@angular/forms';
 import { UserModule } from '../user/user.module';
+import { DoubleGradButtonComponent } from './components/double-grad-button/double-grad-button.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserModule } from '../user/user.module';
     NavComponent,
     NavbarComponent,
     SidenavComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    DoubleGradButtonComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +39,7 @@ import { UserModule } from '../user/user.module';
     NavbarComponent,
     SidenavComponent,
     AboutUsComponent,
+    DoubleGradButtonComponent
   ],
 })
 export class SharedModule { }
