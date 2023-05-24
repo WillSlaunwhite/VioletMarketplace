@@ -1,38 +1,49 @@
-// TEXT FOR TOP OF CARD
-// .token-text {
-//   margin-bottom: .5em;
-//   margin-top: -.75em !important;
-//   padding-top: .4em;
-//   padding-inline-end: .75em;
-//   padding-inline-start: .25em;
-//   letter-spacing: .06em;
-//   &.token-name {
-//     width: 14rem;
-//   }
+// app-token-list {
+//   width: 80vw;
+//   height: 17em;
+//   background: transparent;
+//   display: flex;
 // }
 
-
-// .app-button {
-//   width: 50px !important;
-//   color: orange;
-//   position: absolute
-// }
-
-.test-button {
-  width: 160px;
-  height: 60px;
-  background: rgb(54, 53, 172);
-  background: linear-gradient(103deg, rgba(54, 53, 172, 1) 0%, rgba(121, 89, 190, 1) 70%);
-  border: 1px solid #000000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  filter: blur(1px);
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-app-token-list {
-  width: 80vw;
-  height: 17em;
-  background: transparent;
+.main-content {
   display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .top-half,
+  .bottom-half {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    &.bottom-half {}
+
+    .token-list-header {
+      color: #e7e7e7;
+      margin-right: 50%;
+    }
+
+    .token-list-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 95vw;
+      justify-content: center;
+      margin-left: 10%;
+
+      app-token-list {
+        height: 18em;
+        width: 100%;
+        margin-left: 7.5%;
+      }
+
+    }
+  }
 }
