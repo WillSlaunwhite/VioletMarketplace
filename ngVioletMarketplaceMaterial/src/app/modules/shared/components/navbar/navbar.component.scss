@@ -76,7 +76,7 @@ mat-label {
 
 // ADDS PADDING TO LAST LINK
 .links:last-child {
-  margin-right: 1.25em !important;
+  margin-right: .25em !important;
 }
 
 // THE A TAGS FOR THE NAV LINKS
@@ -86,7 +86,7 @@ mat-label {
   align-items: center;
   color: #ababab;
   text-decoration: none;
-  padding-inline: .5em;
+  padding-inline: 1.5em;
   transition: ease .3s;
 
   &.mat-button:hover {
@@ -103,6 +103,18 @@ mat-label {
 // THE SPAN FOR THE NAV LINKS
 .toolbar-button {
   margin-inline: .5em;
+}
+
+.mat-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 60%;
+  opacity: .6;
+  height: 1px;
+  width: 6.75em;
+  transform: rotate(135deg);
+  background: #e7e7e7;
 }
 
 // DIVIDER COLOR
