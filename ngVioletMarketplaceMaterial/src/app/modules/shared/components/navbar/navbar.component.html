@@ -21,11 +21,11 @@
       <div class="button-wrapper">
         <button *ngIf="!(isLoggedIn$ | async)" mat-button (click)="openLoginDialog()"></button>
       </div>
-      <div class="button-wrapper">
-        <button *ngIf="(isLoggedIn$ | async)" mat-button (click)="logout()" routerLink='/home'>Logout</button>
+      <div class="button-wrapper" *ngIf="(isLoggedIn$ | async)">
+        <button mat-button (click)="logout()" routerLink='/home'>Logout</button>
       </div>
-      <div class="button-wrapper">
-        <button *ngIf="(isLoggedIn$ | async)" mat-button routerLink='/user/{username}'>My Account</button>
+      <div class="button-wrapper" *ngIf="(isLoggedIn$ | async)">
+        <button mat-button routerLink='/user/{username}'>My Account</button>
       </div>
     </div>
   </div>
