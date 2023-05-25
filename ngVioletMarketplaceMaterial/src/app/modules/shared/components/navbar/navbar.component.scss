@@ -51,8 +51,8 @@ mat-label {
 
 // SEARCH BAR
 .search {
-  width: 50vmin;
-  min-width: 35%;
+  width: 40vmin;
+  min-width: 25%;
   color: #ababab;
   margin-top: 10px;
   position: relative;
@@ -69,7 +69,7 @@ mat-label {
   position: absolute;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 1px;
   margin-top: 3em;
   background: #e7e7e7;
 }
@@ -86,17 +86,25 @@ mat-label {
   align-items: center;
   color: #ababab;
   text-decoration: none;
-  padding-inline: 1.5em;
+  padding-inline: 3em;
   transition: ease .3s;
+  filter: blur(.01em) drop-shadow(0px 0px 1px #ababab);
 
   &.mat-button:hover {
     transition: ease .25s;
-    transform: scale(1.05);
+    // transform: scale(1.05);
     color: #e7e7e7;
     text-decoration: underline;
     text-underline-offset: 10px;
     text-decoration-thickness: .01rem;
 
+  }
+
+  &.mat-button:hover::before,
+  &.mat-button:hover::after {
+    transition: none !important;
+    transform: rotate(135deg);
+    animation: none !important;
   }
 }
 
@@ -105,17 +113,33 @@ mat-label {
   margin-inline: .5em;
 }
 
-.mat-button::before {
+.mat-button::before,
+.mat-button::after {
   content: '';
   position: absolute;
   top: 50%;
-  right: 60%;
   opacity: .6;
   height: 1px;
   width: 6.75em;
   transform: rotate(135deg);
   background: #e7e7e7;
+  transition: scale(1) !important;
+
+  &:hover {
+    transition: scale(1) !important;
+    transform: none;
+  }
 }
+
+.mat-button::before {
+  right: 62.5%;
+}
+
+.mat-button::after {
+  left: 62.5%;
+}
+
+
 
 // DIVIDER COLOR
 .mat-divider {
