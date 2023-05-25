@@ -8,12 +8,26 @@
     </button>
   </mat-form-field>
   <div class="links d-flex">
-    <span class="toolbar-button"><a class="mat-button" routerLink="/home" routerLinkActive='active'>Collections</a></span>
-    <span class="toolbar-button"><a class="mat-button" routerLink='/about' routerLinkActive='active'>About Us</a></span>
-    <span *ngIf="!(isLoggedIn$ | async)" class="toolbar-button"><a class="mat-button" (click)="openRegisterDialog()">Register Account</a></span>
-    <span *ngIf="!(isLoggedIn$ | async)" class="toolbar-button"><a class="mat-button" (click)="openLoginDialog()">Login</a></span>
-    <span *ngIf="(isLoggedIn$ | async)" class="toolbar-button"><a class="mat-button" (click)="logout()" routerLink='/home'>Logout</a></span>
-    <span *ngIf="(isLoggedIn$ | async)" class="toolbar-button"><a class="mat-button" routerLink='/user/{username}'>My Account</a></span>
+    <div class="links d-flex">
+      <div class="button-wrapper">
+        <button mat-button routerLink="/home" routerLinkActive='active'></button>
+      </div>
+      <div class="button-wrapper">
+        <button mat-button routerLink='/about' routerLinkActive='active'></button>
+      </div>
+      <div class="button-wrapper">
+        <button *ngIf="!(isLoggedIn$ | async)" mat-button (click)="openRegisterDialog()"></button>
+      </div>
+      <div class="button-wrapper">
+        <button *ngIf="!(isLoggedIn$ | async)" mat-button (click)="openLoginDialog()"></button>
+      </div>
+      <div class="button-wrapper">
+        <button *ngIf="(isLoggedIn$ | async)" mat-button (click)="logout()" routerLink='/home'>Logout</button>
+      </div>
+      <div class="button-wrapper">
+        <button *ngIf="(isLoggedIn$ | async)" mat-button routerLink='/user/{username}'>My Account</button>
+      </div>
+    </div>
   </div>
 
   <div *ngIf="user$ | async as user">
