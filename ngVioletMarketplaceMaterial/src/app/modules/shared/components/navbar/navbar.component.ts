@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, map, mergeMap, of, startWith, switchMap, tap } from 'rxjs';
 import User from 'src/app/models/user';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDivider, MatDividerModule } from '@angular/material/divider';
@@ -19,26 +19,33 @@ export class NavbarComponent implements OnInit {
   username: string | null = null;
   user: User | null = new User();
   searchTerm: string | null = null;
-  isLoggedIn$: Observable<boolean> = of(false);
+  isLoggedIn$: BehaviorSubject<boolean>;
   user$: Observable<User | null>;
   isSearchFieldFocused: boolean = false;
 
   constructor(private store: Store, private dialog: MatDialog, private renderer: Renderer2, private el: ElementRef) {
     this.user$ = this.store.select(selectCurrentUser);
-    this.isLoggedIn$ = this.store.select(isLoggedIn);
+    this.isLoggedIn$ = new BehaviorSubject<boolean>(false);
     console.log(this.store.select(isLoggedIn));
   }
 
 
   ngOnInit(): void {
-    this.isLoggedIn$ = this.store.select(isLoggedIn);
+    this.store.select(isLoggedIn).subscribe({
+      next: (loggedIn: BehaviorSubject<boolean>) => {
+        this.isLoggedIn$.next(loggedIn.getValue());
+      },
+      error: (error: any) => {
+        console.error(error);
+      }
+    });
   }
 
 
 
   logout(): void {
     this.store.dispatch(logout());
-    this.isLoggedIn$ = this.store.select(isLoggedIn);
+    this.isLoggedIn$.next(false);
     window.location.reload();
   }
 

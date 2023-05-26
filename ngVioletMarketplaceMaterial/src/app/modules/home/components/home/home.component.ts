@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
   sidenav!: ElementRef;
 
   ngOnInit(): void {
-    this.getTokens();
   }
 
   getTokens(): void {
