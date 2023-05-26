@@ -1,1 +1,6 @@
-<p>nav-grad-button works!</p>
+<div class="button-wrapper">
+  <button *ngIf="(!(isLoggedIn$ | async))" mat-button (click)="clickAction()">
+    <div class="text-wrapper">{{buttonText}}</div>
+    <div class="glass-wrapper"></div>
+  </button>
+</div>

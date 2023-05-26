@@ -9,7 +9,13 @@
   </mat-form-field>
   <div class="links d-flex">
     <div class="links d-flex">
-      <div class="button-wrapper">
+      <app-nav-grad-button buttonText="home" routerLink="/home"></app-nav-grad-button>
+      <app-nav-grad-button buttonText="about us" routerLink="/about"></app-nav-grad-button>
+      <app-nav-grad-button buttonText="register" [isLoggedIn$]="isLoggedIn$" [clickAction]="openRegisterDialog"></app-nav-grad-button>
+      <app-nav-grad-button *ngIf="!isLoggedIn$" buttonText="login" [isLoggedIn$]="isLoggedIn$" [clickAction]="openLoginDialog"></app-nav-grad-button>
+      <app-nav-grad-button *ngIf="isLoggedIn$" buttonText="my account" [isLoggedIn$]="isLoggedIn$" routerLink="/user/{username}"></app-nav-grad-button>
+      <app-nav-grad-button *ngIf="isLoggedIn$" buttonText="logout" [isLoggedIn$]="isLoggedIn$" routerLink="/home" [clickAction]="logout"></app-nav-grad-button>
+      <!-- <div class="button-wrapper">
         <button mat-button routerLink="/home" routerLinkActive='active'>
           <div class="text-wrapper">home</div>
           <div class="glass-wrapper"></div>
@@ -45,7 +51,7 @@
           <div class="text-wrapper">my account</div>
           <div class="glass-wrapper"></div>
         </button>
-      </div>
+      </div>-->
     </div>
   </div>
 

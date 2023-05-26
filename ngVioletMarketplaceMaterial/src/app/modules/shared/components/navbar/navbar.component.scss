@@ -18,7 +18,7 @@ input {
 // TOP LEVEL NAVBAR
 .toolbar {
   justify-content: space-between !important;
-  height: 4.75em;
+  height: 3em;
   background: transparent;
   overflow: hidden;
   padding: 0;
@@ -80,16 +80,13 @@ mat-label {
     &:hover::before,
     &:hover::after {
       transition: none !important;
-      // transform: rotate(115deg);
     }
 
     &::before {
-      // right: 4.3em;
       right: 0;
     }
 
     &::after {
-      // left: 4em;
       left: 2rem;
     }
 
@@ -110,89 +107,89 @@ mat-label {
         transform: rotate(-67.5deg);
       }
     }
+
+
+    // THE A TAGS FOR THE NAV LINKS
+    .mat-button {
+      position: relative;
+      font-size: 1.05em;
+      font-weight: 300;
+      align-items: center;
+      color: #ababab;
+      text-decoration: none;
+
+      height: 300px;
+      width: 182.5%;
+      padding-inline: 2rem;
+      overflow: hidden;
+      background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
+        linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
+
+      transform: rotate(22.5deg) translateX(-8px);
+      filter: blur(.01em) drop-shadow(0px 0px 1px #ababab);
+      transition: ease .3s;
+      background-size: 200% 200%;
+      animation: gradient 8s linear 10s infinite;
+      opacity: .8;
+      z-index: 4;
+
+      &:hover {
+        color: #e7e7e7;
+        text-decoration: underline;
+        text-underline-offset: 10px;
+        text-decoration-thickness: .01rem;
+        transition: ease .25s;
+        // transform: scale(1.05);
+
+      }
+
+
+      .text-wrapper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 3;
+        // top: 50%;
+        // right: 50%;
+        color: white;
+        font-family: "Nunito";
+        transform: rotate(-22.5deg) translate(53px, 0px);
+      }
+
+      .glass-wrapper {
+        opacity: .7;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        margin: 0 auto;
+        background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+          radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%);
+      }
+
+      .glass-wrapper::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+          radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+        z-index: -1;
+        padding: 0;
+        margin: 0;
+      }
+    }
   }
-
-  // THE A TAGS FOR THE NAV LINKS
-  .mat-button {
-    position: relative;
-    font-size: 1.05em;
-    font-weight: 300;
-    align-items: center;
-    color: #ababab;
-    text-decoration: none;
-
-    height: 300px;
-    width: 182.5%;
-    padding-inline: 2rem;
-    overflow: hidden;
-    background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
-      linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
-
-    transform: rotate(22.5deg) translateX(-8px);
-    filter: blur(.01em) drop-shadow(0px 0px 1px #ababab);
-    transition: ease .3s;
-    background-size: 200% 200%;
-    animation: gradient 8s linear 10s infinite;
-    opacity: .8;
-    z-index: 4;
-
-    &:hover {
-      color: #e7e7e7;
-      text-decoration: underline;
-      text-underline-offset: 10px;
-      text-decoration-thickness: .01rem;
-      transition: ease .25s;
-      // transform: scale(1.05);
-
-    }
-
-
-    .text-wrapper {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      z-index: 3;
-      // top: 50%;
-      // right: 50%;
-      color: white;
-      font-family: "Nunito";
-      transform: rotate(-22.5deg) translate(53px, 0px);
-    }
-
-    .glass-wrapper {
-      opacity: .7;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-      margin: 0 auto;
-      background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
-        radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%);
-    }
-
-    .glass-wrapper::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
-        radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
-      z-index: -1;
-      padding: 0;
-      margin: 0;
-    }
-  }
-
 }
 
-.links>.button-wrapper:last-child {
-  margin-right: 50px;
+.links:last-child {
+  margin-right: 2px;
 
 }
 

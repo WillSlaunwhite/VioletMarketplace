@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-nav-grad-button',
@@ -7,8 +9,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavGradButtonComponent implements OnInit {
-
-  constructor() { }
+  @Input() buttonText: string = '';
+  @Input() routerLink: string = '';
+  @Input() isLoggedIn$: Observable<boolean> = of(false);
+  @Input() clickAction: Function = () => { };
+  constructor(router: RouterModule) { }
 
   ngOnInit(): void {
   }
