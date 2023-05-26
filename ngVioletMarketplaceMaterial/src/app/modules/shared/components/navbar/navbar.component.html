@@ -11,29 +11,40 @@
     <div class="links d-flex">
       <div class="button-wrapper">
         <button mat-button routerLink="/home" routerLinkActive='active'>
-          <div class="text-wrapper">hello</div>
+          <div class="text-wrapper">home</div>
           <div class="glass-wrapper"></div>
 
         </button>
       </div>
       <div class="button-wrapper">
-        <div class="text-wrapper">hello</div>
-        <button mat-button routerLink='/about' routerLinkActive='active'></button>
+        <button mat-button routerLink='/about' routerLinkActive='active'>
+          <div class="text-wrapper">about us</div>
+          <div class="glass-wrapper"></div>
+        </button>
       </div>
       <div class="button-wrapper">
-        <div class="text-wrapper">hello</div>
-        <button *ngIf="!(isLoggedIn$ | async)" mat-button (click)="openRegisterDialog()"></button>
+        <button *ngIf="!(isLoggedIn$ | async)" mat-button (click)="openRegisterDialog()">
+          <div class="text-wrapper">regi</div>
+          <div class="glass-wrapper"></div>
+        </button>
       </div>
       <div class="button-wrapper">
-        <div class="text-wrapper">hello</div>
         <button *ngIf="!(isLoggedIn$ | async)" mat-button (click)="openLoginDialog()">
+          <div class="text-wrapper">login</div>
+          <div class="glass-wrapper"></div>
         </button>
       </div>
       <div class="button-wrapper" *ngIf="(isLoggedIn$ | async)">
-        <button mat-button (click)="logout()" routerLink='/home'>Logout</button>
+        <button mat-button (click)="logout()" routerLink='/home'>
+          <div class="text-wrapper">logout</div>
+          <div class="glass-wrapper"></div>
+        </button>
       </div>
       <div class="button-wrapper" *ngIf="(isLoggedIn$ | async)">
-        <button mat-button routerLink='/user/{username}'>My Account</button>
+        <button mat-button routerLink='/user/{username}'>
+          <div class="text-wrapper">my account</div>
+          <div class="glass-wrapper"></div>
+        </button>
       </div>
     </div>
   </div>
