@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import User from 'src/app/models/user';
 import { login, loginSuccess, loginFailure, logout, logoutSuccess, logoutFailure } from './auth.actions';
+import { BehaviorSubject } from 'rxjs';
 
 export interface AuthState {
   user: User | null;
@@ -9,7 +10,7 @@ export interface AuthState {
 
 export const initialState: AuthState = {
   user: null,
-  error: null
+  error: null,
 };
 
 export const reducer = createReducer(

@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { AuthState } from './auth.reducer';
 import User from 'src/app/models/user';
+import { BehaviorSubject } from 'rxjs';
 
 export const selectAuthState = createFeatureSelector<AuthState>('auth');
 
@@ -11,6 +12,6 @@ export const selectCurrentUser = createSelector(
 );
 
 export const isLoggedIn = createSelector(
-  selectCurrentUser,
-  (user: User | null) => !!user
+  selectAuthState,
+  (state: AuthState) => new BehaviorSubject<boolean>(!!state.user)
 );
