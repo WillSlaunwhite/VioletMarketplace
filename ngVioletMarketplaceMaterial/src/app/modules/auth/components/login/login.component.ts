@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  login() {
+  async login(): Promise<void> {
     this.auth.login(this.loginUser.username, this.loginUser.password).subscribe(
       user => {
         if (this.auth.isUserLoggedIn()) {

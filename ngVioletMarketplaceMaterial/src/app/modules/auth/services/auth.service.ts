@@ -43,7 +43,8 @@ export class AuthService {
   }
 
   logout(): Observable<void> {
-    return of(this.store.dispatch(logout()));
+    this.store.dispatch(logout());
+    return of(undefined);
   }
 
   isUserLoggedIn(): boolean {
