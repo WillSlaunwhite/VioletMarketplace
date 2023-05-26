@@ -21,12 +21,7 @@ input {
   height: 5em;
   background: transparent;
   overflow: hidden;
-
-  /* Created with https://www.css-gradient.com */
-  // background: #471D90;
-  // background: -webkit-linear-gradient(top left, #471D90, #270269D3);
-  // background: -moz-linear-gradient(top left, #471D90, #270269D3);
-  // background: linear-gradient(to bottom right, #471D90, #270269D3);
+  padding: 0;
 }
 
 // FAR LEFT LOGO
@@ -74,9 +69,53 @@ mat-label {
   background: #e7e7e7;
 }
 
-// ADDS PADDING TO LAST LINK
-.links:last-child {
-  margin-right: .25em !important;
+.links {
+  padding-inline-start: 1em;
+  margin: 0;
+}
+
+
+
+
+.text-wrapper {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  right: 50%;
+  color: white;
+  font-family: "Nunito";
+  transform: rotate(-45deg);
+}
+
+.glass-wrapper {
+  transform: rotate(45deg);
+  opacity: .8;
+  position: absolute;
+  top: 0;
+  left: .5em;
+  width: 87%;
+  height: 100%;
+  z-index: 2;
+  transition: all ease-out 3s;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+    radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%);
+}
+
+.glass-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+  z-index: -1;
+  padding: 0;
+  margin: 0;
 }
 
 // THE A TAGS FOR THE NAV LINKS
@@ -91,12 +130,17 @@ mat-label {
   padding-inline: 3em;
   transition: ease .3s;
   filter: blur(.01em) drop-shadow(0px 0px 1px #ababab);
-
   // Increase the width and height to cover the rotated area.
-  height: 275px;
+  height: 300px;
   overflow: hidden;
   transform: rotate(45deg);
-
+  // Add your gradient background
+  background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
+    linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
+  background-size: 200% 200%;
+  animation: gradient 8s linear 10s infinite;
+  opacity: .8;
+  z-index: 4;
 
   &:hover {
     transition: ease .25s;
@@ -108,16 +152,11 @@ mat-label {
 
   }
 
-  // Add your gradient background
-  background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
-  linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
-  background-size: 200% 200%;
-  animation: gradient 8s linear 10s infinite;
 }
 
 .button-wrapper {
   position: relative;
-  margin: 20px;
+  margin: 40px;
 
   &:hover::before,
   &:hover::after {
@@ -127,20 +166,22 @@ mat-label {
   }
 
   &::before {
-    right: 62.5%;
+    right: 4.25em;
   }
 
-  &::after {}
+  &::after {
+    left: 4em;
+  }
 
   &::before,
   &::after {
     content: '';
     position: absolute;
-    top: 50%;
-    opacity: .6;
+    top: 51%;
+    opacity: .4;
     height: 1px;
     z-index: 2;
-    width: 6.75em;
+    width: 8em;
     transform: rotate(135deg);
     background: #e7e7e7;
     transition: scale(1) !important;
@@ -157,24 +198,6 @@ mat-label {
 .toolbar-button {
   margin-inline: .5em;
 }
-
-// .mat-button::before,
-// .mat-button::after {
-//   content: '';
-//   position: absolute;
-//   top: 50%;
-//   opacity: .6;
-//   height: 1px;
-//   width: 6.75em;
-//   transform: rotate(135deg);
-//   background: #e7e7e7;
-//   transition: scale(1) !important;
-
-//   &:hover {
-//     transition: scale(1) !important;
-//     transform: none;
-//   }
-// }
 
 .mat-button::after {
   left: 62.5%;
