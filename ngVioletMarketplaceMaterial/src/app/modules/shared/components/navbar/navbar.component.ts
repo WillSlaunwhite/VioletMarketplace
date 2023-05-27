@@ -19,33 +19,24 @@ export class NavbarComponent implements OnInit {
   username: string | null = null;
   user: User | null = new User();
   searchTerm: string | null = null;
-  isLoggedIn$: BehaviorSubject<boolean>;
+  isLoggedIn$: Observable<boolean | null>;
   user$: Observable<User | null>;
   isSearchFieldFocused: boolean = false;
 
   constructor(private store: Store, private dialog: MatDialog, private renderer: Renderer2, private el: ElementRef) {
     this.user$ = this.store.select(selectCurrentUser);
-    this.isLoggedIn$ = new BehaviorSubject<boolean>(false);
+    this.isLoggedIn$ = of(false);
     console.log(this.store.select(isLoggedIn));
   }
 
 
   ngOnInit(): void {
-    this.store.select(isLoggedIn).subscribe({
-      next: (loggedIn: BehaviorSubject<boolean>) => {
-        this.isLoggedIn$.next(loggedIn.getValue());
-      },
-      error: (error: any) => {
-        console.error(error);
-      }
-    });
+    this.isLoggedIn$ = this.store.select(isLoggedIn);
   }
-
-
 
   logout(): void {
     this.store.dispatch(logout());
-    this.isLoggedIn$.next(false);
+    this.isLoggedIn$ = of(false);
     window.location.reload();
   }
 
@@ -57,15 +48,15 @@ export class NavbarComponent implements OnInit {
     this.dialog.open(LoginComponent);
   }
 
-  openRegisterDialogAction(): Function {
+  getRegisterDialogAction(): Function {
     return () => this.openRegisterDialog();
   }
 
-  logoutAction(): Function {
+  getLogoutAction(): Function {
     return () => this.logout();
   }
 
-  openLoginDialogAction(): Function {
+  getLoginDialogAction(): Function {
     return () => this.openLoginDialog();
   }
 
