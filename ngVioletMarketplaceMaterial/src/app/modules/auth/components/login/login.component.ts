@@ -8,6 +8,7 @@ import { Observable, throwError } from 'rxjs';
 import { RegisterComponent } from '../register/register.component';
 import { slideInTop } from 'src/app/animations/animations';
 import { login } from '../../state/auth.actions';
+import { selectCurrentUser } from '../../state/auth.selectors';
 
 @Component({
   selector: 'app-login',
@@ -19,14 +20,16 @@ export class LoginComponent implements OnInit {
   constructor(private dialogRef: MatDialogRef<RegisterComponent>,
     private auth: AuthService, private router: Router,
     private store: Store) { }
+
   loginUser = new User();
   showPage = false;
-
 
   ngOnInit(): void { }
 
   login(): void {
+    console.log('login component');
     this.store.dispatch(login({ username: this.loginUser.username, password: this.loginUser.password }));
+    console.log(this.store.select(selectCurrentUser));
   }
 
   closeDialog(): void {

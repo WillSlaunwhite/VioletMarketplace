@@ -11,15 +11,17 @@ import { Store } from '@ngrx/store';
 export class AuthEffects {
   login$ = createEffect(() => this.actions$.pipe(
     ofType(login),
-    mergeMap(({ username, password }) => this.authService.login(username, password)
-      .pipe(
-        map(({ user, jwt }) => {
-          this.store.dispatch(setJwt({ jwt }));
-          return loginSuccess({ user })
-        }),
-        catchError(error => of(loginFailure({ error })))
-      )
-    )
+    mergeMap(({ username, password }) => {
+      console.log('login effect triggered');
+      return this.authService.login(username, password)
+        .pipe(
+          map(({ user, jwt }) => {
+            this.store.dispatch(setJwt({ jwt }));
+            return loginSuccess({ user })
+          }),
+          catchError(error => of(loginFailure({ error })))
+        )
+    })
   ));
 
   logout$ = createEffect(() => this.actions$.pipe(
