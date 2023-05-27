@@ -10,6 +10,8 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './state/auth.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './state/auth.effect';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { reducer } from './state/auth.reducer';
     AuthRoutingModule,
     FormsModule,
     StoreModule.forRoot({}),
-    StoreModule.forFeature('auth', reducer)
+    StoreModule.forFeature('auth', reducer),
+    EffectsModule.forFeature([AuthEffects])
   ],
   exports: [
     RegisterComponent,

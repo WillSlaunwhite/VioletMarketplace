@@ -4,7 +4,7 @@
     <h4 class="text-center form-header" style="font-weight: 300;">Registration</h4>
   </div>
   <div class="card-body w-100 d-flex justify-content-center flex-column align-items-center">
-    <form class="form-container">
+    <form class="form-container" (ngSubmit)="register()">
       <!-- Email Field -->
       <mat-form-field [ngClass]=" {'white-text': true}" class="w-75 ">
         <mat-label>Email</mat-label>
@@ -33,7 +33,7 @@
       <div *ngIf="registerUser.password != confirmPassword" class="text-danger">Passwords do not match</div>
 
       <!-- Register Button -->
-      <button mat-raised-button color="primary" style="font-weight: 300;" class="w-50 mt-4 shadow-none register-button" (click)="register()">Register</button>
+      <button mat-raised-button color="primary" style="font-weight: 300;" class="w-50 mt-4 shadow-none register-button">Register</button>
       <button mat-icon-button class="close-button" (click)="closeDialog()">
         <mat-icon>close</mat-icon>
       </button>

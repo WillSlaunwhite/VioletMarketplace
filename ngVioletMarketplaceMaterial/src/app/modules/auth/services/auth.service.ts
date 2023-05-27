@@ -24,10 +24,11 @@ export class AuthService {
 
 
   login(username: string, password: string): Observable<{ user: User, jwt: string }> {
+    console.log('auth service login');
     const credentials = { username: username, password: password };
     return this.getHttpOptions().pipe(
       switchMap(options =>
-        this.http.post<string>(this.baseUrl + 'autheticate', credentials, options)
+        this.http.post<string>(this.baseUrl + 'authenticate', credentials, options)
       ),
       switchMap((jwt: string) => {
         return this.userService.getUserByUsername(username).pipe(
@@ -59,6 +60,7 @@ export class AuthService {
 
 
   getHttpOptions(): Observable<Object> {
+    console.log(this.store.select(selectJwt));
     return this.store.select(selectJwt).pipe(
       map(jwt => {
         let headers: { [key: string]: string } = {

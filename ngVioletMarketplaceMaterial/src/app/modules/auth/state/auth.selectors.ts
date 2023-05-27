@@ -18,4 +18,5 @@ export const isLoggedIn = createSelector(
 
 export const selectJwt = createSelector(
   selectAuthState,
-  (state: AuthState) => state.jwt);
+  (state: AuthState) => state.jwt
+);
