@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, Observable, of, switchMap, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, of, switchMap, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import User from '../../../models/user';
 import { UserService } from '../../shared/services/user.service';
 import { Store } from '@ngrx/store';
 import { login, loginSuccess, loginFailure, logout } from '../state/auth.actions';
-import { selectCurrentUser } from '../state/auth.selectors';
+import { selectCurrentUser, selectJwt } from '../state/auth.selectors';
 
 
 @Injectable({
@@ -23,11 +23,16 @@ export class AuthService {
 
 
 
-  login(username: string, password: string): Observable<User> {
+  login(username: string, password: string): Observable<{ user: User, jwt: string }> {
     const credentials = { username: username, password: password };
-    return this.http.post<string>(this.baseUrl + 'authenticate', credentials, this.getHttpOptions()).pipe(
+    return this.getHttpOptions().pipe(
+      switchMap(options =>
+        this.http.post<string>(this.baseUrl + 'autheticate', credentials, options)
+      ),
       switchMap((jwt: string) => {
-        return this.userService.getUserByUsername(username);
+        return this.userService.getUserByUsername(username).pipe(
+          map(user => ({ user, jwt }))
+        );
       })
     );
   }
@@ -53,26 +58,23 @@ export class AuthService {
   }
 
 
-  getHttpOptions(): Object {
-    let jwt = this.getValidJwt();
-    if (jwt) {
-      let options = {
-        headers: {
+  getHttpOptions(): Observable<Object> {
+    return this.store.select(selectJwt).pipe(
+      map(jwt => {
+        let headers: { [key: string]: string } = {
           'Content-Type': 'application/json',
           'X-Requested-With': 'XMLHttpRequest',
-          'Authorization': `Bearer ${jwt}`,
-        },
-      };
-      return options;
-    } else {
-      // return some default options or throw an error if a valid JWT is required
-      return {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-        },
-      };
-    }
+
+        };
+
+        if (jwt) {
+          headers['Authorization'] = 'Bearer ${jwt}';
+        }
+        let options = { headers };
+        return options;
+      }),
+    );
+
   }
 
   getLoggedInUsername(): string | null {

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, Observable, switchMap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Token from 'src/app/models/token';
 import { AuthService } from '../../auth/services/auth.service';
@@ -14,37 +14,38 @@ export class TokenService {
   private url = this.baseUrl + 'api/tokens';
 
   index(): Observable<Token[]> {
-    return this.http.get<Token[]>(this.baseUrl + 'api/home/tokens', this.auth.getHttpOptions()).pipe(
-      catchError((err: any) => {
-        return throwError(
-          () => new Error('TokenService.index(): error retrieving Token list.')
-        );
-      })
+    return this.auth.getHttpOptions().pipe(
+      switchMap(options =>
+        this.http.get<Token[]>(this.baseUrl + 'api/home/tokens', options).pipe(
+          catchError((err: any) => {
+            return throwError(() => new Error('TokenService.index(): error retrieving Token list.'))
+          })
+        )
+      )
     );
   }
 
   getByUsername(username: string): Observable<Token[]> {
-    return this.http
-      .get<Token[]>(this.baseUrl + 'api/tokens/user/' + username, this.auth.getHttpOptions())
-      .pipe(
-        catchError((err: any) => {
-          return throwError(
-            () =>
-              new Error(
-                'TokenService.getByUsername: error retrieving Token list.'
-              )
-          );
-        })
-      );
+    return this.auth.getHttpOptions().pipe(
+      switchMap(options =>
+        this.http.get<Token[]>(this.baseUrl + 'api/home/tokens', options).pipe(
+          catchError((err: any) => {
+            return throwError(() => new Error('TokenService.getByUsername: error retrieving User\'s Token list.'));
+          })
+        )
+      )
+    );
   }
 
   createToken(token: Token) {
-    return this.http.post<Token>(this.baseUrl + 'api/tokens', token, this.auth.getHttpOptions()).pipe(
-      catchError((err: any) => {
-        return throwError(
-          () => new Error('TokenService.createToken: error creating Token.')
-        );
-      })
+    return this.auth.getHttpOptions().pipe(
+      switchMap(options =>
+        this.http.get<Token[]>(this.baseUrl + 'api/home/tokens', options).pipe(
+          catchError((err: any) => {
+            return throwError(() => new Error('TokenService.createToken: error creating Token.'))
+          })
+        )
+      )
     )
   }
 }
