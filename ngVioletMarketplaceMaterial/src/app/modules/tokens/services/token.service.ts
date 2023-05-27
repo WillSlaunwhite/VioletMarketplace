@@ -14,6 +14,8 @@ export class TokenService {
   private url = this.baseUrl + 'api/tokens';
 
   index(): Observable<Token[]> {
+    console.log('HERE2');
+
     return this.auth.getHttpOptions().pipe(
       switchMap(options =>
         this.http.get<Token[]>(this.baseUrl + 'api/home/tokens', options).pipe(
@@ -26,9 +28,11 @@ export class TokenService {
   }
 
   getByUsername(username: string): Observable<Token[]> {
+    console.log('HERE');
+
     return this.auth.getHttpOptions().pipe(
       switchMap(options =>
-        this.http.get<Token[]>(this.baseUrl + 'api/home/tokens', options).pipe(
+        this.http.get<Token[]>(this.baseUrl + 'api/tokens/user/' + username, options).pipe(
           catchError((err: any) => {
             return throwError(() => new Error('TokenService.getByUsername: error retrieving User\'s Token list.'));
           })
@@ -40,7 +44,7 @@ export class TokenService {
   createToken(token: Token) {
     return this.auth.getHttpOptions().pipe(
       switchMap(options =>
-        this.http.get<Token[]>(this.baseUrl + 'api/home/tokens', options).pipe(
+        this.http.post<Token>(this.baseUrl + 'api/tokens', token, options).pipe(
           catchError((err: any) => {
             return throwError(() => new Error('TokenService.createToken: error creating Token.'))
           })

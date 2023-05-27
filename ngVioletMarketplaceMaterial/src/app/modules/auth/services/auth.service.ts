@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, map, Observable, of, switchMap, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, map, mergeMap, Observable, of, switchMap, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import User from '../../../models/user';
 import { UserService } from '../../shared/services/user.service';
 import { Store } from '@ngrx/store';
-import { login, loginSuccess, loginFailure, logout } from '../state/auth.actions';
+import { login, loginSuccess, loginFailure, logout, setJwt } from '../state/auth.actions';
 import { selectCurrentUser, selectJwt } from '../state/auth.selectors';
 
 
@@ -18,6 +18,8 @@ export class AuthService {
   private url = this.baseUrl + 'api/user';
 
   constructor(private store: Store, private http: HttpClient, private userService: UserService) {
+    console.log('HELLLLOOOO');
+
     this.currentUser = this.store.select(selectCurrentUser);
   }
 
@@ -25,17 +27,36 @@ export class AuthService {
 
   login(username: string, password: string): Observable<{ user: User, jwt: string }> {
     console.log('auth service login');
+    console.log('HELLLLOOOO');
     const credentials = { username: username, password: password };
-    return this.getHttpOptions().pipe(
-      switchMap(options =>
-        this.http.post<string>(this.baseUrl + 'authenticate', credentials, options)
-      ),
+    console.log('HELLLLOOOO2');
+    let headers: { [key: string]: string } = {
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+    };
+    let options = { headers };
+    return this.http.post<string>(this.baseUrl + 'authenticate', credentials, options).pipe(
+      tap((jwt: string) => {
+        this.store.dispatch(setJwt({ jwt }));
+      }),
       switchMap((jwt: string) => {
         return this.userService.getUserByUsername(username).pipe(
           map(user => ({ user, jwt }))
         );
       })
-    );
+    )
+    // return this.getHttpOptions().pipe(
+    //   tap(() => console.log('HELLLLLOOOOOOO4')),
+    //   mergeMap(options =>
+    //     this.http.post<string>(this.baseUrl + 'authenticate', credentials, options)
+    //   ),
+    //   mergeMap((jwt: string) => {
+    //     console.log('HELLLLOOOO3');
+    //     return this.userService.getUserByUsername(username).pipe(
+    //       map(user => ({ user, jwt }))
+    //     );
+    //   })
+    // );
   }
 
   logout(): Observable<void> {
@@ -60,7 +81,6 @@ export class AuthService {
 
 
   getHttpOptions(): Observable<Object> {
-    console.log(this.store.select(selectJwt));
     return this.store.select(selectJwt).pipe(
       map(jwt => {
         let headers: { [key: string]: string } = {
