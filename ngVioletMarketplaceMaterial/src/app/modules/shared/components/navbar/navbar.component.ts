@@ -8,7 +8,7 @@ import { RegisterComponent } from 'src/app/modules/auth/components/register/regi
 import { LoginComponent } from 'src/app/modules/auth/components/login/login.component';
 import { Store } from '@ngrx/store';
 import { isLoggedIn, selectCurrentUser } from 'src/app/modules/auth/state/auth.selectors';
-import { logout } from 'src/app/modules/auth/state/auth.actions';
+import { logout, removeJwt } from 'src/app/modules/auth/state/auth.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -16,27 +16,21 @@ import { logout } from 'src/app/modules/auth/state/auth.actions';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  username: string | null = null;
-  user: User | null = new User();
   searchTerm: string | null = null;
-  isLoggedIn$: Observable<boolean | null>;
+  isLoggedIn$: Observable<boolean | null> = this.store.select(isLoggedIn);
   user$: Observable<User | null>;
   isSearchFieldFocused: boolean = false;
 
   constructor(private store: Store, private dialog: MatDialog, private renderer: Renderer2, private el: ElementRef) {
     this.user$ = this.store.select(selectCurrentUser);
-    this.isLoggedIn$ = of(false);
-    console.log(this.store.select(isLoggedIn));
   }
 
-
   ngOnInit(): void {
-    this.isLoggedIn$ = this.store.select(isLoggedIn);
   }
 
   logout(): void {
     this.store.dispatch(logout());
-    this.isLoggedIn$ = of(false);
+    this.store.dispatch(removeJwt());
     window.location.reload();
   }
 

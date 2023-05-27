@@ -28,3 +28,11 @@ export const logoutFailure = createAction(
   '[Auth] Logout Failure',
   props<{ error: any }>()
 );
+
+export const setJwt = createAction(
+  '[Auth] Set Jwt', props<{ jwt: string }>()
+);
+
+export const removeJwt = createAction(
+  '[Auth] Remove Jwt',
+);
