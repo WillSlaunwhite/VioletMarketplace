@@ -1,6 +1,6 @@
 <div @slideInTop class="login-container gradient-light d-flex flex-column align-items-center" color="primary">
   <!-- <mat-icon style="margin-top: .5em;" mat-icon-button class="close-button" (click)="closeDialog()">close</mat-icon> -->
-  <form class="form-container d-flex flex-column align-items-center" (ngSubmit)="login()">
+  <form class="form-container d-flex flex-column align-items-center">
 
     <h2 class="login-header text-center">Welcome back! <br> Please sign in.</h2>
     <mat-form-field class="form-field">
@@ -17,7 +17,7 @@
         <mat-icon [color]="'white'">clear</mat-icon>
       </button>
     </mat-form-field>
-    <button type="submit" class="submit-button" mat-raised-button color="primary">
+    <button type="submit" class="submit-button" mat-raised-button color="primary" (click)="login()">
       Sign In
     </button>
     <button mat-icon-button class="close-button" (click)="closeDialog()">

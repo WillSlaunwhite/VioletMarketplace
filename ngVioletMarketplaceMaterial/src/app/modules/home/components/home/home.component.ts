@@ -2,10 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
 import { slideInTop } from 'src/app/animations/animations';
 import { AppComponent } from 'src/app/app.component';
 import Token from 'src/app/models/token';
 import { TokenService } from 'src/app/modules/tokens/services/token.service';
+import { loadTokens } from 'src/app/modules/tokens/state/tokens.actions';
+import { getAllTokens } from 'src/app/modules/tokens/state/tokens.selectors';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +18,7 @@ import { TokenService } from 'src/app/modules/tokens/services/token.service';
 })
 export class HomeComponent implements OnInit {
   tokens: Token[] = [];
+  tokens$: Observable<Token[] | null> = of(null);
   token: Token | null = new Token();
   descriptionShowing: boolean = false;
   constructor(
@@ -33,6 +37,8 @@ export class HomeComponent implements OnInit {
   sidenav!: ElementRef;
 
   ngOnInit(): void {
+    this.store.dispatch(loadTokens());
+    this.tokens$ = this.store.select(getAllTokens);
   }
 
   getTokens(): void {
