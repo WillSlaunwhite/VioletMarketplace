@@ -11,10 +11,10 @@
     <div class="links d-flex">
       <app-nav-grad-button buttonText="home" routerLink="/home"></app-nav-grad-button>
       <app-nav-grad-button buttonText="about us" routerLink="/about"></app-nav-grad-button>
-      <app-nav-grad-button *ngIf="!(isLoggedIn$ | async)" buttonText="register" [isLoggedIn$]="isLoggedIn$" [clickAction]="openRegisterDialogAction()"></app-nav-grad-button>
-      <app-nav-grad-button *ngIf="!(isLoggedIn$ | async)" buttonText="login" [isLoggedIn$]="isLoggedIn$" [clickAction]="openLoginDialogAction()"></app-nav-grad-button>
-      <app-nav-grad-button *ngIf="(isLoggedIn$ | async)" buttonText="my account" [isLoggedIn$]="isLoggedIn$" routerLink="/user/{username}"></app-nav-grad-button>
-      <app-nav-grad-button *ngIf="(isLoggedIn$ | async)" buttonText="logout" [isLoggedIn$]="isLoggedIn$" [clickAction]="logoutAction()"></app-nav-grad-button>
+      <app-nav-grad-button *ngIf="!(isLoggedIn$ | async)" buttonText="register" [clickAction]="getRegisterDialogAction()"></app-nav-grad-button>
+      <app-nav-grad-button *ngIf="!(isLoggedIn$ | async)" buttonText="login" [clickAction]="getLoginDialogAction()"></app-nav-grad-button>
+      <app-nav-grad-button *ngIf="(isLoggedIn$ | async)" buttonText="my account" routerLink="/user/{username}"></app-nav-grad-button>
+      <app-nav-grad-button *ngIf="(isLoggedIn$ | async)" buttonText="logout" [clickAction]="getLogoutAction()"></app-nav-grad-button>
     </div>
   </div>
 

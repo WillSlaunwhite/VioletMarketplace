@@ -11,7 +11,6 @@ import { Observable, of } from 'rxjs';
 export class NavGradButtonComponent implements OnInit {
   @Input() buttonText: string = '';
   @Input() routerLink: string = '';
-  @Input() isLoggedIn$: Observable<boolean> = of(false);
   @Input() clickAction: Function = () => { };
   constructor(router: RouterModule) { }
 

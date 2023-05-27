@@ -24,20 +24,10 @@ export class AuthService {
 
 
   login(username: string, password: string): Observable<User> {
-    // Send credentials as JSON
     const credentials = { username: username, password: password };
-    // Create request to authenticate credentials
     return this.http.post<string>(this.baseUrl + 'authenticate', credentials, this.getHttpOptions()).pipe(
       switchMap((jwt: string) => {
-        this.store.dispatch(login(credentials));
         return this.userService.getUserByUsername(username);
-      }),
-      tap((user: User) => {
-        this.store.dispatch(loginSuccess({ user }));
-      }),
-      catchError((err: Error) => {
-        this.store.dispatch(loginFailure({ error: err }));
-        return throwError(() => new Error('AuthService.login(): Error logging in'));
       })
     );
   }

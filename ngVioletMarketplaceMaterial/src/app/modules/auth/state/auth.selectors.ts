@@ -13,5 +13,5 @@ export const selectCurrentUser = createSelector(
 
 export const isLoggedIn = createSelector(
   selectAuthState,
-  (state: AuthState) => new BehaviorSubject<boolean>(!!state.user)
+  (state: AuthState) => !!state.user
 );
