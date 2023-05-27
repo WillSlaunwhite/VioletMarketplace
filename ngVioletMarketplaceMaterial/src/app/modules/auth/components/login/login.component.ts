@@ -27,9 +27,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   login(): void {
-    console.log('login component');
     this.store.dispatch(login({ username: this.loginUser.username, password: this.loginUser.password }));
-    console.log(this.store.select(selectCurrentUser));
   }
 
   closeDialog(): void {
