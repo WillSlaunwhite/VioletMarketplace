@@ -18,30 +18,52 @@ export class TokenListComponent implements OnInit {
   velocity: any;
 
   constructor(private store: Store, private auth: AuthService) {
+    this.tokens$ = this.store.select(getAllTokens);
   }
 
   ngOnInit(): void {
-    this.tokens$ = this.store.select(getUserTokens);
+    const user$ = this.auth.currentUser.pipe(filter(user => user !== null));
+    user$.subscribe((user) => {
+      if (user) {
+        console.log('hellohello2');
+        this.store.dispatch(loadUserTokens({ username: user.username }));
+        this.tokens$ = this.store.select(getUserTokens);
+      } else {
+        console.log('hellohello');
 
-    this.tokens$.pipe(
-      take(1),
-      tap((tokens: Token[] | null) => {
-        if (!tokens) {
-          this.store.dispatch(loadTokens());
-          this.tokens$ = this.store.select(getAllTokens);
-        }
-      })
-    ).subscribe();
+        this.store.dispatch(loadTokens());
+        this.tokens$ = this.store.select(getAllTokens);
+      }
+    });
 
-    this.auth.currentUser.pipe(
-      filter(user => user !== null),                                  // * ensure user is logged in
-      withLatestFrom(this.tokens$),                                   // * Combine with tokens$
-      tap(([user, tokens]: [User | null, Token[] | null]) => {        // * if tokens$ is empty
-        if (!tokens && user) {                                        // * we load user's tokens
-          this.store.dispatch(loadUserTokens({ username: user.username }));
-        }
-      })
-    ).subscribe();
+    // this.store.dispatch(loadUserTokens({username: user$.username}));
+    //   this.tokens$ = this.store.select(getUserTokens);
+    // } else {
+    //   this.store.dispatch(loadTokens());
+    //   this.tokens$ = this.store.select(getAllTokens);
+    // }
+
+
+    // this.tokens$ = this.store.select(getUserTokens);
+
+    // this.tokens$.pipe(
+    //   take(1),
+    //   tap((tokens: Token[] | null) => {
+    //     if (!tokens) {
+    //       this.store.dispatch(loadTokens());
+    //       this.tokens$ = this.store.select(getAllTokens);
+    //     }
+    //   })
+    // ).subscribe();
+
+    // this.auth.currentUser.pipe(
+    //   withLatestFrom(this.tokens$),                                   // * Combine with tokens$
+    //   tap(([user, tokens]: [User | null, Token[] | null]) => {        // * if tokens$ is empty
+    //     if (!tokens && user) {                                        // * we load user's tokens
+    //       this.store.dispatch(loadUserTokens({ username: user.username }));
+    //     }
+    //   })
+    // ).subscribe();
   }
 
   startScrollLeft(tokensContainer: HTMLElement): void {
