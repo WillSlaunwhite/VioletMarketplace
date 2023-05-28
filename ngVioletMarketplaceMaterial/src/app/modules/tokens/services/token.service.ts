@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, switchMap, throwError } from 'rxjs';
+import { catchError, mergeMap, Observable, switchMap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Token from 'src/app/models/token';
 import { AuthService } from '../../auth/services/auth.service';
@@ -17,7 +17,7 @@ export class TokenService {
     console.log('HERE2');
 
     return this.auth.getHttpOptions().pipe(
-      switchMap(options =>
+      mergeMap(options =>
         this.http.get<Token[]>(this.baseUrl + 'api/home/tokens', options).pipe(
           catchError((err: any) => {
             return throwError(() => new Error('TokenService.index(): error retrieving Token list.'))

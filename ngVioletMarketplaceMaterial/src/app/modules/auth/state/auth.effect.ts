@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { login, loginSuccess, loginFailure, logout, logoutSuccess, logoutFailure, setJwt } from './auth.actions';
 import { AuthService } from '../services/auth.service';
@@ -26,12 +26,13 @@ export class AuthEffects {
 
   logout$ = createEffect(() => this.actions$.pipe(
     ofType(logout),
-    mergeMap(() => this.authService.logout()
-      .pipe(
-        map(() => logoutSuccess()),
-        catchError(error => of(logoutFailure({ error })))
-      )
-    )
+    mergeMap(() => {
+      return this.authService.logout()
+        .pipe(
+          map(() => logoutSuccess()),
+          catchError(error => of(logoutFailure({ error })))
+        )
+    })
   ));
 
   constructor(private actions$: Actions, private authService: AuthService, private store: Store) {
