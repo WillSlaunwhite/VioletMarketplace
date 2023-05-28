@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(): void {
-    this.store.dispatch(logout());
+    // this.store.dispatch(logout());
     this.store.dispatch(removeJwt());
     window.location.reload();
   }

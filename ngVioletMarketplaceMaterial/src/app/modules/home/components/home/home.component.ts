@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   sidenav!: ElementRef;
 
   ngOnInit(): void {
-    this.store.dispatch(loadTokens());
+    // this.store.dispatch(loadTokens());
     this.tokens$ = this.store.select(getAllTokens);
   }
 
