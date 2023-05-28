@@ -59,7 +59,8 @@ export class AppComponent implements AfterViewInit {
       if (username) {
         this.store.dispatch(loadUserTokens({ username }));
         // this.store.dispatch(loginSuccess({ user : selectCurrentUser}))
-        // TODO Finish dispatching user in app.component
+        // Finish dispatching user in app.component
+        // TODO this isn't quite right, need to refactor
         this.authService.currentUser.subscribe(
           user => {
             if (user) {
