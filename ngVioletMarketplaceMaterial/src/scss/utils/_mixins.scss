@@ -1,9 +1,11 @@
+// apply box shadow to all browsers
 @mixin box-shadow($shadow) {
   -webkit-box-shadow: $shadow;
   -moz-box-shadow: $shadow;
   box-shadow: $shadow;
 }
 
+// apply transition to all browsers
 @mixin transition($properties...) {
   -webkit-transition: $properties;
   -moz-transition: $properties;
@@ -11,12 +13,14 @@
   transition: $properties;
 }
 
+// center a div!
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+// calculate font size based on viewport
 @mixin responsive-font($minSize, $maxSize, $minViewport, $maxViewport) {
   font-size: $minSize;
 

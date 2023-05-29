@@ -21,13 +21,12 @@
     content: '';
     position: absolute;
     top: 51%;
-    opacity: .4;
+    opacity: .25;
     height: 1px;
     z-index: 2;
     width: 8em;
     transform: rotate(-67.5deg);
     background: #e7e7e7;
-    transition: scale(1) !important;
 
     &:hover {
       transform: rotate(-67.5deg);
