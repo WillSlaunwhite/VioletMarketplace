@@ -18,20 +18,10 @@ export class TokenListComponent implements OnInit {
   scrollInterval: any;
   velocity: any;
 
-  constructor(private store: Store, private auth: AuthService) {
-    // console.log('helllllloooooo');
-    // this.tokens$.subscribe((tokens) => {
-    //   console.log(tokens);
-    //   if (!tokens || tokens.length === 0) {
-    //     this.tokens$ = this.store.select(getAllTokens);
-    //   }
-    // });
-  }
+  constructor(private store: Store, private auth: AuthService) { }
 
   ngOnInit(): void {
-    console.log('hello1')
     this.user$ = this.auth.currentUser;
-    console.log('hello2')
 
     const allTokens$ = this.store.select(getAllTokens);
     const userTokens$ = this.user$.pipe(
@@ -41,14 +31,11 @@ export class TokenListComponent implements OnInit {
 
     this.tokens$ = combineLatest([this.user$, allTokens$, userTokens$]).pipe(
       tap(([user, allTokens, userTokens]) => {
-        console.log('hello3')
         if (user) {
-          console.log('hellllooo4')
           if (!userTokens || userTokens.length === 0) {
             this.store.dispatch(loadUserTokens({ username: user.username }));
           }
         } else {
-          console.log('hellllooo5')
           if (!allTokens || allTokens.length === 0) {
             this.store.dispatch(loadTokens());
           }
@@ -56,98 +43,6 @@ export class TokenListComponent implements OnInit {
       }),
       map(([user, allTokens, userTokens]) => user ? userTokens : allTokens)
     );
-
-
-    // this.tokens$ = this.user$.pipe(
-    //   mergeMap(user =>  user ? this.store.select(getUserTokens) : this.store.select(getAllTokens)),
-    //   tap(tokens => {
-    //     if(!tokens || tokens.length === 0) {
-    //       this.store.dispatch(this.user$.pipe(
-    //         tap(user => user ?
-    //           this.store.dispatch(loadUserTokens({username: user.username})) :
-    //           this.store.dispatch(loadTokens())
-    //           )
-    //       ));
-    //     }
-    //   })
-    // )
-
-
-    // this.tokens$ = this.user$.pipe(
-    //   tap(() => { console.log('hello3') }),
-    //   mergeMap(user => {
-    //     if (user) {
-    //       console.log('hellllooo4')
-    //       this.store.dispatch(loadUserTokens({ username: user.username }));
-    //       return this.store.select(getUserTokens);
-    //     } else {
-    //       console.log('hellllooo5');
-    //       this.store.dispatch(loadTokens());
-    //       return this.store.select(getAllTokens);
-    //     }
-    //   }),
-    // );
-
-    // this.tokens$ = this.user$.pipe(
-    //   mergeMap(user => {
-    //     if (user) {
-    //       this.store.dispatch(loadUserTokens({ username: user.username }));
-    //       return this.store.select(getUserTokens);
-    //     } else {
-    //       this.store.dispatch(loadTokens());
-    //       return this.store.select(getAllTokens);
-    //     }
-    //   }),
-    //   tap(tokens => {
-    //     if (!tokens || tokens.length === 0) {
-    //       this.store.dispatch(loadTokens());
-    //     }
-    //   })
-    // );
-
-
-    // user$.subscribe((user) => {
-    //   console.log(user);
-    //   if (user) {
-    //     console.log('hellohello2');
-    //     this.store.select(getUserTokens);
-    //     this.store.dispatch(loadUserTokens({ username: user.username }));
-    //   } else {
-    //     console.log('hellohello');
-
-    //     this.store.dispatch(loadTokens());
-    //     this.tokens$ = this.store.select(getAllTokens);
-    //   }
-    // });
-
-    // this.store.dispatch(loadUserTokens({username: user$.username}));
-    //   this.tokens$ = this.store.select(getUserTokens);
-    // } else {
-    //   this.store.dispatch(loadTokens());
-    //   this.tokens$ = this.store.select(getAllTokens);
-    // }
-
-
-    // this.tokens$ = this.store.select(getUserTokens);
-
-    // this.tokens$.pipe(
-    //   take(1),
-    //   tap((tokens: Token[] | null) => {
-    //     if (!tokens) {
-    //       this.store.dispatch(loadTokens());
-    //       this.tokens$ = this.store.select(getAllTokens);
-    //     }
-    //   })
-    // ).subscribe();
-
-    // this.auth.currentUser.pipe(
-    //   withLatestFrom(this.tokens$),                                   // * Combine with tokens$
-    //   tap(([user, tokens]: [User | null, Token[] | null]) => {        // * if tokens$ is empty
-    //     if (!tokens && user) {                                        // * we load user's tokens
-    //       this.store.dispatch(loadUserTokens({ username: user.username }));
-    //     }
-    //   })
-    // ).subscribe();
   }
 
   startScrollLeft(tokensContainer: HTMLElement): void {

@@ -1,6 +1,5 @@
 .button-wrapper {
   position: relative;
-  margin: 40px;
 
   &:hover::before,
   &:hover::after {
@@ -9,10 +8,12 @@
 
   &::before {
     right: 0;
+    margin-right: 2.2rem;
   }
 
   &::after {
-    left: 2rem;
+    left: 0;
+    margin-left: 5.75rem;
   }
 
   &::before,
@@ -45,7 +46,7 @@
 
   height: 300px;
   width: 182.5%;
-  padding-inline: 2rem;
+  padding-inline: 3rem;
   overflow: hidden;
   background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
     linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
@@ -55,7 +56,7 @@
   transition: ease-out .6s;
   background-size: 200% 200%;
   animation: gradient 8s linear 10s infinite;
-  opacity: .9;
+  opacity: .7;
   z-index: 4;
 
   &:hover {
