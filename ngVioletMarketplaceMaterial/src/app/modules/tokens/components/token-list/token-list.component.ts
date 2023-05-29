@@ -1,7 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Store } from '@ngrx/store';
 import Token from 'src/app/models/token';
-import { Observable, combineLatest, filter, map, mergeMap, of, switchMap, take, tap, withLatestFrom } from 'rxjs';
+import { Observable, combineLatest, filter, map, mergeMap, of, startWith, switchMap, take, tap, withLatestFrom } from 'rxjs';
 import { getAllTokens, getUserTokens } from '../../state/tokens.selectors';
 import { loadTokens, loadUserTokens } from '../../state/tokens.actions';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
@@ -12,11 +12,14 @@ import User from 'src/app/models/user';
   templateUrl: './token-list.component.html',
   styleUrls: ['./token-list.component.scss']
 })
-export class TokenListComponent implements OnInit {
+export class TokenListComponent implements OnInit, AfterViewInit, AfterContentChecked {
   tokens$: Observable<Token[] | null> = of(null);
   user$: Observable<User | null> = of(null);
   scrollInterval: any;
   velocity: any;
+  startIndex: number = 0;
+  private previousScrollWidth = 0;
+  tokensLoaded: boolean = false;
 
   constructor(private store: Store, private auth: AuthService) { }
 
@@ -43,6 +46,28 @@ export class TokenListComponent implements OnInit {
       }),
       map(([user, allTokens, userTokens]) => user ? userTokens : allTokens)
     );
+  }
+
+  ngAfterContentChecked(): void {
+    //   const container = this.tokensContainer.nativeElement;
+    //   if (container.scrollWidth !== this.previousScrollWidth) {
+    //     this.previousScrollWidth = container.scrollWidth;
+    //     container.scrollLeft = container.scrollWidth / 2;
+    //   }
+  }
+
+  ngAfterViewInit(): void {
+    // setTimeout(() => {
+    //   const container = this.tokensContainer.nativeElement;
+    //   container.scrollLeft = container.scrollWidth / 2;
+    // }, 500);
+    // setTimeout(() => {
+    //   const container = this.tokensContainer.nativeElement;
+    //   console.log(container);
+    //   console.log(container.scrollLeft);
+    //   container.scrollLeft = 500;
+    //   console.log(container.scrollLeft);
+    // }, 500);
   }
 
   startScrollLeft(tokensContainer: HTMLElement): void {
@@ -100,5 +125,17 @@ export class TokenListComponent implements OnInit {
   scrollFarRight(tokensContainer: HTMLElement): void {
     tokensContainer.scrollLeft += 50; // adjust this value as needed
   }
+
+  // scrollToMiddle(): void {
+  //   const containerElement = this.tokensContainer.nativeElement;
+  //   const contentWidth = containerElement.scrollWidth;
+  //   const scrollLeft = contentWidth / 2;
+  //   console.log(containerElement);
+  //   console.log(contentWidth);
+  //   console.log(scrollLeft);
+  //   containerElement.scrollLeft = scrollLeft;
+  //   console.log(containerElement.scrollLeft);
+
+  // }
 
 }
