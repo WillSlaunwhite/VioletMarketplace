@@ -5,17 +5,58 @@
   .mat-card {
     height: 16rem;
     width: 18rem;
-    border-radius: 4px;
-    transition: ease-in-out .55s;
+    padding: 0;
     opacity: .75;
+    border-radius: 4px;
     overflow: hidden;
-    padding: 0 !important;
     text-align: center;
     will-change: transform;
+    transition: ease-in-out .55s;
+
+
+
+
+    // &:hover .glass-wrapper {
+    //   opacity: .75;
+    // }
+
+    // .glass-wrapper {
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   border-radius: 6px;
+    //   z-index: 2;
+    //   padding: 0;
+    //   margin: 0;
+    //   opacity: .95;
+    //   background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+    //     linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%),
+    //     linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%),
+    //     radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%);
+    // }
+
+    // .glass-wrapper::before {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+    //     radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+    //   z-index: -1;
+    //   border-radius: 6px;
+    //   padding: 0;
+    //   margin: 0;
+    // }
+
+
 
     &.mat-card a {
-      display: flex;
-      justify-content: center;
+      @include flex-center;
+      align-items: flex-start;
     }
 
     &.mat-card:hover {
@@ -34,11 +75,7 @@
     &.mat-card:hover img {
       image-resolution: from-image;
       image-rendering: optimizeQuality;
-      -webkit-mask-image: linear-gradient(90deg, #dccfcf91, #fff, #0000);
-      mask-image: linear-gradient(90deg, #0000, #fff, #0000);
-      -webkit-mask-size: 300% 100%;
-      mask-size: 300% 100%;
-      // animation: clip-fade 5s infinite alternate;
+      animation: clip-fade 10s infinite alternate;
       transition: all .2s;
     }
 
@@ -72,25 +109,12 @@
     }
 
     .mat-card-image {
-      // -webkit-mask-image: linear-gradient(180deg, #ffffff5f, #fff, #0000);
-      // mask-image: linear-gradient(180deg, #0000, #fff, #0000);
-      // -webkit-mask-size: 100% 300%;
-      // mask-size: 20% 20%;
-      // -webkit-mask-repeat: no-repeat;
-      // mask-repeat: no-repeat;
-      -webkit-mask-image: linear-gradient(90deg, #dccfcf91, #fff, #0000);
-      mask-image: linear-gradient(90deg, #0000, #fff, #0000);
-      -webkit-mask-size: 300% 100%;
-      mask-size: 300% 100%;
-
-      display: flex;
       position: absolute;
       height: 100%;
-      margin-top: 0 !important;
-      margin-inline: auto !important;
+      margin-top: 0;
+      margin-inline: auto;
       opacity: .8;
-      justify-content: center;
-      align-items: center;
+      @include flex-center;
     }
 
     .card-img-title {

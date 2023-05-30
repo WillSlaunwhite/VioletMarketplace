@@ -44,8 +44,8 @@ import { EffectsModule } from '@ngrx/effects';
     EffectsModule.forRoot(),
     FontAwesomeModule,
     UserModule,
-    SharedModule,
-    AuthModule
+    AuthModule,
+    TokenModule
   ],
   providers: [],
   bootstrap: [AppComponent],

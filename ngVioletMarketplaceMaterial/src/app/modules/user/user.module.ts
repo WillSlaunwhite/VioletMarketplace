@@ -9,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { UserRoutingModule } from './user-routing.module';
 import { TokenModule } from '../tokens/token.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TokenModule } from '../tokens/token.module';
     MaterialModule,
     FontAwesomeModule,
     UserRoutingModule,
-    TokenModule
+    TokenModule,
+    SharedModule
   ],
   exports: [
     ProfileManagementComponent,

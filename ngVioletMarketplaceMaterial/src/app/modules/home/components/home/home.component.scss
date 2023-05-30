@@ -1,44 +1,58 @@
+@import '/src/scss/utils/mixins';
+
 .main-content {
-  display: flex;
   height: 100vh;
   width: 100vw;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
 
-  .top-half,
-  .bottom-half {
+
+  .top-twenty,
+  .middle-half,
+  .bottom {
     width: 100%;
-    height: 25%;
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
 
-
-
-    .token-list-header {
-      color: #e7e7e7;
-      margin-right: 50%;
+    &.top-twenty {
+      height: 20%;
+      background: darkblue;
     }
 
-    .token-list-container {
+    &.middle-half {
+      background: gray;
+      height: 50%;
       display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
       flex-direction: column;
-      align-items: flex-end;
-      width: 95vw;
-      justify-content: center;
 
-
-      position: absolute;
-      top: 30%;
-
-      app-token-list {
-        height: 18em;
-        width: 80%;
+      .token-list-header {
+        width: 25%;
         margin-inline: auto;
+        margin-left: 30%;
+        font-weight: 300;
+        font-size: 3.25rem;
+        text-align: start;
+        background: orange;
+        color: #e7e7e7;
       }
 
+      .token-list-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 95vw;
+        justify-content: center;
+
+        app-token-list {
+          height: 18em;
+          width: 80%;
+          margin-inline: auto;
+        }
+
+      }
     }
   }
 }
