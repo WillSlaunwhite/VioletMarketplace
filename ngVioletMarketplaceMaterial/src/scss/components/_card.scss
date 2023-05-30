@@ -7,13 +7,20 @@
     width: 18rem;
     padding: 0;
     opacity: .75;
-    border-radius: 4px;
+    border-radius: 6px;
     overflow: hidden;
     text-align: center;
     will-change: transform;
     transition: ease-in-out .55s;
 
-
+    .glass-wrapper {
+      @include card-glass;
+      @include card-glass-border;
+      opacity: .6;
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 6px;
+    }
 
 
     // &:hover .glass-wrapper {
@@ -125,6 +132,7 @@
       transform: translate(-50%, -50%);
       width: 16em;
       justify-content: center;
+      z-index: 3;
     }
 
     .card-img-description {
@@ -137,6 +145,7 @@
       padding: 0;
       display: none;
       overflow: hidden;
+      z-index: 3;
     }
 
     .token-price {
@@ -148,6 +157,7 @@
       text-align: center;
       margin: auto;
       transition: ease-out .4s;
+      z-index: 3;
     }
 
     // BUY AND BID BUTTONS

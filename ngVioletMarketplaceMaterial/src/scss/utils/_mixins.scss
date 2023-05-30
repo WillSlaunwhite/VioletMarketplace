@@ -33,7 +33,7 @@
   background-image: $gradients;
 }
 
-@mixin button-glass($gradients...) {
+@mixin card-glass($gradients...) {
   margin: 0;
   position: absolute;
   top: 0;
@@ -44,13 +44,12 @@
   z-index: 2;
   padding: 0;
   opacity: .95;
-  background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%),
+  background: linear-gradient(135deg, rgba(13, 13, 13, 0.303) 0%, rgb(0, 0, 0) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(13, 13, 13, 0.5) 80%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%),
-    radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%);
 }
 
-@mixin button-glass-border() {
+@mixin card-glass-border() {
   .glass-wrapper::before {
     content: '';
     position: absolute;
