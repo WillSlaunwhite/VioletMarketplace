@@ -11,9 +11,9 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { FormsModule } from '@angular/forms';
-import { UserModule } from '../user/user.module';
 import { DoubleGradButtonComponent } from './components/double-grad-button/double-grad-button.component';
 import { NavGradButtonComponent } from './components/nav-grad-button/nav-grad-button.component';
+import { UserRoutingModule } from '../user/user-routing.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { NavGradButtonComponent } from './components/nav-grad-button/nav-grad-bu
     TokenModule,
     SharedRoutingModule,
     FormsModule,
-    UserModule
+    UserRoutingModule
   ],
   exports: [
     FooterComponent,
