@@ -1,12 +1,18 @@
 img {
-  border-radius: 4px;
-  width: 16rem;
-  max-height: 14rem;
+  border-radius: 2px;
   background-color: white;
+  padding: 0;
+  width: 105%;
+  transform: scale(1.0575)
 }
 
 h2 {
   font-weight: 300;
+}
+
+.card-header {
+  height: 18em;
+  width: 18em;
 }
 
 .card-container {

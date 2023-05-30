@@ -1,10 +1,7 @@
   @import '/src/scss/utils/variables';
   @import '/src/scss/utils/mixins';
 
-
-
   @include card-glass;
-  // @include card-glass-border;
 
   // CARDS
   .mat-card {

@@ -13,6 +13,7 @@ import { reducer } from './state/tokens.reducer';
 import { TokenListComponent } from './components/token-list/token-list.component';
 import { EffectsModule } from '@ngrx/effects';
 import { TokenEffects } from './state/tokens.effects';
+import { BigTokenListComponent } from './components/big-token-list/big-token-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TokenEffects } from './state/tokens.effects';
     CreateTokenComponent,
     TokenCardComponent,
     TokenCardButtonComponent,
-    TokenListComponent
+    TokenListComponent,
+    BigTokenListComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { TokenEffects } from './state/tokens.effects';
     CreateTokenComponent,
     TokenCardComponent,
     TokenCardButtonComponent,
-    TokenListComponent
+    TokenListComponent,
+    BigTokenListComponent
   ]
 })
 export class TokenModule { }
