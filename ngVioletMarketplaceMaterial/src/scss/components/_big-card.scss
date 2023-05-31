@@ -1,12 +1,11 @@
   @import '/src/scss/utils/variables';
   @import '/src/scss/utils/mixins';
-
   @include card-glass;
 
   // CARDS
   .mat-card {
-    height: 14rem;
-    width: 18rem;
+    height: 24rem;
+    width: 20rem;
     border-radius: 6px;
     padding: 0;
     opacity: .75;
@@ -41,6 +40,7 @@
     }
 
     &.mat-card img {
+      height: 80%;
       background: transparent;
       image-resolution: from-image;
       image-rendering: optimizeQuality;
@@ -49,7 +49,7 @@
     &.mat-card:hover img {
       image-resolution: from-image;
       image-rendering: optimizeQuality;
-      animation: clip-fade 10s infinite alternate;
+      animation: clip-fade 1s infinite alternate;
       transition: all .2s;
     }
 
@@ -131,6 +131,5 @@
     .actions {
       flex-wrap: wrap;
       justify-content: space-between;
-
     }
   }
