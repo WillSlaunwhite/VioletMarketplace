@@ -8,7 +8,7 @@
     width: 20rem;
     border-radius: 6px;
     padding: 0;
-    opacity: .75;
+    opacity: .8;
     overflow: hidden;
     text-align: center;
     will-change: transform;
@@ -132,4 +132,25 @@
       flex-wrap: wrap;
       justify-content: space-between;
     }
+
+    .purchase-button {
+      font-weight: 400 !important;
+      transform: scale(1.75) translateY(-30%);
+    }
+
+    .purhcase-button-buy::before {
+      position: absolute;
+      content: '';
+      top: -2px;
+      bottom: -2px;
+      left: -2px;
+      right: -2px;
+      width: calc(100% + 6px);
+      height: calc(100% + 6px);
+      z-index: -1;
+      border-radius: 6px;
+      background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
+      background-size: 150% 100%;
+    }
+
   }
