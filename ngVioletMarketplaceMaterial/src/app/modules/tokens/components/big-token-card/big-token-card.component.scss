@@ -1,20 +1,29 @@
 @import '/src/scss/components/big-card';
 @import '/src/scss/utils/mixins';
 
-.purchase-button-buy::before {
-  position: absolute;
-  content: '';
-  bottom: -2px;
-  left: 50%;
-  right: -2px;
-  width: 3px;
-  height: 20%;
-  z-index: -1;
-  border-radius: 6px;
-  background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
-  background-size: 150% 100%;
-  transition: all .8s ease-in-out;
-  // filter: hue-rotate(15deg);
-  pointer-events: none;
+// .purchase-button-buy::before {
+//   position: absolute;
+//   content: '';
+//   bottom: -2px;
+//   left: 50%;
+//   right: -2px;
+//   width: 3px;
+//   height: 20%;
+//   z-index: -1;
+//   border-radius: 6px;
+//   background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
+//   background-size: 150% 100%;
+//   transition: all .8s ease-in-out;
+//   // filter: hue-rotate(15deg);
+//   pointer-events: none;
 
+// }
+
+.mat-card-actions {
+  width: 100%;
+  position: absolute;
+  height: 4.5rem;
+  bottom: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
