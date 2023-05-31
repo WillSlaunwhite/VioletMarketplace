@@ -20,8 +20,10 @@
     &.middle-half {
       // background: gray;
       height: 50%;
+      width: 100%;
       align-items: flex-start;
       @include flex-column-start;
+      background: black;
 
       .token-list-header {
         width: 25%;
@@ -36,7 +38,7 @@
 
       .token-list-container {
         height: 100%;
-        width: 95vw;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
