@@ -3,10 +3,7 @@
 .main-content {
   height: 100vh;
   width: 100vw;
-  flex-direction: column;
-  display: flex;
-  justify-content: flex-start;
-
+  @include flex-column-start;
 
   .top-twenty,
   .middle-half,
@@ -23,10 +20,8 @@
     &.middle-half {
       background: gray;
       height: 50%;
-      display: flex;
       align-items: flex-start;
-      justify-content: flex-start;
-      flex-direction: column;
+      @include flex-column-start;
 
       .token-list-header {
         width: 25%;
@@ -40,16 +35,16 @@
       }
 
       .token-list-container {
+        height: 100%;
+        width: 95vw;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        background-color: black;
-        height: 100%;
-        width: 95vw;
         justify-content: center;
+        background-color: black;
 
-        app-token-list {
-          height: 18em;
+        app-big-token-list {
+          height: 30em;
           width: 80%;
           margin-inline: auto;
         }
