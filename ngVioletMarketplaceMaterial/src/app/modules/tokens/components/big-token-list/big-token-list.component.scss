@@ -1,16 +1,19 @@
 .tokens-container {
   position: relative;
   height: 100%;
-  width: 92.5%;
+  width: 100%;
   overflow-x: scroll;
   flex-wrap: nowrap;
   gap: 1.5em;
-  background: transparent;
   scroll-behavior: auto;
   margin: auto;
 
   app-big-token-card {
     margin: auto;
+  }
+
+  app-big-token-card:first-of-type {
+    margin-left: 2.5em;
   }
 
   app-big-token-card:last-of-type {
@@ -39,8 +42,6 @@
   }
 
 }
-
-
 
 // WEBKIT SCROLLBAR IS NON-STANDARD
 
