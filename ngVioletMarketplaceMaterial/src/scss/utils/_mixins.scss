@@ -68,6 +68,13 @@
   }
 }
 
+@mixin flex-column-start() {
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+}
+
+
 // @mixin glass-effect {
 //   position: absolute;
 //   top: 0;
