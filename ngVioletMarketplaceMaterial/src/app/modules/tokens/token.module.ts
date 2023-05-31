@@ -14,6 +14,7 @@ import { TokenListComponent } from './components/token-list/token-list.component
 import { EffectsModule } from '@ngrx/effects';
 import { TokenEffects } from './state/tokens.effects';
 import { BigTokenListComponent } from './components/big-token-list/big-token-list.component';
+import { BigTokenCardComponent } from './components/big-token-card/big-token-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BigTokenListComponent } from './components/big-token-list/big-token-lis
     TokenCardComponent,
     TokenCardButtonComponent,
     TokenListComponent,
-    BigTokenListComponent
+    BigTokenListComponent,
+    BigTokenCardComponent
   ],
   imports: [
     CommonModule,
