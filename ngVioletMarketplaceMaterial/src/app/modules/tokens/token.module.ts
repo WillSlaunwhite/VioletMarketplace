@@ -16,6 +16,7 @@ import { TokenEffects } from './state/tokens.effects';
 import { BigTokenListComponent } from './components/big-token-list/big-token-list.component';
 import { BigTokenCardComponent } from './components/big-token-card/big-token-card.component';
 import { BigTokenCardButtonComponent } from './components/big-token-card-button/big-token-card-button.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BigTokenCardButtonComponent } from './components/big-token-card-button/
     FormsModule,
     ReactiveFormsModule,
     AngularSvgIconModule,
+    SharedModule,
     TokenRoutingModule,
     MaterialModule,
     StoreModule.forRoot({}),

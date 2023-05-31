@@ -30,7 +30,6 @@ import { UserRoutingModule } from '../user/user-routing.module';
     MaterialModule,
     LayoutModule,
     FontAwesomeModule,
-    TokenModule,
     SharedRoutingModule,
     FormsModule,
     UserRoutingModule
