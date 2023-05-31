@@ -17,9 +17,5 @@
       <app-nav-grad-button *ngIf="(isLoggedIn$ | async)" buttonText="logout" [clickAction]="getLogoutAction()"></app-nav-grad-button>
     </div>
   </div>
-
-  <div *ngIf="user$ | async as user">
-    User: {{ user.displayName }}
-  </div>
 </mat-toolbar>
 <mat-divider></mat-divider>
