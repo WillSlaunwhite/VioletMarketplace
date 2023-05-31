@@ -117,7 +117,7 @@
 
     .token-price {
       opacity: 0;
-      width: 15rem;
+      width: 5rem;
       position: absolute;
       top: 70%;
       justify-content: center;
@@ -128,29 +128,32 @@
     }
 
     // BUY AND BID BUTTONS
-    .actions {
+    .mat-card-actions {
+      // transform: scale(1.75) translateY(-30%);
       flex-wrap: wrap;
       justify-content: space-between;
     }
 
     .purchase-button {
-      font-weight: 400 !important;
-      transform: scale(1.75) translateY(-30%);
+      font-weight: 400;
+      height: 4.5em;
     }
 
-    .purhcase-button-buy::before {
+    .purchase-button-buy::before {
       position: absolute;
       content: '';
-      top: -2px;
       bottom: -2px;
-      left: -2px;
+      left: 0%;
       right: -2px;
-      width: calc(100% + 6px);
-      height: calc(100% + 6px);
+      width: 2px;
+      height: 100%;
       z-index: -1;
       border-radius: 6px;
       background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
       background-size: 150% 100%;
+      transition: all .8s ease-in-out;
+      // filter: hue-rotate(15deg);
+      pointer-events: none;
     }
 
   }
