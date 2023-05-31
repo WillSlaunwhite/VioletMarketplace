@@ -14,8 +14,8 @@ export class TokenService {
   private url = this.baseUrl + 'api/tokens';
 
   index(): Observable<Token[]> {
+    // todo this method seems to be triggering twice on login
     console.log('HERE2');
-
     return this.auth.getHttpOptions().pipe(
       mergeMap(options =>
         this.http.get<Token[]>(this.baseUrl + 'api/home/tokens', options).pipe(

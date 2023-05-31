@@ -18,18 +18,13 @@ export class AuthService {
   private url = this.baseUrl + 'api/user';
 
   constructor(private store: Store, private http: HttpClient, private userService: UserService) {
-    console.log('HELLLLOOOO');
-
+    console.log('auth service constructor');
     this.currentUser = this.store.select(selectCurrentUser);
   }
 
-
-
   login(username: string, password: string): Observable<{ user: User, jwt: string }> {
     console.log('auth service login');
-    console.log('HELLLLOOOO');
     const credentials = { username: username, password: password };
-    console.log('HELLLLOOOO2');
     let headers: { [key: string]: string } = {
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
@@ -45,18 +40,6 @@ export class AuthService {
         );
       })
     )
-    // return this.getHttpOptions().pipe(
-    //   tap(() => console.log('HELLLLLOOOOOOO4')),
-    //   mergeMap(options =>
-    //     this.http.post<string>(this.baseUrl + 'authenticate', credentials, options)
-    //   ),
-    //   mergeMap((jwt: string) => {
-    //     console.log('HELLLLOOOO3');
-    //     return this.userService.getUserByUsername(username).pipe(
-    //       map(user => ({ user, jwt }))
-    //     );
-    //   })
-    // );
   }
 
   logout(): Observable<void> {
