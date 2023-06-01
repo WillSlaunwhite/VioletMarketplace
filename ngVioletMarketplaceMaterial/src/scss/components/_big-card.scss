@@ -97,7 +97,7 @@
     .card-img-title {
       color: $text-primary-dark;
       font-size: 1.8em;
-      font-weight: 300;
+      font-weight: 200;
       position: absolute;
       top: 40%;
       left: 50%;
@@ -165,7 +165,7 @@
         text-align: center;
         height: 100%;
         font-family: "Nunito";
-        color: #e7e7e7;
+        color: $text-primary-dark;
         filter: brightness(2);
         font-size: 1.75em;
         z-index: 2;
