@@ -1,4 +1,5 @@
 // TOP LEVEL ELEMENT CHANGES
+// todo need to replace hard-coded colors with variables
 a {
   text-decoration: none;
   font-weight: 300;
@@ -15,20 +16,21 @@ input {
 }
 
 app-nav-grad-button {
+  // todo can decrease margin so buttons stack,
+  // * if you want. Then slide out or something
   margin-inline: 3rem;
 }
 
 // TOP LEVEL NAVBAR
 .toolbar {
   justify-content: space-between !important;
-  height: 3.75em;
+  height: 3.25em;
   background: transparent;
   overflow: hidden;
   padding: 0;
 }
 
 // FAR LEFT LOGO
-// todo fix this, getting 404
 .brand-container {
   transition: ease .3s;
   height: auto;
@@ -51,17 +53,19 @@ mat-label {
 
 // SEARCH BAR
 .search {
+  // todo really don't like current search interaction
+
   width: 40vmin;
   // min-width: 25%;
   color: #ababab;
-  margin-top: 10px;
+  margin-top: 18px;
   position: relative;
   outline: none !important;
 
 }
 
 .search:focus-within mat-label {
-  display: none;
+  // display: none;
   transition: ease-out .3s;
 }
 
