@@ -9,7 +9,6 @@ import { LoginComponent } from 'src/app/modules/auth/components/login/login.comp
 import { Store } from '@ngrx/store';
 import { isLoggedIn, selectCurrentUser } from 'src/app/modules/auth/state/auth.selectors';
 import { logout, removeJwt } from 'src/app/modules/auth/state/auth.actions';
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -21,7 +20,8 @@ export class NavbarComponent implements OnInit {
   user$: Observable<User | null>;
   isSearchFieldFocused: boolean = false;
 
-  constructor(private store: Store, private dialog: MatDialog, private renderer: Renderer2, private el: ElementRef) {
+  constructor(private store: Store, private dialog: MatDialog, private renderer: Renderer2, private el: ElementRef,
+  ) {
     this.user$ = this.store.select(selectCurrentUser);
   }
 

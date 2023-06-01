@@ -1,6 +1,5 @@
 <mat-toolbar class="toolbar d-flex">
-  <div class="brand-container"><svg-icon src="/src/assets/logos/retro_vm_logo.svg" [class]="'meta-icon'" dbsddb
-      [svgStyle]="{ 'fill-rule':'evenodd', 'background-color':'transparent', 'width.px': 480, 'height.px':480}"></svg-icon></div>
+  <div class="brand-container"><svg-icon class="brand" src="/assets/logos/matrix_vm_logo.svg"></svg-icon></div>
   <mat-form-field #search [ngClass]="{'focused': isSearchFieldFocused}" class="search">
     <mat-label>Search...</mat-label>
     <input matInput type="text" [(ngModel)]="searchTerm" (focus)="toggleSearchFocus()" (blur)="toggleSearchFocus()">

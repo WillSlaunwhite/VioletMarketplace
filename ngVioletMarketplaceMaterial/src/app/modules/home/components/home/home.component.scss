@@ -60,7 +60,6 @@
         }
       }
 
-
       .token-list-container {
         height: 100%;
         width: 100%;
@@ -68,14 +67,12 @@
         flex-direction: column;
         align-items: flex-end;
         justify-content: center;
-        // background-color: black;
 
         app-big-token-list {
           height: 30em;
           width: 80%;
           margin-inline: auto;
         }
-
       }
     }
   }

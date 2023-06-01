@@ -28,19 +28,21 @@ app-nav-grad-button {
 }
 
 // FAR LEFT LOGO
+// todo fix this, getting 404
 .brand-container {
   transition: ease .3s;
-  margin-left: 2em;
+  height: auto;
+  margin-top: 1em;
+  margin-left: .5em;
 
   &.brand-container:hover {
     transform: scale(1.05);
     transition: ease .3s;
-  }
-}
 
-.brand {
-  font-weight: 300;
-  letter-spacing: 2.25px;
+    &.brand {
+      transform: translateX(50%);
+    }
+  }
 }
 
 mat-label {
@@ -56,6 +58,11 @@ mat-label {
   position: relative;
   outline: none !important;
 
+}
+
+.search:focus-within mat-label {
+  display: none;
+  transition: ease-out .3s;
 }
 
 .search ::ng-deep .mat-form-field-underline {
