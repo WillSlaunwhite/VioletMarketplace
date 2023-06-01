@@ -21,7 +21,7 @@ app-nav-grad-button {
 // TOP LEVEL NAVBAR
 .toolbar {
   justify-content: space-between !important;
-  height: 3.5em;
+  height: 3.75em;
   background: transparent;
   overflow: hidden;
   padding: 0;
@@ -30,7 +30,7 @@ app-nav-grad-button {
 // FAR LEFT LOGO
 .brand-container {
   transition: ease .3s;
-  padding-left: .5em;
+  margin-left: 2em;
 
   &.brand-container:hover {
     transform: scale(1.05);
