@@ -25,16 +25,31 @@
       @include flex-column-start;
       background: black;
 
-      .token-list-header {
-        width: 25%;
-        margin-inline: auto;
-        margin-left: 30%;
-        font-weight: 300;
-        font-size: 3.25rem;
-        text-align: start;
-        background: orange;
-        color: #e7e7e7;
+      .cta-container {
+        width: 100%;
+
+
+        .grad-button {
+          position: absolute;
+          right: 40%;
+          top: 25%;
+          color: white;
+        }
+
+        .token-list-header {
+          width: fit-content;
+          margin-inline: auto;
+          margin-left: 20%;
+          font-weight: 300;
+          font-size: 3.25rem;
+          text-align: start;
+          background: orange;
+          color: #e7e7e7;
+          padding: 0;
+          margin-bottom: 0;
+        }
       }
+
 
       .token-list-container {
         height: 100%;
