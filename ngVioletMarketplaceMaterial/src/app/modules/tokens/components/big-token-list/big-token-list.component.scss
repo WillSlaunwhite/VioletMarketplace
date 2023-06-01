@@ -7,9 +7,12 @@
   gap: 1.5em;
   scroll-behavior: auto;
   margin: auto;
+  margin-bottom: 0;
+
 
   app-big-token-card {
     margin: auto;
+    margin-bottom: 2.5rem;
   }
 
   app-big-token-card:first-of-type {
