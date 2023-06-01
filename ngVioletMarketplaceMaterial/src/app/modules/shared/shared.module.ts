@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { DoubleGradButtonComponent } from './components/double-grad-button/double-grad-button.component';
 import { NavGradButtonComponent } from './components/nav-grad-button/nav-grad-button.component';
 import { UserRoutingModule } from '../user/user-routing.module';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserRoutingModule } from '../user/user-routing.module';
     FontAwesomeModule,
     SharedRoutingModule,
     FormsModule,
-    UserRoutingModule
+    UserRoutingModule,
+    AngularSvgIconModule
   ],
   exports: [
     FooterComponent,

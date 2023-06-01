@@ -9,6 +9,7 @@ import Token from 'src/app/models/token';
 import { TokenService } from 'src/app/modules/tokens/services/token.service';
 import { loadTokens } from 'src/app/modules/tokens/state/tokens.actions';
 import { getAllTokens } from 'src/app/modules/tokens/state/tokens.selectors';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @Component({
   selector: 'app-home',
