@@ -147,6 +147,7 @@
       .large-purchase-button-buy::before {
         position: absolute;
         content: '';
+        border: none;
         bottom: -2px;
         left: 0%;
         right: -2px;
