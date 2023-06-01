@@ -1,7 +1,7 @@
 @import '/src/scss/utils/mixins';
+@import '/src/scss/utils/variables';
 
 .main-content {
-  height: 100vh;
   width: 100vw;
   @include flex-column-start;
 
@@ -13,39 +13,49 @@
     @include flex-center;
 
     &.top-twenty {
-      height: 20%;
-      background: darkblue;
+      width: 55%;
+      margin: auto;
+      margin-top: 2.5rem;
+      margin-left: 18rem;
+
+      text-align: center;
+      color: $text-secondary-dark;
+      font-family: "Nunito";
+      font-size: 2rem;
+      font-weight: 200;
+      letter-spacing: .2rem;
     }
 
     &.middle-half {
-      // background: gray;
-      height: 50%;
+      display: flex;
+      margin-top: 2.5rem;
+      overflow-y: hidden;
+      height: 100%;
       width: 100%;
       align-items: flex-start;
       @include flex-column-start;
-      background: black;
 
       .cta-container {
-        width: 100%;
-
+        width: 70%;
+        height: 100%;
 
         .grad-button {
           position: absolute;
-          right: 40%;
-          top: 25%;
+          right: 34.5%;
+          top: 42.5%;
           color: white;
         }
 
         .token-list-header {
           width: fit-content;
-          margin-inline: auto;
-          margin-left: 20%;
           font-weight: 300;
           font-size: 3.25rem;
           text-align: start;
-          background: orange;
-          color: #e7e7e7;
+          color: $text-secondary-dark;
           padding: 0;
+          // todo please fix this margin
+          margin-left: 30%;
+          margin-top: 4.25rem;
           margin-bottom: 0;
         }
       }
