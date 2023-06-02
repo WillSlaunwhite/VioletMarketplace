@@ -5,11 +5,17 @@
   background: purple;
 }
 
+// .dg-button-red {
+//   @include fl;
+// }
+
+@include preset-gradients;
 
 
 .main-content {
   width: 100vw;
   @include flex-column-start;
+
 
   .top-twenty,
   .middle-half,
