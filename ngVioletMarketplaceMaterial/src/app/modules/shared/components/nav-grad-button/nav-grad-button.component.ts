@@ -1,12 +1,11 @@
 import { RouterModule } from '@angular/router';
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-nav-grad-button',
   templateUrl: './nav-grad-button.component.html',
   styleUrls: ['./nav-grad-button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavGradButtonComponent implements OnInit {
   @Input() buttonText: string = '';

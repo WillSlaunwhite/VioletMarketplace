@@ -1,6 +1,12 @@
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/variables';
 
+::ng-deep .dg-button {
+  background: purple;
+}
+
+
+
 .main-content {
   width: 100vw;
   @include flex-column-start;
