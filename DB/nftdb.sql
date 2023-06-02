@@ -406,25 +406,40 @@ INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `pri
 INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (13, 'The Dark Knight Rises', 'Eight years after the Joker''s reign of chaos, Batman is coerced out of exile with the assistance of the mysterious Selina Kyle in order to defend Gotham City from the vicious guerrilla terrorist Bane.', 'common', '2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/the_dark_knight_rises.webp');
 
 
--------------------------------------------------------
+-- -------------------------------------------------------
 -- GPT's INSERTS, NO IMAGES 
--------------------------------------------------------
+-- ------------------------------------------------------
 
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`)
-VALUES 
-(21, 1, 'Star Wars Vintage Poster', 'An original vintage poster from the 1977 Star Wars movie.', 'www.originalfilmart.com/star-wars-1977-original-movie-poster', NOW(), NOW(), 500, TRUE, 1),
-(22, 2, 'Mona Lisa', 'High-quality digital image of the famous Mona Lisa painting by Leonardo da Vinci.', 'https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF.jpg', NOW(), NOW(), 1000, FALSE, 1),
-(23, 3, 'Pepe the Frog', 'A digital copy of the popular internet meme, Pepe the Frog.', 'https://knowyourmeme.com/memes/pepe-the-frog', NOW(), NOW(), 200, TRUE, 1),
-(14, 4, 'Harry Potter First Edition', 'Cover art from the first edition of Harry Potter and the Philosopher''s Stone.', 'https://www.harrypotterfanzone.com/book-covers/book-1/', NOW(), NOW(), 350, FALSE, 1),
-(15, 5, 'Mount Rushmore Photo', 'A high-resolution photo of the iconic Mount Rushmore.', 'https://pixabay.com/images/search/mount%20rushmore/', NOW(), NOW(), 150, TRUE, 1),
-(16, 1, 'Picasso''s Guernica', 'A digital copy of Pablo Picasso''s famous painting Guernica.', 'https://www.wikiart.org/en/pablo-picasso/guernica-1937', NOW(), NOW(), 800, FALSE, 1),
-(17, 2, 'Moon Landing Photo', 'A high-resolution photo of the historic Apollo moon landing.', 'placeholder_for_url', NOW(), NOW(), 500, TRUE, 1),
-(18, 3, 'Original Superman Comic', 'A digital copy of the first Superman comic.', 'placeholder_for_url', NOW(), NOW(), 700, FALSE, 1),
-(19, 4, 'First Edition of Pride and Prejudice', 'A digital copy of a first edition Pride and Prejudice cover.', 'placeholder_for_url', NOW(), NOW(), 400, TRUE, 1),
-(20, 5, 'Placeholder Token', 'This is a placeholder token for testing purposes.', 'placeholder_for_url', NOW(), NOW(), 100, TRUE, 1)
+-- INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`)
+-- VALUES 
+-- (21, 1, 'Star Wars Vintage Poster', 'An original vintage poster from the 1977 Star Wars movie.', 'www.originalfilmart.com/star-wars-1977-original-movie-poster', NOW(), NOW(), 500, TRUE, 1),
+-- (22, 2, 'Mona Lisa', 'High-quality digital image of the famous Mona Lisa painting by Leonardo da Vinci.', 'https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF.jpg', NOW(), NOW(), 1000, FALSE, 1),
+-- (23, 3, 'Pepe the Frog', 'A digital copy of the popular internet meme, Pepe the Frog.', 'https://knowyourmeme.com/memes/pepe-the-frog', NOW(), NOW(), 200, TRUE, 1),
+-- (14, 4, 'Harry Potter First Edition', 'Cover art from the first edition of Harry Potter and the Philosopher''s Stone.', 'https://www.harrypotterfanzone.com/book-covers/book-1/', NOW(), NOW(), 350, FALSE, 1),
+-- (15, 5, 'Mount Rushmore Photo', 'A high-resolution photo of the iconic Mount Rushmore.', 'https://pixabay.com/images/search/mount%20rushmore/', NOW(), NOW(), 150, TRUE, 1),
+-- (16, 1, 'Picasso''s Guernica', 'A digital copy of Pablo Picasso''s famous painting Guernica.', 'https://www.wikiart.org/en/pablo-picasso/guernica-1937', NOW(), NOW(), 800, FALSE, 1),
+-- (17, 2, 'Moon Landing Photo', 'A high-resolution photo of the historic Apollo moon landing.', 'placeholder_for_url', NOW(), NOW(), 500, TRUE, 1),
+-- (18, 3, 'Original Superman Comic', 'A digital copy of the first Superman comic.', 'placeholder_for_url', NOW(), NOW(), 700, FALSE, 1),
+-- (19, 4, 'First Edition of Pride and Prejudice', 'A digital copy of a first edition Pride and Prejudice cover.', 'placeholder_for_url', NOW(), NOW(), 400, TRUE, 1),
+-- (20, 5, 'Placeholder Token', 'This is a placeholder token for testing purposes.', 'placeholder_for_url', NOW(), NOW(), 100, TRUE, 1)
 
 
+-- -------------------------------------------------------
+-- GPT's SECOND ATTEMPT, NO IMAGES 
+-- -------------------------------------------------------
 
+-- INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`)
+-- VALUES 
+-- (21, 'Star Wars Vintage Poster', 'An original vintage poster from the 1977 Star Wars movie.', 'rare', NOW(), 500, 1, 1, 1, 1, 'www.originalfilmart.com/star-wars-1977-original-movie-poster'),
+-- (22, 'Mona Lisa', 'High-quality digital image of the famous Mona Lisa painting by Leonardo da Vinci.', 'common', NOW(), 1000, 1, 2, 0, 2, 'https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF.jpg'),
+-- (23, 'Pepe the Frog', 'A digital copy of the popular internet meme, Pepe the Frog.', 'common', NOW(), 200, 1, 3, 1, 3, 'https://knowyourmeme.com/memes/pepe-the-frog'),
+-- (24, 'Harry Potter First Edition', 'Cover art from the first edition of Harry Potter and the Philosopher''s Stone.', 'rare', NOW(), 350, 1, 4, 0, 4, 'https://www.harrypotterfanzone.com/book-covers/book-1/'),
+-- (25, 'Mount Rushmore Photo', 'A high-resolution photo of the iconic Mount Rushmore.', 'common', NOW(), 150, 1, 5, 1, 5, 'https://pixabay.com/images/search/mount%20rushmore/'),
+-- (26, 'Picasso''s Guernica', 'A digital copy of Pablo Picasso''s famous painting Guernica.', 'rare', NOW(), 800, 1, 1, 0, 1, 'https://www.wikiart.org/en/pablo-picasso/guernica-1937'),
+-- (27, 'Moon Landing Photo', 'A high-resolution photo of the historic Apollo moon landing.', 'common', NOW(), 500, 1, 2, 1, 2, 'placeholder_for_url'),
+-- (28, 'Original Superman Comic', 'A digital copy of the first Superman comic.', 'rare', NOW(), 700, 1, 3, 0, 3, 'placeholder_for_url'),
+-- (29, 'First Edition of Pride and Prejudice', 'A digital copy of a first edition Pride and Prejudice cover.', 'common', NOW(), 400, 1, 4, 1, 4, 'placeholder_for_url'),
+-- (30, 'Placeholder Token', 'This is a placeholder token for testing purposes.', 'common', NOW(), 100, 1, 5, 1, 5, 'placeholder_for_url');
 
 
 

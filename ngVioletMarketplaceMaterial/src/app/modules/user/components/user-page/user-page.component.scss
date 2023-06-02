@@ -6,9 +6,9 @@
   font-family: "Nunito";
 }
 
-app-double-grad-button {
-  @include button-gradient(linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%), linear-gradient(95.71deg, rgba(14, 14, 69, 0.7) 19.97%, rgba(136, 181, 223, 0.7) 85.88%), linear-gradient(93.24deg, #77B388 0.65%, #D5752A 74.14%));
-}
+// app-double-grad-button {
+//   @include button-gradient(linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%), linear-gradient(95.71deg, rgba(14, 14, 69, 0.7) 19.97%, rgba(136, 181, 223, 0.7) 85.88%), linear-gradient(93.24deg, #77B388 0.65%, #D5752A 74.14%));
+// }
 
 .top-container {
   height: auto;

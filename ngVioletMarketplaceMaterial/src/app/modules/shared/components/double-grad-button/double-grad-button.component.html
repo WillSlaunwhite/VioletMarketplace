@@ -1,5 +1,5 @@
 <div class="dg-button-wrapper">
-  <button mat-stroked-button class="dg-button">
+  <button [ngStyle]="{'background-image': gradients.join()}" mat-stroked-button class="dg-button">
     <div class="glass-wrapper"></div>
     <div class="text-wrapper">{{ label }}</div>
   </button>
