@@ -1,0 +1,14 @@
+// hello
+.register-container {
+  width: 80vw;
+  height: 60vh;
+  background: orange;
+  overflow: hidden;
+
+  .form-container {
+    width: 60vmin;
+    height: 100%;
+    margin: auto;
+    background: gray;
+  }
+}

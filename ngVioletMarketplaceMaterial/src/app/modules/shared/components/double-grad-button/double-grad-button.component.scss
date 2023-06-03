@@ -1,7 +1,7 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
 
-@include preset-gradients;
+// @include preset-gradients;
 
 .dg-button-wrapper {
   position: absolute;
@@ -26,6 +26,7 @@
     border: none;
     background-size: 150% 150%;
     animation: gradient 8s linear 10s infinite;
+    // background: orange;
 
 
     &.dg-button::before,
@@ -40,7 +41,6 @@
       height: calc(100% + 6px);
       z-index: -1;
       border-radius: 6px;
-      background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
       background-size: 150% 100%;
       transition: all .8s ease-in-out;
       // filter: hue-rotate(15deg);

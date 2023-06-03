@@ -22,6 +22,20 @@ export class HomeComponent implements OnInit {
   tokens$: Observable<Token[] | null> = of(null);
   token: Token | null = new Token();
   descriptionShowing: boolean = false;
+
+  // this seems to be working for the border but only with one layer + glass
+  // and not the borders
+  gradientConfigs = {
+    redButtonConfig: {
+      gradientLayers: [
+        'linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%)',
+        'linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%)'
+      ],
+      borderGradient: 'linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%)'
+    },
+    // ...other button configurations...
+  };
+
   constructor(
     private tokenSvc: TokenService,
     private router: Router,

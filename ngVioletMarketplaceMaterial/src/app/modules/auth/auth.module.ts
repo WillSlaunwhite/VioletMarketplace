@@ -12,12 +12,14 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './state/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './state/auth.effect';
+import { AltRegisterComponent } from './components/alt-register/alt-register.component';
 
 
 @NgModule({
   declarations: [
     RegisterComponent,
     LoginComponent,
+    AltRegisterComponent,
   ],
   imports: [
     MaterialModule,
@@ -35,6 +37,7 @@ import { AuthEffects } from './state/auth.effect';
   exports: [
     RegisterComponent,
     LoginComponent,
+    AltRegisterComponent
   ]
 })
 export class AuthModule { }
