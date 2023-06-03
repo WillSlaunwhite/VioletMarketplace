@@ -108,8 +108,8 @@
 @mixin button-wrapper-styles($top) {
   top: $top;
 
-  .button::before,
-  .button::after {
+  ::before,
+  ::after {
     position: absolute;
     content: '';
     top: -2px;
@@ -122,11 +122,11 @@
     border-radius: 6px;
     background-size: 150% 100%;
     transition: all .6s ease-in-out;
-    filter: hue-rotate(30deg) brightness(.95);
+    // filter: hue-rotate(30deg) brightness(2.95);
   }
 
-  .button:hover::after,
-  .button:hover::before {
+  :hover::after,
+  :hover::before {
     // pointer-events: none;
     transform: rotate(37.5deg) scale(2);
     animation-timing-function: ease-out;
