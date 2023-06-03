@@ -1,21 +1,13 @@
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/variables';
 
-::ng-deep .dg-button {
-  background: purple;
-}
-
-// .dg-button-red {
-//   @include fl;
-// }
-
-@include preset-gradients;
-
-
 .main-content {
   width: 100vw;
   @include flex-column-start;
 
+  .grad-button {
+    // background: pink;
+  }
 
   .top-twenty,
   .middle-half,

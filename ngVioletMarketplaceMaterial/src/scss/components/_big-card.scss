@@ -1,9 +1,5 @@
   @import '/src/scss/utils/variables';
   @import '/src/scss/utils/mixins';
-  @include card-glass;
-
-
-
 
   // CARDS
   .mat-card {
@@ -18,7 +14,7 @@
     transition: ease-in-out .55s;
 
     .glass-wrapper {
-      opacity: .6;
+      opacity: .8;
       pointer-events: none;
       z-index: 1;
       border-radius: 0;
@@ -43,7 +39,7 @@
     }
 
     &.mat-card img {
-      height: 82.5%;
+      height: 77.5%;
       background: transparent;
       image-resolution: from-image;
       image-rendering: optimizeQuality;
@@ -90,7 +86,7 @@
       height: 100%;
       margin-top: 0;
       margin-inline: auto;
-      opacity: .8;
+      // opacity: .9;
       @include flex-center;
     }
 

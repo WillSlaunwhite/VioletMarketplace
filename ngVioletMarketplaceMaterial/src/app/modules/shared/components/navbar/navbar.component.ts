@@ -9,6 +9,7 @@ import { LoginComponent } from 'src/app/modules/auth/components/login/login.comp
 import { Store } from '@ngrx/store';
 import { isLoggedIn, selectCurrentUser } from 'src/app/modules/auth/state/auth.selectors';
 import { logout, removeJwt } from 'src/app/modules/auth/state/auth.actions';
+import { AltRegisterComponent } from 'src/app/modules/auth/components/alt-register/alt-register.component';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -35,7 +36,7 @@ export class NavbarComponent implements OnInit {
   }
 
   openRegisterDialog(): void {
-    this.dialog.open(RegisterComponent);
+    this.dialog.open(AltRegisterComponent);
   }
 
   openLoginDialog(): void {

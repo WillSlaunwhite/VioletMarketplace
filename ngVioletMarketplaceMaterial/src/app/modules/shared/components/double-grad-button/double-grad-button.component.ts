@@ -1,6 +1,7 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
+
 @Component({
   selector: 'app-double-grad-button',
   templateUrl: './double-grad-button.component.html',
@@ -21,7 +22,6 @@ export class DoubleGradButtonComponent implements OnInit {
   @Input() delay: number = Math.random() * 3;
   @Input() directionX: number = Math.random() * 20 - 10;
   @Input() directionY: number = Math.random() * 20 - 10;
-  @Input() gradients: string[] = [];
 
   constructor() { }
 
