@@ -1,7 +1,7 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
-
-// @include preset-gradients;
+@import '/src/scss/components/grad-buttons';
+@include preset-gradients;
 
 .dg-button-wrapper {
   position: absolute;
@@ -41,6 +41,7 @@
       height: calc(100% + 6px);
       z-index: -1;
       border-radius: 6px;
+      background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
       background-size: 150% 100%;
       transition: all .8s ease-in-out;
       // filter: hue-rotate(15deg);

@@ -79,7 +79,7 @@
   }
 }
 
-@mixin card-glass-border() {
+@mixin card-glass-border {
   .glass-wrapper::before {
     content: '';
     position: absolute;
@@ -96,8 +96,51 @@
   }
 }
 
-@mixin flex-column-start() {
+@mixin flex-column-start {
   flex-direction: column;
   display: flex;
   justify-content: flex-start;
+}
+
+
+
+
+@mixin button-wrapper-styles($top) {
+  top: $top;
+
+  .button::before,
+  .button::after {
+    position: absolute;
+    content: '';
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    z-index: -1;
+    border-radius: 6px;
+    background-size: 150% 100%;
+    transition: all .6s ease-in-out;
+    filter: hue-rotate(30deg) brightness(.95);
+  }
+
+  .button:hover::after,
+  .button:hover::before {
+    // pointer-events: none;
+    transform: rotate(37.5deg) scale(2);
+    animation-timing-function: ease-out;
+  }
+}
+
+@mixin button-styles($background-image, $before-background-image, $after-background-image) {
+  background-image: $background-image;
+
+  &::before {
+    background-image: $before-background-image;
+  }
+
+  &::after {
+    background-image: $after-background-image;
+  }
 }
