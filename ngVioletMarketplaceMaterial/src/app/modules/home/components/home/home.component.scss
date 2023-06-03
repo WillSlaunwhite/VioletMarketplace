@@ -1,13 +1,10 @@
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/variables';
+@import '/src/scss/components/grad-buttons';
 
 .main-content {
   width: 100vw;
   @include flex-column-start;
-
-  .grad-button {
-    // background: pink;
-  }
 
   .top-twenty,
   .middle-half,
