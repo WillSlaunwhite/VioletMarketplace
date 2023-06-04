@@ -82,7 +82,6 @@
         border: none;
         font-size: 1.4em;
         font-weight: 300 !important;
-        color: lightgray;
         background-size: 150% 150%;
         animation: gradient 4s linear 5s infinite;
 
@@ -99,6 +98,7 @@
           height: 100%;
           border-radius: 6px;
           z-index: 2;
+          opacity: .8;
           padding: 0;
           margin: 0;
           background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
@@ -137,6 +137,7 @@
           text-rendering: geometricPrecision;
         }
       }
+
 
       // &.tokens-button-wrapper {
       //   top: 35%;
@@ -206,41 +207,41 @@
       //   }
       // }
 
-      .tokens-button::before,
-      .wallet-button::before,
-      .collections-button::before,
-      .create-button::before,
-      .tokens-button::after,
-      .wallet-button::after,
-      .collections-button::after,
-      .create-button::after {
-        position: absolute;
-        content: '';
-        top: -2px;
-        bottom: -2px;
-        left: -2px;
-        right: -2px;
-        width: calc(100% + 6px);
-        height: calc(100% + 6px);
-        z-index: -1;
-        border-radius: 6px;
-        background-size: 150% 100%;
-        transition: all .6s ease-in-out;
-        filter: hue-rotate(30deg) brightness(.95);
-      }
+      // .tokens-button::before,
+      // .wallet-button::before,
+      // .collections-button::before,
+      // .create-button::before,
+      // .tokens-button::after,
+      // .wallet-button::after,
+      // .collections-button::after,
+      // .create-button::after {
+      //   position: absolute;
+      //   content: '';
+      //   top: -2px;
+      //   bottom: -2px;
+      //   left: -2px;
+      //   right: -2px;
+      //   width: calc(100% + 6px);
+      //   height: calc(100% + 6px);
+      //   z-index: -1;
+      //   border-radius: 6px;
+      //   background-size: 150% 100%;
+      //   transition: all .6s ease-in-out;
+      //   filter: hue-rotate(30deg) brightness(.95);
+      // }
 
-      .tokens-button:hover::after,
-      .wallet-button:hover::after,
-      .collections-button:hover::after,
-      .create-button:hover::after,
-      .tokens-button:hover::before,
-      .wallet-button:hover::before,
-      .collections-button:hover::before,
-      .create-button:hover::before {
-        // pointer-events: none;
-        transform: rotate(37.5deg) scale(2);
-        animation-timing-function: ease-out;
-      }
+      // .tokens-button:hover::after,
+      // .wallet-button:hover::after,
+      // .collections-button:hover::after,
+      // .create-button:hover::after,
+      // .tokens-button:hover::before,
+      // .wallet-button:hover::before,
+      // .collections-button:hover::before,
+      // .create-button:hover::before {
+      //   // pointer-events: none;
+      //   transform: rotate(37.5deg) scale(2);
+      //   animation-timing-function: ease-out;
+      // }
 
     }
   }
@@ -273,10 +274,6 @@
     border-radius: 2px;
     transition: ease-out 5s;
 
-    &:hover {
-      transition: ease-out 1.5s;
-      transform: scale(1.006);
-    }
   }
 
   .tokens-section {

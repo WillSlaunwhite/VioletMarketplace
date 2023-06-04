@@ -2,25 +2,25 @@
   <div class="button-container d-flex align-items-center justify-content-center">
     <img class="user-image" src="../../../../../assets/images/cortana.png">
     <div class="tokens-button-wrapper button-wrapper">
-      <button routerLink="/tokens-list" mat-stroked-button class="tokens-button">
+      <button routerLink="/tokens-list" mat-stroked-button class="grad-button tokens-button">
         <div class="glass-wrapper"></div>
         <div class="text-wrapper">tokens</div>
       </button>
     </div>
     <div class="wallet-button-wrapper button-wrapper">
-      <button mat-stroked-button class="wallet-button">
+      <button mat-stroked-button class="grad-button wallet-button">
         <div class="glass-wrapper"></div>
         <div class="text-wrapper">wallet</div>
       </button>
     </div>
     <div class="collections-button-wrapper button-wrapper">
-      <button (click)="openDialog()" mat-stroked-button class="collections-button">
+      <button (click)="openDialog()" mat-stroked-button class="grad-button collections-button">
         <div class="glass-wrapper"></div>
         <div class="text-wrapper">update for now<br>(collections)</div>
       </button>
     </div>
     <div class="create-button-wrapper button-wrapper">
-      <button mat-stroked-button class="create-button">
+      <button mat-stroked-button class="grad-button create-button">
         <div class="glass-wrapper"></div>
         <div class="text-wrapper">create</div>
       </button>
@@ -30,7 +30,7 @@
     <div class="tokens-section">
       <app-token-list></app-token-list>
     </div>
-    <div class="wallet-section">
+    <div class="wallet-section d-flex justify-space-between">
       <app-double-grad-button label="hello"></app-double-grad-button>
     </div>
     <div class="collections-section">collections</div>

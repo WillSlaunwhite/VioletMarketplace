@@ -1,7 +1,6 @@
 @import '/src/scss/utils/mixins';
 
 
-
 // need to move gradient color declarations here I think
 
 
@@ -48,4 +47,36 @@
       linear-gradient(91.5deg, rgba(71, 29, 144) 1.28%, rgba(39, 91, 47) 93.7%),
       linear-gradient(89.23deg, #275B2F 0.38%, #5B4C75 99.34%));
   }
+}
+
+::before,
+::after {
+  position: absolute;
+  content: '';
+  top: -2px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  z-index: -1;
+  border-radius: 6px;
+  background-size: 150% 100%;
+  transition: all .5s ease-in-out;
+  filter: hue-rotate(30deg) brightness(.95);
+}
+
+// .tokens-button:hover::after,
+// .wallet-button:hover::after,
+// .collections-button:hover::after,
+// .create-button:hover::after,
+// .tokens-button:hover::before,
+// .wallet-button:hover::before,
+// .collections-button:hover::before,
+.button:hover ::before,
+.button:hover ::after {
+  // pointer-events: none;
+  transform: rotate(37.5deg) scale(2);
+  animation-timing-function: ease-out;
+  transition: all .6s ease-in-out;
 }
