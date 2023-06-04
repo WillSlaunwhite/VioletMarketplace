@@ -79,7 +79,7 @@
   }
 }
 
-@mixin card-glass-border {
+@mixin card-glass-border() {
   .glass-wrapper::before {
     content: '';
     position: absolute;
@@ -96,7 +96,7 @@
   }
 }
 
-@mixin flex-column-start {
+@mixin flex-column-start() {
   flex-direction: column;
   display: flex;
   justify-content: flex-start;
