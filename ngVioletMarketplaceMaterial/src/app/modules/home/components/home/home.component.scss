@@ -5,10 +5,6 @@
   width: 100vw;
   @include flex-column-start;
 
-  .grad-button {
-    // background: pink;
-  }
-
   .top-twenty,
   .middle-half,
   .bottom {
@@ -31,12 +27,10 @@
     }
 
     &.middle-half {
-      display: flex;
       margin-top: 2.5rem;
       overflow-y: hidden;
-      height: 100%;
-      width: 100%;
       align-items: flex-start;
+      @include flex-full-wh;
       @include flex-column-start;
 
       .cta-container {
@@ -57,7 +51,7 @@
           text-align: start;
           color: $text-secondary-dark;
           padding: 0;
-          // todo please fix this margin
+          // TODO please fix this margin
           margin-left: 30%;
           margin-top: 4.25rem;
           margin-bottom: 0;

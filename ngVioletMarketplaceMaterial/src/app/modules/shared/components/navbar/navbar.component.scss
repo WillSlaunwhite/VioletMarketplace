@@ -1,5 +1,5 @@
 // TOP LEVEL ELEMENT CHANGES
-// todo need to replace hard-coded colors with variables
+// TODO need to replace hard-coded colors with variables
 a {
   text-decoration: none;
   font-weight: 300;
@@ -16,7 +16,7 @@ input {
 }
 
 app-nav-grad-button {
-  // todo can decrease margin so buttons stack,
+  // TODO can decrease margin so buttons stack,
   // * if you want. Then slide out or something
   margin-inline: 3rem;
 }
@@ -59,7 +59,7 @@ mat-label {
 
 // SEARCH BAR
 .search {
-  // todo really don't like current search interaction
+  // TODO really don't like current search interaction
 
   width: 40vmin;
   // min-width: 25%;

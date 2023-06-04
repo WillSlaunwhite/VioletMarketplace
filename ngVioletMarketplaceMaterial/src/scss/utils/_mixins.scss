@@ -14,10 +14,25 @@
 }
 
 // center a div!
-@mixin flex-center {
+@mixin flex-center() {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+// absolute position top of container
+@mixin abs-top-left() {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+// basic site font styling
+@mixin basic-font() {
+  color: #e7e7e7;
+  font-family: 'Nunito';
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: geometricPrecision;
 }
 
 // calculate font size based on viewport
@@ -33,34 +48,33 @@
   background-image: $gradients;
 }
 
+@mixin flex-column-start() {
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+}
+
+@mixin flex-full-wh() {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+
+// TODO need to move all gradient definitions here
 @mixin preset-gradients {
   .dg-button-red {
     @include button-gradient (linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
       linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
   }
-
-  // .dg-button-red {
-  //   @include button-gradient (linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
-  //     linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
-  // }
-  // .dg-button-red {
-  //   @include button-gradient (linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
-  //     linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
-  // }
-  // .dg-button-red {
-  //   @include button-gradient (linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
-  //     linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
-  // }
-  // .dg-button-red {
-  //   @include button-gradient (linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
-  //     linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
-  // }
-  // .dg-button-red {
-  //   @include button-gradient (linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
-  //     linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
-  // }
 }
 
+
+
+
+
+
+// glass effects for cards
 @mixin card-glass($gradients...) {
   .glass-wrapper {
     margin: 0;
@@ -96,15 +110,12 @@
   }
 }
 
-@mixin flex-column-start() {
-  flex-direction: column;
-  display: flex;
-  justify-content: flex-start;
-}
 
 
 
 
+
+// button effects
 @mixin button-wrapper-styles($top) {
   top: $top;
 
@@ -121,15 +132,12 @@
     z-index: -1;
     border-radius: 6px;
     background-size: 150% 100%;
-    transition: all .6s ease-in-out;
-    // filter: hue-rotate(30deg) brightness(2.95);
+    transition: all .5s ease-in;
   }
 
 
   .grad-button:hover::after,
   .grad-button:hover::before {
-
-    // pointer-events: none;
     transform: rotate(37.5deg) scale(2);
     animation-timing-function: ease-out;
   }
