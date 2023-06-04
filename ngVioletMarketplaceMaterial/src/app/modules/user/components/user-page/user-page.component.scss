@@ -82,7 +82,6 @@
         border: none;
         font-size: 1.4em;
         font-weight: 300 !important;
-        color: lightgray;
         background-size: 150% 150%;
         animation: gradient 4s linear 5s infinite;
 
@@ -99,6 +98,7 @@
           height: 100%;
           border-radius: 6px;
           z-index: 2;
+          opacity: .8;
           padding: 0;
           margin: 0;
           background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
@@ -137,6 +137,7 @@
           text-rendering: geometricPrecision;
         }
       }
+
 
       // &.tokens-button-wrapper {
       //   top: 35%;
@@ -273,10 +274,6 @@
     border-radius: 2px;
     transition: ease-out 5s;
 
-    &:hover {
-      transition: ease-out 1.5s;
-      transform: scale(1.006);
-    }
   }
 
   .tokens-section {
