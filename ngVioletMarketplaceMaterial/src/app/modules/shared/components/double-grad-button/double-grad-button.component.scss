@@ -106,8 +106,49 @@
       text-rendering: geometricPrecision;
     }
 
+  .glass-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+      radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+    z-index: -1;
+    border-radius: 6px;
+    padding: 0;
+    margin: 0;
   }
 
+  .text-wrapper {
+    color: #e7e7e7;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    font-size: 2.1em;
+    font-family: 'Nunito';
+    font-weight: 400;
+    pointer-events: none; // Add this line to make sure the button is still clickable
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+}
+
+
+
+
+.dg-button:hover::before,
+.dg-button:hover::after {
+  transform: rotate(37.5deg) scale(2);
+  animation-timing-function: ease-out;
 }
 
 .dg-button-red {

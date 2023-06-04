@@ -107,9 +107,9 @@
 
 @mixin button-wrapper-styles($top) {
   top: $top;
-
-  ::before,
-  ::after {
+  
+  .grad-button::before,
+  .grad-button::after {
     position: absolute;
     content: '';
     top: -2px;
@@ -125,10 +125,12 @@
     // filter: hue-rotate(30deg) brightness(2.95);
   }
 
-  .button:hover ::after,
-  .button:hover ::before {
+
+  .grad-button:hover::after,
+  .grad-button:hover::before {
+
     // pointer-events: none;
-    // transform: rotate(37.5deg) scale(2);
+    transform: rotate(37.5deg) scale(2);
     animation-timing-function: ease-out;
   }
 }
