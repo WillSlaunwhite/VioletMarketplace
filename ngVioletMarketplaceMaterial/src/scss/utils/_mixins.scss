@@ -125,8 +125,8 @@
     // filter: hue-rotate(30deg) brightness(2.95);
   }
 
-  :hover::after,
-  :hover::before {
+  :hover ::after,
+  :hover ::before {
     // pointer-events: none;
     transform: rotate(37.5deg) scale(2);
     animation-timing-function: ease-out;
