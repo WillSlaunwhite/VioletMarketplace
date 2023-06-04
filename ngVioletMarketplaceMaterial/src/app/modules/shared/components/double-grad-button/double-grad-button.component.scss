@@ -25,28 +25,86 @@
     outline: none;
     border: none;
     background-size: 150% 150%;
-    font-weight: 300 !important;
-    animation: gradient 4s linear 5s infinite;
-    @include button-styles(linear-gradient(0deg, rgba(0, 0, 0), rgba(0, 0, 0)),
-      linear-gradient(91.5deg, rgba(71, 29, 144) 1.28%, rgba(39, 91, 47) 93.7%),
-      linear-gradient(89.23deg, #275B2F 0.38%, #5B4C75 99.34%));
-  }
+    animation: gradient 8s linear 10s infinite;
+    // background: orange;
 
-  .glass-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-    z-index: 2;
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
-      radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%);
-  }
+
+    &.dg-button::before,
+    .dg-button::after {
+      position: absolute;
+      content: '';
+      top: -2px;
+      bottom: -2px;
+      left: -2px;
+      right: -2px;
+      width: calc(100% + 6px);
+      height: calc(100% + 6px);
+      z-index: -1;
+      border-radius: 6px;
+      background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
+      background-size: 150% 100%;
+      transition: all .8s ease-in-out;
+      // filter: hue-rotate(15deg);
+      pointer-events: none;
+
+    }
+
+    :hover ::before,
+    :hover ::after {
+      // transform: rotate(45deg) scale(2);
+      animation-timing-function: ease-in-out;
+    }
+
+    .glass-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: .5;
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      z-index: 2;
+      padding: 0;
+      margin: 0;
+      background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+        radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%);
+    }
+
+    .glass-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+        radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+      z-index: -1;
+      border-radius: 6px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .text-wrapper {
+      color: #e7e7e7;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      font-size: 2.1em;
+      font-family: 'Nunito';
+      font-weight: 400;
+      pointer-events: none; // Add this line to make sure the button is still clickable
+      -webkit-font-smoothing: subpixel-antialiased;
+      text-rendering: geometricPrecision;
+    }
 
   .glass-wrapper::before {
     content: '';
