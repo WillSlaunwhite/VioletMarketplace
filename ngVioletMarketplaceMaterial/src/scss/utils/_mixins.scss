@@ -107,7 +107,7 @@
 
 @mixin button-wrapper-styles($top) {
   top: $top;
-  
+
   .grad-button::before,
   .grad-button::after {
     position: absolute;

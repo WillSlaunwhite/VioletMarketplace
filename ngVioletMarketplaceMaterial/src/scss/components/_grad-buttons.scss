@@ -49,8 +49,15 @@
   }
 }
 
-::before,
-::after {
+.dg-button {
+  @include button-styles(linear-gradient(85.69deg, rgba(71, 29, 144) 1.1%, rgba(14, 14, 69) 71.94%),
+    linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%),
+    linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
+}
+
+/*
+.dg-button::before,
+.dg-button::after {
   position: absolute;
   content: '';
   top: -2px;
@@ -64,7 +71,7 @@
   background-size: 150% 100%;
   transition: all .5s ease-in-out;
   filter: hue-rotate(30deg) brightness(.95);
-}
+} */
 
 // .tokens-button:hover::after,
 // .wallet-button:hover::after,
@@ -72,11 +79,11 @@
 // .create-button:hover::after,
 // .tokens-button:hover::before,
 // .wallet-button:hover::before,
-// .collections-button:hover::before,
-.button:hover ::before,
-.button:hover ::after {
-  // pointer-events: none;
-  transform: rotate(37.5deg) scale(2);
-  animation-timing-function: ease-out;
-  transition: all .6s ease-in-out;
-}
+// // .collections-button:hover::before,
+// .dg-button:hover::before,
+// .dg-button:hover::after {
+//   // pointer-events: none;
+//   transform: rotate(37.5deg) scale(2);
+//   animation-timing-function: ease-out;
+//   transition: all .6s ease-in-out;
+// }
