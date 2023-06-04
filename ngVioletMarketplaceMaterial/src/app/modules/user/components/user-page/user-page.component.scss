@@ -1,6 +1,5 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
-@import '/src/scss/components/grad-buttons';
 
 * {
   color: white;
@@ -15,16 +14,17 @@
   height: auto;
   width: 100vw;
   padding-top: 1.5em;
-  @include flex-center;
-
+  display: flex;
+  justify-content: center;
+  align-content: center;
 
   .button-container {
     margin-inline: auto;
     width: 280px;
     height: 80vh;
     margin-left: 1.75em;
-    position: relative;
-    z-index: 0;
+    position: relative; // Add this line to position the button wrappers absolutely
+    z-index: 0; // Add this line to set the z-index value for the container
 
     .user-image {
       position: absolute;
@@ -37,6 +37,7 @@
 
 
     // BUTTONS
+
     .button-wrapper {
       position: absolute;
       width: 244px;
@@ -138,183 +139,194 @@
         }
       }
 
-      // &.tokens-button-wrapper {
-      //   top: 35%;
+      &.tokens-button-wrapper {
+        top: 35%;
 
-      //   .tokens-button {
-      //     background-image: linear-gradient(88.33deg, #3635AC 0.81%, #304B7E 51.46%, #471D90 102.11%);
-      //   }
+        //   .tokens-button {
+        //     background-image: linear-gradient(88.33deg, #3635AC 0.81%, #304B7E 51.46%, #471D90 102.11%);
+        //   }
 
-      //   .tokens-button::before {
-      //     background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
-      //   }
+        //   .tokens-button::before {
+        //     background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
+        //   }
 
-      //   .tokens-button::after {
-      //     background-image: linear-gradient(to bottom, #34D1C8 33.56%, #FD241D 78.08%);
-      //   }
+        //   .tokens-button::after {
+        //     background-image: linear-gradient(to bottom, #34D1C8 33.56%, #FD241D 78.08%);
+        //   }
 
-      // }
+        // }
 
-      // &.wallet-button-wrapper {
-      //   top: 54%;
+        // &.wallet-button-wrapper {
+        //   top: 54%;
 
-      // .wallet-button::before {
-      //   background-image: linear-gradient(to right, #FCB045 0%, #77B388 100%);
-      // }
+        // .wallet-button::before {
+        //   background-image: linear-gradient(to right, #FCB045 0%, #77B388 100%);
+        // }
 
-      // .wallet-button::after {
-      //   background-image: linear-gradient(to bottom, #FCB045 0%, #77B388 100%);
-      // }
+        // .wallet-button::after {
+        //   background-image: linear-gradient(to bottom, #FCB045 0%, #77B388 100%);
+        // }
 
-      // .wallet-button {
-      //   background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%), linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
+        // .wallet-button {
+        //   background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%), linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
 
-      // }
-      // }
+        // }
+        // }
 
-      // &.collections-button-wrapper {
-      //   top: 73%;
+        // &.collections-button-wrapper {
+        //   top: 73%;
 
-      //   .collections-button {
-      //     background-image: linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%), linear-gradient(95.71deg, rgba(14, 14, 69, 0.7) 19.97%, rgba(136, 181, 223, 0.7) 85.88%), linear-gradient(93.24deg, #77B388 0.65%, #D5752A 74.14%);
+        //   .collections-button {
+        //     background-image: linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%), linear-gradient(95.71deg, rgba(14, 14, 69, 0.7) 19.97%, rgba(136, 181, 223, 0.7) 85.88%), linear-gradient(93.24deg, #77B388 0.65%, #D5752A 74.14%);
 
-      //     .collections-button::before {
-      //       background-image: linear-gradient(to right, #88B5DF 0%, #D5752A 100%);
-      //     }
-      //   }
+        //     .collections-button::before {
+        //       background-image: linear-gradient(to right, #88B5DF 0%, #D5752A 100%);
+        //     }
+        //   }
 
-      //   .collections-button::after {
-      //     background-image: linear-gradient(to bottom, #88B5DF 0%, #D5752A 100%);
-      //   }
-      // }
+        //   .collections-button::after {
+        //     background-image: linear-gradient(to bottom, #88B5DF 0%, #D5752A 100%);
+        //   }
+        // }
 
-      // &.create-button-wrapper {
-      //   top: 91%;
+        // &.create-button-wrapper {
+        //   top: 91%;
 
-      //   .create-button::after {
-      //     background-image: linear-gradient(to bottom, #FD241D 0%, #77B388 100%);
-      //   }
+        //   .create-button::after {
+        //     background-image: linear-gradient(to bottom, #FD241D 0%, #77B388 100%);
+        //   }
 
-      //   .create-button::before {
-      //     background-image: linear-gradient(to right, #FD241D 0%, #77B388 100%);
-      //   }
+        //   .create-button::before {
+        //     background-image: linear-gradient(to right, #FD241D 0%, #77B388 100%);
+        //   }
 
-      //   .create-button {
-      //     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      //       linear-gradient(91.5deg, rgba(71, 29, 144, 0.6) 1.28%, rgba(39, 91, 47, 0.6) 93.7%),
-      //       linear-gradient(89.23deg, #275B2F 0.38%, #5B4C75 99.34%);
-      //   }
-      // }
+        //   .create-button {
+        //     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        //       linear-gradient(91.5deg, rgba(71, 29, 144, 0.6) 1.28%, rgba(39, 91, 47, 0.6) 93.7%),
+        //       linear-gradient(89.23deg, #275B2F 0.38%, #5B4C75 99.34%);
+        //   }
+        // }
 
-      // .tokens-button::before,
-      // .wallet-button::before,
-      // .collections-button::before,
-      // .create-button::before,
-      // .tokens-button::after,
-      // .wallet-button::after,
-      // .collections-button::after,
-      // .create-button::after {
-      //   position: absolute;
-      //   content: '';
-      //   top: -2px;
-      //   bottom: -2px;
-      //   left: -2px;
-      //   right: -2px;
-      //   width: calc(100% + 6px);
-      //   height: calc(100% + 6px);
-      //   z-index: -1;
-      //   border-radius: 6px;
-      //   background-size: 150% 100%;
-      //   transition: all .6s ease-in-out;
-      //   filter: hue-rotate(30deg) brightness(.95);
-      // }
+        .tokens-button::before,
+        .wallet-button::before,
+        .collections-button::before,
+        .create-button::before,
+        .tokens-button::after,
+        .wallet-button::after,
+        .collections-button::after,
+        .create-button::after {
+          position: absolute;
+          content: '';
+          top: -2px;
+          bottom: -2px;
+          left: -2px;
+          right: -2px;
+          width: calc(100% + 6px);
+          height: calc(100% + 6px);
+          z-index: -1;
+          border-radius: 6px;
+          background-size: 150% 100%;
+          transition: all .8s ease-in-out;
+          // filter: hue-rotate(15deg);
+          pointer-events: none;
+          /* Add this line */
+        }
 
-      // .tokens-button:hover::after,
-      // .wallet-button:hover::after,
-      // .collections-button:hover::after,
-      // .create-button:hover::after,
-      // .tokens-button:hover::before,
-      // .wallet-button:hover::before,
-      // .collections-button:hover::before,
-      // .create-button:hover::before {
-      //   // pointer-events: none;
-      //   transform: rotate(37.5deg) scale(2);
-      //   animation-timing-function: ease-out;
-      // }
+        .tokens-button:hover::before,
+        .wallet-button:hover::before,
+        .collections-button:hover::before,
+        .create-button:hover::before {
+          // pointer-events: none;
+          // transform: rotate(0.125turn);
+          transform: rotate(45deg) scale(2);
+          animation-timing-function: ease-in-out;
+          // transform: rotate3d(50deg, 50deg);
+        }
 
-    }
-  }
-}
-
-// MAIN UI
-
-.user-info-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 80vw;
-  height: 80vh;
-  position: relative;
-  background: transparent;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-right: 2.5em;
-  margin-block-start: 1em;
-  padding-bottom: 2em;
-  // box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(255, 255, 255, 0.1) inset, 0 0 20px rgba(255, 255, 255, 0.1) inset;
-  transition: transform 0.3s ease-in-out;
-
-
-  .tokens-section,
-  .wallet-section,
-  .collections-section,
-  .create-section {
-    background: rgba(149, 149, 149, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 2px;
-    transition: ease-out 5s;
-
-    &:hover {
-      transition: ease-out 1.5s;
-      transform: scale(1.006);
+        .tokens-button:hover::after,
+        .wallet-button:hover::after,
+        .collections-button:hover::after,
+        .create-button:hover::after {
+          // pointer-events: none;
+          // transform: rotate(0.125turn);
+          transform: rotate(45deg) scale(2);
+          animation-timing-function: ease-in-out;
+        }
+      }
     }
   }
 
-  .tokens-section {
-    width: 100%;
-    height: calc(18rem + 1.25rem);
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: all ease-in-out 1s;
-  }
+  // MAIN UI
 
-  .wallet-section {
-    width: calc(50% - 1rem);
-    height: calc((80vh - (18rem + 3.5rem)) / 2);
-    position: absolute;
-    top: calc(18rem + 2rem);
-    left: 0;
-    margin-right: 2em;
-  }
-
-  .collections-section {
-    width: calc(50% - 1rem);
-    height: calc((80vh - (18rem + 2rem)) / 2);
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  .user-info-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    height: 80vh;
+    position: relative;
+    background: transparent;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-right: 2.5em;
+    margin-block-start: 1em;
     padding-bottom: 2em;
-  }
+    // box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(255, 255, 255, 0.1) inset, 0 0 20px rgba(255, 255, 255, 0.1) inset;
+    transition: transform 0.3s ease-in-out;
 
-  .create-section {
-    width: 50%;
-    height: calc(80vh - (18rem + 2rem));
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding-top: 2em;
+
+    .tokens-section,
+    .wallet-section,
+    .collections-section,
+    .create-section {
+      background: rgba(149, 149, 149, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 2px;
+      transition: ease-out 5s;
+
+      &:hover {
+        transition: ease-out 1.5s;
+        transform: scale(1.006);
+      }
+    }
+
+    .tokens-section {
+      width: 100%;
+      height: calc(18rem + 1.25rem);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all ease-in-out 1s;
+    }
+
+    .wallet-section {
+      width: calc(50% - 1rem);
+      height: calc((80vh - (18rem + 3.5rem)) / 2);
+      position: absolute;
+      top: calc(18rem + 2rem);
+      left: 0;
+      margin-right: 2em;
+    }
+
+    .collections-section {
+      width: calc(50% - 1rem);
+      height: calc((80vh - (18rem + 2rem)) / 2);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding-bottom: 2em;
+    }
+
+    .create-section {
+      width: 50%;
+      height: calc(80vh - (18rem + 2rem));
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding-top: 2em;
+    }
   }
 }
+
 
 
 // ANIMATIONS
