@@ -1,8 +1,8 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
 
-@include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
-  linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+@include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(88, 88, 88, 0.124) 100%),
+  linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(100, 100, 100, 0.124) 100%),
   radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
 @include glass-border;
 
@@ -20,7 +20,6 @@
 
   .glass-wrapper {
     opacity: .9;
-    pointer-events: none;
     z-index: 1;
     border-radius: 0;
   }
@@ -33,7 +32,7 @@
   &.mat-card:hover {
     opacity: .975;
     transform: translateY(-3px);
-    transition: ease-out .2s;
+    transition: ease-out .25s;
     backface-visibility: hidden;
     @include box-shadow(0 0 8px hsla(0, 0%, 50%, 0.7));
 
