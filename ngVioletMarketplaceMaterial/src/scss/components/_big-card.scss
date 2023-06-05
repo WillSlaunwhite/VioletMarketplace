@@ -2,9 +2,15 @@
   @import '/src/scss/utils/mixins';
 
 
-  @include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  // @include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.238) 0%, rgba(120, 120, 120, 0.174) 100%),
+  //   linear-gradient(180deg, rgba(0, 0, 0, 0.377) 0%, rgba(255, 255, 255, 0.187) 100%),
+  //   radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
+
+  @include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(88, 88, 88, 0.124) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(100, 100, 100, 0.124) 100%),
     radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
+
+
   @include glass-border;
 
   // CARDS
@@ -20,7 +26,7 @@
     transition: ease-in-out .55s;
 
     .glass-wrapper {
-      opacity: .6;
+      opacity: .8;
       pointer-events: none;
       z-index: 1;
       border-radius: 0;
