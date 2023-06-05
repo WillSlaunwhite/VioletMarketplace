@@ -3,6 +3,13 @@
 @import '/src/scss/components/grad-buttons';
 // @include preset-gradients;
 
+@include glass-effect(linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+  linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
+@include glass-border;
+
+
 .dg-button-wrapper {
   @include button-wrapper-styles(20%);
   position: absolute;
@@ -29,35 +36,7 @@
     animation: gradient 8s linear 10s infinite;
 
     .glass-wrapper {
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: .55;
-      width: 100%;
-      height: 100%;
-      border-radius: 6px;
-      z-index: 2;
-      padding: 0;
-      margin: 0;
-      background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
-        radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%);
-    }
-
-    .glass-wrapper::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
-        radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
-      z-index: -1;
-      border-radius: 6px;
-      padding: 0;
-      margin: 0;
+      opacity: .75;
     }
 
     .text-wrapper {
