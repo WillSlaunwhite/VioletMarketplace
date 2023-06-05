@@ -1,6 +1,12 @@
   @import '/src/scss/utils/variables';
   @import '/src/scss/utils/mixins';
 
+
+  @include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+    radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
+  @include glass-border;
+
   // CARDS
   .mat-card {
     height: 22.5rem;
@@ -14,10 +20,11 @@
     transition: ease-in-out .55s;
 
     .glass-wrapper {
-      opacity: .8;
+      opacity: .6;
       pointer-events: none;
       z-index: 1;
       border-radius: 0;
+      height: 77.5%;
     }
 
     &.mat-card a {
