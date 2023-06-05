@@ -13,6 +13,32 @@
   transition: $properties;
 }
 
+// calculate font size based on viewport
+@mixin responsive-font($minSize, $maxSize, $minViewport, $maxViewport) {
+  font-size: $minSize;
+
+  @media (min-width: $minViewport) and (max-width: $maxViewport) {
+    font-size: calc(#{$minSize} + (#{$maxSize} - #{$minSize}) * ((100vw - #{$minViewport}) / (#{$maxViewport} - #{$minViewport})));
+  }
+}
+
+
+
+// FONTS
+
+// basic site font styling
+@mixin basic-font() {
+  color: #e7e7e7;
+  font-family: 'Nunito';
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: geometricPrecision;
+}
+
+
+
+
+// POSITIONING
+
 // center a div!
 @mixin flex-center() {
   display: flex;
@@ -27,27 +53,6 @@
   left: 0;
 }
 
-// basic site font styling
-@mixin basic-font() {
-  color: #e7e7e7;
-  font-family: 'Nunito';
-  -webkit-font-smoothing: subpixel-antialiased;
-  text-rendering: geometricPrecision;
-}
-
-// calculate font size based on viewport
-@mixin responsive-font($minSize, $maxSize, $minViewport, $maxViewport) {
-  font-size: $minSize;
-
-  @media (min-width: $minViewport) and (max-width: $maxViewport) {
-    font-size: calc(#{$minSize} + (#{$maxSize} - #{$minSize}) * ((100vw - #{$minViewport}) / (#{$maxViewport} - #{$minViewport})));
-  }
-}
-
-@mixin button-gradient($gradients...) {
-  background-image: $gradients;
-}
-
 @mixin flex-column-start() {
   flex-direction: column;
   display: flex;
@@ -59,6 +64,9 @@
   width: 100%;
   display: flex;
 }
+
+
+
 
 
 // TODO need to move all gradient definitions here
@@ -75,8 +83,10 @@
 
 
 // glass effects for cards
-@mixin card-glass($gradients...) {
+@mixin glass-effect($gradients...) {
+
   .glass-wrapper {
+    @include button-gradient($gradients);
     margin: 0;
     position: absolute;
     top: 0;
@@ -86,14 +96,10 @@
     border-radius: 6px;
     z-index: 2;
     padding: 0;
-    opacity: .95;
-    background: linear-gradient(135deg, rgba(13, 13, 13, 0.303) 0%, rgb(0, 0, 0) 100%),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(13, 13, 13, 0.5) 80%),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%);
   }
 }
 
-@mixin card-glass-border() {
+@mixin glass-border() {
   .glass-wrapper::before {
     content: '';
     position: absolute;
@@ -112,10 +118,11 @@
 
 
 
-
-
-
 // button effects
+@mixin button-gradient($gradients...) {
+  background-image: $gradients;
+}
+
 @mixin button-wrapper-styles($top) {
   top: $top;
 
@@ -134,7 +141,6 @@
     background-size: 150% 100%;
     transition: all .5s ease-in;
   }
-
 
   .grad-button:hover::after,
   .grad-button:hover::before {
