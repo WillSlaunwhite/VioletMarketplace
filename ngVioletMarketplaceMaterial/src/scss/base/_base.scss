@@ -47,3 +47,9 @@ body {
     //       #141463
     // #14146b // #141472 // #14147a;
 }
+
+// dialog backgrounds (login, register, etc.)
+.cdk-overlay-dark-backdrop {
+  transition: all ease-in 1s;
+  background: rgba(0, 0, 0, .52);
+}
