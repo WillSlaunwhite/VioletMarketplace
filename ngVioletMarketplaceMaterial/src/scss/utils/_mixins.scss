@@ -142,7 +142,7 @@
     transition: all .5s ease-in;
     transform: none;
     animation: gradient 8s linear 10s infinite;
-    background: orange;
+    background: orange; // TEMPORARY
   }
 
   .grad-button:hover::after,
