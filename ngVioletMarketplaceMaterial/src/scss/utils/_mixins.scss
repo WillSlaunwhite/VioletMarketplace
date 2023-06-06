@@ -1,3 +1,5 @@
+@import '/src/scss/utils/utilities';
+
 // apply box shadow to all browsers
 @mixin box-shadow($shadow) {
   -webkit-box-shadow: $shadow;
@@ -86,33 +88,31 @@
 @mixin glass-effect($gradients...) {
 
   .glass-wrapper {
+    @include abs-top-left;
     @include button-gradient($gradients);
     margin: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
+    padding: 0;
     width: 100%;
     height: 100%;
-    border-radius: 6px;
     z-index: 2;
-    padding: 0;
+    border-radius: inherit;
+    pointer-events: none;
   }
 }
 
 @mixin glass-border() {
   .glass-wrapper::before {
+    @include abs-top-left;
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
       radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
     z-index: -1;
-    border-radius: 6px;
     padding: 0;
     margin: 0;
+    border-radius: inherit;
   }
 }
 
@@ -140,6 +140,7 @@
     border-radius: 6px;
     background-size: 150% 100%;
     transition: all .5s ease-in;
+    animation: gradient 8s linear 10s infinite;
   }
 
   .grad-button:hover::after,

@@ -10,6 +10,8 @@ import { TokenService } from 'src/app/modules/tokens/services/token.service';
 import { loadTokens } from 'src/app/modules/tokens/state/tokens.actions';
 import { getAllTokens } from 'src/app/modules/tokens/state/tokens.selectors';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { MatDialog } from '@angular/material/dialog';
+import { AltRegisterComponent } from 'src/app/modules/auth/components/alt-register/alt-register.component';
 
 @Component({
   selector: 'app-home',
@@ -42,7 +44,8 @@ export class HomeComponent implements OnInit {
     private route: ActivatedRoute,
     private http: HttpClient,
     private appComponent: AppComponent,
-    private store: Store
+    private store: Store,
+    private dialog: MatDialog
   ) {
     this.animationData = this.getRouteAnimationData();
   }
@@ -74,6 +77,13 @@ export class HomeComponent implements OnInit {
       this.sidenav.nativeElement.classList.add('fill-forward');
     }
   }
+
+  openRegisterDialog(): void {
+    this.dialog.open(AltRegisterComponent);
+  }
+
+
+
 
   getRouteAnimationData() {
     const routeData = this.router.getCurrentNavigation()?.extractedUrl;

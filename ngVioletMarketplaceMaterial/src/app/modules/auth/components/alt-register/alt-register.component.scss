@@ -1,14 +1,36 @@
+@import '/src/scss/utils/mixins';
+
+
 // hello
+
+
+
 .register-container {
-  width: 80vw;
-  height: 60vh;
-  background: orange;
+  border-radius: 2px;
+  width: 70vw;
+  height: 75vh;
   overflow: hidden;
+  @include button-gradient(linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
+    linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
 
   .form-container {
     width: 60vmin;
     height: 100%;
     margin: auto;
     background: gray;
+  }
+
+  .glass-wrapper {
+    transition: none;
+    @include glass-effect(linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%),
+      radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
+    width: 100%;
+    position: relative;
+    margin: auto;
+    height: 75vh;
+    opacity: .9;
+    border-radius: 0px;
   }
 }
