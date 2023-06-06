@@ -3,6 +3,10 @@
 
 // hello
 
+.cdk-overlay-dark-backdrop {
+  opacity: .6;
+}
+
 
 .register-container::before {
   @include abs-top-left;
@@ -12,8 +16,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
-    radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+  // background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+  //   radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
   z-index: -1;
   padding: 0;
   margin: 0;
