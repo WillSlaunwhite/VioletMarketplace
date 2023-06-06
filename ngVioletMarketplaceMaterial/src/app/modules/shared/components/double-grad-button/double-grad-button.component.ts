@@ -1,7 +1,6 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
-
 @Component({
   selector: 'app-double-grad-button',
   templateUrl: './double-grad-button.component.html',
