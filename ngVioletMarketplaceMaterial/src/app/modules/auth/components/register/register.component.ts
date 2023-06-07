@@ -68,13 +68,18 @@ export class RegisterComponent implements OnInit {
   loginNewUser(user: User): void {
     this.authService.login(user.username, user.password).subscribe(
       (success) => {
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home').then(() => {
+          console.log('Navigation to /home successful');
+        }).catch((error) => {
+          console.error('Navigation to /home failed: ', error);
+        });
       },
       (error) => {
         console.error('RegisterComponent.loginNewUser: login failed\n' + error);
       }
     );
   }
+
 
   closeDialog(): void {
     this.dialogRef.close();

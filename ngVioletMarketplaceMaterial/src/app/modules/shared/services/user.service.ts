@@ -30,6 +30,7 @@ export class UserService {
   }
 
   getUserByUsername(username: string): Observable<User> {
+    console.log('UserService: getUserByUsername method called');
     return this.getHttpOptions().pipe(
       mergeMap(options =>
         this.http.get<User>(`${this.url}/${username}`, options).pipe(
@@ -42,6 +43,7 @@ export class UserService {
   }
 
   register(user: User) {
+    console.log('UserService: register method called');
     return this.getHttpOptions().pipe(
       switchMap(options =>
         this.http.post(this.baseUrl + 'register', user, options).pipe(
@@ -53,6 +55,7 @@ export class UserService {
   }
 
   getHttpOptions(): Observable<Object> {
+    console.log('in http options');
     return this.store.select(selectJwt).pipe(
       map(jwt => {
         let headers: { [key: string]: string } = {

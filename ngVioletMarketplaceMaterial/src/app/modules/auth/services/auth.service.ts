@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<{ user: User, jwt: string }> {
-    console.log('auth service login');
+    console.log('AuthService: login method called');
     const credentials = { username: username, password: password };
     let headers: { [key: string]: string } = {
       'Content-Type': 'application/json',

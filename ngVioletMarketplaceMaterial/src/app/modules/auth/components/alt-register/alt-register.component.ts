@@ -4,6 +4,7 @@ import User from 'src/app/models/user';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from 'src/app/modules/shared/services/user.service';
 import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-alt-register',
@@ -15,7 +16,12 @@ export class AltRegisterComponent implements OnInit {
   registerUser: User = new User();
   confirmPassword: string | null = '';
 
-  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private router: Router,
+    private dialogRef: MatDialogRef<AltRegisterComponent>,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -23,8 +29,10 @@ export class AltRegisterComponent implements OnInit {
   // this seems to be basically working, but
   // todo seems to be making multiple calls to /register, getting 500 error
   register(): void {
+    console.log('RegisterComponent: register method called');
     this.userService.register(this.registerUser).subscribe(
       () => {
+        this.closeDialog()
         this.loginNewUser(this.registerUser);
       },
       (error) => {
@@ -36,14 +44,11 @@ export class AltRegisterComponent implements OnInit {
   }
 
   loginNewUser(user: User): void {
-    this.authService.login(user.username, user.password).subscribe(
-      (success) => {
-        this.router.navigateByUrl('/home');
-      },
-      (error) => {
-        console.error('RegisterComponent.loginNewUser: login failed\n' + error);
-      }
-    );
+    console.log('RegisterComponent: loginNewUser method called');
+    this.authService.login(user.username, user.password);
   }
 
+  closeDialog(): void {
+    this.dialogRef.close();
+  }
 }
