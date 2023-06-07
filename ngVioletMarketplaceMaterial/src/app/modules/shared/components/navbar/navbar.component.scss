@@ -1,17 +1,22 @@
+@import '/src/scss/utils/variables';
+
+
 // TOP LEVEL ELEMENT CHANGES
 // TODO need to replace hard-coded colors with variables
 a {
   text-decoration: none;
   font-weight: 300;
-  color: #e7e7e7;
+  color: $text-primary-dark;
 }
 
 input {
   background: transparent;
   font-size: larger;
+  color: $text-primary-dark;
 
   &:focus {
-    color: white !important;
+    // todo do I need important here?
+    color: $text-secondary-dark !important;
   }
 }
 
@@ -63,7 +68,7 @@ mat-label {
 
   width: 40vmin;
   // min-width: 25%;
-  color: #ababab;
+  color: $light-gray;
   margin-top: 18px;
   position: relative;
   outline: none !important;
@@ -86,7 +91,7 @@ mat-label {
   right: 0;
   height: 1px;
   margin-top: 3em;
-  background: #e7e7e7;
+  background: $text-primary-dark;
 }
 
 .links {
@@ -106,7 +111,7 @@ mat-label {
 
 // DIVIDER COLOR
 .mat-divider {
-  border-top-color: #e7e7e7;
+  border-top-color: $text-primary-dark;
   opacity: .5;
 }
 

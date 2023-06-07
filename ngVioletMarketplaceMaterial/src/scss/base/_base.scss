@@ -10,7 +10,7 @@
 
 p {
   display: flex;
-  color: white;
+  color: $text-primary-dark;
   font-size: large;
   font-family: "Nunito";
   font-weight: 300;
@@ -26,7 +26,7 @@ button {
 }
 
 img {
-  background-color: white;
+  background-color: $text-primary-dark;
 }
 
 html {
@@ -39,13 +39,16 @@ body {
   margin: 0 !important;
   height: 100%;
   font-family: "Nunito";
-  background-color: #0a0a37 // #0c0c3e
-    // #0e0e45
-
-    // #11114d //     #121255
-    //      #13135b
-    //       #141463
-    // #14146b // #141472 // #14147a;
+  background-color: $background-dark;
+  // #0c0c3e
+  // #0e0e45
+  // #11114d
+  // #121255
+  // #13135b
+  // #141463
+  // #14146b
+  // #141472
+  // #14147a;
 }
 
 // dialog backgrounds (login, register, etc.)

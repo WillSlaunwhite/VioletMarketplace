@@ -1,4 +1,5 @@
 @import '/src/scss/utils/utilities';
+@import '/src/scss/utils/variables';
 
 // apply box shadow to all browsers
 @mixin box-shadow($shadow) {
@@ -29,8 +30,8 @@
 // FONTS
 
 // basic site font styling
-@mixin basic-font() {
-  color: #e7e7e7;
+@mixin basic-precise-font() {
+  color: $text-primary-dark;
   font-family: 'Nunito';
   -webkit-font-smoothing: subpixel-antialiased;
   text-rendering: geometricPrecision;
