@@ -1,3 +1,5 @@
+@import '/src/scss/utils/variables';
+
 /* Global styles */
 * {
   margin: 0;
@@ -8,9 +10,8 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f5f5dc;
-  /* Light beige */
+  color: $background-dark;
+  background-color: $light-beige;
 }
 
 /* Grid container */
@@ -25,13 +26,13 @@ body {
 header {
   grid-column: 1 / -1;
   padding: 20px;
-  background-color: #87ceeb;
+  background-color: $light-blue;
   /* Sky blue */
   text-align: center;
 }
 
 header h1 {
-  color: #fff;
+  color: $text-primary-dark;
   font-size: 2rem;
 }
 
@@ -65,9 +66,8 @@ form select {
 
 button {
   grid-column: 1 / -1;
-  background-color: #87ceeb;
-  /* Sky blue */
-  color: #fff;
+  background-color: $light-blue;
+  color: $text-primary-dark;
   padding: 10px;
   font-size: 1rem;
   cursor: pointer;

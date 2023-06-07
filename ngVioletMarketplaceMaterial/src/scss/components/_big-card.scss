@@ -8,6 +8,9 @@
 
   @include glass-border;
 
+  // todo remove duplicate code
+  // * most of this is duplicate code from _card.scss
+
   // CARDS
   .mat-card {
     height: 22.5rem;
@@ -136,9 +139,6 @@
       z-index: 3;
     }
 
-
-
-
     .mat-card-actions {
       width: 100%;
       position: absolute;
@@ -196,9 +196,6 @@
           transition: opacity .2s;
           background-color: hsla(262, 66%, 34%, 0.6);
         }
-
-
-
       }
     }
   }

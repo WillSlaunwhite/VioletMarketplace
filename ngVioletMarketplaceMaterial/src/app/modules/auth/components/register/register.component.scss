@@ -1,3 +1,6 @@
+@import '/src/scss/utils/variables';
+
+
 .mat-form-field {
   line-height: 1.5;
 }
@@ -49,5 +52,5 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
-  -webkit-text-fill-color: #fff;
+  -webkit-text-fill-color: $text-primary-dark;
 }

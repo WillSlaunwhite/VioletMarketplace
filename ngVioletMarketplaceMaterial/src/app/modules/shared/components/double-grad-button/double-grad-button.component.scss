@@ -42,7 +42,7 @@
     .text-wrapper {
       @include flex-center;
       @include abs-top-left;
-      @include basic-font;
+      @include basic-precise-font;
       @include flex-full-wh;
       z-index: 3;
       font-size: 2.1em;
