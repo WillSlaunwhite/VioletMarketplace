@@ -44,6 +44,7 @@ export class TokenListComponent implements OnInit, AfterViewInit, AfterContentCh
           }
         }
       }),
+      // todo backup logic doesn't seem to be working when you get 404 for tokens/user
       map(([user, allTokens, userTokens]) => user ? userTokens : allTokens)
     );
   }

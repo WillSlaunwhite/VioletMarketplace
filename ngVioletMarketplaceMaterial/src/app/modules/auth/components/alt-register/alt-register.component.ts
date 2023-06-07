@@ -20,6 +20,8 @@ export class AltRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // this seems to be basically working, but
+  // todo seems to be making multiple calls to /register, getting 500 error
   register(): void {
     this.userService.register(this.registerUser).subscribe(
       () => {

@@ -44,7 +44,7 @@ export class UserService {
   register(user: User) {
     return this.getHttpOptions().pipe(
       switchMap(options =>
-        this.http.post(`${this.baseUrl} + 'register'`, user, options).pipe(
+        this.http.post(this.baseUrl + 'register', user, options).pipe(
           catchError((err: any) => {
             return throwError(() => new Error('UserService.register: error registering user.'));
           })
