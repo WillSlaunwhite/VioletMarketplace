@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
   }
   register(): void {
     this.userService.register(this.registerUser).subscribe(
-      (success) => {
+      () => {
         this.loginNewUser(this.registerUser);
       },
       (error) => {

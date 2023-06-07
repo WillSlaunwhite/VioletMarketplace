@@ -5,7 +5,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRippleModule } from '@angular/material/core';
-
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -43,7 +43,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatDialogModule,
     MatMenuModule,
     NgbModule,
-    MatRippleModule
+    MatRippleModule,
+    MatTabsModule
   ],
   exports: [
     MatSliderModule,
@@ -62,7 +63,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatDialogModule,
     MatMenuModule,
     NgbModule,
-    MatRippleModule
+    MatRippleModule,
+    MatTabsModule
   ]
 })
 export class MaterialModule { }

@@ -1,6 +1,51 @@
 <div class="register-container">
   <div class="form-container">
+    <mat-tab-group>
+      <mat-tab label="Required Info">
+        <!-- First Tab - Required Info -->
+        <form class="form-fields" (ngSubmit)="register()">
+          <!-- Email Field -->
+          <mat-form-field class="form-field">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="registerUser.email" (ngModelChange)="registerUser.email" name="email" required>
+          </mat-form-field>
 
+          <!-- Username Field -->
+          <mat-form-field class="form-field">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="registerUser.username" (ngModelChange)="registerUser.username" name="username" required>
+          </mat-form-field>
+
+          <!-- Password Field -->
+          <mat-form-field class="form-field">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="registerUser.password" name="password" required>
+          </mat-form-field>
+
+          <!-- Confirm Password Field -->
+          <mat-form-field class="form-field">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+          </mat-form-field>
+
+          <!-- Password Match Error -->
+          <div *ngIf="registerUser.password != confirmPassword" class="text-danger">Passwords do not match</div>
+
+          <!-- Register Button -->
+          <button mat-raised-button class="submit-button" type="submit">Register</button>
+        </form>
+      </mat-tab>
+
+      <mat-tab label="Optional Info">
+        <!-- Second Tab - Optional Info -->
+        <!-- Content here -->
+      </mat-tab>
+
+      <mat-tab label="Validation">
+        <!-- Third Tab - Validation -->
+        <!-- Content here -->
+      </mat-tab>
+    </mat-tab-group>
   </div>
   <div class="glass-wrapper"></div>
 </div>
