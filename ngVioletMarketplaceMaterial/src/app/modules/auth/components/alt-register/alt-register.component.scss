@@ -49,7 +49,17 @@
   }
 
   .mat-tab-group {
+    // keep header at top
+    position: absolute;
+    top: 0;
     align-items: center;
+
+
+  }
+
+
+  .form-fields:first-child {
+    margin-top: 1.5em;
   }
 
   .form-fields {
@@ -58,12 +68,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    gap: 1.5em;
 
 
     .mat-form-field {
       width: 100%;
       text-align: center;
+
 
       .mat-input-element {
         margin: .3em 0;
@@ -87,4 +98,9 @@
   //   border-radius: 0px;
   //   z-index: 3;
   // }
+}
+
+// todo need to find a more correct way to do this
+::ng-deep .mat-tab-label {
+  padding: 0 5em !important;
 }
