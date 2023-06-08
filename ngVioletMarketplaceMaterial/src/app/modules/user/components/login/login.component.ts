@@ -3,12 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import User from 'src/app/models/user';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../auth/services/auth.service';
 import { Observable, throwError } from 'rxjs';
-import { RegisterComponent } from '../register/register.component';
 import { slideInTop } from 'src/app/animations/animations';
-import { login } from '../../state/auth.actions';
-import { selectCurrentUser } from '../../state/auth.selectors';
+import { login } from '../../state/user.actions';
+import { selectCurrentUser } from '../../state/user.selectors';
+import { AltRegisterComponent } from '../alt-register/alt-register.component';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ import { selectCurrentUser } from '../../state/auth.selectors';
   animations: [slideInTop]
 })
 export class LoginComponent implements OnInit {
-  constructor(private dialogRef: MatDialogRef<RegisterComponent>,
+  constructor(private dialogRef: MatDialogRef<AltRegisterComponent>,
     private auth: AuthService, private router: Router,
     private store: Store) { }
 

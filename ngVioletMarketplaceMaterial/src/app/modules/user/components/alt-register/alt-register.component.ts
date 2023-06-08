@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { slideInTop } from 'src/app/animations/animations';
 import User from 'src/app/models/user';
-import { AuthService } from '../../services/auth.service';
-import { UserService } from 'src/app/modules/shared/services/user.service';
+import { AuthService } from '../../../auth/services/auth.service';
+import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -17,8 +17,8 @@ export class AltRegisterComponent implements OnInit {
   confirmPassword: string | null = '';
 
   constructor(
-    private authService: AuthService,
-    private userService: UserService,
+    private auth: AuthService,
+    private userSvc: UserService,
     private router: Router,
     private dialogRef: MatDialogRef<AltRegisterComponent>,
   ) { }
@@ -30,7 +30,7 @@ export class AltRegisterComponent implements OnInit {
   // todo seems to be making multiple calls to /register, getting 500 error
   register(): void {
     console.log('RegisterComponent: register method called');
-    this.userService.register(this.registerUser).subscribe(
+    this.userSvc.register(this.registerUser).subscribe(
       () => {
         this.closeDialog()
         this.loginNewUser(this.registerUser);
@@ -44,9 +44,9 @@ export class AltRegisterComponent implements OnInit {
   }
 
   loginNewUser(user: User): void {
-    this.authService.login(user.username, user.password).subscribe(
+    this.userSvc.login(user.username, user.password).subscribe(
       (jwt) => {
-        this.userService.getUserByUsername(user.username).subscribe(
+        this.userSvc.getUserByUsername(user.username).subscribe(
           (user) => {
             console.log('User fetched successfully');
             this.router.navigateByUrl('/home').then(() => {
