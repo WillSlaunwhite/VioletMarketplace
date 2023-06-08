@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { login, loginSuccess, loginFailure, logout, logoutSuccess, logoutFailure, setJwt } from './auth.actions';
-import { AuthService } from '../services/auth.service';
+import { login, loginSuccess, loginFailure, logout, logoutSuccess, logoutFailure, setJwt } from './user.actions';
+import { AuthService } from '../../auth/services/auth.service';
 import { Store } from '@ngrx/store';
-import { UserService } from '../../shared/services/user.service';
+import { UserService } from '../services/user.service';
 
 
 @Injectable()
@@ -14,11 +14,11 @@ export class AuthEffects {
     ofType(login),
     mergeMap(({ username, password }) => {
       console.log('login effect triggered');
-      return this.authService.login(username, password)
+      return this.userSvc.login(username, password)
         .pipe(
           switchMap((jwt) => {
             this.store.dispatch(setJwt({ jwt }));
-            return this.userService.getUserByUsername(username).pipe(
+            return this.userSvc.getUserByUsername(username).pipe(
               map((user) => loginSuccess({ user })),
               catchError(error => of(loginFailure({ error })))
             );
@@ -32,7 +32,7 @@ export class AuthEffects {
   logout$ = createEffect(() => this.actions$.pipe(
     ofType(logout),
     mergeMap(() => {
-      return this.authService.logout()
+      return this.userSvc.logout()
         .pipe(
           map(() => logoutSuccess()),
           catchError(error => of(logoutFailure({ error })))
@@ -40,6 +40,6 @@ export class AuthEffects {
     })
   ));
 
-  constructor(private actions$: Actions, private authService: AuthService, private userService: UserService, private store: Store) {
+  constructor(private actions$: Actions, private auth: AuthService, private userSvc: UserService, private store: Store) {
   }
 }
