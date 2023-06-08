@@ -5,8 +5,8 @@ import {
 import { Store } from '@ngrx/store';
 import { loadTokens, loadUserTokens } from './modules/tokens/state/tokens.actions';
 import { AuthService } from './modules/auth/services/auth.service';
-import { loginSuccess } from './modules/auth/state/auth.actions';
-import { selectCurrentUser } from './modules/auth/state/auth.selectors';
+import { loginSuccess } from './modules/user/state/user.actions';
+import { selectCurrentUser } from './modules/user/state/user.selectors';
 
 @Component({
   selector: 'app-root',

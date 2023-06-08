@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './components/footer/footer.component';
-import { NavComponent } from './components/nav/nav.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MaterialModule } from '../material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -18,13 +16,11 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @NgModule({
   declarations: [
-    FooterComponent,
-    NavComponent,
     NavbarComponent,
-    SidenavComponent,
     AboutUsComponent,
     DoubleGradButtonComponent,
-    NavGradButtonComponent
+    NavGradButtonComponent,
+    SidenavComponent
   ],
   imports: [
     CommonModule,
@@ -37,8 +33,6 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     AngularSvgIconModule
   ],
   exports: [
-    FooterComponent,
-    NavComponent,
     NavbarComponent,
     SidenavComponent,
     AboutUsComponent,

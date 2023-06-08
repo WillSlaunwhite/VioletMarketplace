@@ -4,12 +4,11 @@ import User from 'src/app/models/user';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDivider, MatDividerModule } from '@angular/material/divider';
 import { } from '@angular/material/divider';
-import { RegisterComponent } from 'src/app/modules/auth/components/register/register.component';
-import { LoginComponent } from 'src/app/modules/auth/components/login/login.component';
+import { LoginComponent } from 'src/app/modules/user/components/login/login.component';
 import { Store } from '@ngrx/store';
-import { isLoggedIn, selectCurrentUser } from 'src/app/modules/auth/state/auth.selectors';
-import { logout, removeJwt } from 'src/app/modules/auth/state/auth.actions';
-import { AltRegisterComponent } from 'src/app/modules/auth/components/alt-register/alt-register.component';
+import { isLoggedIn, selectCurrentUser } from 'src/app/modules/user/state/user.selectors';
+import { logout, removeJwt } from 'src/app/modules/user/state/user.actions';
+import { AltRegisterComponent } from 'src/app/modules/user/components/alt-register/alt-register.component';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -36,7 +35,7 @@ export class NavbarComponent implements OnInit {
   }
 
   openRegisterDialog(): void {
-    this.dialog.open(RegisterComponent);
+    this.dialog.open(AltRegisterComponent);
   }
 
   openLoginDialog(): void {
