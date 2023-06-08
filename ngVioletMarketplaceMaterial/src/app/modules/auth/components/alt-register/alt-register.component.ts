@@ -44,9 +44,28 @@ export class AltRegisterComponent implements OnInit {
   }
 
   loginNewUser(user: User): void {
-    console.log('RegisterComponent: loginNewUser method called');
-    this.authService.login(user.username, user.password);
+    this.authService.login(user.username, user.password).subscribe(
+      (jwt) => {
+        this.userService.getUserByUsername(user.username).subscribe(
+          (user) => {
+            console.log('User fetched successfully');
+            this.router.navigateByUrl('/home').then(() => {
+              console.log('Navigation to /home successful');
+            }).catch((error) => {
+              console.error('Navigation to /home failed: ', error);
+            });
+          },
+          (error) => {
+            console.error('RegisterComponent.loginNewUser: fetch user failed\n' + error);
+          }
+        );
+      },
+      (error) => {
+        console.error('RegisterComponent.loginNewUser: login failed\n' + error);
+      }
+    );
   }
+
 
   closeDialog(): void {
     this.dialogRef.close();

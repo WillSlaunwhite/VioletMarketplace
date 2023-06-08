@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
   }
 
   openRegisterDialog(): void {
-    this.dialog.open(AltRegisterComponent);
+    this.dialog.open(RegisterComponent);
   }
 
   openLoginDialog(): void {
