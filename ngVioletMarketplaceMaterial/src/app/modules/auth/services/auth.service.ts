@@ -22,8 +22,8 @@ export class AuthService {
     this.currentUser = this.store.select(selectCurrentUser);
   }
 
-  login(username: string, password: string): Observable<{ user: User, jwt: string }> {
-    console.log('AuthService: login method called');
+  login(username: string, password: string): Observable<string> {
+    console.log('auth service login');
     const credentials = { username: username, password: password };
     let headers: { [key: string]: string } = {
       'Content-Type': 'application/json',
@@ -33,14 +33,10 @@ export class AuthService {
     return this.http.post<string>(this.baseUrl + 'authenticate', credentials, options).pipe(
       tap((jwt: string) => {
         this.store.dispatch(setJwt({ jwt }));
-      }),
-      switchMap((jwt: string) => {
-        return this.userService.getUserByUsername(username).pipe(
-          map(user => ({ user, jwt }))
-        );
       })
     )
   }
+
 
   logout(): Observable<void> {
     this.store.dispatch(logout());

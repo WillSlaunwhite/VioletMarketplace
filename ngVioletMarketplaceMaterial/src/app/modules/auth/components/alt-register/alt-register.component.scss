@@ -75,8 +75,8 @@
       width: 100%;
       text-align: center;
 
-
       .mat-input-element {
+        transition: all ease-in 2s;
         margin: .3em 0;
       }
     }
@@ -103,4 +103,8 @@
 // todo need to find a more correct way to do this
 ::ng-deep .mat-tab-label {
   padding: 0 5em !important;
+}
+
+::ng-deep .mat-form-field-label {
+  transition: all ease-in 2s !important;
 }
