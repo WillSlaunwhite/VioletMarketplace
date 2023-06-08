@@ -3,9 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "module": {
-      "root": "projects/module",
-      "sourceRoot": "projects/module/src",
+    "Users-williamslaunwhite-Projects-_VioletMarketplace-VioletMarketplace-ngVioletMarketplaceMaterial-src-app-modules-user": {
+      "root": "projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user",
+      "sourceRoot": "projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/src",
       "projectType": "library",
       "architect": {
         "lint": {
@@ -15,17 +15,17 @@
           ],
           "options": {
             "lintFilePatterns": [
-              "projects/module/**/*.ts"
+              "projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/**/*.ts"
             ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/projects/module"
+            "coverage/projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user"
           ],
           "options": {
-            "jestConfig": "projects/module/jest.config.ts",
+            "jestConfig": "projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/jest.config.ts",
             "passWithNoTests": true
           }
         }
