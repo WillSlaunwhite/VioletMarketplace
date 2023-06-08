@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import User from 'src/app/models/user';
-import { login, loginSuccess, loginFailure, logout, logoutSuccess, logoutFailure, setJwt, removeJwt } from './auth.actions';
+import { login, loginSuccess, loginFailure, logout, logoutSuccess, logoutFailure, setJwt, removeJwt } from './user.actions';
 
 export interface AuthState {
   user: User | null;
