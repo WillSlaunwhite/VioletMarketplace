@@ -3,10 +3,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, map, mergeMap, Observable, of, switchMap, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import User from '../../../models/user';
-import { UserService } from '../../shared/services/user.service';
 import { Store } from '@ngrx/store';
-import { login, loginSuccess, loginFailure, logout, setJwt } from '../state/auth.actions';
-import { selectCurrentUser, selectJwt } from '../state/auth.selectors';
+import { login, loginSuccess, loginFailure, logout, setJwt } from '../../user/state/user.actions';
+import { selectCurrentUser, selectJwt } from '../../user/state/user.selectors';
 
 
 @Injectable({
@@ -17,38 +16,11 @@ export class AuthService {
   private baseUrl = environment.baseUrl;
   private url = this.baseUrl + 'api/user';
 
-  constructor(private store: Store, private http: HttpClient, private userService: UserService) {
+  constructor(private store: Store, private http: HttpClient) {
     console.log('auth service constructor');
     this.currentUser = this.store.select(selectCurrentUser);
   }
 
-  login(username: string, password: string): Observable<string> {
-    console.log('auth service login');
-    const credentials = { username: username, password: password };
-    let headers: { [key: string]: string } = {
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest',
-    };
-    let options = { headers };
-    return this.http.post<string>(this.baseUrl + 'authenticate', credentials, options).pipe(
-      tap((jwt: string) => {
-        this.store.dispatch(setJwt({ jwt }));
-      })
-    )
-  }
-
-
-  logout(): Observable<void> {
-    this.store.dispatch(logout());
-    return of(undefined);
-  }
-
-  isUserLoggedIn(): boolean {
-    if (localStorage.getItem('jwt')) {
-      return true;
-    }
-    return false;
-  }
 
 
   getValidJwt(): string | null {
@@ -57,7 +29,6 @@ export class AuthService {
     // also want to check the token hasn't been tampered with, among other things.
     return localStorage.getItem('jwt') ? localStorage.getItem('jwt') : null;
   }
-
 
   getHttpOptions(): Observable<Object> {
     return this.store.select(selectJwt).pipe(

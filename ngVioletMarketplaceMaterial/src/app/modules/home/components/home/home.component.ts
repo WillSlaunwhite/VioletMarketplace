@@ -11,7 +11,7 @@ import { loadTokens } from 'src/app/modules/tokens/state/tokens.actions';
 import { getAllTokens } from 'src/app/modules/tokens/state/tokens.selectors';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { MatDialog } from '@angular/material/dialog';
-import { AltRegisterComponent } from 'src/app/modules/auth/components/alt-register/alt-register.component';
+import { AltRegisterComponent } from 'src/app/modules/user/components/alt-register/alt-register.component';
 
 @Component({
   selector: 'app-home',
