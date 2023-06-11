@@ -14,12 +14,9 @@
 
 
     &.top-twenty {
-      @include basic-precise-font($size: 2rem, $weight: 200, $spacing: .2rem, $align: start);
+      @include basic-precise-font($size: 2rem, $weight: 200, $spacing: .2rem, $align: center);
       width: 55%;
-      margin: auto;
-      margin-top: 2.5rem;
-      margin-left: 18rem;
-      text-align: center;
+      margin: 2.5rem auto auto 18rem;
     }
 
     &.middle-half {
