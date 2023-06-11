@@ -17,7 +17,6 @@ export class AuthService {
   private url = this.baseUrl + 'api/user';
 
   constructor(private store: Store, private http: HttpClient) {
-    console.log('auth service constructor');
     this.currentUser = this.store.select(selectCurrentUser);
   }
 

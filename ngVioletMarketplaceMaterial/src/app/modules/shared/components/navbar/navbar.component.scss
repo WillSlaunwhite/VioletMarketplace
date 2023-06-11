@@ -1,34 +1,6 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
-
-// TOP LEVEL ELEMENT CHANGES
-// TODO need to replace hard-coded colors with variables
-a {
-  @include basic-precise-font;
-  text-decoration: none;
-}
-
-.mat-input-element {
-  @include basic-precise-font($size: 1.25rem);
-  background: transparent;
-
-  &:focus {
-    // todo do I need important here?
-    color: $text-secondary-dark !important;
-  }
-
-}
-
-.mat-label {
-  display: none !important;
-
-}
-
-app-nav-grad-button {
-  // TODO can decrease margin so buttons stack,
-  // * if you want. Then slide out or something
-  margin-inline: 3rem;
-}
+@import '/src/scss/utils/utilities';
 
 // TOP LEVEL NAVBAR
 .toolbar {
@@ -37,80 +9,61 @@ app-nav-grad-button {
   background: transparent;
   overflow: hidden;
   padding: 0;
-}
 
-// FAR LEFT LOGO
-.brand-container {
-  transition: ease .3s;
-  height: auto;
-  margin-top: 1em;
-  margin-left: .5em;
-
-  &.brand-container:hover {
-    transform: scale(1.05);
+  // FAR LEFT LOGO
+  .brand-container {
     transition: ease .3s;
+    height: auto;
+    margin-top: 1em;
+    margin-left: .5em;
+    cursor: pointer;
 
-    &.brand {
-      transform: translateX(50%);
+    &.brand-container:hover {
+      transform: scale(1.05);
+      transition: ease .3s;
+
+      &.brand {
+        transform: translateX(50%);
+      }
     }
   }
-}
 
-mat-label {
-  font-size: large;
-}
+  // SEARCH BAR
+  .search {
+    // TODO really don't like current search interaction
+    width: 50vmin;
+    // min-width: 25%;
+    color: $light-gray;
+    margin-top: 12px;
+    margin-right: 4rem;
+    position: relative;
 
-// .links {
+    &:focus-within mat-label {
+      display: none;
+      // TODO can't get any animation to work here
+    }
 
-//   background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
-//     linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
-// }
-
-// SEARCH BAR
-.search {
-  // TODO really don't like current search interaction
-
-  width: 40vmin;
-  // min-width: 25%;
-  color: $light-gray;
-  margin-top: 18px;
-  position: relative;
-  outline: none !important;
-
-  &:focus-within mat-label {
-    display: none;
-    // todo can't get any animation to work here
+    // hides search above text on search bar
   }
-}
-
-// .search ::ng-deep .mat-form-field-underline {
-//   display: none !important;
-// }
 
 
-.search ::ng-deep .mat-form-field-wrapper:focus-within::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  margin-top: 3em;
-  background: $text-primary-dark;
-}
+  .links {
+    @include basic-precise-font;
+    text-decoration: none;
+    padding-inline-start: 1em;
+    margin: 0;
 
-.links {
-  padding-inline-start: 1em;
-  margin: 0;
+    .nav-grad-button {
+      margin-inline: 2.95rem;
+    }
 
-  &:last-child {
-    margin-right: 1.375rem;
+    &:last-child {
+      margin-right: 2rem;
+    }
+
   }
-}
 
-.mat-button::after {
-  left: 62.5%;
 }
-
 
 
 // DIVIDER COLOR
@@ -119,28 +72,16 @@ mat-label {
   opacity: .5;
 }
 
-::ng-deep .mat-dialog-container {
-  background: none;
-  box-shadow: none;
+.search ::ng-deep .mat-form-field-underline {
+  display: none !important;
 }
 
-::ng-deep .search ::ng-deep .mat-form-field-wrapper {
-  overflow: hidden !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-// ANIMATIONS
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+.search ::ng-deep .mat-form-field-wrapper:focus-within::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: $text-primary-dark;
+  // TODO problems getting animations to work for this too
 }

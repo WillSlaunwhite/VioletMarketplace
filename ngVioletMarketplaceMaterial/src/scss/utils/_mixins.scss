@@ -54,7 +54,7 @@
   align-items: center;
 }
 
-
+// basic flex properties
 @mixin flex-align-justify-direction($align: initial, $justify: initial, $direction: initial) {
   display: flex;
   justify-content: $justify;

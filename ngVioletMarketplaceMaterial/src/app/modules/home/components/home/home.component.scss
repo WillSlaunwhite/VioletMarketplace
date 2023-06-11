@@ -2,8 +2,9 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/components/grad-buttons';
 
+
 .main-content {
-  @include flex-align-justify-direction($align: start, $direction: column);
+  @include flex-align-justify-direction($align: flex-start, $direction: column);
   width: 100vw;
 
   .top-twenty,
@@ -14,12 +15,9 @@
 
 
     &.top-twenty {
-      @include basic-precise-font($size: 2rem, $weight: 200, $spacing: .2rem, $align: start);
+      @include basic-precise-font($size: 2rem, $weight: 200, $spacing: .2rem, $align: center);
       width: 55%;
-      margin: auto;
-      margin-top: 2.5rem;
-      margin-left: 18rem;
-      text-align: center;
+      margin: 2.5rem auto auto 18rem;
     }
 
     &.middle-half {
@@ -41,9 +39,10 @@
           width: fit-content;
           padding: 0;
           // TODO please fix this margin
-          margin-left: 30%;
-          margin-top: 4.25rem;
-          margin-bottom: 0;
+          margin: 4.25rem 0 auto 20%;
+          // margin-left: 20%;
+          // margin-top: 4.25rem;
+          // margin-bottom: 0;
         }
       }
 
