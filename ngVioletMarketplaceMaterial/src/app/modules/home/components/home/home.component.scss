@@ -2,6 +2,7 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/components/grad-buttons';
 
+
 .main-content {
   @include flex-align-justify-direction($align: flex-start, $direction: column);
   width: 100vw;

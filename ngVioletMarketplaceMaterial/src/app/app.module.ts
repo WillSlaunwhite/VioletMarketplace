@@ -20,6 +20,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AuthModule } from './modules/auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { MaterialModule } from './modules/material/material.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { EffectsModule } from '@ngrx/effects';
     FontAwesomeModule,
     UserModule,
     AuthModule,
-    TokenModule
+    TokenModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent],
