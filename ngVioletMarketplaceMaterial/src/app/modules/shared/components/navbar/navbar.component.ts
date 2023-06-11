@@ -9,20 +9,26 @@ import { Store } from '@ngrx/store';
 import { isLoggedIn, selectCurrentUser } from 'src/app/modules/user/state/user.selectors';
 import { logout, removeJwt } from 'src/app/modules/user/state/user.actions';
 import { AltRegisterComponent } from 'src/app/modules/user/components/alt-register/alt-register.component';
+import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  searchTerm: string | null = null;
   isLoggedIn$: Observable<boolean | null> = this.store.select(isLoggedIn);
   user$: Observable<User | null>;
   isSearchFieldFocused: boolean = false;
+  searchForm: FormGroup;
+  searchTerm: FormControl;
 
   constructor(private store: Store, private dialog: MatDialog, private renderer: Renderer2, private el: ElementRef,
   ) {
     this.user$ = this.store.select(selectCurrentUser);
+    this.searchTerm = new FormControl('');
+    this.searchForm = new FormGroup({
+      search: this.searchTerm
+    })
   }
 
   ngOnInit(): void {

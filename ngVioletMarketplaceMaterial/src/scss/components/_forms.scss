@@ -1,23 +1,23 @@
-.mat-form-field-required-marker {
-  color: white;
+@import '/src/scss/utils/_mixins.scss';
+
+// hides form fields label when text is in field
+input.ng-dirty~.mat-form-field-label-wrapper {
+  /* Apply styles to the label when the search input is dirty */
+  display: none;
 }
 
-form {
-  text-align: center;
-}
-
+// hits search bar, etc.
 mat-label,
 input,
 mat-hint,
 mat-form-field,
 .mat-input-element::placeholder,
 .mat-form-field-required-marker {
+  @include basic-precise-font($size: 1.25rem);
   color: white;
-  font-size: x-large;
-  font-family: Poppin, sans-serif;
-  font-weight: 300;
   caret-color: white !important;
   text-decoration: white;
+  background: transparent;
 }
 
 // CHANGES INPUT BORDER COLOR
@@ -34,8 +34,4 @@ mat-form-field,
 // AS WELL AS AUTOFILL BACKGROUND
 ::ng-deep .mat-input-element {
   caret-color: white;
-}
-
-.mat-input-element::placeholder {
-  font-size: medium;
 }

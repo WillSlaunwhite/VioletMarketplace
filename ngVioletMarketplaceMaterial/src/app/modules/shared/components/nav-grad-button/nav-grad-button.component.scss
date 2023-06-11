@@ -9,31 +9,31 @@
     transition: none !important;
   }
 
-  &::before {
-    right: 0;
-    margin-right: 2.2rem;
-  }
-
-  &::after {
-    left: 0;
-    margin-left: 5.75rem;
-  }
-
   &::before,
   &::after {
     content: '';
     position: absolute;
+    opacity: .3;
     top: 51%;
-    opacity: .25;
     height: 1px;
     z-index: 2;
     width: 8em;
     transform: rotate(-67.5deg);
-    background: $text-primary-dark;
+    background: blue;
 
     &:hover {
       transform: rotate(-67.5deg);
     }
+  }
+
+  &::after {
+    left: 106%;
+
+  }
+
+  &::before {
+    left: -92%;
+    margin-right: 1px;
   }
 }
 
