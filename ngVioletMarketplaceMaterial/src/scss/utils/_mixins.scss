@@ -147,11 +147,10 @@
     height: calc(100% + 6px);
     z-index: -1;
     border-radius: 6px;
-    background-size: 150% 100%;
     transition: all .5s ease-in;
     transform: none;
     animation: gradient 8s linear 10s infinite;
-    background: orange; // TEMPORARY
+    background: orange 150% 100%; // TEMPORARY
   }
 
   .grad-button:hover::after,
