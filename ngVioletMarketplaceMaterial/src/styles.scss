@@ -3,6 +3,7 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 @import 'scss/base/base';
+@import 'scss/components/dialog';
 @import 'scss/components/big-card';
 @import 'scss/components/card';
 @import 'scss/components/forms';
@@ -11,7 +12,6 @@
 @import 'scss/utils/gradients';
 @import 'scss/utils/variables';
 @import 'scss/utils/scrollbar';
-@import 'scss/components/dialog';
 
 
 

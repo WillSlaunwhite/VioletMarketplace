@@ -4,7 +4,7 @@
 
 .register-container::before {
   @include abs-top-left;
-
+  // cursor: pointer;
   pointer-events: none;
   content: '';
   position: absolute;
@@ -14,6 +14,14 @@
   padding: 0;
   margin: 0;
   border-radius: inherit;
+  transition: opacity ease-in 2s;
+  background: rgba(0, 0, 0, 0);
+  opacity: 0;
+}
+
+.register-container.active::before {
+  background: (rgba(0, 0, 0, 1));
+  opacity: 1;
 }
 
 .register-container {
@@ -83,22 +91,6 @@
     }
   }
 
-  .glass-wrapper {
-    // todo need to just remove the wrapper and
-    // * target the before instead
-    opacity: .35;
-  }
-
-  // .glass-wrapper::before {
-  //   transition: none;
-  //   height: 100%;
-  //   width: 100%;
-  //   position: relative;
-  //   margin: auto;
-  //   opacity: .9;
-  //   border-radius: 0px;
-  //   z-index: 3;
-  // }
 }
 
 // todo need to find a more correct way to do this

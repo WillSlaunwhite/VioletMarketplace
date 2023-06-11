@@ -1,5 +1,15 @@
 .mat-dialog-container {
   background: transparent;
   margin: 0;
-  padding: 0;
+  padding: 0 !important;
+
+  &::before {
+    cursor: pointer;
+  }
+}
+
+// dialog backgrounds (login, register, etc.)
+.cdk-overlay-dark-backdrop {
+  transition: opacity ease-in-out 1.25s;
+  background: rgba(0, 0, 0, .57);
 }
