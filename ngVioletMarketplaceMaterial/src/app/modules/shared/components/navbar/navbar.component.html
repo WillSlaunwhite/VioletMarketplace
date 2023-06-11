@@ -1,9 +1,9 @@
 <mat-toolbar class="toolbar d-flex">
   <div class="brand-container"><svg-icon class="brand" src="/assets/logos/matrix_vm_logo.svg"></svg-icon></div>
-  <mat-form-field #search [ngClass]="{'focused': isSearchFieldFocused}" class="search">
+  <mat-form-field [ngClass]="{'focused': isSearchFieldFocused}" [formGroup]="searchForm" class="search">
     <mat-label>Search...</mat-label>
-    <input matInput type="text" [(ngModel)]="searchTerm" (focus)="toggleSearchFocus()" (blur)="toggleSearchFocus()">
-    <button class="clear" *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="searchTerm=''">
+    <input matInput type="text" formControlName="search">
+    <button class="clear" *ngIf="searchTerm.value" matSuffix mat-icon-button aria-label="Clear" (click)="searchTerm.setValue('')">
       <mat-icon>clear</mat-icon>
     </button>
   </mat-form-field>

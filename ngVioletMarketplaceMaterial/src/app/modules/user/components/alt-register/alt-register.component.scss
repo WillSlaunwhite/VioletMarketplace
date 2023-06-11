@@ -1,5 +1,6 @@
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/variables';
+@import '/src/scss/components/dialog';
 
 .register-container::before {
   @include abs-top-left;

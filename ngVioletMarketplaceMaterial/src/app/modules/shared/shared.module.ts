@@ -8,7 +8,7 @@ import { TokenModule } from "../tokens/token.module";
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedRoutingModule } from './shared-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DoubleGradButtonComponent } from './components/double-grad-button/double-grad-button.component';
 import { NavGradButtonComponent } from './components/nav-grad-button/nav-grad-button.component';
 import { UserRoutingModule } from '../user/user-routing.module';
@@ -30,7 +30,8 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     SharedRoutingModule,
     FormsModule,
     UserRoutingModule,
-    AngularSvgIconModule
+    AngularSvgIconModule,
+    ReactiveFormsModule
   ],
   exports: [
     NavbarComponent,
