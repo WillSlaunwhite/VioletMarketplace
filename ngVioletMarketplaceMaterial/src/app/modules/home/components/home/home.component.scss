@@ -3,54 +3,42 @@
 @import '/src/scss/components/grad-buttons';
 
 .main-content {
+  @include flex-align-justify-direction($align: start, $direction: column);
   width: 100vw;
-  @include flex-column-start;
 
   .top-twenty,
   .middle-half,
   .bottom {
+    @include flex-align-justify-direction($justify: center, $align: center, $direction: column);
     width: 100%;
-    flex-direction: column;
-    @include flex-center;
+
 
     &.top-twenty {
+      @include basic-precise-font($size: 2rem, $weight: 200, $spacing: .2rem, $align: start);
       width: 55%;
       margin: auto;
       margin-top: 2.5rem;
       margin-left: 18rem;
-
       text-align: center;
-      color: $text-secondary-dark;
-      font-family: "Nunito";
-      font-size: 2rem;
-      font-weight: 200;
-      letter-spacing: .2rem;
     }
 
     &.middle-half {
+      @include flex-align-justify-direction($align: flex-start, $direction: column);
       margin-top: 2.5rem;
       overflow-y: hidden;
-      align-items: flex-start;
-      @include flex-full-wh;
-      @include flex-column-start;
 
       .cta-container {
         width: 70%;
         height: 100%;
 
         .grad-button {
-          position: absolute;
-          right: 34.5%;
-          top: 42.5%;
+          @include abs-top-left($top: 42.5%, $left: 65.5%);
           color: $text-primary-dark;
         }
 
         .token-list-header {
+          @include basic-precise-font($size: 3.25rem, $align: start);
           width: fit-content;
-          font-weight: 300;
-          font-size: 3.25rem;
-          text-align: start;
-          color: $text-secondary-dark;
           padding: 0;
           // TODO please fix this margin
           margin-left: 30%;
@@ -62,10 +50,7 @@
       .token-list-container {
         height: 100%;
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: center;
+        @include flex-align-justify-direction($align: flex-end, $justify: center, $direction: column);
 
         app-big-token-list {
           height: 30em;

@@ -30,11 +30,16 @@
 // FONTS
 
 // basic site font styling
-@mixin basic-precise-font() {
+@mixin basic-precise-font($size: 1.1rem, $weight: 300, $spacing: normal, $height: normal, $align: initial) {
   color: $text-primary-dark;
   font-family: 'Nunito';
   -webkit-font-smoothing: subpixel-antialiased;
   text-rendering: geometricPrecision;
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  line-height: $height;
+  text-align: $align;
 }
 
 
@@ -49,17 +54,20 @@
   align-items: center;
 }
 
-// absolute position top of container
-@mixin abs-top-left() {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+@mixin flex-align-justify-direction($align: initial, $justify: initial, $direction: initial) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
 }
 
-@mixin flex-column-start() {
-  flex-direction: column;
-  display: flex;
-  justify-content: flex-start;
+
+// absolute position top of container
+@mixin abs-top-left($top: 0, $left: 0) {
+  position: absolute;
+  top: $top;
+  left: $left;
 }
 
 @mixin flex-full-wh() {
@@ -139,11 +147,10 @@
     height: calc(100% + 6px);
     z-index: -1;
     border-radius: 6px;
-    background-size: 150% 100%;
     transition: all .5s ease-in;
     transform: none;
     animation: gradient 8s linear 10s infinite;
-    background: orange; // TEMPORARY
+    background: orange 150% 100%; // TEMPORARY
   }
 
   .grad-button:hover::after,
