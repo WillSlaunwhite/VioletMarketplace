@@ -1,5 +1,6 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
+@import '/src/scss/utils/utilities';
 
 // TOP LEVEL NAVBAR
 .toolbar {
@@ -30,17 +31,18 @@
   // SEARCH BAR
   .search {
     // TODO really don't like current search interaction
-    @include basic-precise-font($size: 1.0025rem, );
-    width: 40vmin;
+    width: 50vmin;
     // min-width: 25%;
     color: $light-gray;
-    margin-top: 18px;
+    margin-top: 12px;
+    margin-right: 4rem;
     position: relative;
 
     &:focus-within mat-label {
       display: none;
       // TODO can't get any animation to work here
     }
+
   }
 
   .links {
@@ -50,17 +52,23 @@
     margin: 0;
 
     .nav-grad-button {
-      margin-inline: 3rem;
+      margin-inline: 2.95rem;
     }
+
+    &:last-child {
+      margin-right: 2rem;
+    }
+
   }
 
-  &:last-child {
-    margin-right: 1.375rem;
-  }
+}
 
-  .mat-button::after {
-    left: 62.5%;
-  }
+
+
+// DIVIDER COLOR
+.mat-divider {
+  border-top-color: $text-primary-dark;
+  opacity: .5;
 }
 
 .search ::ng-deep .mat-form-field-underline {
@@ -73,39 +81,6 @@
   left: 0;
   right: 0;
   height: 1px;
-  margin-top: 3em;
   background: $text-primary-dark;
   // TODO problems getting animations to work for this too
-}
-
-// DIVIDER COLOR
-.mat-divider {
-  border-top-color: $text-primary-dark;
-  opacity: .5;
-}
-
-::ng-deep .mat-dialog-container {
-  background: none;
-  box-shadow: none;
-}
-
-::ng-deep .search ::ng-deep .mat-form-field-wrapper {
-  overflow: hidden !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-// ANIMATIONS
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
 }
