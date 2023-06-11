@@ -1,11 +1,8 @@
 @import '/src/scss/utils/_mixins.scss';
 
-form {
-  text-align: center;
-}
-
-// hides search above text on search bar
-.ng-touched span {
+// hides form fields label when text is in field
+input.ng-dirty~.mat-form-field-label-wrapper {
+  /* Apply styles to the label when the search input is dirty */
   display: none;
 }
 
@@ -17,10 +14,10 @@ mat-form-field,
 .mat-input-element::placeholder,
 .mat-form-field-required-marker {
   @include basic-precise-font($size: 1.25rem);
-  font-family: Poppin, sans-serif;
   color: white;
   caret-color: white !important;
   text-decoration: white;
+  background: transparent;
 
 }
 
