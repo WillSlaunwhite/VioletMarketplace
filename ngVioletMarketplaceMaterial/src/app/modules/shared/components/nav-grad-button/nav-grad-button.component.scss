@@ -9,21 +9,12 @@
     transition: none !important;
   }
 
-  &::before {
-    right: 0;
-    margin-right: 2.2rem;
-  }
-
-  &::after {
-    left: 0;
-    margin-left: 5.75rem;
-  }
-
   &::before,
   &::after {
     content: '';
     position: absolute;
     top: 51%;
+    left: -93%;
     opacity: .25;
     height: 1px;
     z-index: 2;
