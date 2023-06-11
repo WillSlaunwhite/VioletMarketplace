@@ -1,23 +1,27 @@
 @import '/src/scss/utils/variables';
-
+@import '/src/scss/utils/mixins';
 
 // TOP LEVEL ELEMENT CHANGES
 // TODO need to replace hard-coded colors with variables
 a {
+  @include basic-precise-font;
   text-decoration: none;
-  font-weight: 300;
-  color: $text-primary-dark;
 }
 
-input {
+.mat-input-element {
+  @include basic-precise-font($size: 1.25rem);
   background: transparent;
-  font-size: larger;
-  color: $text-primary-dark;
 
   &:focus {
     // todo do I need important here?
     color: $text-secondary-dark !important;
   }
+
+}
+
+.mat-label {
+  display: none !important;
+
 }
 
 app-nav-grad-button {
@@ -73,16 +77,16 @@ mat-label {
   position: relative;
   outline: none !important;
 
+  &:focus-within mat-label {
+    display: none;
+    // todo can't get any animation to work here
+  }
 }
 
-.search:focus-within mat-label {
-  // display: none;
-  transition: ease-out .3s;
-}
+// .search ::ng-deep .mat-form-field-underline {
+//   display: none !important;
+// }
 
-.search ::ng-deep .mat-form-field-underline {
-  display: none !important;
-}
 
 .search ::ng-deep .mat-form-field-wrapper:focus-within::before {
   content: '';
