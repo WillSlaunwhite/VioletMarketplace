@@ -7,7 +7,7 @@
           <!-- Email Field -->
           <mat-form-field class="form-field">
             <mat-label>email</mat-label>
-            <input matInput #email formControlName="email">
+            <input type="email" matInput #email formControlName="email">
           </mat-form-field>
 
           <!-- Username Field -->
@@ -19,21 +19,28 @@
           <!-- Password Field -->
           <mat-form-field class="form-field">
             <mat-label>password</mat-label>
-            <input matInput formControlName="password" required>
+            <input type="password" matInput formControlName="password" required>
           </mat-form-field>
 
           <!-- Confirm Password Field -->
           <mat-form-field class="form-field">
             <mat-label>confirm password</mat-label>
-            <input matInput formControlName="confirmPassword" required>
+            <input type="password" matInput formControlName="confirmPassword" required>
           </mat-form-field>
 
           <!-- Password Match Error -->
           <!-- need to fix in .ts -->
           <div class="text-danger">Passwords do not match</div>
 
-          <!-- Next Button-->
-          <app-double-grad-button label="next" class="grad-button dg-button dg-button-register" (click)="nextTab()"></app-double-grad-button>
+
+          <div class="button-container">
+
+            <!-- Next Button-->
+            <app-double-grad-button label="next" class="grad-button dg-button dg-button-register" (click)="nextTab()"></app-double-grad-button>
+
+            <!-- Back Button -->
+            <app-double-grad-button label="back" class="grad-button dg-button dg-button-register" (click)="previousTab()"></app-double-grad-button>
+          </div>
         </form>
       </mat-tab>
 
