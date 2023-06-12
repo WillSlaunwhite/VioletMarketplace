@@ -102,8 +102,13 @@
 }
 
 
+// hide form field underline
+@mixin hide-underline {
 
-
+  .search ::ng-deep .mat-form-field-underline {
+    display: none !important;
+  }
+}
 
 
 // glass effects for cards
