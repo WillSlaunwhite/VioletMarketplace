@@ -2,6 +2,8 @@
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/utilities';
 
+@include hide-underline;
+
 // TOP LEVEL NAVBAR
 .toolbar {
   justify-content: space-between !important;
@@ -32,7 +34,6 @@
   .search {
     // TODO really don't like current search interaction
     width: 50vmin;
-    // min-width: 25%;
     color: $light-gray;
     margin-top: 12px;
     margin-right: 4rem;
@@ -70,10 +71,6 @@
 .mat-divider {
   border-top-color: $text-primary-dark;
   opacity: .5;
-}
-
-.search ::ng-deep .mat-form-field-underline {
-  display: none !important;
 }
 
 .search ::ng-deep .mat-form-field-wrapper:focus-within::before {

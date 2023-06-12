@@ -1,103 +1,31 @@
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/variables';
 @import '/src/scss/components/dialog';
+@import '/src/scss/components/forms';
 
-.register-container::before {
-  @include abs-top-left;
-  // cursor: pointer;
-  pointer-events: none;
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  padding: 0;
-  margin: 0;
-  border-radius: inherit;
-  transition: opacity ease-in 2s;
-  background: rgba(0, 0, 0, 0);
-  opacity: 0;
-}
-
-.register-container.active::before {
-  background: (rgba(0, 0, 0, 1));
-  opacity: 1;
-}
 
 .register-container {
+  // gives the container its background
   @include button-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
   width: 50vw;
   height: 55vh;
   border-radius: 2px;
   overflow: hidden;
 
-
-  .form-container {
-    position: relative;
-    width: 75%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    margin: auto;
-    background: orange;
-    z-index: 3;
-  }
-
-  .form-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
+  .form-container-wrapper {
+    // basic flex stylings
+    @include flex-align-justify-direction($justify: center, $align: center, $direction: row);
     width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
-      radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
-    z-index: -1;
-    padding: 0;
-    margin: 0;
-    border-radius: inherit;
   }
+}
 
-  .mat-tab-group {
-    // keep header at top
-    position: absolute;
-    top: 0;
-    align-items: center;
-
-
-  }
-
-
-  .form-fields:first-child {
-    margin-top: 1.5em;
-  }
-
-  .form-fields {
-    height: 50vmin;
-    width: 25vmin;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5em;
-
-
-    .mat-form-field {
-      width: 100%;
-      text-align: center;
-
-      .mat-input-element {
-        transition: all ease-in 2s;
-        margin: .3em 0;
-      }
-    }
-  }
-
+.grad-button {
+  margin-top: -1rem;
 }
 
 // todo need to find a more correct way to do this
-::ng-deep .mat-tab-label {
-  padding: 0 5em !important;
-}
+// ::ng-deep .mat-tab-label {
+//   width: 30vmin !important;
+//   color: $text-primary-dark;
 
-::ng-deep .mat-form-field-label {
-  transition: all ease-in 2s !important;
-}
+// }

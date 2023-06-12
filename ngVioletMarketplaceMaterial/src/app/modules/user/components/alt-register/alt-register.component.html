@@ -1,49 +1,91 @@
 <div @slideInTop class="register-container">
-  <div class="form-container d-flex justify-content-center align-items-center flex-row">
-    <mat-tab-group>
+  <div class="form-container">
+    <mat-tab-group [(selectedIndex)]="selectedTabIndex" (selectedIndexChange)="onTabChange($event)">
       <mat-tab label="Required Info">
         <!-- First Tab - Required Info -->
-        <form class="form-fields" (ngSubmit)="register()">
+        <form [formGroup]="registerForm" class="form-fields required-form-fields" (ngSubmit)="registerForm.valid && submit()">
           <!-- Email Field -->
           <mat-form-field class="form-field">
-            <mat-label>Email</mat-label>
-            <input matInput type="email" [(ngModel)]="registerUser.email" (ngModelChange)="registerUser.email" name="email" required>
+            <mat-label>email</mat-label>
+            <input matInput #email formControlName="email">
           </mat-form-field>
 
           <!-- Username Field -->
           <mat-form-field class="form-field">
-            <mat-label>Username</mat-label>
-            <input matInput [(ngModel)]="registerUser.username" (ngModelChange)="registerUser.username" name="username" required>
+            <mat-label>username</mat-label>
+            <input matInput formControlName="username">
           </mat-form-field>
 
           <!-- Password Field -->
           <mat-form-field class="form-field">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" [(ngModel)]="registerUser.password" name="password" required>
+            <mat-label>password</mat-label>
+            <input matInput formControlName="password" required>
           </mat-form-field>
 
           <!-- Confirm Password Field -->
           <mat-form-field class="form-field">
-            <mat-label>Confirm Password</mat-label>
-            <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+            <mat-label>confirm password</mat-label>
+            <input matInput formControlName="confirmPassword" required>
           </mat-form-field>
 
           <!-- Password Match Error -->
-          <div *ngIf="registerUser.password != confirmPassword" class="text-danger">Passwords do not match</div>
+          <!-- need to fix in .ts -->
+          <div class="text-danger">Passwords do not match</div>
 
-          <!-- Register Button -->
-          <button mat-raised-button class="submit-button" type="submit">Register</button>
+          <!-- Next Button-->
+          <app-double-grad-button label="next" class="grad-button dg-button dg-button-register" (click)="nextTab()"></app-double-grad-button>
         </form>
       </mat-tab>
 
       <mat-tab label="Optional Info">
         <!-- Second Tab - Optional Info -->
-        <!-- Content here -->
+        <form [formGroup]="registerForm" class="form-fields optional-form-fields">
+          <!-- Email Field -->
+          <mat-form-field class="form-field">
+            <mat-label>display name</mat-label>
+            <input matInput formControlName="displayName">
+          </mat-form-field>
+
+          <!-- Username Field -->
+          <mat-form-field class="form-field">
+            <mat-label>biography</mat-label>
+            <textarea matInput formControlName="biography"></textarea>
+          </mat-form-field>
+
+          <!-- Password Field -->
+          <mat-form-field class="form-field">
+            <mat-label>profile picture (url)</mat-label>
+            <input matInput formControlName="pictureUrl">
+          </mat-form-field>
+
+          <!-- Confirm Password Field -->
+          <mat-form-field class="form-field">
+            <mat-label>wallet address</mat-label>
+            <input matInput formControlName="wallet">
+          </mat-form-field>
+
+
+          <!-- Next Button -->
+          <app-double-grad-button label="next" class="grad-button dg-button dg-button-register" (click)="nextTab()"></app-double-grad-button>
+        </form>
       </mat-tab>
 
       <mat-tab label="Validation">
         <!-- Third Tab - Validation -->
-        <!-- Content here -->
+        <div class="summary" [formGroup]="registerForm">
+          <h2>Summary:</h2>
+          <p><b>Email:</b> {{registerUser.email}}</p>
+          <p><b>Username:</b> {{registerUser.username}}</p>
+          <p><b>Display Name:</b> {{registerUser.displayName}}</p>
+          <p><b>Biography:</b> {{registerUser.biography}}</p>
+          <p><b>Profile Picture URL:</b> {{registerUser.pictureUrl}}</p>
+          <p><b>Wallet Address:</b> {{registerUser.wallet}}</p>
+          <!-- Terms and Conditions -->
+          <mat-checkbox formControlName="termsAccepted">I accept the Terms and Conditions</mat-checkbox>
+
+          <!-- Submit Button -->
+          <app-double-grad-button matButton label="Submit" class="grad-button dg-button dg-button-register" [disabled]="!registerForm.valid" (click)="submit()"></app-double-grad-button>
+        </div>
       </mat-tab>
     </mat-tab-group>
   </div>

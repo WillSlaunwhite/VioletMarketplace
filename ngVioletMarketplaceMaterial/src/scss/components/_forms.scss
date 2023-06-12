@@ -1,7 +1,64 @@
 @import '/src/scss/utils/_mixins.scss';
 
+@include remove-autofill-background;
+
+.form-container {
+  position: relative;
+  width: 50vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: auto;
+  z-index: 3;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+      radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+    z-index: -1;
+    padding: 0;
+    margin: 0;
+    border-radius: inherit;
+  }
+
+  .mat-tab-group {
+    // keep header at top
+    position: absolute;
+    top: 0;
+    align-items: center;
+    height: 100%;
+    width: 50vw;
+
+    .form-fields {
+      @include flex-align-justify-direction($align: center, $direction: column);
+      height: 100%;
+      width: 50vw;
+      gap: .75rem;
+      padding-block-end: 7.5rem;
+
+      &:first-child {
+        margin-top: 1.5em;
+      }
+
+      .mat-form-field {
+        width: 30vmin;
+        text-align: center;
+
+        .mat-input-element {
+          transition: all ease-in .75s;
+          margin: -.3em 0;
+        }
+      }
+    }
+  }
+}
+
 // hides form fields label when text is in field
-input.ng-dirty~.mat-form-field-label-wrapper {
+input.ng-dirty~.mat-form-field-label-wrapper>.mat-empty {
   /* Apply styles to the label when the search input is dirty */
   display: none;
 }
@@ -13,15 +70,23 @@ mat-hint,
 mat-form-field,
 .mat-input-element::placeholder,
 .mat-form-field-required-marker {
-  @include basic-precise-font($size: 1.25rem);
+  @include basic-precise-font($size: 1.6rem);
   color: white;
   caret-color: white !important;
   text-decoration: white;
   background: transparent;
 }
 
+.mat-tab-label {
+  width: 24.33vmin;
+  @include basic-precise-font($size: 1.3rem);
+}
+
+
+
 // CHANGES INPUT BORDER COLOR
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  margin-bottom: 8px;
   color: gray !important;
 }
 
@@ -34,4 +99,14 @@ mat-form-field,
 // AS WELL AS AUTOFILL BACKGROUND
 ::ng-deep .mat-input-element {
   caret-color: white;
+}
+
+form ::ng-deep .dg-button-wrapper {
+  width: 20vmin;
+  height: 50px;
+  position: relative;
+}
+
+::ng-deep .text-wrapper {
+  font-weight: 200 !important;
 }
