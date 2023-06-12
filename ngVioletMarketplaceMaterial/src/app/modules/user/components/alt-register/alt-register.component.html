@@ -3,28 +3,28 @@
     <mat-tab-group>
       <mat-tab label="Required Info">
         <!-- First Tab - Required Info -->
-        <form class="form-fields" (ngSubmit)="register()">
+        <form class="form-fields required-form-field" (ngSubmit)="register()">
           <!-- Email Field -->
           <mat-form-field class="form-field">
-            <mat-label>Email</mat-label>
+            <mat-label>email</mat-label>
             <input matInput type="email" [(ngModel)]="registerUser.email" (ngModelChange)="registerUser.email" name="email" required>
           </mat-form-field>
 
           <!-- Username Field -->
           <mat-form-field class="form-field">
-            <mat-label>Username</mat-label>
+            <mat-label>username</mat-label>
             <input matInput [(ngModel)]="registerUser.username" (ngModelChange)="registerUser.username" name="username" required>
           </mat-form-field>
 
           <!-- Password Field -->
           <mat-form-field class="form-field">
-            <mat-label>Password</mat-label>
+            <mat-label>password</mat-label>
             <input matInput type="password" [(ngModel)]="registerUser.password" name="password" required>
           </mat-form-field>
 
           <!-- Confirm Password Field -->
           <mat-form-field class="form-field">
-            <mat-label>Confirm Password</mat-label>
+            <mat-label>confirm password</mat-label>
             <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
           </mat-form-field>
 
@@ -38,6 +38,35 @@
 
       <mat-tab label="Optional Info">
         <!-- Second Tab - Optional Info -->
+        <form class="form-fields optional-form-fields" (ngSubmit)="register()">
+          <!-- Email Field -->
+          <mat-form-field class="form-field">
+            <mat-label>display name</mat-label>
+            <input matInput type="text" [(ngModel)]="registerUser.displayName" (ngModelChange)="registerUser.displayName" name="displayName">
+          </mat-form-field>
+
+          <!-- Username Field -->
+          <mat-form-field class="form-field">
+            <mat-label>biography</mat-label>
+            <textarea matInput type="text" [(ngModel)]="registerUser.biography" (ngModelChange)="registerUser.biography" name="biography"></textarea>
+          </mat-form-field>
+
+          <!-- Password Field -->
+          <mat-form-field class="form-field">
+            <mat-label>profile picture (url)</mat-label>
+            <input matInput type="url" [(ngModel)]="registerUser.pictureUrl" name="profilePicture">
+          </mat-form-field>
+
+          <!-- Confirm Password Field -->
+          <mat-form-field class="form-field">
+            <mat-label>wallet address</mat-label>
+            <input matInput type="url" [(ngModel)]="registerUser.wallet" name="walletAddress">
+          </mat-form-field>
+
+
+          <!-- Register Button -->
+          <button mat-raised-button class="submit-button" type="submit">Register</button>
+        </form>
         <!-- Content here -->
       </mat-tab>
 
