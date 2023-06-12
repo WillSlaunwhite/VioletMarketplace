@@ -5,6 +5,7 @@ import { AuthService } from '../../../auth/services/auth.service';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
+import { FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-alt-register',
@@ -15,16 +16,47 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class AltRegisterComponent implements OnInit {
   registerUser: User = new User();
   confirmPassword: string | null = '';
+  selectedTabIndex: number = 0;
+  registerForm: FormGroup;
 
   constructor(
+    private formBuilder: FormBuilder,
     private auth: AuthService,
     private userSvc: UserService,
     private router: Router,
     private dialogRef: MatDialogRef<AltRegisterComponent>,
-  ) { }
+  ) {
+    this.registerForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', Validators.required),
+      displayName: new FormControl(''),
+      biography: new FormControl(''),
+      pictureUrl: new FormControl(''),
+      wallet: new FormControl(''),
+      termsAccepted: new FormControl(false, Validators.requiredTrue),
+    });
+
+  }
 
   ngOnInit(): void {
   }
+
+  submit(): void {
+    const registerUser: User = new User();
+    registerUser.email = this.registerForm.value.email;
+    registerUser.username = this.registerForm.value.username;
+    registerUser.password = this.registerForm.value.password;
+    registerUser.displayName = this.registerForm.value.displayName;
+    registerUser.biography = this.registerForm.value.biography;
+    registerUser.pictureUrl = this.registerForm.value.pictureUrl;
+    registerUser.wallet = this.registerForm.value.wallet;
+
+    // register and login the user as before...
+    this.register();
+  }
+
 
   // this seems to be basically working, but
   // todo seems to be making multiple calls to /register, getting 500 error
@@ -69,5 +101,21 @@ export class AltRegisterComponent implements OnInit {
 
   closeDialog(): void {
     this.dialogRef.close();
+  }
+
+  nextTab() {
+    this.selectedTabIndex = (this.selectedTabIndex + 1) % 3;
+  }
+
+  onTabChange(index: number) {
+    this.selectedTabIndex = index;
+  }
+
+  passwordMatchValidator(): ValidatorFn {
+    return (): ValidationErrors | null => {
+      const password = this.registerForm.get('password')!.value;
+      const confirmPassword = this.registerForm.get('confirmPassword')!.value;
+      return password === confirmPassword ? null : { 'mismatch': true };
+    };
   }
 }
