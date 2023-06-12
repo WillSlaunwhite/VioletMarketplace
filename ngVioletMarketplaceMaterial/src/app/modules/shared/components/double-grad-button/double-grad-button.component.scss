@@ -9,12 +9,11 @@
   radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
 @include glass-border;
 
+// TODO need to find way to take width/height as parameters
 
 .dg-button-wrapper {
   @include button-wrapper-styles(20%);
   position: absolute;
-  width: 244px;
-  height: 74px;
   padding: 2px;
   border-radius: 6px;
   overflow: hidden;

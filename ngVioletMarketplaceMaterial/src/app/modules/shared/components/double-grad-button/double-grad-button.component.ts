@@ -21,6 +21,7 @@ export class DoubleGradButtonComponent implements OnInit {
   @Input() delay: number = Math.random() * 3;
   @Input() directionX: number = Math.random() * 20 - 10;
   @Input() directionY: number = Math.random() * 20 - 10;
+  @Input() disabled = false;  // Add this line
 
   constructor() { }
 
