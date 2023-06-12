@@ -5,26 +5,27 @@
 
 
 .register-container {
+  // gives the container its background
   @include button-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
-  width: 60vw;
+  width: 50vw;
   height: 55vh;
   border-radius: 2px;
   overflow: hidden;
 
   .form-container-wrapper {
+    // basic flex stylings
     @include flex-align-justify-direction($justify: center, $align: center, $direction: row);
     width: 100%;
-
-    .form-fields {
-      width: 100%;
-
-    }
   }
 }
 
+.grad-button {
+  margin-top: -1rem;
+}
 
 // todo need to find a more correct way to do this
-::ng-deep .mat-tab-label {
-  width: 30vmin !important;
-  color: $text-primary-dark;
-}
+// ::ng-deep .mat-tab-label {
+//   width: 30vmin !important;
+//   color: $text-primary-dark;
+
+// }

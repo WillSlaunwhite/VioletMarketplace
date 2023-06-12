@@ -4,13 +4,12 @@
 
 .form-container {
   position: relative;
-  width: 60vw;
+  width: 50vw;
   height: 100%;
   top: 0;
   left: 0;
   margin: auto;
   z-index: 3;
-
 
   &::before {
     content: '';
@@ -32,29 +31,26 @@
     top: 0;
     align-items: center;
     height: 100%;
-    width: 60vw;
+    width: 50vw;
 
     .form-fields {
-      height: 100%;
-      width: 60vw;
       @include flex-align-justify-direction($align: center, $direction: column);
-      gap: 1.5rem;
-      margin-top: 1.25rem;
+      height: 100%;
+      width: 50vw;
+      gap: .75rem;
       padding-block-end: 7.5rem;
-
-
 
       &:first-child {
         margin-top: 1.5em;
       }
 
       .mat-form-field {
-        width: 20vmin;
+        width: 30vmin;
         text-align: center;
 
         .mat-input-element {
           transition: all ease-in .75s;
-          margin: .3em 0;
+          margin: -.3em 0;
         }
       }
     }
@@ -74,15 +70,23 @@ mat-hint,
 mat-form-field,
 .mat-input-element::placeholder,
 .mat-form-field-required-marker {
-  @include basic-precise-font($size: 1.25rem);
+  @include basic-precise-font($size: 1.6rem);
   color: white;
   caret-color: white !important;
   text-decoration: white;
   background: transparent;
 }
 
+.mat-tab-label {
+  width: 24.33vmin;
+  @include basic-precise-font($size: 1.3rem);
+}
+
+
+
 // CHANGES INPUT BORDER COLOR
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  margin-bottom: 8px;
   color: gray !important;
 }
 
@@ -95,4 +99,14 @@ mat-form-field,
 // AS WELL AS AUTOFILL BACKGROUND
 ::ng-deep .mat-input-element {
   caret-color: white;
+}
+
+form ::ng-deep .dg-button-wrapper {
+  width: 20vmin;
+  height: 50px;
+  position: relative;
+}
+
+::ng-deep .text-wrapper {
+  font-weight: 200 !important;
 }
