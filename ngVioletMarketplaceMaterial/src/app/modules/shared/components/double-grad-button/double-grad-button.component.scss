@@ -28,24 +28,22 @@
     display: inline-block;
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: inherit;
     outline: none;
     border: none;
     background-size: 150% 150%;
     animation: gradient 6s linear 8s infinite;
 
     .glass-wrapper {
+      border-radius: inherit;
       opacity: .45;
     }
 
     .text-wrapper {
       @include flex-center;
       @include abs-top-left;
-      @include basic-precise-font;
       @include flex-full-wh;
       z-index: 3;
-      font-size: 2.1em;
-      font-weight: 400;
       pointer-events: none; // Add this line to make sure the button is still clickable
     }
 
