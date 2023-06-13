@@ -1,7 +1,7 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/utilities';
-
+@import '/src/scss/components/forms';
 @include hide-underline;
 
 // TOP LEVEL NAVBAR
@@ -44,7 +44,9 @@
       // TODO can't get any animation to work here
     }
 
-    // hides search above text on search bar
+    &.ng-dirty~.mat-form-field-label {
+      display: none;
+    }
   }
 
 
@@ -66,19 +68,14 @@
 
 }
 
-
 // DIVIDER COLOR
 .mat-divider {
   border-top-color: $text-primary-dark;
   opacity: .5;
 }
 
-.search ::ng-deep .mat-form-field-wrapper:focus-within::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: $text-primary-dark;
-  // TODO problems getting animations to work for this too
+.mat-form-field-label-wrapper {
+  &.mat-empty {
+    display: contents;
+  }
 }

@@ -13,7 +13,7 @@
           <!-- Username Field -->
           <mat-form-field class="form-field">
             <mat-label>username</mat-label>
-            <input matInput formControlName="username">
+            <input type="text" matInput formControlName="username">
           </mat-form-field>
 
           <!-- Password Field -->
@@ -32,14 +32,9 @@
           <!-- need to fix in .ts -->
           <div class="text-danger">Passwords do not match</div>
 
-
           <div class="button-container">
-
             <!-- Next Button-->
             <app-double-grad-button label="next" class="grad-button dg-button dg-button-register" (click)="nextTab()"></app-double-grad-button>
-
-            <!-- Back Button -->
-            <app-double-grad-button label="back" class="grad-button dg-button dg-button-register" (click)="previousTab()"></app-double-grad-button>
           </div>
         </form>
       </mat-tab>
@@ -71,9 +66,11 @@
             <input matInput formControlName="wallet">
           </mat-form-field>
 
-
           <!-- Next Button -->
           <app-double-grad-button label="next" class="grad-button dg-button dg-button-register" (click)="nextTab()"></app-double-grad-button>
+
+          <!-- Back Button -->
+          <app-double-grad-button label="back" class="grad-button dg-button dg-button-register" (click)="previousTab()"></app-double-grad-button>
         </form>
       </mat-tab>
 
@@ -88,10 +85,13 @@
           <p><b>Profile Picture URL:</b> {{registerUser.pictureUrl}}</p>
           <p><b>Wallet Address:</b> {{registerUser.wallet}}</p>
           <!-- Terms and Conditions -->
-          <mat-checkbox formControlName="termsAccepted">I accept the Terms and Conditions</mat-checkbox>
+          <mat-checkbox [checked]="true" formControlName="termsAccepted">I accept the Terms and Conditions</mat-checkbox>
 
           <!-- Submit Button -->
           <app-double-grad-button matButton label="Submit" class="grad-button dg-button dg-button-register" [disabled]="!registerForm.valid" (click)="submit()"></app-double-grad-button>
+
+          <!-- Back Button -->
+          <app-double-grad-button label="back" class="grad-button dg-button dg-button-register" (click)="previousTab()"></app-double-grad-button>
         </div>
       </mat-tab>
     </mat-tab-group>

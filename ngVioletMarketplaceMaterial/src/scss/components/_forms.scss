@@ -32,7 +32,8 @@
     height: 100%;
     width: 50vw;
 
-    .form-fields {
+    form,
+    .summary {
       @include flex-align-justify-direction($align: center, $direction: column);
       height: 100%;
       width: 50vw;
@@ -57,10 +58,11 @@
 }
 
 // hides form fields label when text is in field
-input.ng-dirty~.mat-form-field-label-wrapper>.mat-empty {
-  /* Apply styles to the label when the search input is dirty */
-  display: none;
-}
+// input.ng-dirty~.mat-form-field-label-wrapper>.mat-empty {
+//   /* Apply styles to the label when the search input is dirty */
+//   display: none;
+// }
+
 
 // hits search bar, etc.
 mat-label,
