@@ -1,5 +1,5 @@
 @import '/src/scss/utils/_mixins.scss';
-
+@import '/src/scss/components/tabs';
 @include remove-autofill-background;
 
 .form-container {
@@ -65,7 +65,6 @@
 
 
 // hits search bar, etc.
-mat-label,
 input,
 mat-hint,
 mat-form-field,
@@ -79,11 +78,7 @@ mat-form-field,
   transition: all ease-out .75s;
 }
 
-// sizing and font for form tabs
-.mat-tab-label {
-  width: 17vw;
-  @include basic-precise-font($size: 1.3rem);
-}
+
 
 
 

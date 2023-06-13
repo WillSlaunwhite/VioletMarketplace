@@ -3,6 +3,9 @@
 @import '/src/scss/utils/utilities';
 @import '/src/scss/components/forms';
 @import '/src/scss/components/labels';
+@import '~bootstrap/scss/bootstrap';
+
+
 
 @include hide-underline;
 
