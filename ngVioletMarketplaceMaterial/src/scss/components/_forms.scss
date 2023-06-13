@@ -12,9 +12,8 @@
   z-index: 3;
 
   &::before {
+    @include abs-top-left;
     content: '';
-    position: absolute;
-    top: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
@@ -33,11 +32,12 @@
     height: 100%;
     width: 50vw;
 
-    .form-fields {
+    form,
+    .summary {
       @include flex-align-justify-direction($align: center, $direction: column);
       height: 100%;
       width: 50vw;
-      gap: .75rem;
+      gap: .5rem;
       padding-block-end: 7.5rem;
 
       &:first-child {
@@ -45,7 +45,7 @@
       }
 
       .mat-form-field {
-        width: 30vmin;
+        width: 27.5vmin;
         text-align: center;
 
         .mat-input-element {
@@ -58,10 +58,11 @@
 }
 
 // hides form fields label when text is in field
-input.ng-dirty~.mat-form-field-label-wrapper>.mat-empty {
-  /* Apply styles to the label when the search input is dirty */
-  display: none;
-}
+// input.ng-dirty~.mat-form-field-label-wrapper>.mat-empty {
+//   /* Apply styles to the label when the search input is dirty */
+//   display: none;
+// }
+
 
 // hits search bar, etc.
 mat-label,
@@ -75,10 +76,12 @@ mat-form-field,
   caret-color: white !important;
   text-decoration: white;
   background: transparent;
+  transition: all ease-out .75s;
 }
 
+// sizing and font for form tabs
 .mat-tab-label {
-  width: 24.33vmin;
+  width: 17vw;
   @include basic-precise-font($size: 1.3rem);
 }
 
@@ -101,12 +104,15 @@ mat-form-field,
   caret-color: white;
 }
 
+// changes to next buttons
 form ::ng-deep .dg-button-wrapper {
-  width: 20vmin;
-  height: 50px;
+  width: 8.5rem;
+  height: 3rem;
   position: relative;
 }
 
-::ng-deep .text-wrapper {
+// changes font weight on submit button
+form ::ng-deep .text-wrapper {
   font-weight: 200 !important;
+  font-size: 2rem !important;
 }

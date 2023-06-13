@@ -106,6 +106,9 @@ export class AltRegisterComponent implements OnInit {
   nextTab() {
     this.selectedTabIndex = (this.selectedTabIndex + 1) % 3;
   }
+  previousTab() {
+    this.selectedTabIndex = (this.selectedTabIndex - 1) % 3;
+  }
 
   onTabChange(index: number) {
     this.selectedTabIndex = index;

@@ -1,6 +1,8 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/utilities';
+@import '/src/scss/components/forms';
+@import '/src/scss/components/labels';
 
 @include hide-underline;
 
@@ -39,12 +41,26 @@
     margin-right: 4rem;
     position: relative;
 
-    &:focus-within mat-label {
-      display: none;
-      // TODO can't get any animation to work here
+    // search focus animation
+    &:focus-within {
+      transform: translate(0, 120px);
+      transition: all ease-out .75s;
     }
 
-    // hides search above text on search bar
+    // hide and unhide the search label
+    // &.mat-form-field-should-float {
+    //   mat-label {
+    //     // display: none;
+
+    //     animation: cubic-bezier(1, 0, 0, 1);
+    //   }
+    // }
+
+    // &.mat-form-field-empty:not(:focus-within) {
+    //   mat-label {
+    //     display: block;
+    //   }
+    // }
   }
 
 
@@ -66,19 +82,8 @@
 
 }
 
-
 // DIVIDER COLOR
 .mat-divider {
   border-top-color: $text-primary-dark;
   opacity: .5;
-}
-
-.search ::ng-deep .mat-form-field-wrapper:focus-within::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: $text-primary-dark;
-  // TODO problems getting animations to work for this too
 }

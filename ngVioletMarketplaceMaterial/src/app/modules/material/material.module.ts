@@ -21,6 +21,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -44,7 +46,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatMenuModule,
     NgbModule,
     MatRippleModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCheckboxModule,
   ],
   exports: [
     MatSliderModule,
@@ -64,7 +67,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatMenuModule,
     NgbModule,
     MatRippleModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCheckboxModule,
   ]
 })
 export class MaterialModule { }
