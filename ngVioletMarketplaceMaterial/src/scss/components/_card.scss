@@ -1,6 +1,7 @@
+@import '~bootstrap/scss/bootstrap';
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
-
+@import '/src/scss/utils/gradients';
 @include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(88, 88, 88, 0.124) 100%),
   linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(100, 100, 100, 0.124) 100%),
   radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
@@ -72,12 +73,12 @@
     pointer-events: none;
 
     // LIMIT PARAGRAPH TEXT TO N LINES
-    text-overflow: ellipsis;
+    text-overflow: ellipsis !important;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 5 !important;
     /* number of lines to show */
-    line-clamp: 5;
-    -webkit-box-orient: vertical;
+    line-clamp: 5 !important;
+    -webkit-box-orient: vertical !important;
   }
 
   &.mat-card:hover.card-img-title {
