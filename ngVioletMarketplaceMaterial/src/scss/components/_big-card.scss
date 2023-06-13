@@ -80,7 +80,7 @@
       pointer-events: none;
 
       // LIMIT PARAGRAPH TEXT TO N LINES
-      text-overflow: ellipsis;
+      text-overflow: ellipsis !important;
       display: -webkit-box;
       -webkit-line-clamp: 5;
       /* number of lines to show */
