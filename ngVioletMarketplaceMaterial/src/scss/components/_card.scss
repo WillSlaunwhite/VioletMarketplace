@@ -2,10 +2,10 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/gradients';
-// @include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(88, 88, 88, 0.124) 100%),
-//   linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(100, 100, 100, 0.124) 100%),
-//   radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
-// @include glass-border;
+@include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(88, 88, 88, 0.124) 100%),
+  linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(100, 100, 100, 0.124) 100%),
+  radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
+@include glass-border;
 
 // CARDS
 .mat-card {
