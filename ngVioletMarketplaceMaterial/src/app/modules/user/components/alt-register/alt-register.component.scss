@@ -2,7 +2,6 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/components/forms';
 @import '/src/scss/components/labels';
-@import '/src/scss/components/tabs';
 
 .register-container {
   // gives the container its background
@@ -20,8 +19,9 @@
 
     mat-tab-group {
       mat-tab {
-
         // ensure full height
+        height: 55vh;
+
         .tab-content {
           // make it flex container
           display: flex;
@@ -68,4 +68,22 @@
 
 .grad-button {
   margin-top: -1rem;
+}
+
+// .button-container {
+// width:
+// }
+
+mat-tab {
+  height: 100%;
+  width: 55vw;
+}
+
+mat-tab {
+  height: 50vh;
+  width: 55vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
