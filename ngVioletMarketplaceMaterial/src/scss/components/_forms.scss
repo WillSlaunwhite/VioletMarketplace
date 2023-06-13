@@ -1,5 +1,5 @@
 @import '/src/scss/utils/_mixins.scss';
-
+@import '/src/scss/components/tabs';
 @include remove-autofill-background;
 
 .form-container {
