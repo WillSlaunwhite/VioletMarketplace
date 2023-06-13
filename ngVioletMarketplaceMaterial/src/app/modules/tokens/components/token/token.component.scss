@@ -1,18 +1,6 @@
 @import '/src/scss/utils/variables';
 
 /* Global styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: $background-dark;
-  background-color: $light-beige;
-}
 
 /* Grid container */
 .container {
@@ -20,95 +8,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
   padding: 20px;
-}
-
-/* Header */
-header {
-  grid-column: 1 / -1;
-  padding: 20px;
-  background-color: $light-blue;
-  /* Sky blue */
-  text-align: center;
-}
-
-header h1 {
-  color: $text-primary-dark;
-  font-size: 2rem;
-}
-
-/* Main content */
-main {
-  grid-column: 1 / -1;
-  padding: 20px;
-}
-
-section {
-  margin-bottom: 20px;
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
-  align-items: center;
-}
-
-form label,
-form input,
-form select {
-  width: 100%;
-}
-
-button {
-  grid-column: 1 / -1;
-  background-color: $light-blue;
-  color: $text-primary-dark;
-  padding: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #6aafe4;
-}
-
-/* Portfolio table */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-}
-
-th {
-  background-color: #87ceeb;
-  /* Sky blue */
-  color: #fff;
-}
-
-/* Footer */
-footer {
-  grid-column: 1 / -1;
-  padding: 20px;
-  background-color: #87ceeb;
-  /* Sky blue */
-  text-align: center;
-}
-
-footer p {
-  color: #fff;
 }
 
 /* Media queries for responsiveness */
