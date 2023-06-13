@@ -38,11 +38,7 @@
           @include basic-precise-font($size: 3.25rem, $align: start);
           width: fit-content;
           padding: 0;
-          // TODO please fix this margin
           margin: 4.25rem 0 auto 20%;
-          // margin-left: 20%;
-          // margin-top: 4.25rem;
-          // margin-bottom: 0;
         }
       }
 
@@ -67,7 +63,7 @@
 }
 
 .cta-container ::ng-deep .text-wrapper {
-  font-family: "Poppins";
+  font-family: "Poppins", bold;
   font-size: 2.5rem;
   font-weight: 300;
   letter-spacing: -.075rem;
