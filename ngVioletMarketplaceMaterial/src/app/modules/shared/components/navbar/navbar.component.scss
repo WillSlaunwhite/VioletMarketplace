@@ -39,13 +39,23 @@
     margin-right: 4rem;
     position: relative;
 
+
+    // hides and unhides search label
     &:focus-within mat-label {
       display: none;
       // TODO can't get any animation to work here
     }
 
-    &.ng-dirty~.mat-form-field-label {
-      display: none;
+    &.mat-form-field-should-float {
+      mat-label {
+        display: none;
+      }
+    }
+
+    &.mat-form-field-empty:not(:focus-within) {
+      mat-label {
+        display: block;
+      }
     }
   }
 
@@ -73,6 +83,16 @@
   border-top-color: $text-primary-dark;
   opacity: .5;
 }
+
+// .search ::ng-deep .mat-form-field-wrapper:focus-within::before {
+//   content: '';
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   height: 1px;
+//   background: $text-primary-dark;
+//   // TODO problems getting animations to work for this too
+// }
 
 .mat-form-field-label-wrapper {
   &.mat-empty {
