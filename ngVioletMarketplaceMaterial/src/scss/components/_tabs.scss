@@ -1,0 +1,5 @@
+// sizing and font for form tabs
+.mat-tab-label {
+  width: 17vw;
+  @include basic-precise-font($size: 1.3rem);
+}
