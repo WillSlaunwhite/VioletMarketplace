@@ -1,4 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
+@import '/src/scss/layout/token_containers';
+@import '/src/scss/layout/containers';
 
 .tokens-container {
   position: relative;

@@ -1,7 +1,7 @@
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/variables';
-@import '/src/scss/components/forms';
-@import '/src/scss/components/labels';
+@import '/src/scss/components/forms/forms';
+@import '/src/scss/components/forms/labels';
 
 .register-container {
   // gives the container its background
@@ -80,16 +80,16 @@
 // width:
 // }
 
-mat-tab {
-  height: 100%;
-  width: 55vw;
-}
+// mat-tab {
+//   height: 100%;
+//   width: 55vw;
+// }
 
-mat-tab {
-  height: 50vh;
-  width: 55vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+// mat-tab {
+//   height: 50vh;
+//   width: 55vw;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
 
-}
+// }
