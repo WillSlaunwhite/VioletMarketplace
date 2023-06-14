@@ -1,5 +1,5 @@
 @import '/src/scss/utils/_mixins.scss';
-@import '/src/scss/components/tabs';
+
 @include remove-autofill-background;
 
 .form-container {
@@ -31,6 +31,46 @@
     align-items: center;
     height: 100%;
     width: 50vw;
+
+
+
+    .tab-content {
+      width: 50vw;
+      height: 55vh;
+      display: flex;
+      flex-direction: column;
+      // @include flex-align-justify-direction($direction: column, $align: space-between, $justify: center);
+      background: blue;
+
+
+      .left-container,
+      .right-container {
+        flex: 1;
+        height: 80%;
+        width: 100%;
+
+        margin: auto 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+
+        .left-container .form-field:first-child,
+        .right-container .form-field:first-child {
+          margin-top: 5em;
+        }
+
+        .form-field {
+          width: 50%;
+          height: 50%;
+
+        }
+      }
+
+      .left-container {
+        background: brown;
+      }
+    }
 
     form,
     .summary {

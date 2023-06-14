@@ -1,5 +1,5 @@
 <div @slideInTop class="register-container">
-  <form class="form-container" [formGroup]="registerForm" (ngSubmit)="registerForm.valid && submit()">
+  <form class="register-form-container" [formGroup]="registerForm" (ngSubmit)="registerForm.valid && submit()">
     <mat-tab-group [(selectedIndex)]="selectedTabIndex" (selectedIndexChange)="onTabChange($event)">
       <mat-tab label="Required Info">
         <!-- First Tab - Required Info -->
@@ -39,45 +39,47 @@
           </div>
         </div>
         <!-- Next Button-->
-        <app-double-grad-button label="next" class="grad-button dg-button dg-button-register" (click)="nextTab()"></app-double-grad-button>
+        <app-double-grad-button label="next" class="grad-button dg-button dg-button-next" (click)="nextTab()"></app-double-grad-button>
       </mat-tab>
 
       <mat-tab label="Optional Info">
         <!-- Second Tab - Optional Info -->
-        <div class="left-container">
+        <div class="tab-content">
 
+          <div class="left-container">
+            <!-- Email Field -->
+            <mat-form-field class="form-field">
+              <mat-label>display name</mat-label>
+              <input matInput formControlName="displayName">
+            </mat-form-field>
 
-          <!-- Email Field -->
-          <mat-form-field class="form-field">
-            <mat-label>display name</mat-label>
-            <input matInput formControlName="displayName">
-          </mat-form-field>
+            <!-- Username Field -->
+            <mat-form-field class="form-field">
+              <mat-label>biography</mat-label>
+              <textarea matInput formControlName="biography"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="right-container">
+            <!-- Password Field -->
+            <mat-form-field class="form-field">
+              <mat-label>profile picture (url)</mat-label>
+              <input matInput formControlName="pictureUrl">
+            </mat-form-field>
 
-          <!-- Username Field -->
-          <mat-form-field class="form-field">
-            <mat-label>biography</mat-label>
-            <textarea matInput formControlName="biography"></textarea>
-          </mat-form-field>
+            <!-- Confirm Password Field -->
+            <mat-form-field class="form-field">
+              <mat-label>wallet address</mat-label>
+              <input matInput formControlName="wallet">
+            </mat-form-field>
+          </div>
+
+          <!-- Back Button -->
+          <app-double-grad-button label="back" class="grad-button dg-button dg-button-back" (click)="previousTab()"></app-double-grad-button>
+
+          <!-- Next Button -->
+          <app-double-grad-button label="next" class="grad-button dg-button dg-button-next" (click)="nextTab()"></app-double-grad-button>
+
         </div>
-        <div class="right-container">
-          <!-- Password Field -->
-          <mat-form-field class="form-field">
-            <mat-label>profile picture (url)</mat-label>
-            <input matInput formControlName="pictureUrl">
-          </mat-form-field>
-
-          <!-- Confirm Password Field -->
-          <mat-form-field class="form-field">
-            <mat-label>wallet address</mat-label>
-            <input matInput formControlName="wallet">
-          </mat-form-field>
-        </div>
-
-        <!-- Next Button -->
-        <app-double-grad-button label="next" class="grad-button dg-button dg-button-register" (click)="nextTab()"></app-double-grad-button>
-
-        <!-- Back Button -->
-        <app-double-grad-button label="back" class="grad-button dg-button dg-button-register" (click)="previousTab()"></app-double-grad-button>
       </mat-tab>
 
       <mat-tab label="Validation">

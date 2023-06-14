@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Nunito:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&family=Ubuntu:wght@300&display=swap');
 /* Importing Bootstrap SCSS file. */
+
 @import 'scss/base/base';
 @import 'scss/components/dialog';
 @import 'scss/layout/containers';
 @import 'scss/utils/gradients';
 @import 'scss/utils/scrollbar';
+@import 'scss/components/tabs';
 
 // @import 'scss/utils/material-theme';
