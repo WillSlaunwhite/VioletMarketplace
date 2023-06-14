@@ -2,10 +2,10 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/gradients';
-// @include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(88, 88, 88, 0.124) 100%),
-//   linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(100, 100, 100, 0.124) 100%),
-//   radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
-// @include glass-border;
+@include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(88, 88, 88, 0.124) 100%),
+  linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(100, 100, 100, 0.124) 100%),
+  radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
+@include glass-border;
 
 // CARDS
 .mat-card {
@@ -68,10 +68,16 @@
     transition: ease-out .4s;
   }
 
-  &.mat-card:hover .card-img-description {
+  &.mat-card:hover.card-img-title {
+    color: $secondary-dark;
+  }
+
+  .mat-card:hover .card-img-description {
     transition: ease-out .4s;
     pointer-events: none;
 
+
+    //TODO NEED TO FIX LINE CLAMP!!!!
     // LIMIT PARAGRAPH TEXT TO N LINES
     text-overflow: ellipsis !important;
     display: -webkit-box;
@@ -79,10 +85,6 @@
     /* number of lines to show */
     line-clamp: 5 !important;
     -webkit-box-orient: vertical !important;
-  }
-
-  &.mat-card:hover.card-img-title {
-    color: $secondary-dark;
   }
 
   .mat-card-image {
