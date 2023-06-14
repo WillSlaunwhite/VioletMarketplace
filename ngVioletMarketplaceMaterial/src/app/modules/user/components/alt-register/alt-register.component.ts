@@ -44,14 +44,13 @@ export class AltRegisterComponent implements OnInit {
   }
 
   submit(): void {
-    const registerUser: User = new User();
-    registerUser.email = this.registerForm.value.email;
-    registerUser.username = this.registerForm.value.username;
-    registerUser.password = this.registerForm.value.password;
-    registerUser.displayName = this.registerForm.value.displayName;
-    registerUser.biography = this.registerForm.value.biography;
-    registerUser.pictureUrl = this.registerForm.value.pictureUrl;
-    registerUser.wallet = this.registerForm.value.wallet;
+    this.registerUser.email = this.registerForm.value.email;
+    this.registerUser.username = this.registerForm.value.username;
+    this.registerUser.password = this.registerForm.value.password;
+    this.registerUser.displayName = this.registerForm.value.displayName;
+    this.registerUser.biography = this.registerForm.value.biography;
+    this.registerUser.pictureUrl = this.registerForm.value.pictureUrl;
+    this.registerUser.wallet = this.registerForm.value.wallet;
 
     // register and login the user as before...
     this.register();
