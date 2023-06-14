@@ -22,6 +22,12 @@
         // ensure full height
         height: 55vh;
 
+        .dg-button-next {
+          position: relative;
+          top: 0;
+          right: 0;
+        }
+
         .tab-content {
           // make it flex container
           display: flex;
