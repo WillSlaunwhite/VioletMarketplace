@@ -10,7 +10,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { UserRoutingModule } from './user-routing.module';
 import { TokenModule } from '../tokens/token.module';
 import { SharedModule } from '../shared/shared.module';
-import { AltRegisterComponent } from './components/alt-register/alt-register.component';
+import { AltRegisterComponent } from './register/alt-register/alt-register.component';
 import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
