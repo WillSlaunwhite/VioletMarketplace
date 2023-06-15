@@ -8,7 +8,7 @@ import { Observable, throwError } from 'rxjs';
 import { slideInTop } from 'src/app/animations/animations';
 import { login } from '../../state/user.actions';
 import { selectCurrentUser } from '../../state/user.selectors';
-import { AltRegisterComponent } from '../alt-register/alt-register.component';
+import { AltRegisterComponent } from '../../register/alt-register/alt-register.component';
 
 @Component({
   selector: 'app-login',
