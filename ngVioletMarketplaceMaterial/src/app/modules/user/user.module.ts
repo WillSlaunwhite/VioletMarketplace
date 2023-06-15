@@ -12,13 +12,19 @@ import { TokenModule } from '../tokens/token.module';
 import { SharedModule } from '../shared/shared.module';
 import { AltRegisterComponent } from './register/alt-register/alt-register.component';
 import { LoginComponent } from './components/login/login.component';
+import { TabContainerComponent } from './register/tab-container/tab-container.component';
+import { FormContainerComponent } from './register/form-container/form-container.component';
+import { InfoContainerComponent } from './register/info-container/info-container.component';
 
 @NgModule({
   declarations: [
     ProfileManagementComponent,
     UserPageComponent,
     AltRegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TabContainerComponent,
+    FormContainerComponent,
+    InfoContainerComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +40,8 @@ import { LoginComponent } from './components/login/login.component';
   ],
   exports: [
     ProfileManagementComponent,
-    UserPageComponent
+    UserPageComponent,
+    TabContainerComponent
   ]
 })
 export class UserModule { }
