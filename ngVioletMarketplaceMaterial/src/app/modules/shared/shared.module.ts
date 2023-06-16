@@ -14,6 +14,9 @@ import { NavGradButtonComponent } from './components/nav-grad-button/nav-grad-bu
 import { UserRoutingModule } from '../user/user-routing.module';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { FormFieldComponent } from './components/forms/form-field/form-field.component';
+import { ParagraphComponent } from './components/text/paragraph/paragraph.component';
+import { HeaderComponent } from './components/text/header/header.component';
+import { WarningMessageComponent } from './components/text/warning-message/warning-message.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { FormFieldComponent } from './components/forms/form-field/form-field.com
     DoubleGradButtonComponent,
     NavGradButtonComponent,
     SidenavComponent,
-    FormFieldComponent
+    FormFieldComponent,
+    ParagraphComponent,
+    HeaderComponent,
+    WarningMessageComponent
   ],
   imports: [
     CommonModule,
