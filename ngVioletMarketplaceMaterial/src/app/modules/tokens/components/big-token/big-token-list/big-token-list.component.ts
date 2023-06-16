@@ -1,18 +1,19 @@
-import { AfterContentChecked, AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import Token from 'src/app/models/token';
-import { Observable, combineLatest, filter, map, mergeMap, of, startWith, switchMap, take, tap, withLatestFrom } from 'rxjs';
-import { getAllTokens, getUserTokens } from '../../state/tokens.selectors';
-import { loadTokens, loadUserTokens } from '../../state/tokens.actions';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { Observable, of, filter, switchMap, combineLatest, tap, map } from 'rxjs';
 import User from 'src/app/models/user';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import Token from 'src/app/models/token';
+import { loadUserTokens, loadTokens } from '../../../state/tokens.actions';
+import { getAllTokens, getUserTokens } from '../../../state/tokens.selectors';
 
 @Component({
-  selector: 'app-token-list',
-  templateUrl: './token-list.component.html',
-  styleUrls: ['./token-list.component.scss']
+  selector: 'app-big-token-list',
+  templateUrl: './big-token-list.component.html',
+  styleUrls: ['./big-token-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TokenListComponent implements OnInit, AfterViewInit, AfterContentChecked {
+export class BigTokenListComponent implements OnInit {
   tokens$: Observable<Token[] | null> = of(null);
   user$: Observable<User | null> = of(null);
   scrollInterval: any;
@@ -44,31 +45,14 @@ export class TokenListComponent implements OnInit, AfterViewInit, AfterContentCh
           }
         }
       }),
-      // todo backup logic doesn't seem to be working when you get 404 for tokens/user
       map(([user, allTokens, userTokens]) => user ? userTokens : allTokens)
     );
   }
 
   ngAfterContentChecked(): void {
-    //   const container = this.tokensContainer.nativeElement;
-    //   if (container.scrollWidth !== this.previousScrollWidth) {
-    //     this.previousScrollWidth = container.scrollWidth;
-    //     container.scrollLeft = container.scrollWidth / 2;
-    //   }
   }
 
   ngAfterViewInit(): void {
-    // setTimeout(() => {
-    //   const container = this.tokensContainer.nativeElement;
-    //   container.scrollLeft = container.scrollWidth / 2;
-    // }, 500);
-    // setTimeout(() => {
-    //   const container = this.tokensContainer.nativeElement;
-    //   console.log(container);
-    //   console.log(container.scrollLeft);
-    //   container.scrollLeft = 500;
-    //   console.log(container.scrollLeft);
-    // }, 500);
   }
 
   startScrollLeft(tokensContainer: HTMLElement): void {
@@ -126,17 +110,5 @@ export class TokenListComponent implements OnInit, AfterViewInit, AfterContentCh
   scrollFarRight(tokensContainer: HTMLElement): void {
     tokensContainer.scrollLeft += 50; // adjust this value as needed
   }
-
-  // scrollToMiddle(): void {
-  //   const containerElement = this.tokensContainer.nativeElement;
-  //   const contentWidth = containerElement.scrollWidth;
-  //   const scrollLeft = contentWidth / 2;
-  //   console.log(containerElement);
-  //   console.log(contentWidth);
-  //   console.log(scrollLeft);
-  //   containerElement.scrollLeft = scrollLeft;
-  //   console.log(containerElement.scrollLeft);
-
-  // }
 
 }
