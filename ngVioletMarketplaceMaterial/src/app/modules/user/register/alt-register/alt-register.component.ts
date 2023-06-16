@@ -24,7 +24,7 @@ export class AltRegisterComponent implements OnInit {
     private auth: AuthService,
     private userSvc: UserService,
     private router: Router,
-    private dialogRef: MatDialogRef<AltRegisterComponent>,
+    // private dialogRef: MatDialogRef<AltRegisterComponent>,
   ) {
     this.registerForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -63,7 +63,7 @@ export class AltRegisterComponent implements OnInit {
     console.log('RegisterComponent: register method called');
     this.userSvc.register(this.registerUser).subscribe(
       () => {
-        this.closeDialog()
+        // this.closeDialog()
         this.loginNewUser(this.registerUser);
       },
       (error) => {
@@ -99,7 +99,7 @@ export class AltRegisterComponent implements OnInit {
 
 
   closeDialog(): void {
-    this.dialogRef.close();
+    // this.dialogRef.close();
   }
 
   nextTab() {
