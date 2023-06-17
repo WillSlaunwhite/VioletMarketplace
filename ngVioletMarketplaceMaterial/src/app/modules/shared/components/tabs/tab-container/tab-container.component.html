@@ -1,1 +1,5 @@
-<p>tab-container works!</p>
+<mat-tab-group [(selectedIndex)]="selectedTabIndex" (selectedIndexChange)="onTabChange($event)">
+  <app-register-tab></app-register-tab>
+  <app-register-tab></app-register-tab>
+  <app-register-tab></app-register-tab>
+</mat-tab-group>

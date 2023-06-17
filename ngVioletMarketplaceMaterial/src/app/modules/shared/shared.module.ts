@@ -17,6 +17,7 @@ import { FormFieldComponent } from './components/forms/form-field/form-field.com
 import { ParagraphComponent } from './components/text/paragraph/paragraph.component';
 import { HeaderComponent } from './components/text/header/header.component';
 import { WarningMessageComponent } from './components/text/warning-message/warning-message.component';
+import { RegisterTabComponent } from './components/tabs/register-tab/register-tab.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { WarningMessageComponent } from './components/text/warning-message/warni
     FormFieldComponent,
     ParagraphComponent,
     HeaderComponent,
-    WarningMessageComponent
+    WarningMessageComponent,
+    RegisterTabComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,9 @@ import { WarningMessageComponent } from './components/text/warning-message/warni
     SidenavComponent,
     AboutUsComponent,
     DoubleGradButtonComponent,
-    NavGradButtonComponent
+    NavGradButtonComponent,
+    RegisterTabComponent,
+    FormFieldComponent
   ],
 })
 export class SharedModule { }
