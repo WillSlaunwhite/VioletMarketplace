@@ -46,12 +46,6 @@
       }
     }
 
-    // mat-tab-group~ {
-    //   @include flex-align-justify-direction($align: center, $justify: center, $direction: row);
-    //   flex-wrap: wrap;
-    // }
-
-
     .summary {
       width: 50vw;
       height: 55vh;
@@ -76,21 +70,3 @@
 .grad-button {
   margin-top: -1rem;
 }
-
-// .button-container {
-// width:
-// }
-
-// mat-tab {
-//   height: 100%;
-//   width: 55vw;
-// }
-
-// mat-tab {
-//   height: 50vh;
-//   width: 55vw;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-// }
