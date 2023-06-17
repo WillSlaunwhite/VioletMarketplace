@@ -4,7 +4,6 @@ import User from 'src/app/models/user';
 import { AuthService } from '../../../auth/services/auth.service';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
