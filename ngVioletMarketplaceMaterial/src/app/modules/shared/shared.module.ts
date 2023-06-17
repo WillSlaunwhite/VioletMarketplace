@@ -9,14 +9,15 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DoubleGradButtonComponent } from './components/double-grad-button/double-grad-button.component';
-import { NavGradButtonComponent } from './components/nav-grad-button/nav-grad-button.component';
+import { DoubleGradButtonComponent } from './components/buttons/double-grad-button/double-grad-button.component';
+import { NavGradButtonComponent } from './components/buttons/nav-grad-button/nav-grad-button.component';
 import { UserRoutingModule } from '../user/user-routing.module';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { FormFieldComponent } from './components/forms/form-field/form-field.component';
 import { ParagraphComponent } from './components/text/paragraph/paragraph.component';
 import { HeaderComponent } from './components/text/header/header.component';
 import { WarningMessageComponent } from './components/text/warning-message/warning-message.component';
+import { RegisterTabComponent } from './components/tabs/register-tab/register-tab.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { WarningMessageComponent } from './components/text/warning-message/warni
     FormFieldComponent,
     ParagraphComponent,
     HeaderComponent,
-    WarningMessageComponent
+    WarningMessageComponent,
+    RegisterTabComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,9 @@ import { WarningMessageComponent } from './components/text/warning-message/warni
     SidenavComponent,
     AboutUsComponent,
     DoubleGradButtonComponent,
-    NavGradButtonComponent
+    NavGradButtonComponent,
+    RegisterTabComponent,
+    FormFieldComponent
   ],
 })
 export class SharedModule { }

@@ -30,7 +30,7 @@
         height: 100%;
 
         .grad-button {
-          @include abs-top-left($top: 42.5%, $left: 65.5%);
+          @include abs-top-left($top: 27.5%, $left: 65.5%);
           color: $text-primary-dark;
         }
 
