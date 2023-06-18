@@ -1,0 +1,17 @@
+// @import '/src/scss/components/forms/tabs';
+// @import '/src/scss/components/forms/forms';
+
+@import '/src/scss/utils/mixins';
+@import '/src/scss/utils/variables';
+
+.register-tab-container {
+  width: 55vw;
+  height: 120px;
+  background: $primary-dark;
+  border-radius: 2px;
+
+  position: relative;
+  left: 42.5%;
+  margin: 1em;
+  margin-top: 3em;
+}
