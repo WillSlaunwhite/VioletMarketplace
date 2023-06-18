@@ -16,7 +16,7 @@ import { FormFieldComponent } from './components/forms/form-field/form-field.com
 import { ParagraphComponent } from './components/text/paragraph/paragraph.component';
 import { HeaderComponent } from './components/text/header/header.component';
 import { WarningMessageComponent } from './components/text/warning-message/warning-message.component';
-import { RegisterTabComponent } from './components/tabs/register-tab/register-tab.component';
+import { FormContainerComponent } from './components/forms/form-container/form-container.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +26,10 @@ import { RegisterTabComponent } from './components/tabs/register-tab/register-ta
     NavGradButtonComponent,
     SidenavComponent,
     FormFieldComponent,
+    FormContainerComponent,
     ParagraphComponent,
     HeaderComponent,
     WarningMessageComponent,
-    RegisterTabComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +40,7 @@ import { RegisterTabComponent } from './components/tabs/register-tab/register-ta
     FormsModule,
     UserRoutingModule,
     AngularSvgIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     NavbarComponent,
@@ -48,8 +48,8 @@ import { RegisterTabComponent } from './components/tabs/register-tab/register-ta
     AboutUsComponent,
     DoubleGradButtonComponent,
     NavGradButtonComponent,
-    RegisterTabComponent,
-    FormFieldComponent
+    FormFieldComponent,
+    FormContainerComponent
   ],
 })
 export class SharedModule { }
