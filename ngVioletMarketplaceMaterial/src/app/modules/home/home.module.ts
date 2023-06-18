@@ -13,7 +13,7 @@ import { UserModule } from '../user/user.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    TokenModule,
+    // TokenModule,
     SharedModule,
     UserModule
   ]
