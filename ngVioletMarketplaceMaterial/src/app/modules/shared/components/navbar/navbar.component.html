@@ -1,4 +1,4 @@
-<mat-toolbar class="toolbar d-flex">
+<mat-toolbar class="toolbar">
   <div class="brand-container"><svg-icon class="brand" src="/assets/logos/matrix_vm_logo.svg"></svg-icon></div>
   <mat-form-field [ngClass]="{'focused': isSearchFieldFocused}" [formGroup]="searchForm" class="search">
     <mat-label class="search-label">Search...</mat-label>
@@ -7,7 +7,7 @@
       <mat-icon>clear</mat-icon>
     </button>
   </mat-form-field>
-  <div class="links d-flex">
+  <div class="links">
     <app-nav-grad-button class="nav-grad-button" buttonText="home" routerLink="/home"></app-nav-grad-button>
     <app-nav-grad-button class="nav-grad-button" buttonText="about us" routerLink="/about"></app-nav-grad-button>
     <app-nav-grad-button class="nav-grad-button" *ngIf="!(isLoggedIn$ | async)" buttonText="register" [clickAction]="getRegisterDialogAction()"></app-nav-grad-button>

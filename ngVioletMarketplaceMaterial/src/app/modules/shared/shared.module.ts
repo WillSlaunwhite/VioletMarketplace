@@ -4,7 +4,6 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MaterialModule } from '../material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TokenModule } from "../tokens/token.module";
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedRoutingModule } from './shared-routing.module';
@@ -17,7 +16,9 @@ import { FormFieldComponent } from './components/forms/form-field/form-field.com
 import { ParagraphComponent } from './components/text/paragraph/paragraph.component';
 import { HeaderComponent } from './components/text/header/header.component';
 import { WarningMessageComponent } from './components/text/warning-message/warning-message.component';
+import { FormContainerComponent } from './components/forms/form-container/form-container.component';
 import { RegisterTabComponent } from './components/tabs/register-tab/register-tab.component';
+import { TabContainerComponent } from './components/tabs/tab-container/tab-container.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +28,12 @@ import { RegisterTabComponent } from './components/tabs/register-tab/register-ta
     NavGradButtonComponent,
     SidenavComponent,
     FormFieldComponent,
+    FormContainerComponent,
     ParagraphComponent,
     HeaderComponent,
     WarningMessageComponent,
-    RegisterTabComponent
+    RegisterTabComponent,
+    TabContainerComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +44,7 @@ import { RegisterTabComponent } from './components/tabs/register-tab/register-ta
     FormsModule,
     UserRoutingModule,
     AngularSvgIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     NavbarComponent,
@@ -49,8 +52,10 @@ import { RegisterTabComponent } from './components/tabs/register-tab/register-ta
     AboutUsComponent,
     DoubleGradButtonComponent,
     NavGradButtonComponent,
+    FormFieldComponent,
+    FormContainerComponent,
     RegisterTabComponent,
-    FormFieldComponent
+    TabContainerComponent
   ],
 })
 export class SharedModule { }

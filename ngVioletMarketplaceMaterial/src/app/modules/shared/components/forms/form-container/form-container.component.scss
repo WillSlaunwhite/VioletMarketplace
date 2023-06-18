@@ -1,0 +1,11 @@
+@import '/src/scss/utils/mixins';
+@import '/src/scss/utils/variables';
+
+
+.register-form-container {
+  @include flex-align-justify-direction($justify: space-between, $align: center, $direction: row);
+  background: gray;
+  width: 40vw;
+  height: 50vh;
+  color: white;
+}
