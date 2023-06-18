@@ -9,7 +9,7 @@
 // TOP LEVEL NAVBAR
 .toolbar {
   display: flex;
-  justify-content: space-between !important;
+  justify-content: space-between;
   height: 3.25em;
   background: transparent;
   overflow: hidden;
@@ -21,15 +21,17 @@
     height: auto;
     margin-top: 1em;
     margin-left: .5em;
-    cursor: pointer;
+    cursor: none;
 
-    &.brand-container:hover {
-      transform: scale(1.05);
+    // TODO fix brand's animation
+    &:hover svg-icon {
+      transform: translateX(-5px);
       transition: ease .3s;
 
-      &.brand {
-        transform: translateX(50%);
-      }
+      // .brand {
+      //   height: auto;
+      //   transform: translateX(50%);
+      // }
     }
   }
 

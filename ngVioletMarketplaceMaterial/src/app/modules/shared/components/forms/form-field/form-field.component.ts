@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FormFieldComponent implements OnInit {
   @Input() label: string = '';
-  @Input() type: string = 'text';
+  type: string = 'text';
 
   constructor() { }
 
