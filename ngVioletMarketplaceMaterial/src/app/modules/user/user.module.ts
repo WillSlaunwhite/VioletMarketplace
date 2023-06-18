@@ -12,9 +12,9 @@ import { TokenModule } from '../tokens/token.module';
 import { SharedModule } from '../shared/shared.module';
 import { AltRegisterComponent } from './register/alt-register/alt-register.component';
 import { LoginComponent } from './components/login/login.component';
-import { TabContainerComponent } from '../shared/components/tabs/tab-container/tab-container.component';
-import { FormContainerComponent } from '../shared/components/forms/form-container/form-container.component';
+import { TabContainerComponent } from './register/tabs/tab-container/tab-container.component';
 import { InfoContainerComponent } from './register/info-container/info-container.component';
+import { RegisterTabComponent } from './register/tabs/register-tab/register-tab.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,8 @@ import { InfoContainerComponent } from './register/info-container/info-container
     AltRegisterComponent,
     LoginComponent,
     TabContainerComponent,
-    FormContainerComponent,
-    InfoContainerComponent
+    InfoContainerComponent,
+    RegisterTabComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +42,8 @@ import { InfoContainerComponent } from './register/info-container/info-container
     ProfileManagementComponent,
     UserPageComponent,
     TabContainerComponent,
-    AltRegisterComponent
+    AltRegisterComponent,
+    RegisterTabComponent
   ]
 })
 export class UserModule { }
