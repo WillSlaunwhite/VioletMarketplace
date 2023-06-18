@@ -2,7 +2,9 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 
 @Component({
   selector: 'app-register-tab',
-  templateUrl: './register-tab.component.html',
+  template: `
+    <app-form-container></app-form-container>
+  `,
   styleUrls: ['./register-tab.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

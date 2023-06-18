@@ -97,13 +97,8 @@
   }
 }
 
-// hides form fields label when text is in field
-// input.ng-dirty~.mat-form-field-label-wrapper>.mat-empty {
-//   /* Apply styles to the label when the search input is dirty */
-//   display: none;
-// }
 
-
+//TODO fix this, encapsulate styles better
 // hits search bar, etc.
 input,
 mat-hint,

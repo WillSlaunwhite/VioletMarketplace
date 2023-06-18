@@ -1,0 +1,25 @@
+// @import '/src/scss/components/forms/forms';
+
+@import '/src/scss/utils/mixins';
+@import '/src/scss/utils/variables';
+@import '/src/scss/components/forms/tabs';
+
+.register-tab-container {
+  width: 55vw;
+  height: 120px;
+  background: $primary-dark;
+  border-radius: 2px;
+
+  position: relative;
+  left: 42.5%;
+  margin: 1em;
+  margin-top: 3em;
+
+  mat-tab,
+  mat-tab-label,
+  .mat-tab,
+  .mat-tab-label {
+    width: 17vw;
+    @include basic-precise-font($size: 1.3rem);
+  }
+}

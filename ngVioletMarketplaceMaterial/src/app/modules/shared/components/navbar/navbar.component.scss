@@ -3,15 +3,13 @@
 @import '/src/scss/utils/utilities';
 @import '/src/scss/components/forms/forms';
 @import '/src/scss/components/forms/labels';
-@import '~bootstrap/scss/bootstrap';
-
-
 
 @include hide-underline;
 
 // TOP LEVEL NAVBAR
 .toolbar {
-  justify-content: space-between !important;
+  display: flex;
+  justify-content: space-between;
   height: 3.25em;
   background: transparent;
   overflow: hidden;
@@ -23,15 +21,17 @@
     height: auto;
     margin-top: 1em;
     margin-left: .5em;
-    cursor: pointer;
+    cursor: none;
 
-    &.brand-container:hover {
-      transform: scale(1.05);
+    // TODO fix brand's animation
+    &:hover svg-icon {
+      transform: translateX(-5px);
       transition: ease .3s;
 
-      &.brand {
-        transform: translateX(50%);
-      }
+      // .brand {
+      //   height: auto;
+      //   transform: translateX(50%);
+      // }
     }
   }
 
@@ -50,24 +50,11 @@
       transition: all ease-out .75s;
     }
 
-    // hide and unhide the search label
-    // &.mat-form-field-should-float {
-    //   mat-label {
-    //     // display: none;
-
-    //     animation: cubic-bezier(1, 0, 0, 1);
-    //   }
-    // }
-
-    // &.mat-form-field-empty:not(:focus-within) {
-    //   mat-label {
-    //     display: block;
-    //   }
-    // }
   }
 
 
   .links {
+    display: flex;
     @include basic-precise-font;
     text-decoration: none;
     padding-inline-start: 1em;
@@ -87,6 +74,6 @@
 
 // DIVIDER COLOR
 .mat-divider {
-  border-top-color: $text-primary-dark;
+  border-top-color: $secondary-dark;
   opacity: .5;
 }
