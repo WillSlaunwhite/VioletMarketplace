@@ -10,25 +10,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { UserRoutingModule } from './user-routing.module';
 import { TokenModule } from '../tokens/token.module';
 import { SharedModule } from '../shared/shared.module';
-import { AltRegisterComponent } from './register/alt-register/alt-register.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterTabComponent } from './register/register-tab/register-tab.component';
-import { EmailUsernameContainerComponent } from './register/email-username-container/email-username-container.component';
-import { PasswordContainerComponent } from './register/password-container/password-container.component';
-import { SummaryTabComponent } from './register/summary-tab/summary-tab.component';
-import { OptionalFieldsContainerComponent } from './register/optional-fields-container/optional-fields-container.component';
+import { RegisterModule } from '../register/register.module';
 
 @NgModule({
   declarations: [
     ProfileManagementComponent,
     UserPageComponent,
-    AltRegisterComponent,
     LoginComponent,
-    RegisterTabComponent,
-    EmailUsernameContainerComponent,
-    PasswordContainerComponent,
-    SummaryTabComponent,
-    OptionalFieldsContainerComponent,
   ],
   imports: [
     CommonModule,
@@ -41,12 +30,11 @@ import { OptionalFieldsContainerComponent } from './register/optional-fields-con
     UserRoutingModule,
     TokenModule,
     SharedModule,
+    RegisterModule
   ],
   exports: [
     ProfileManagementComponent,
     UserPageComponent,
-    AltRegisterComponent,
-    RegisterTabComponent
   ]
 })
 export class UserModule { }

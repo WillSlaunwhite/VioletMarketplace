@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { slideInTop } from 'src/app/animations/animations';
 import User from 'src/app/models/user';
-import { AuthService } from '../../../auth/services/auth.service';
-import { UserService } from '../../services/user.service';
+import { AuthService } from '../../../../auth/services/auth.service';
+import { UserService } from '../../../../user/services/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
