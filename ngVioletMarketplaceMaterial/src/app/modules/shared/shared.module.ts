@@ -17,7 +17,7 @@ import { ParagraphComponent } from './components/text/paragraph/paragraph.compon
 import { HeaderComponent } from './components/text/header/header.component';
 import { WarningMessageComponent } from './components/text/warning-message/warning-message.component';
 import { FormContainerComponent } from './components/forms/form-container/form-container.component';
-import { RegisterTabComponent } from './components/tabs/register-tab/register-tab.component';
+import { RegisterTabComponent } from '../user/register/register-tab/register-tab.component';
 import { TabContainerComponent } from './components/tabs/tab-container/tab-container.component';
 
 @NgModule({
@@ -32,7 +32,6 @@ import { TabContainerComponent } from './components/tabs/tab-container/tab-conta
     ParagraphComponent,
     HeaderComponent,
     WarningMessageComponent,
-    RegisterTabComponent,
     TabContainerComponent,
   ],
   imports: [
@@ -54,7 +53,6 @@ import { TabContainerComponent } from './components/tabs/tab-container/tab-conta
     NavGradButtonComponent,
     FormFieldComponent,
     FormContainerComponent,
-    RegisterTabComponent,
     TabContainerComponent
   ],
 })
