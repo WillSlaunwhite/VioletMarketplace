@@ -1,0 +1,11 @@
+@import '/src/scss/utils/mixins';
+@import '/src/scss/utils/variables';
+
+.register-container {
+  @include button-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
+
+  width: 50vw;
+  height: 55vh;
+  border-radius: 2px;
+  opacity: .8;
+}
