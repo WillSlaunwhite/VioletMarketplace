@@ -13,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AltRegisterComponent } from './register/alt-register/alt-register.component';
 import { LoginComponent } from './components/login/login.component';
 import { InfoContainerComponent } from './register/info-container/info-container.component';
+import { RegisterTabComponent } from './register/register-tab/register-tab.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { InfoContainerComponent } from './register/info-container/info-container
     AltRegisterComponent,
     LoginComponent,
     InfoContainerComponent,
+    RegisterTabComponent
   ],
   imports: [
     CommonModule,
@@ -32,12 +34,13 @@ import { InfoContainerComponent } from './register/info-container/info-container
     FontAwesomeModule,
     UserRoutingModule,
     TokenModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
     ProfileManagementComponent,
     UserPageComponent,
     AltRegisterComponent,
+    RegisterTabComponent
   ]
 })
 export class UserModule { }
