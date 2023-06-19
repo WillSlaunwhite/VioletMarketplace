@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InfoContainerComponent } from './info-container.component';
+import { PasswordContainerComponent } from './password-container.component';
 
-describe('InfoContainerComponent', () => {
-  let component: InfoContainerComponent;
-  let fixture: ComponentFixture<InfoContainerComponent>;
+describe('PasswordContainerComponent', () => {
+  let component: PasswordContainerComponent;
+  let fixture: ComponentFixture<PasswordContainerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InfoContainerComponent ]
+      declarations: [ PasswordContainerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InfoContainerComponent);
+    fixture = TestBed.createComponent(PasswordContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
