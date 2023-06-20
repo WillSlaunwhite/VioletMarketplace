@@ -91,3 +91,8 @@ form button ::ng-deep .text-wrapper {
   font-weight: 200 !important;
   font-size: 2rem !important;
 }
+
+// * THIS WORKS
+::ng-deep #mat-tab-content-0-0>.mat-tab-body-content {
+  overflow: hidden !important;
+}
