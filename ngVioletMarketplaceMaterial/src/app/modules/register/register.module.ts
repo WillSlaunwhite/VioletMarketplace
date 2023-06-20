@@ -32,7 +32,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   exports: [
-    RegisterComponent
+    RegisterComponent,
   ]
 })
 export class RegisterModule { }

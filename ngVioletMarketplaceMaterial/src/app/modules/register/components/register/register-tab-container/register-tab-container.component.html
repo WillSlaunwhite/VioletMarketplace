@@ -1,15 +1,11 @@
 <mat-tab-group class="register-tab-container" [(selectedIndex)]="selectedTabIndex" (selectedIndexChange)="onTabChange($event)">
-  <mat-tab class="register-tab first-tab" label="Tab 1">
+  <mat-tab class="register-tab first-tab" label="Required">
     <app-required-form></app-required-form>
   </mat-tab>
-  <mat-tab label="Tab 2">
-    <!-- <app-register-tab></app-register-tab> -->
+  <mat-tab label="Optional">
+    <app-optional-form></app-optional-form>
   </mat-tab>
-  <mat-tab label="Tab 3">
-    <!-- <app-summary-tab></app-summary-tab> -->
+  <mat-tab label="Summary">
+    <app-summary-tab></app-summary-tab>
   </mat-tab>
 </mat-tab-group>
-<!-- TODO URGENT
-  need to encapsulate these tabs in their own
-  register tab container or something
--->
