@@ -4,36 +4,23 @@
 
 
 <div class="tab-content">
-  <!-- Email Field -->
-
   <mat-form-field class="form-field">
     <mat-label>display name</mat-label>
-    <input type="text" matInput #email formControlName="displayName">
+    <input type="text" matInput formControlName="displayName">
   </mat-form-field>
 
-  <!-- Username Field -->
   <mat-form-field class="form-field">
     <mat-label>biography</mat-label>
     <textarea type="text" matInput rows="4" formControlName="biography"></textarea>
   </mat-form-field>
 
-  <!-- Password Field -->
   <mat-form-field class="form-field">
     <mat-label>profile picture (url)</mat-label>
-    <input type="password" matInput formControlName="profilePicture" required>
+    <input type="text" matInput formControlName="profilePicture">
   </mat-form-field>
 
-  <!-- Confirm Password Field -->
   <mat-form-field class="form-field">
-    <mat-label></mat-label>
-    <input type="password" matInput formControlName="wallet" required>
+    <mat-label>wallet addr. (dummy for now)</mat-label>
+    <input type="text" matInput formControlName="wallet">
   </mat-form-field>
-
-  <div class="labels-container">
-    <mat-label class="required-label">* required <br></mat-label>
-
-    <!-- Password Match Error -->
-    <!-- need to fix in .ts -->
-    <mat-label class="text-danger">* Passwords do not match</mat-label>
-  </div>
 </div>
