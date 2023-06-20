@@ -10,7 +10,7 @@ mat-hint,
 .mat-input-element::placeholder,
 .mat-form-field-required-marker {
   @include basic-precise-font($size: 1.6rem);
-  color: $primary-dark !important;
+  color: $secondary-light !important;
   caret-color: white !important;
   text-decoration: white;
   background: transparent;
