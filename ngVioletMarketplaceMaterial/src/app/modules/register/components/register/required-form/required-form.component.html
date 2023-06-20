@@ -24,8 +24,11 @@
     <input type="password" matInput formControlName="confirmPassword" required>
   </mat-form-field>
 
-  <!-- Password Match Error -->
-  <!-- need to fix in .ts -->
-  <mat-label class="text-danger">* Passwords do not match</mat-label>
+  <div class="labels-container">
+    <mat-label class="required-label">* required <br></mat-label>
 
+    <!-- Password Match Error -->
+    <!-- need to fix in .ts -->
+    <mat-label class="text-danger">* Passwords do not match</mat-label>
+  </div>
 </div>
