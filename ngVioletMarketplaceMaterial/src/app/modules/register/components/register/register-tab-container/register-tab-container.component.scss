@@ -6,7 +6,7 @@
 
 .register-tab-container {
   width: 100%;
-  height: 50px;
+  height: 55vh;
   background: blue;
 }
 
@@ -14,9 +14,17 @@
 // need to investigate that claim further
 // ::ng-deep.mat-tab,
 // ::ng-deep.register-tab,
-.register-tab-container ::ng-deep.register-tab,
 .register-tab-container ::ng-deep.mat-tab-label {
   width: 17vw;
   height: 50px;
   @include basic-precise-font($size: 1.3rem);
+}
+
+
+.register-tab-container ::ng-deep.mat-tab,
+::ng-deep mat-tab,
+::ng-deep .register-tab {
+  height: 55vh;
+  width: 50vw;
+  background: black !important;
 }
