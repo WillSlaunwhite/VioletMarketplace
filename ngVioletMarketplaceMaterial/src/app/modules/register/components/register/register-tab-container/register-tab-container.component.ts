@@ -8,7 +8,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 })
 export class RegisterTabContainerComponent implements OnInit {
 
-  @Input() selectedTabIndex: number = 0;
+  @Input() selectedTabIndex: number = 1;
 
   constructor() { }
 
