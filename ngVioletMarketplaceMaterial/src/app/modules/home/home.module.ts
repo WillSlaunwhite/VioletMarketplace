@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TokenModule } from '../tokens/token.module';
 import { SharedModule } from '../shared/shared.module';
 import { UserModule } from '../user/user.module';
+import { RegisterModule } from '../register/register.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UserModule } from '../user/user.module';
     HomeRoutingModule,
     // TokenModule,
     SharedModule,
-    UserModule
+    UserModule,
+    RegisterModule,
   ]
 })
 export class HomeModule { }

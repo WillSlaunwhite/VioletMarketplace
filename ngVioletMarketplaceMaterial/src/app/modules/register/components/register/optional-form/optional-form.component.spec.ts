@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegisterTabComponent } from './register-tab.component';
+import { OptionalFormComponent } from './optional-form.component';
 
-describe('RegisterTabComponent', () => {
-  let component: RegisterTabComponent;
-  let fixture: ComponentFixture<RegisterTabComponent>;
+describe('OptionalFormComponent', () => {
+  let component: OptionalFormComponent;
+  let fixture: ComponentFixture<OptionalFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterTabComponent ]
+      declarations: [ OptionalFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RegisterTabComponent);
+    fixture = TestBed.createComponent(OptionalFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
