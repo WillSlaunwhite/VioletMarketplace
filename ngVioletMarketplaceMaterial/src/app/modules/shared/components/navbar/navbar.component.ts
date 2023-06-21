@@ -8,7 +8,7 @@ import { LoginComponent } from 'src/app/modules/user/components/login/login.comp
 import { Store } from '@ngrx/store';
 import { isLoggedIn, selectCurrentUser } from 'src/app/modules/user/state/user.selectors';
 import { logout, removeJwt } from 'src/app/modules/user/state/user.actions';
-import { AltRegisterComponent } from 'src/app/modules/register/components/register/alt-register/alt-register.component';
+import { AltRegisterComponent } from 'src/app/modules/register/components/alt-register/alt-register.component';
 import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-navbar',
