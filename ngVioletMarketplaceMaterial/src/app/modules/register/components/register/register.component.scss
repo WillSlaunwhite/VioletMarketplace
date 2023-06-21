@@ -4,8 +4,16 @@
 .register-container {
   @include button-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
 
+  position: relative;
+  left: 25%;
   width: 50vw;
   height: 55vh;
   border-radius: 2px;
   opacity: .8;
+}
+
+// * THIS WORKS
+::ng-deep #mat-tab-content-1-0>.mat-tab-body-content,
+::ng-deep #mat-tab-content-0-0>.mat-tab-body-content {
+  overflow: hidden !important;
 }
