@@ -1,30 +1,21 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form-field',
-  template: `
-    <mat-form-field class="form-field">
-      <mat-label>{{label}}</mat-label>
-      <input type=type matInput>
-    </mat-form-field>
-    `,
+  templateUrl: './form-field.component.html',
   styleUrls: ['./form-field.component.scss']
 })
 export class FormFieldComponent implements OnInit {
   @Input() label: string = '';
-  // @Input() control: FormControl;
-  type: string = 'text';
+  @Input() control: FormControl = new FormControl();
+  @Input() placeholder: string = '';
+  @Input() type: string = 'text';
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.getFieldType();
+  constructor() {
   }
 
-  getFieldType() {
-    if (this.label === 'email') { this.type = 'email'; }
-    else if (this.label === 'password') { this.type = 'password'; }
+  ngOnInit(): void {
   }
 
 }
