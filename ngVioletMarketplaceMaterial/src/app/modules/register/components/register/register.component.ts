@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  @Input() selectedTabIndex: number = 1;
   registerForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -25,4 +26,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  onTabChange(index: number) {
+    this.selectedTabIndex = index;
+  }
 }
