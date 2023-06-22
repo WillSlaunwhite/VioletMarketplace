@@ -1,5 +1,13 @@
 <div class="register-container">
-  <app-register-tab-container>
-
-  </app-register-tab-container>
+  <mat-tab-group class="register-tab-container" [(selectedIndex)]="selectedTabIndex" (selectedIndexChange)="onTabChange($event)">
+    <mat-tab class="register-tab first-tab" label="Required">
+      <app-required-form></app-required-form>
+    </mat-tab>
+    <mat-tab label="Optional">
+      <app-optional-form></app-optional-form>
+    </mat-tab>
+    <mat-tab label="Summary">
+      <app-summary-tab></app-summary-tab>
+    </mat-tab>
+  </mat-tab-group>
 </div>
