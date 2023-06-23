@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-optional-form',
@@ -7,21 +7,17 @@ import { FormArray, FormBuilder } from '@angular/forms';
   styleUrls: ['./optional-form.component.scss']
 })
 export class OptionalFormComponent implements OnInit {
-  optionalFormArray: FormArray;
+  @Input() optionalFormArray: FormArray;
 
   constructor(private fb: FormBuilder) {
     this.optionalFormArray = this.fb.array([]);
   }
 
-
   ngOnInit(): void {
   }
 
-  addOptionalField(fieldInfo: any) {
-    this.optionalFormArray.push(this.fb.group({
-      fieldName: [fieldInfo.name],
-      // * other properties?
-    }))
+  getControl(name: string): FormControl {
+    return this.optionalFormArray.get(name) as FormControl;
   }
 
 }
