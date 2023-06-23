@@ -6,6 +6,8 @@
 
 @include hide-underline;
 
+// TODO navbar breaks after typing in search??
+
 // TOP LEVEL NAVBAR
 .toolbar {
   display: flex;
@@ -46,7 +48,7 @@
 
     // search focus animation
     &:focus-within {
-      transform: translate(0, 120px);
+      // transform: translate(0, 120px);
       transition: all ease-out .75s;
     }
 
