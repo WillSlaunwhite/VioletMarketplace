@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -13,17 +13,20 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({});
   }
-
   ngOnInit(): void {
     this.registerForm = this.fb.group({
       requiredFields: this.fb.group({
-        email: [''],
-        username: [''],
-        password: [''],
-        confirmPassword: [''],
+        email: ['', Validators.required],
+        username: ['', Validators.required],
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required],
       }),
       optionalFields: this.fb.array([])
     });
+  }
+
+  get requiredFields(): FormGroup {
+    return this.registerForm.get('requiredFields') as FormGroup;
   }
 
   onTabChange(index: number) {
