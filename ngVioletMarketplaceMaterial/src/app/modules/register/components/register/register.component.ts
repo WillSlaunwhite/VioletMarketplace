@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -27,6 +27,17 @@ export class RegisterComponent implements OnInit {
 
   get requiredFields(): FormGroup {
     return this.registerForm.get('requiredFields') as FormGroup;
+  }
+
+  get optionalFields(): FormArray {
+    return this.registerForm.get('optionalFields') as FormArray;
+  }
+
+  addOptionalField(fieldInfo: any) {
+    this.optionalFields.push(this.fb.group({
+      fieldName: [fieldInfo.name],
+      // * other properties?
+    }))
   }
 
   onTabChange(index: number) {
