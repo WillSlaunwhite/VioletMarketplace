@@ -1,12 +1,15 @@
 <div class="tab-content">
-  <app-form-field [type]="'email'" label="email" [control]="emailControl" [placeholder]="'email'"></app-form-field>
+  <app-form-field class="form-field" [type]="'email'" label="email" [control]="getControl('email')" [placeholder]="'email'"></app-form-field>
+  <app-form-field class="form-field" [type]="'text'" label="username" [control]="getControl('username')" [placeholder]="'username'"></app-form-field>
+  <app-form-field class="form-field" [type]="'password'" label="password" [control]="getControl('password')" [placeholder]="'password'"></app-form-field>
+  <app-form-field class="form-field" [type]="'password'" label="confirm password" [control]="getControl('confirmPassword')" [placeholder]="'confirm password'"></app-form-field>
 
   <!-- <mat-form-field class="form-field">
     <mat-label>email</mat-label>
     <input type="email" matInput #email formControlName="email">
   </mat-form-field> -->
 
-  <mat-form-field class="form-field">
+  <!-- <mat-form-field class="form-field">
     <mat-label>username</mat-label>
     <input type="text" matInput formControlName="username">
   </mat-form-field>
@@ -22,10 +25,9 @@
   </mat-form-field>
 
   <div class="labels-container">
-    <mat-label class="required-label">* required <br></mat-label>
+    <mat-label class="required-label">* required <br></mat-label> -->
 
-    <!-- * Password Match Error -->
-    <!-- * need to fix in .ts -->
-    <mat-label class="text-danger">* Passwords do not match</mat-label>
-  </div>
+  <!-- * Password Match Error -->
+  <!-- * need to fix in .ts -->
+  <!-- <mat-label class="text-danger">* Passwords do not match</mat-label> </div> -->
 </div>
