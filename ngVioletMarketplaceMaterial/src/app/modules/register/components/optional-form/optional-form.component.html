@@ -1,17 +1,23 @@
 <!-- TODO need to make this component dynamic
 * so I can pass in an array of fields and generate
-* a grid based on that instead -->
-
-
+* a grid based on that instead
+* also, how do I handle the textarea?
+* -->
 <div class="tab-content">
-  <mat-form-field class="form-field">
+
+  <app-form-field class="form-field" [type]="'text'" label="display name" [control]="getControl('displayName')" [placeholder]="'display name'"></app-form-field>
+  <app-form-field class="form-field" [type]="'text'" label="biography" [control]="getControl('biography')" [placeholder]="'biography'"></app-form-field>
+  <app-form-field class="form-field" [type]="'text'" label="profile picture (url)" [control]="getControl('profilePicture')" [placeholder]="'profile picture'"></app-form-field>
+
+
+  <!-- <mat-form-field class="form-field">
     <mat-label>display name</mat-label>
     <input type="text" matInput formControlName="displayName">
   </mat-form-field>
 
   <mat-form-field class="form-field">
     <mat-label>biography</mat-label>
-    <textarea type="text" matInput rows="4" formControlName="biography"></textarea>
+    <textarea type="text" matInput rows="2" formControlName="biography"></textarea>
   </mat-form-field>
 
   <mat-form-field class="form-field">
@@ -22,5 +28,5 @@
   <mat-form-field class="form-field">
     <mat-label>wallet addr. (dummy for now)</mat-label>
     <input type="text" matInput formControlName="wallet">
-  </mat-form-field>
+  </mat-form-field> -->
 </div>

@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { AbstractControl, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form-field',
@@ -8,11 +8,20 @@ import { FormControl } from '@angular/forms';
 })
 export class FormFieldComponent implements OnInit {
   @Input() label: string = '';
-  @Input() control: FormControl = new FormControl();
+  @Input() control: FormControl;
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
 
+  // @Input()
+  // set formControl(control: AbstractControl) {
+  //   if (!(control instanceof FormControl)) {
+  //     throw new Error('The provided form control must be an instance of FormControl');
+  //   }
+  //   this.control = control;
+  // }
+
   constructor() {
+    this.control = new FormControl();
   }
 
   ngOnInit(): void {
