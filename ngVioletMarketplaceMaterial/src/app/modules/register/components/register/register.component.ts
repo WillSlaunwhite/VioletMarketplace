@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  @Input() selectedTabIndex: number = 1;
+  @Input() selectedTabIndex: number = 0;
   registerForm: FormGroup;
 
   constructor(private fb: FormBuilder) {

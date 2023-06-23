@@ -2,6 +2,17 @@
 @import '/src/scss/utils/mixins';
 
 .form-field {
-  width: 10em;
-  height: 3em;
+  width: 75%;
+  margin-inline: auto;
+  margin-top: 3em;
+  @include basic-precise-font($size: 1.3rem);
+  color: green;
+
+  // * this works btw
+  // * doesn't even bleed over
+  ::ng-deep mat-label {
+    @include basic-precise-font($size: 1.3rem);
+    letter-spacing: .05rem;
+    color: green;
+  }
 }
