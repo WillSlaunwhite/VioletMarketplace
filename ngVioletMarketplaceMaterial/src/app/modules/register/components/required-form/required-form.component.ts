@@ -16,10 +16,9 @@ export class RequiredFormComponent implements OnInit {
     }
   }
 
-  get emailControl(): FormControl {
-    return this.requiredFormFields.get('email') as FormControl;
+  getControl(name: string): FormControl {
+    return this.requiredFormFields.get(name) as FormControl;
   }
-
 
   constructor(private fb: FormBuilder) {
     this.requiredFormFields = this.fb.group({})

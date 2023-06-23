@@ -7,11 +7,12 @@ import { FormArray, FormBuilder } from '@angular/forms';
   styleUrls: ['./optional-form.component.scss']
 })
 export class OptionalFormComponent implements OnInit {
-  @Input() optionalFormArray: FormArray;
+  optionalFormArray: FormArray;
 
   constructor(private fb: FormBuilder) {
     this.optionalFormArray = this.fb.array([]);
   }
+
 
   ngOnInit(): void {
   }
