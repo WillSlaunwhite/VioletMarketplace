@@ -4,57 +4,6 @@
 @include remove-autofill-background;
 
 
-.tab-content {
-  display: grid;
-  height: 50vh;
-  width: 50vw;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-
-  .form-field {
-    width: 75%;
-    margin-inline: auto;
-    margin-top: 3em;
-    @include basic-precise-font($size: 1.3rem);
-    color: green;
-
-    // * this works btw
-    // * doesn't even bleed over
-    ::ng-deep mat-label {
-      @include basic-precise-font($size: 1.3rem);
-      letter-spacing: .05rem;
-      color: green;
-    }
-  }
-
-  .required-label,
-  .text-danger {
-    @include basic-precise-font($size: 1.45rem);
-  }
-
-  .text-danger {
-    color: $warning-color;
-  }
-
-  .required-label {
-    color: $secondary-light;
-  }
-
-
-  .labels-container {
-    grid-column: 2;
-    width: 90%;
-    text-align: right;
-    margin-bottom: 1rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-}
-
 //TODO fix this, encapsulate styles better
 // * hits search bar, etc.
 .search,
