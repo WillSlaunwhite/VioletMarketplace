@@ -1,8 +1,10 @@
 <div class="tab-content">
-  <mat-form-field class="form-field">
+  <app-form-field [type]="'email'" label="email" [control]="emailControl" [placeholder]="'email'"></app-form-field>
+
+  <!-- <mat-form-field class="form-field">
     <mat-label>email</mat-label>
     <input type="email" matInput #email formControlName="email">
-  </mat-form-field>
+  </mat-form-field> -->
 
   <mat-form-field class="form-field">
     <mat-label>username</mat-label>

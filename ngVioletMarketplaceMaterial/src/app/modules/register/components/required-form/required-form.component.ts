@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractFormGroupDirective, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-required-form',
@@ -7,10 +7,22 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./required-form.component.scss']
 })
 export class RequiredFormComponent implements OnInit {
-  @Input() requiredFormFields: FormGroup;
+  requiredFormFields: FormGroup;
+
+  @Input()
+  set formFields(formGroup: FormGroup) {
+    if (!(formGroup instanceof FormGroup)) {
+      throw new Error('The provided form group must be a FormGroup.')
+    }
+  }
+
+  get emailControl(): FormControl {
+    return this.requiredFormFields.get('email') as FormControl;
+  }
+
 
   constructor(private fb: FormBuilder) {
-    this.requiredFormFields = this.fb.group({});
+    this.requiredFormFields = this.fb.group({})
   }
 
   ngOnInit(): void {
