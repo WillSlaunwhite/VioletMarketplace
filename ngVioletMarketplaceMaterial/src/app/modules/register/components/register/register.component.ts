@@ -33,8 +33,6 @@ export class RegisterComponent implements OnInit {
       }
     });
     console.log(this.optionalFields);
-
-    this.optionalFieldsArr = this.optionalFields;
   }
 
   get requiredFields(): FormGroup {

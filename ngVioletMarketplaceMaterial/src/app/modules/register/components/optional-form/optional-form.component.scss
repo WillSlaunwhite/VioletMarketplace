@@ -2,3 +2,8 @@
 @import '/src/scss/utils/mixins';
 
 @include remove-autofill-background;
+
+.form-field {
+  width: 80%;
+  padding-left: 5.5em;
+}

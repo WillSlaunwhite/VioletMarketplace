@@ -12,16 +12,10 @@ export class FormFieldComponent implements OnInit {
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
 
-  // @Input()
-  // set formControl(control: AbstractControl) {
-  //   if (!(control instanceof FormControl)) {
-  //     throw new Error('The provided form control must be an instance of FormControl');
-  //   }
-  //   this.control = control;
-  // }
-
   constructor() {
     this.control = new FormControl();
+    // console.log(this.control);
+
   }
 
   ngOnInit(): void {

@@ -4,29 +4,8 @@
 * also, how do I handle the textarea?
 * -->
 <div class="tab-content">
-
   <app-form-field class="form-field" [type]="'text'" label="display name" [control]="getControl('displayName')" [placeholder]="'display name'"></app-form-field>
-  <app-form-field class="form-field" [type]="'text'" label="biography" [control]="getControl('biography')" [placeholder]="'biography'"></app-form-field>
+  <app-form-field class="form-field" [type]="'textarea'" label="biography" [control]="getControl('biography')" [placeholder]="'biography'"></app-form-field>
   <app-form-field class="form-field" [type]="'text'" label="profile picture (url)" [control]="getControl('profilePicture')" [placeholder]="'profile picture'"></app-form-field>
-
-
-  <!-- <mat-form-field class="form-field">
-    <mat-label>display name</mat-label>
-    <input type="text" matInput formControlName="displayName">
-  </mat-form-field>
-
-  <mat-form-field class="form-field">
-    <mat-label>biography</mat-label>
-    <textarea type="text" matInput rows="2" formControlName="biography"></textarea>
-  </mat-form-field>
-
-  <mat-form-field class="form-field">
-    <mat-label>profile picture (url)</mat-label>
-    <input type="text" matInput formControlName="profilePicture">
-  </mat-form-field>
-
-  <mat-form-field class="form-field">
-    <mat-label>wallet addr. (dummy for now)</mat-label>
-    <input type="text" matInput formControlName="wallet">
-  </mat-form-field> -->
+  <app-form-field class="form-field" [type]="'text'" label="wallet url (dummy for now)" [control]="getControl('walletUrl')" [placeholder]="'wallet url'"></app-form-field>
 </div>
