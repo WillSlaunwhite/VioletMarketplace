@@ -16,6 +16,10 @@ export class OptionalFormComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.optionalFormArray);
+    this.optionalFormArray.controls.forEach(control => {
+      this.fields.push(control.value);
+    });
+    console.log(this.fields);
   }
 
   getControl(name: string): FormControl {

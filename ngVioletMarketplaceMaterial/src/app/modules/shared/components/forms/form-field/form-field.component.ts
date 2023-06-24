@@ -8,17 +8,18 @@ import { AbstractControl, FormControl } from '@angular/forms';
 })
 export class FormFieldComponent implements OnInit {
   @Input() label: string = '';
-  @Input() control: FormControl;
+  @Input() control: FormControl = new FormControl();
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
 
   constructor() {
-    this.control = new FormControl();
-    // console.log(this.control);
+    // this.control ;
+    console.log(this.control);
 
   }
 
   ngOnInit(): void {
+    console.log(this.control);
   }
 
 }
