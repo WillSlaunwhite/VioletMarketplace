@@ -7,13 +7,19 @@ import { FormArray, FormBuilder, FormControl } from '@angular/forms';
   styleUrls: ['./optional-form.component.scss']
 })
 export class OptionalFormComponent implements OnInit {
-  @Input() optionalFormArray: FormArray;
+  @Input() optionalFormArray: FormArray = this.fb.array([]);
+  @Input() fields: string[] = [];
 
   constructor(private fb: FormBuilder) {
-    this.optionalFormArray = this.fb.array([]);
+
   }
 
   ngOnInit(): void {
+    console.log(this.optionalFormArray);
+    this.optionalFormArray.controls.forEach(control => {
+      this.fields.push(control.value);
+    });
+    console.log(this.fields);
   }
 
   getControl(name: string): FormControl {

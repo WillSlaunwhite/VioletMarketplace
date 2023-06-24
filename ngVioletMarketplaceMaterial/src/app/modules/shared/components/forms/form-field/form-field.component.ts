@@ -8,23 +8,18 @@ import { AbstractControl, FormControl } from '@angular/forms';
 })
 export class FormFieldComponent implements OnInit {
   @Input() label: string = '';
-  @Input() control: FormControl;
+  @Input() control: FormControl = new FormControl();
   @Input() placeholder: string = '';
   @Input() type: string = 'text';
 
-  // @Input()
-  // set formControl(control: AbstractControl) {
-  //   if (!(control instanceof FormControl)) {
-  //     throw new Error('The provided form control must be an instance of FormControl');
-  //   }
-  //   this.control = control;
-  // }
-
   constructor() {
-    this.control = new FormControl();
+    // this.control ;
+    console.log(this.control);
+
   }
 
   ngOnInit(): void {
+    console.log(this.control);
   }
 
 }
