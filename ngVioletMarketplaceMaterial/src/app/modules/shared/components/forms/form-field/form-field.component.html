@@ -1,5 +1,5 @@
 <mat-form-field class="form-field">
   <mat-label>{{label}}</mat-label>
-  <textarea *ngIf="type === 'textarea'" matInput name="control.value" [formControl]="control" [placeholder]="placeholder"></textarea>
-  <input *ngIf="type !== 'textarea'" matInput name="control.value" [formControl]="control" [placeholder]="placeholder" [type]="type">
+  <textarea *ngIf="type === 'textarea'" matInput [name]="label" [formControl]="control" [placeholder]="placeholder" [type]="type"></textarea>
+  <input *ngIf="type !== 'textarea'" matInput [name]="label" [formControl]="control" [placeholder]="placeholder" [type]="type">
 </mat-form-field>
