@@ -10,20 +10,12 @@ export class OptionalFormComponent implements OnInit {
   @Input() optionalFormArray: FormArray = this.fb.array([]);
   @Input() fields: string[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder) { }
 
-  }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-    console.log(this.optionalFormArray);
-    this.optionalFormArray.controls.forEach(control => {
-      this.fields.push(control.value);
-    });
-    console.log(this.fields);
-  }
-
-  getControl(name: string): FormControl {
-    return this.optionalFormArray.get(name) as FormControl;
+  getControl(index: number): FormControl {
+    return this.optionalFormArray.at(index) as FormControl;
   }
 
 }
