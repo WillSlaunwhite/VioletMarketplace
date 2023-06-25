@@ -4,7 +4,7 @@
       <app-required-form [formFields]="requiredFields"></app-required-form>
     </mat-tab>
     <mat-tab label="Optional">
-      <app-optional-form [optionalFormArray]="optionalFields"></app-optional-form>
+      <app-optional-form [fields]="optionalFieldsStrings" [optionalFormArray]="optionalFields"></app-optional-form>
     </mat-tab>
     <mat-tab label="Summary">
       <app-summary-tab></app-summary-tab>
