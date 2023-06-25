@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.optionalFieldsStrings.forEach((field: string) => {
-      this.addOptionalField(new FormControl(field));
+      this.addOptionalField(new FormControl());
     });
   }
 
