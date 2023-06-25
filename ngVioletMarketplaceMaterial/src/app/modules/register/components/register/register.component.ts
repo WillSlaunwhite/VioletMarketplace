@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import User from 'src/app/models/user';
 
@@ -7,17 +7,12 @@ import User from 'src/app/models/user';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
-
-
-
-  user: User = new User();
+export class RegisterComponent implements OnInit, OnChanges {
   @Input() selectedTabIndex: number = 0;
   registerForm: FormGroup;
   @Input() optionalFieldsStrings: string[] = [];
   optionalFieldsArr: FormArray = this.fb.array([]);
   summary: any = {};
-
 
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
@@ -29,10 +24,31 @@ export class RegisterComponent implements OnInit {
       }),
       optionalFields: this.fb.array([])
     });
+    console.log(this.optionalFields);
+    console.log(this.optionalFieldsArr);
   }
 
   ngOnInit(): void {
-    this.optionalFieldsStrings.map(control => new FormControl());
+    this.optionalFieldsStrings.forEach((field: string) => {
+      //   const tempOptionalArray: FormArray = this.registerForm.get('optionalFields')! as FormArray;
+      const newOptionalField: FormControl = new FormControl('');
+      //   if (newOptionalField) {
+      this.addOptionalField(newOptionalField);
+      //     tempOptionalArray.push(newOptionalField);
+      //   }
+    });
+
+    console.log(this.optionalFields);
+
+    this.optionalFieldsArr = this.optionalFields;;
+  }
+
+  ngOnChanges(): void {
+    this.registerForm.valueChanges.subscribe(value => {
+      if (value) {
+        this.summary = value;
+      }
+    });
   }
 
   onSubmit(): void {

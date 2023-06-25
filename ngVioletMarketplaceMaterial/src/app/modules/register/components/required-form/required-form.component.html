@@ -1,8 +1,8 @@
 <div class="tab-content">
-  <app-form-field class="form-field" type="email" [label]="'email'" [control]="getControl('email')" [placeholder]="'email'"></app-form-field>
-  <app-form-field class="form-field" type="text" label="username" [control]="getControl('username')" [placeholder]="'username'"></app-form-field>
-  <app-form-field class="form-field" type="password" label="password" [control]="getControl('password')" [placeholder]="'password'"></app-form-field>
-  <app-form-field class="form-field" type="password" label="confirm password" [control]="getControl('confirmPassword')" [placeholder]="'confirm password'"></app-form-field>
+  <app-form-field class="form-field" [type]="'email'" [label]="'email'" [control]="getControl('email')" [placeholder]="'email'"></app-form-field>
+  <app-form-field class="form-field" [type]="'text'" [label]="'username'" [control]="getControl('username')" [placeholder]="'username'"></app-form-field>
+  <app-form-field class="form-field" [type]="'password'" [label]="'password'" [control]="getControl('password')" [placeholder]="'password'"></app-form-field>
+  <app-form-field class="form-field" [type]="'password'" [label]="'confirm password'" [control]="getControl('confirmPassword')" [placeholder]="'confirm password'"></app-form-field>
 
   <div class="labels-container">
     <mat-label class="text-danger">* Passwords do not match</mat-label>

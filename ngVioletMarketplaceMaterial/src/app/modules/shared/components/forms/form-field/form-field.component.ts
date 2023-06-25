@@ -15,11 +15,6 @@ export class FormFieldComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.getFieldType();
-  }
-
-  getFieldType() {
-    if (this.control.value === "biography") { this.type = "textarea"; }
   }
 
 }
