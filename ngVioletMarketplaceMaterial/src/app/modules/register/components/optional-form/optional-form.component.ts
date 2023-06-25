@@ -9,13 +9,26 @@ import { FormArray, FormBuilder, FormControl } from '@angular/forms';
 export class OptionalFormComponent implements OnInit {
   @Input() optionalFormArray: FormArray = this.fb.array([]);
   @Input() fields: string[] = [];
+  fieldType: string = "text";
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {
 
-  ngOnInit(): void { }
+  }
+
+  ngOnInit(): void {
+    this.optionalFormArray.controls.forEach(control => {
+      this.fields.push(control.value);
+    });
+
+  }
 
   getControl(index: number): FormControl {
     return this.optionalFormArray.at(index) as FormControl;
+  }
+
+  getFieldType(fieldName: string) {
+    if (fieldName === "biography") { return "textarea"; }
+    else { return "text"; }
   }
 
 }

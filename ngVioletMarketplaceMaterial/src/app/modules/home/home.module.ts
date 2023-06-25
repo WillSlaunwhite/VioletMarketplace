@@ -14,7 +14,7 @@ import { RegisterModule } from '../register/register.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    // TokenModule,
+    TokenModule,
     SharedModule,
     UserModule,
     RegisterModule,

@@ -10,10 +10,16 @@ export class FormFieldComponent implements OnInit {
   @Input() label: string = '';
   @Input() control: FormControl = new FormControl();
   @Input() placeholder: string = '';
-  @Input() type: string = 'text';
+  @Input() type: string = '';
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.getFieldType();
+  }
+
+  getFieldType() {
+    if (this.control.value === "biography") { this.type = "textarea"; }
+  }
 
 }

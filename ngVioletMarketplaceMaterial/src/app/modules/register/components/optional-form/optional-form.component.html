@@ -4,8 +4,7 @@
 * also, how do I handle the textarea?
 * -->
 <div class="tab-content">
-  <div *ngFor="let control of optionalFormArray.controls; index as i">
-    <app-form-field class="form-field" [control]="getControl(i)" [label]="'Field ' + control.value"></app-form-field>
-
+  <div *ngFor="let field of fields; index as i;">
+    <app-form-field class="form-field" [type]="getFieldType(field)" [control]="getControl(i)" [label]="fields[i]"></app-form-field>
   </div>
 </div>

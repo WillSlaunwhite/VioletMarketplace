@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +9,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   @Input() selectedTabIndex: number = 0;
   registerForm: FormGroup;
+  @Input() optionalFieldsStrings: string[] = [];
+  optionalFieldsArr: FormArray = this.fb.array([]);
 
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
@@ -21,7 +23,11 @@ export class RegisterComponent implements OnInit {
       optionalFields: this.fb.array([])
     });
   }
+
   ngOnInit(): void {
+    this.optionalFieldsStrings.forEach((field: string) => {
+      this.addOptionalField(new FormControl(field));
+    });
   }
 
   get requiredFields(): FormGroup {
@@ -32,11 +38,9 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('optionalFields') as FormArray;
   }
 
-  addOptionalField(fieldInfo: any) {
-    this.optionalFields.push(this.fb.group({
-      fieldName: [fieldInfo.name],
-      // * other properties?
-    }))
+  addOptionalField(fieldInfo: FormControl) {
+    const tempOptionalArray: FormArray = this.registerForm.get('optionalFields')! as FormArray;
+    tempOptionalArray.push(fieldInfo);
   }
 
   onTabChange(index: number) {
