@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import User from 'src/app/models/user';
 
 @Component({
   selector: 'app-register',
@@ -7,10 +8,16 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+
+
+  user: User = new User();
   @Input() selectedTabIndex: number = 0;
   registerForm: FormGroup;
   @Input() optionalFieldsStrings: string[] = [];
   optionalFieldsArr: FormArray = this.fb.array([]);
+  summary: any = {};
+
 
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
@@ -25,9 +32,16 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.optionalFieldsStrings.forEach((field: string) => {
-      this.addOptionalField(new FormControl());
-    });
+    this.optionalFieldsStrings.map(control => new FormControl());
+  }
+
+  onSubmit(): void {
+    const user: User = {
+      ...this.registerForm.value.requiredFields,
+      ...this.registerForm.value.optionalFields
+    };
+    console.log(user);
+    // TODO: send user to backend
   }
 
   get requiredFields(): FormGroup {
