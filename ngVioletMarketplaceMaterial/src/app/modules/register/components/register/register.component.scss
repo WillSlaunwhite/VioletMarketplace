@@ -2,7 +2,7 @@
 @import '/src/scss/utils/variables';
 
 .register-container {
-  @include button-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
+  @include bg-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
 
   position: relative;
   left: 25%;
