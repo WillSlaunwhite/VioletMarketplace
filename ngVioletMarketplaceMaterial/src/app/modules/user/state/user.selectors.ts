@@ -1,7 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { AuthState } from './user.reducer';
-import User from 'src/app/models/user';
-import { BehaviorSubject } from 'rxjs';
 
 export const selectAuthState = createFeatureSelector<AuthState>('auth');
 

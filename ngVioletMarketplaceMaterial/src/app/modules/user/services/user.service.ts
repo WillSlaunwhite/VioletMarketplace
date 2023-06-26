@@ -69,11 +69,11 @@ export class UserService {
     );
   }
 
-  register(user: User) {
+  register(user: User): Observable<User> {
     console.log('UserService: register method called');
     return this.getHttpOptions().pipe(
       switchMap(options =>
-        this.http.post(this.baseUrl + 'register', user, options).pipe(
+        this.http.post<User>(this.baseUrl + 'register', user, options).pipe(
           catchError((err: any) => {
             return throwError(() => new Error('UserService.register: error registering user.'));
           })

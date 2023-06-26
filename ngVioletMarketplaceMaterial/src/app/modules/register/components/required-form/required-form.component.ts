@@ -14,6 +14,7 @@ export class RequiredFormComponent implements OnInit {
     if (!(formGroup instanceof FormGroup)) {
       throw new Error('The provided form group must be a FormGroup.')
     }
+    this.requiredFormFields = formGroup;
   }
 
   getControl(name: string): FormControl {

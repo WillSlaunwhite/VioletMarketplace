@@ -11,6 +11,7 @@ import { SummaryTabComponent } from './components/summary-tab/summary-tab.compon
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { ToCamelCasePipe } from './pipes/to-camel-case.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SharedModule } from '../shared/shared.module';
     OptionalFormComponent,
     RegisterComponent,
     RequiredFormComponent,
-    SummaryTabComponent
+    SummaryTabComponent,
+    ToCamelCasePipe
   ],
   imports: [
     CommonModule,

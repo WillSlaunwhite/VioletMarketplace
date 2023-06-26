@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { AbstractControl, FormControl } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form-field',
@@ -10,16 +10,11 @@ export class FormFieldComponent implements OnInit {
   @Input() label: string = '';
   @Input() control: FormControl = new FormControl();
   @Input() placeholder: string = '';
-  @Input() type: string = 'text';
+  @Input() type: string = '';
 
-  constructor() {
-    // this.control ;
-    console.log(this.control);
-
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this.control);
   }
 
 }

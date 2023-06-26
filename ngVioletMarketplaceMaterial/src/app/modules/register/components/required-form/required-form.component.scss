@@ -2,8 +2,10 @@
 @import '/src/scss/utils/variables';
 // @import '/src/scss/components/forms/forms';
 
+@include remove-autofill-background;
+
 .form-field {
-  padding-left: 5em;
+  padding-left: 2em;
 }
 
 .tab-content {
@@ -13,33 +15,87 @@
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 
+  .form-field {
+    width: 100%;
+    margin-inline: auto;
+    @include basic-precise-font($size: 1.3rem);
+    color: green;
+
+    // * this works btw
+    // * doesn't even bleed over
+    ::ng-deep mat-label {
+      @include basic-precise-font($size: 1.3rem);
+      letter-spacing: .05rem;
+      color: green;
+    }
+  }
+
+  .required-label,
+  .text-danger {
+    @include basic-precise-font($size: 1.45rem);
+  }
+
+  .text-danger {
+    color: $warning-color;
+  }
+
+  .required-label {
+    color: $secondary-light;
+  }
+
+
+  .labels-container {
+    grid-column: 2;
+    width: 90%;
+    text-align: right;
+    margin-bottom: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
 }
 
-.required-label,
-.text-danger {
-  @include basic-precise-font($size: 1.45rem);
-}
+// .form-field {
+//   padding-left: 5em;
+// }
 
-.text-danger {
-  color: $warning-color;
-}
+// .tab-content {
+//   display: grid;
+//   height: 50vh;
+//   width: 50vw;
+//   grid-template-columns: 1fr 1fr;
+//   gap: 1.5rem;
 
-.required-label {
-  color: $secondary-light;
-}
+// }
+
+// .required-label,
+// .text-danger {
+//   @include basic-precise-font($size: 1.45rem);
+// }
+
+// .text-danger {
+//   color: $warning-color;
+// }
+
+// .required-label {
+//   color: $secondary-light;
+// }
 
 
-.labels-container {
-  grid-column: 2;
-  width: 90%;
-  text-align: right;
-  margin-bottom: 1rem;
+// .labels-container {
+//   grid-column: 2;
+//   width: 90%;
+//   text-align: right;
+//   margin-bottom: 1rem;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-}
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   align-items: flex-end;
+// }
 
 // .tab-content {
 //   display: grid;
