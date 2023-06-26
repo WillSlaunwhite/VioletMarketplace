@@ -9,9 +9,11 @@ import User from 'src/app/models/user';
 })
 export class RegisterComponent implements OnInit, OnChanges {
   @Input() selectedTabIndex: number = 0;
-  registerForm: FormGroup;
   @Input() optionalFieldsStrings: string[] = [];
+
+  registerForm: FormGroup;
   optionalFieldsArr: FormArray = this.fb.array([]);
+
   summary: any = {};
 
   constructor(private fb: FormBuilder) {
@@ -22,30 +24,30 @@ export class RegisterComponent implements OnInit, OnChanges {
         password: ['', Validators.required],
         confirmPassword: ['', Validators.required],
       }),
-      optionalFields: this.fb.array([])
+      optionalFields: this.fb.group({})
     });
-    console.log(this.optionalFields);
-    console.log(this.optionalFieldsArr);
   }
 
   ngOnInit(): void {
     this.optionalFieldsStrings.forEach((field: string) => {
-      //   const tempOptionalArray: FormArray = this.registerForm.get('optionalFields')! as FormArray;
-      const newOptionalField: FormControl = new FormControl('');
-      //   if (newOptionalField) {
-      this.addOptionalField(newOptionalField);
-      //     tempOptionalArray.push(newOptionalField);
-      //   }
+      this.addOptionalField(field);
     });
-
-    console.log(this.optionalFields);
-
-    this.optionalFieldsArr = this.optionalFields;;
   }
 
   ngOnChanges(): void {
     this.registerForm.valueChanges.subscribe(value => {
+      console.log(value);
+
       if (value) {
+        console.log('hello?' + value);
+
+        if (typeof value === "number") {
+          console.log(value);
+
+
+        }
+
+
         this.summary = value;
       }
     });
@@ -64,13 +66,13 @@ export class RegisterComponent implements OnInit, OnChanges {
     return this.registerForm.get('requiredFields') as FormGroup;
   }
 
-  get optionalFields(): FormArray {
-    return this.registerForm.get('optionalFields') as FormArray;
+  get optionalFields(): FormGroup {
+    return this.registerForm.get('optionalFields') as FormGroup;
   }
 
-  addOptionalField(fieldInfo: FormControl) {
-    const tempOptionalArray: FormArray = this.registerForm.get('optionalFields')! as FormArray;
-    tempOptionalArray.push(fieldInfo);
+  addOptionalField(fieldName: string) {
+    (this.registerForm.get('optionalFields')! as FormGroup).addControl(fieldName, new FormControl(''));
+
   }
 
   onTabChange(index: number) {

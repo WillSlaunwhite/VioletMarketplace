@@ -15,6 +15,8 @@ export class SummaryTabComponent implements OnInit {
   // and values and display them for confirmation
   @Input() summary: any = {};
 
+  objectKeys = Object.keys;
+
   constructor() { }
 
   ngOnInit(): void {
