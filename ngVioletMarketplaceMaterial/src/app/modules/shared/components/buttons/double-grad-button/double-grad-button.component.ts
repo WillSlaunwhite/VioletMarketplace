@@ -18,6 +18,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 export class DoubleGradButtonComponent implements OnInit {
   @Input() label: string = '';
   @Input() size: string = 'medium';
+  @Input() gradient: string = 'standard';
   @Input() disabled = false; // TODO need to manage disabled state
 
 
