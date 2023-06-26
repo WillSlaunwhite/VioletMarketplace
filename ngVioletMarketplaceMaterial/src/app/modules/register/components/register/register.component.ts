@@ -31,6 +31,8 @@ export class RegisterComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    // turns the passed in array of field strings
+    // into form controls
     this.optionalFieldsStrings.forEach((field: string) => {
       this.addOptionalField(field);
     });
@@ -63,14 +65,17 @@ export class RegisterComponent implements OnInit, OnChanges {
   }
 
   addOptionalField(fieldName: string) {
-    (this.registerForm.get('optionalFields')! as FormGroup).addControl(fieldName.replace(/(?:^\w|\b\w|\s+)/g, (match, index) => {
-      if (+match === 0) return '';
-      return index === 0 ? match.toLowerCase() : match.toUpperCase();
-    }), new FormControl(''));
-    console.log(fieldName);
+    (this.registerForm.get('optionalFields')! as FormGroup).addControl(this.toCamelCase(fieldName), new FormControl(''));
   }
 
   onTabChange(index: number) {
     this.selectedTabIndex = index;
+  }
+
+  toCamelCase(str: string): string {
+    return str.replace(/(?:^\w|\b\w|\s+)/g, (match, index) => {
+      if (+match === 0) return '';
+      return index === 0 ? match.toLowerCase() : match.toUpperCase();
+    })
   }
 }
