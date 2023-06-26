@@ -5,8 +5,27 @@
 
 // GRADIENTS MUST BE HIGH OPACITY
 
+.dg-button {
+  @include button-wrapper-styles();
+  width: 100%;
+  height: 100%;
+}
+
+
+.dg-button-lg {
+  width: 324px;
+  height: 74px;
+
+  .text-wrapper {
+    font-family: "Poppins", bold;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: -.075rem;
+    word-spacing: -.1rem;
+  }
+}
+
 .tokens-button-wrapper {
-  @include button-wrapper-styles(35%);
 
   .tokens-button {
     @include button-styles(linear-gradient(88.33deg, #3635AC 0.81%, #304B7E 51.46%, #471D90 102.11%),
@@ -16,20 +35,16 @@
 }
 
 .wallet-button-wrapper {
-  @include button-wrapper-styles(54%);
 
   .wallet-button {
     // @include button-styles(linear-gradient(88.33deg, #88ac35 0.81%, #304B7E 51.46%, #791d90 102.11%),
     @include button-styles(linear-gradient(85.69deg, rgba(71, 29, 144) 1.1%, rgba(14, 14, 69) 71.94%),
       linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%),
       linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%)) // linear-gradient(to bottom, #FCB045 0%, #77B388 100%));
-    // linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%),
-    // linear-gradient(to bottom, #34D1C8 33.56%, #FD241D 78.08%));
   }
 }
 
 .collections-button-wrapper {
-  @include button-wrapper-styles(73%);
 
   .collections-button {
     @include button-styles(linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%),
@@ -39,7 +54,6 @@
 }
 
 .create-button-wrapper {
-  @include button-wrapper-styles(91%);
 
   .create-button {
     @include button-styles(linear-gradient(0deg, rgba(0, 0, 0), rgba(0, 0, 0)),
@@ -54,41 +68,5 @@
   .dg-button {
     @include button-gradient(linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
       linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
-    // @include button-styles(linear-gradient(85.69deg, rgba(71, 29, 144, .8) 1.1%, rgba(14, 14, 69, .8) 71.94%),
-    //   linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%),
-    //   linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
   }
 }
-
-/*
-.dg-button::before,
-.dg-button::after {
-  position: absolute;
-  content: '';
-  top: -2px;
-  bottom: -2px;
-  left: -2px;
-  right: -2px;
-  width: calc(100% + 6px);
-  height: calc(100% + 6px);
-  z-index: -1;
-  border-radius: 6px;
-  background-size: 150% 100%;
-  transition: all .5s ease-in-out;
-  filter: hue-rotate(30deg) brightness(.95);
-} */
-
-// .tokens-button:hover::after,
-// .wallet-button:hover::after,
-// .collections-button:hover::after,
-// .create-button:hover::after,
-// .tokens-button:hover::before,
-// .wallet-button:hover::before,
-// // .collections-button:hover::before,
-// .dg-button:hover::before,
-// .dg-button:hover::after {
-//   // pointer-events: none;
-//   transform: rotate(37.5deg) scale(2);
-//   animation-timing-function: ease-out;
-//   transition: all .6s ease-in-out;
-// }
