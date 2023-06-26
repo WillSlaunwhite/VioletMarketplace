@@ -17,14 +17,14 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 })
 export class DoubleGradButtonComponent implements OnInit {
   @Input() label: string = '';
+  @Input() size: string = 'medium';
+  @Input() disabled = false; // TODO need to manage disabled state
+
+
   @Input() duration: number = Math.random() * 10 + 10;
   @Input() delay: number = Math.random() * 3;
   @Input() directionX: number = Math.random() * 20 - 10;
   @Input() directionY: number = Math.random() * 20 - 10;
-  @Input() width: string = "244px";
-  @Input() height: string = "74px";
-
-  @Input() disabled = false; // TODO need to manage disabled state
 
   constructor() { }
 

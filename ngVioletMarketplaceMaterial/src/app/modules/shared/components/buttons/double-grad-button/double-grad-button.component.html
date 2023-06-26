@@ -1,5 +1,5 @@
 <div matRipple matRippleColor="rgb(54, 53, 172, .5)" class="dg-button-wrapper">
-  <button mat-stroked-button class="grad-button dg-button">
+  <button mat-stroked-button class="grad-button dg-button" [ngClass]="{ 'dg-button-lg' : size === 'large'}">
     <div class="glass-wrapper"></div>
     <div class="text-wrapper">{{ label }}</div>
   </button>

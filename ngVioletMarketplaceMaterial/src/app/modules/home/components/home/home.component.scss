@@ -34,6 +34,11 @@
           color: $text-primary-dark;
         }
 
+        ::ng-deep .dg-button-wrapper {
+          width: 244px;
+          height: 74px;
+        }
+
         .token-list-header {
           @include basic-precise-font($size: 3.25rem, $align: start);
           width: fit-content;
@@ -57,19 +62,7 @@
   }
 }
 
-.cta-container ::ng-deep .dg-button-wrapper {
-  width: 244px;
-  height: 74px;
-}
-
-.cta-container ::ng-deep .text-wrapper {
-  font-family: "Poppins", bold;
-  font-size: 2.5rem;
-  font-weight: 300;
-  letter-spacing: -.075rem;
-  word-spacing: -.1rem;
-  left: -.25rem !important;
-}
+.cta-container ::ng-deep .text-wrapper {}
 
 .dg-button {
   @include button-gradient (linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
