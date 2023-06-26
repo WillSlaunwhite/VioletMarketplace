@@ -150,8 +150,7 @@
   background-image: $gradients;
 }
 
-@mixin button-wrapper-styles($top) {
-  top: $top;
+@mixin button-wrapper-styles() {
 
   .grad-button::before,
   .grad-button::after {
@@ -165,7 +164,7 @@
     height: calc(100% + 6px);
     z-index: -1;
     border-radius: 6px;
-    transition: all .5s ease-in;
+    transition: all .35s ease-in;
     transform: none;
     animation: gradient 8s linear 10s infinite;
     background: orange 150% 100%; // TEMPORARY
