@@ -1,22 +1,34 @@
 @import '/src/scss/utils/mixins';
 
-// need to move gradient color declarations here I think
-
-
-// GRADIENTS MUST BE HIGH OPACITY
+// * need to move gradient color declarations here I think
+// * GRADIENTS MUST BE HIGH OPACITY
 
 .dg-button {
   @include button-wrapper-styles();
-  width: 100%;
-  height: 100%;
-
-  &:hover::before,
-  &:hover::after {
-    // transform: rotate(27.5deg) scale(2) !important;
-  }
-
+  display: inline-block;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  background-size: 150% 150%;
+  animation: gradient 6s linear 8s infinite;
 }
 
+.dg-button-md {
+  width: 214px;
+  height: 74px;
+
+  .text-wrapper {
+    font-family: "Poppins";
+    font-size: 1.75rem;
+    font-weight: 200;
+  }
+
+  >.dg-button:hover::before,
+  >.dg-button:hover::after {
+    transform: rotate(27.5deg) scale(1.5);
+    transition: all .35s ease-out;
+  }
+}
 
 .dg-button-lg {
   width: 324px;
@@ -28,6 +40,14 @@
     font-size: 2.25rem;
     font-weight: 300;
   }
+
+  >.dg-button:hover::before,
+  >.dg-button:hover::after {
+    transform: rotate(-27.5deg) scale(2);
+    transition: all .35s ease-out;
+  }
+
+
 }
 
 .dg-button-cta {
@@ -36,45 +56,27 @@
     linear-gradient(to bottom, #34D1C8 33.56%, #FD241D 78.08%));
 }
 
-.tokens-button-wrapper {
-
-  .tokens-button {
-    @include button-styles(linear-gradient(88.33deg, #3635AC 0.81%, #304B7E 51.46%, #471D90 102.11%),
-      linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%),
-      linear-gradient(to bottom, #34D1C8 33.56%, #FD241D 78.08%));
-  }
+.dg-button-primary {
+  @include button-styles(linear-gradient(85.69deg, rgba(71, 29, 144) 1.1%, rgba(14, 14, 69) 71.94%),
+    linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%),
+    linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%)) // linear-gradient(to bottom, #FCB045 0%, #77B388 100%));
 }
 
-.wallet-button-wrapper {
-
-  .wallet-button {
-    // @include button-styles(linear-gradient(88.33deg, #88ac35 0.81%, #304B7E 51.46%, #791d90 102.11%),
-    @include button-styles(linear-gradient(85.69deg, rgba(71, 29, 144) 1.1%, rgba(14, 14, 69) 71.94%),
-      linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%),
-      linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%)) // linear-gradient(to bottom, #FCB045 0%, #77B388 100%));
-  }
+.dg-button-secondary {
+  @include button-styles(linear-gradient(88.33deg, #3635AC 0.81%, #304B7E 51.46%, #471D90 102.11%),
+    linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%),
+    linear-gradient(to bottom, #34D1C8 33.56%, #FD241D 78.08%));
 }
 
-.collections-button-wrapper {
-
-  .collections-button {
-    @include button-styles(linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%),
-      linear-gradient(to right, #88B5DF 0%, #D5752A 100%),
-      linear-gradient(to bottom, #88B5DF 0%, #D5752A 100%));
-  }
+.dg-button-orange {
+  @include button-styles(linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%),
+    linear-gradient(to right, #88B5DF 0%, #D5752A 100%),
+    linear-gradient(to bottom, #88B5DF 0%, #D5752A 100%));
 }
 
-.create-button-wrapper {
 
-  .create-button {
-    @include button-styles(linear-gradient(0deg, rgba(0, 0, 0), rgba(0, 0, 0)),
-      linear-gradient(91.5deg, rgba(71, 29, 144) 1.28%, rgba(39, 91, 47) 93.7%),
-      linear-gradient(89.23deg, #275B2F 0.38%, #5B4C75 99.34%));
-  }
-}
-
-.dg-button-wrapper {
-
-  // need to make entries for multiple buttons (register for example)
-  .dg-button {}
+.dg-button-green {
+  @include button-styles(linear-gradient(0deg, rgba(0, 0, 0), rgba(0, 0, 0)),
+    linear-gradient(91.5deg, rgba(71, 29, 144) 1.28%, rgba(39, 91, 47) 93.7%),
+    linear-gradient(89.23deg, #275B2F 0.38%, #5B4C75 99.34%));
 }
