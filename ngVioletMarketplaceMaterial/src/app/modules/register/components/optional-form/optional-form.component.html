@@ -4,14 +4,7 @@
 * also, how do I handle the textarea?
 * -->
 <div class="tab-content">
-  <div *ngFor="let control of optionalFormArray.controls; index as i">
-    <app-form-field class="form-field" [control]="getControl(control.value)" [label]="'Field ' + i"></app-form-field>
+  <div *ngFor="let field of fields; index as i; ">
+    <app-form-field class="form-field" [type]="getFieldType(field)" [control]="getControl(field | toCamelCase)" [label]="field" [placeholder]="''"></app-form-field>
   </div>
-
-
-
-  <!-- <app-form-field class="form-field" [type]="'text'" label="display name" [control]="getControl('displayName')" [placeholder]="'display name'"></app-form-field>
-  <app-form-field class="form-field" [type]="'textarea'" label="biography" [control]="getControl('biography')" [placeholder]="'biography'"></app-form-field>
-  <app-form-field class="form-field" [type]="'text'" label="profile picture (url)" [control]="getControl('profilePicture')" [placeholder]="'profile picture'"></app-form-field>
-  <app-form-field class="form-field" [type]="'text'" label="wallet url (dummy for now)" [control]="getControl('walletUrl')" [placeholder]="'wallet url'"></app-form-field> -->
 </div>

@@ -4,10 +4,11 @@
       <app-required-form [formFields]="requiredFields"></app-required-form>
     </mat-tab>
     <mat-tab label="Optional">
-      <app-optional-form [optionalFormArray]="optionalFields"></app-optional-form>
+      <app-optional-form [fields]="optionalFieldsStrings" [optionalFormGroup]="optionalFields"></app-optional-form>
     </mat-tab>
     <mat-tab label="Summary">
-      <app-summary-tab></app-summary-tab>
+      <app-summary-tab [summary]="summary"></app-summary-tab>
+      <app-double-grad-button [label]="'submit'" (click)="onSubmit()"></app-double-grad-button>
     </mat-tab>
   </mat-tab-group>
 </div>

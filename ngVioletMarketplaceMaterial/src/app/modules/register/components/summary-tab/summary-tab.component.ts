@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-summary-tab',
@@ -13,6 +13,10 @@ export class SummaryTabComponent implements OnInit {
   // when the event to move to the third tab happens
   // get current form data, take all the field names
   // and values and display them for confirmation
+  @Input() summary: any = {};
+
+  objectKeys = Object.keys;
+
   constructor() { }
 
   ngOnInit(): void {
