@@ -1,6 +1,8 @@
+import { Store } from '@ngrx/store';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import User from 'src/app/models/user';
+import { registerUser } from '../../state/register.actions';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +18,7 @@ export class RegisterComponent implements OnInit, OnChanges {
 
   summary: any = {};
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private store: Store) {
     this.registerForm = this.fb.group({
       requiredFields: this.fb.group({
         email: ['', Validators.required],
@@ -35,21 +37,10 @@ export class RegisterComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
+    // adds the value to the summary object
+    // as the form changes
     this.registerForm.valueChanges.subscribe(value => {
-      console.log(value);
-
-      if (value) {
-        console.log('hello?' + value);
-
-        if (typeof value === "number") {
-          console.log(value);
-
-
-        }
-
-
-        this.summary = value;
-      }
+      if (value) { this.summary = value; }
     });
   }
 
@@ -60,6 +51,7 @@ export class RegisterComponent implements OnInit, OnChanges {
     };
     console.log(user);
     // TODO: send user to backend
+    this.store.dispatch(registerUser({ user }));
   }
 
   get requiredFields(): FormGroup {
@@ -71,8 +63,11 @@ export class RegisterComponent implements OnInit, OnChanges {
   }
 
   addOptionalField(fieldName: string) {
-    (this.registerForm.get('optionalFields')! as FormGroup).addControl(fieldName, new FormControl(''));
-
+    (this.registerForm.get('optionalFields')! as FormGroup).addControl(fieldName.replace(/(?:^\w|\b\w|\s+)/g, (match, index) => {
+      if (+match === 0) return '';
+      return index === 0 ? match.toLowerCase() : match.toUpperCase();
+    }), new FormControl(''));
+    console.log(fieldName);
   }
 
   onTabChange(index: number) {
