@@ -42,6 +42,17 @@
   text-align: $align;
 }
 
+@mixin basic-bold-font($size: 1.1rem, $weight: 300, $spacing: normal, $height: normal, $align: initial) {
+  color: $text-primary-dark;
+  font-family: 'Poppins', bold;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: geometricPrecision;
+  font-size: $size;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  line-height: $height;
+  text-align: $align;
+}
 
 @mixin remove-autofill-background {
 
@@ -96,7 +107,7 @@
 // TODO need to move all gradient definitions here
 @mixin preset-gradients {
   .dg-button-red {
-    @include button-gradient (linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
+    @include bg-gradient (linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
       linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
   }
 }
@@ -116,7 +127,7 @@
 
   .glass-wrapper {
     @include abs-top-left;
-    @include button-gradient($gradients);
+    @include bg-gradient($gradients);
     margin: 0;
     padding: 0;
     width: 100%;
@@ -144,14 +155,12 @@
 }
 
 
-
-// button effects
-@mixin button-gradient($gradients...) {
+// TODO need to do more here I think
+@mixin bg-gradient($gradients...) {
   background-image: $gradients;
 }
 
-@mixin button-wrapper-styles($top) {
-  top: $top;
+@mixin button-wrapper-styles($gradients...) {
 
   .grad-button::before,
   .grad-button::after {
@@ -165,15 +174,15 @@
     height: calc(100% + 6px);
     z-index: -1;
     border-radius: 6px;
-    transition: all .5s ease-in;
+    transition: all .35s ease-in;
     transform: none;
     animation: gradient 8s linear 10s infinite;
-    background: orange 150% 100%; // TEMPORARY
+    background-image: $gradients 150% 100%; // TEMPORARY
   }
 
   .grad-button:hover::after,
   .grad-button:hover::before {
-    transform: rotate(37.5deg) scale(2);
+    // transform: rotate(37.5deg) scale(2);
     animation-timing-function: ease-out;
   }
 
