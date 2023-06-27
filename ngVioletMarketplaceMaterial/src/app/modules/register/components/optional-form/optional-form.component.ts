@@ -12,9 +12,11 @@ export class OptionalFormComponent implements OnInit {
   fieldType: string = "text";
 
   constructor(private fb: FormBuilder) {
+    console.log(this.optionalFormGroup);
   }
 
   ngOnInit(): void {
+    console.log(this.fields);
   }
 
   getControl(fieldName: string): FormControl {

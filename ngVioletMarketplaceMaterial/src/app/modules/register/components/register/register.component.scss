@@ -2,20 +2,13 @@
 @import '/src/scss/utils/variables';
 
 
-#mat-tab-content-0-0 {
-  height: 60vh;
-}
-
-
 .register-container {
   @include bg-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
 
-  position: relative;
-  left: 25%;
   width: 50vw;
   height: 55vh;
   border-radius: 2px;
-  opacity: .8;
+  opacity: .95;
 
   .register-tab-container {
     height: 100%;
