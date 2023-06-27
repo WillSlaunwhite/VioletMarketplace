@@ -42,6 +42,8 @@ export class RegisterComponent implements OnInit, OnChanges {
     // adds the value to the summary object
     // as the form changes
     this.registerForm.valueChanges.subscribe(value => {
+      console.log(value.optionalFields);
+
       if (value) { this.summary = value; }
     });
   }
