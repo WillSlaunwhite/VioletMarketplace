@@ -4,16 +4,13 @@
 .summary-tab-content {
   height: 30vh;
   width: 50vw;
-  overflow-y: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   text-align: flex-start;
 
   background: white;
   display: grid;
   grid-template-columns: 1fr 1fr;
-
-  .optional-container>.fields-container {
-    height: 50px;
-  }
 
 
   .required-container {
@@ -24,19 +21,27 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    height: 60%;
-    margin-top: 3rem;
+    overflow: hidden;
+    max-width: 50vw;
 
-    .key-text {
-      color: orange;
-      margin: 12px 24px;
+    .summary-field {
+      height: 80px;
+      width: 100%;
+      overflow: hidden;
+
+      .key-text {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        color: orange;
+        width: 90%;
+        margin: 6px 24px;
+      }
     }
   }
-
-  .optional-container {
-    height: 100px !important;
-  }
-
 
   .tab-header {
     color: $text-primary-dark;
@@ -46,4 +51,11 @@
 
 .summary-header {
   @include basic-bold-font($size: 2.25rem, $align: center);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.optional-container,
+.required-container {
+  width: 25vw;
 }
