@@ -9,9 +9,8 @@
       <div class="summary-field required-field" *ngFor="let key of objectKeys(summary.requiredFields)">
         <p class="key-text ">
           <strong>{{key | fromCamelCase}}:</strong>
-        </p>
-        <p class="value-text">
           {{summary.requiredFields[key]}}
+
         </p>
       </div>
     </div>
@@ -21,8 +20,6 @@
       <div class="summary-field optional-field" *ngFor="let key of objectKeys(summary.optionalFields)">
         <p class="key-text ">
           <strong>{{key | fromCamelCase}}:</strong>
-        </p>
-        <p class="value-text">
           {{summary.optionalFields[key]}}
         </p>
       </div>

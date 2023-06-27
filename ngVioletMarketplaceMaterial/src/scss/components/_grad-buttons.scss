@@ -13,6 +13,24 @@
   animation: gradient 6s linear 8s infinite;
 }
 
+.dg-button-sm {
+  width: 124px;
+  height: 44px;
+
+  .text-wrapper {
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: $text-primary-dark;
+  }
+
+  >.dg-button:hover::before,
+  >.dg-button:hover::after {
+    transform: rotate(27.5deg) scale(1.5);
+    transition: all .35s ease-out;
+  }
+}
+
 .dg-button-md {
   width: 214px;
   height: 74px;
@@ -41,8 +59,8 @@
 
   >.dg-button:hover::before,
   >.dg-button:hover::after {
-    transform: rotate(-27.5deg) scale(2);
-    transition: all .35s ease-out;
+    transform: rotate(-27.5deg) scale(1.5);
+    transition: all .75s ease-in;
   }
 
 

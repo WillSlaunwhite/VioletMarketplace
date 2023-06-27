@@ -21,7 +21,6 @@ import { AuthEffects } from '../user/state/user.effect';
     LayoutModule,
     ReactiveFormsModule,
     AngularSvgIconModule,
-    FontAwesomeModule,
     AuthRoutingModule,
     FormsModule,
     StoreModule.forRoot({}),

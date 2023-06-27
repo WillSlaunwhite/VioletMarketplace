@@ -154,7 +154,6 @@
   }
 }
 
-
 // TODO need to do more here I think
 @mixin bg-gradient($gradients...) {
   background-image: $gradients;
@@ -174,16 +173,10 @@
     height: calc(100% + 6px);
     z-index: -1;
     border-radius: 6px;
-    transition: all .35s ease-in;
+    transition: all .5s ease-out;
     transform: none;
     animation: gradient 8s linear 10s infinite;
     background-image: $gradients 150% 100%; // TEMPORARY
-  }
-
-  .grad-button:hover::after,
-  .grad-button:hover::before {
-    // transform: rotate(37.5deg) scale(2);
-    animation-timing-function: ease-out;
   }
 
 }
