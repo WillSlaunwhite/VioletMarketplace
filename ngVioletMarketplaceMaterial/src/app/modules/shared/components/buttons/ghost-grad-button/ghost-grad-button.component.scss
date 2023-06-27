@@ -10,67 +10,72 @@
 // @include glass-border;
 
 .ghost-button {
-  border: solid 2px transparent;
+  position: relative;
+  border: none;
   background: transparent;
-  background-clip: padding-box;
-  box-sizing: border-box;
   outline: none;
-  width: 100%;
+  width: 100;
   height: 100%;
-  // @include button-wrapper-styles($gradients: linear-gradient(90deg, $secondary-dark, $primary-dark));
+  overflow: hidden;
+  z-index: 1;
 
-  &::before {
-    @include abs-top-left;
-    bottom: 0;
-    right: 0;
-    content: '';
-    z-index: -1;
-    margin: -2px;
-    border-radius: inherit;
-    background: linear-gradient(45deg, $secondary-dark, $primary-dark);
-  }
+  // &::before,
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: -2px;
+  //   left: -2px;
+  //   right: -2px;
+  //   bottom: -2px;
+  //   z-index: -1;
+  //   background: linear-gradient(45deg, $secondary-dark, $primary-dark);
+  // }
+
+  // &::before {
+  //   box-shadow: 0 0 5px 5px $secondary-light,
+  //     0 0 10px 10px $primary-light,
+  //     0 0 15px 15px transparent;
+  //   border-radius: 10px;
+  // }
+
+  // &::after {
+  //   background: none;
+  //   background-color: $glass-effect; // Substitute with your glass effect color or gradient
+  //   opacity: 0.5;
+  // }
 }
 
 
 .ghost-button-wrapper {
-  // @include button-wrapper-styles(linear-gradient(90deg, $secondary-dark, $primary-dark));
-  //   @include button-wrapper-styles();
-  //   // position: absolute;
-  //   padding: 2px;
-  //   border-radius: 6px;
-  //   overflow: hidden;
-  //   z-index: 1;
-  //   will-change: transform;
-  //   background: transparent;
-  //   // background-color: $secondary-light;
-  //   @include box-shadow(0 0 4px rgba(255, 255, 255, 0.6));
-  //   margin-right: .5em;
+  position: relative;
+  background: transparent;
+  border: none;
+  outline: none;
 
-  //   &::before,
-  //   &::after {
-  //     background: transparent !important;
-  //   }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    background: linear-gradient(45deg, $secondary-dark, $primary-dark);
+  }
 
-  //   .dg-button {
-  //     width: 100%;
-  //     height: 100%;
-  //     background: transparent !important;
+  &::before {
+    box-shadow: 0 0 5px 5px $secondary-light,
+      0 0 10px 10px $primary-light,
+      0 0 15px 15px transparent;
+    border-radius: 10px;
+  }
 
-  //     &::before,
-  //     &::after {
-  //       background: transparent !important;
-  //       border: 2px solid white;
-  //     }
-
-  //     &::before {
-  //       top: 0;
-  //       left: 0;
-  //     }
-
-  //     &::after {
-  //       bottom: 100%;
-  //       right: 100%;
-  //     }
+  &::after {
+    background: none;
+    background-color: $glass-effect; // Substitute with your glass effect color or gradient
+    opacity: 0.5;
+  }
 
   .glass-wrapper {
     border-radius: 6px;
@@ -84,6 +89,4 @@
     z-index: 3;
     pointer-events: none; // Add this line to make sure the button is still clickable
   }
-
-  // }
 }

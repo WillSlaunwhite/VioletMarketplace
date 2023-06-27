@@ -21,6 +21,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { MaterialModule } from './modules/material/material.module';
+import { UserEffects } from './modules/register/state/register.effects';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,7 @@ import { MaterialModule } from './modules/material/material.module';
       configUrl: './assets/json/icons.json',
     }),
     StoreModule.forRoot({}),
-    EffectsModule.forRoot(),
+    EffectsModule.forRoot([UserEffects]),
     FontAwesomeModule,
     UserModule,
     AuthModule,

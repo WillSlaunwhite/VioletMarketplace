@@ -5,7 +5,7 @@
       <app-ghost-grad-button (click)="onTabChange(selectedTabIndex+1)" class="tab-nav-button tab-nav-next" [size]="'small'" [gradient]="'green'" [label]="'next'"></app-ghost-grad-button>
     </mat-tab>
     <mat-tab class="register-tab optional-tab" label="Optional">
-      <app-optional-form [fields]="optionalFieldsStrings" [optionalFormGroup]="optionalFields"></app-optional-form>
+      <app-optional-form [fields]="data.optionalFieldsStrings" [optionalFormGroup]="optionalFields"></app-optional-form>
       <app-ghost-grad-button (click)="onTabChange(selectedTabIndex-1)" class="tab-nav-button tab-nav-back" [size]="'small'" [gradient]="'red'" [label]="'back'"></app-ghost-grad-button>
       <app-ghost-grad-button (click)="onTabChange(selectedTabIndex+1)" class="tab-nav-button tab-nav-next" [size]="'small'" [gradient]="'orange'" [label]="'next'"></app-ghost-grad-button>
     </mat-tab>
