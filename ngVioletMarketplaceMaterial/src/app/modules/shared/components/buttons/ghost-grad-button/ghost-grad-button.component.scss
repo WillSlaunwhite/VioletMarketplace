@@ -1,0 +1,89 @@
+@import '/src/scss/utils/variables';
+@import '/src/scss/utils/mixins';
+@import '/src/scss/components/grad-buttons';
+@import '/src/scss/utils/utilities';
+
+// @include glass-effect(linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+//   linear-gradient(90deg, rgba(197, 197, 197, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+//   linear-gradient(180deg, rgba(121, 121, 121, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+//   radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
+// @include glass-border;
+
+.ghost-button {
+  border: solid 2px transparent;
+  background: transparent;
+  background-clip: padding-box;
+  box-sizing: border-box;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  // @include button-wrapper-styles($gradients: linear-gradient(90deg, $secondary-dark, $primary-dark));
+
+  &::before {
+    @include abs-top-left;
+    bottom: 0;
+    right: 0;
+    content: '';
+    z-index: -1;
+    margin: -2px;
+    border-radius: inherit;
+    background: linear-gradient(45deg, $secondary-dark, $primary-dark);
+  }
+}
+
+
+.ghost-button-wrapper {
+  // @include button-wrapper-styles(linear-gradient(90deg, $secondary-dark, $primary-dark));
+  //   @include button-wrapper-styles();
+  //   // position: absolute;
+  //   padding: 2px;
+  //   border-radius: 6px;
+  //   overflow: hidden;
+  //   z-index: 1;
+  //   will-change: transform;
+  //   background: transparent;
+  //   // background-color: $secondary-light;
+  //   @include box-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+  //   margin-right: .5em;
+
+  //   &::before,
+  //   &::after {
+  //     background: transparent !important;
+  //   }
+
+  //   .dg-button {
+  //     width: 100%;
+  //     height: 100%;
+  //     background: transparent !important;
+
+  //     &::before,
+  //     &::after {
+  //       background: transparent !important;
+  //       border: 2px solid white;
+  //     }
+
+  //     &::before {
+  //       top: 0;
+  //       left: 0;
+  //     }
+
+  //     &::after {
+  //       bottom: 100%;
+  //       right: 100%;
+  //     }
+
+  .glass-wrapper {
+    border-radius: 6px;
+    opacity: .45;
+  }
+
+  .text-wrapper {
+    @include flex-center;
+    @include abs-top-left;
+    @include flex-full-wh;
+    z-index: 3;
+    pointer-events: none; // Add this line to make sure the button is still clickable
+  }
+
+  // }
+}

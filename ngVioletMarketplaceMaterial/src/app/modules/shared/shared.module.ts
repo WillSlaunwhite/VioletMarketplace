@@ -18,6 +18,7 @@ import { HeaderComponent } from './components/text/header/header.component';
 import { WarningMessageComponent } from './components/text/warning-message/warning-message.component';
 import { FormContainerComponent } from './components/forms/form-container/form-container.component';
 import { TabContainerComponent } from './components/tabs/tab-container/tab-container.component';
+import { GhostGradButtonComponent } from './components/buttons/ghost-grad-button/ghost-grad-button.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { TabContainerComponent } from './components/tabs/tab-container/tab-conta
     HeaderComponent,
     WarningMessageComponent,
     TabContainerComponent,
+    GhostGradButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -52,7 +54,8 @@ import { TabContainerComponent } from './components/tabs/tab-container/tab-conta
     NavGradButtonComponent,
     FormFieldComponent,
     FormContainerComponent,
-    TabContainerComponent
+    TabContainerComponent,
+    GhostGradButtonComponent
   ],
 })
 export class SharedModule { }
