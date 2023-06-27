@@ -36,9 +36,7 @@
 
 
   .text-wrapper {
-    font-family: "Poppins", bold;
-    font-size: 2.25rem;
-    font-weight: 300;
+    @include basic-bold-font($size: 2.25rem);
   }
 
   >.dg-button:hover::before,

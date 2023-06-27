@@ -2,16 +2,30 @@
 * and their values from state, iterate over them
 * and display them to be validated by the user.
 * editable? -->
-<div>
-  <h2>Summary</h2>
-
-  <h3>Required Fields</h3>
-  <div *ngFor="let key of objectKeys(summary.requiredFields)">
-    <strong>{{key}}:</strong> {{summary.requiredFields[key]}}
+<h2 class="summary-header">Summary</h2>
+<div class="summary-tab-content">
+  <div class="required-container">
+    <div class="fields-container">
+      <div class="summary-field required-field" *ngFor="let key of objectKeys(summary.requiredFields)">
+        <p class="key-text ">
+          <strong>{{key | fromCamelCase}}:</strong>
+        </p>
+        <p class="value-text">
+          {{summary.requiredFields[key]}}
+        </p>
+      </div>
+    </div>
   </div>
-
-  <h3>Optional Fields</h3>
-  <div *ngFor="let key of objectKeys(summary.optionalFields)">
-    <strong>{{key}}:</strong> {{summary.optionalFields[key]}}
+  <div class="optional-container">
+    <div class="fields-container">
+      <div class="summary-field optional-field" *ngFor="let key of objectKeys(summary.optionalFields)">
+        <p class="key-text ">
+          <strong>{{key | fromCamelCase}}:</strong>
+        </p>
+        <p class="value-text">
+          {{summary.optionalFields[key]}}
+        </p>
+      </div>
+    </div>
   </div>
 </div>
