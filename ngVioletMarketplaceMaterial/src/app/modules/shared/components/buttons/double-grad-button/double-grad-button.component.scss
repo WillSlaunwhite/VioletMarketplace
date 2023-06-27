@@ -3,36 +3,29 @@
 @import '/src/scss/components/grad-buttons';
 @import '/src/scss/utils/utilities';
 
+// TODO need to find way to take width/height as parameters
+
 @include glass-effect(linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
   linear-gradient(90deg, rgba(197, 197, 197, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
   linear-gradient(180deg, rgba(121, 121, 121, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
   radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
 @include glass-border;
 
-// TODO need to find way to take width/height as parameters
-
 .dg-button-wrapper {
-  @include button-wrapper-styles(20%);
+  @include button-wrapper-styles();
   position: absolute;
   padding: 2px;
   border-radius: 6px;
   overflow: hidden;
   z-index: 1;
   will-change: transform;
-  background-color: $primary-dark;
+  background-color: $secondary-light;
   @include box-shadow(0 0 4px rgba(255, 255, 255, 0.6));
   margin-right: .5em;
 
   .dg-button {
-    position: relative;
-    display: inline-block;
     width: 100%;
     height: 100%;
-    border-radius: inherit;
-    outline: none;
-    border: none;
-    background-size: 150% 150%;
-    animation: gradient 6s linear 8s infinite;
 
     .glass-wrapper {
       border-radius: 6px;
@@ -47,6 +40,12 @@
       pointer-events: none; // Add this line to make sure the button is still clickable
     }
 
+
+  }
+
+  &::before,
+  &::after {
+    transform: rotate(90deg);
   }
 
 }
