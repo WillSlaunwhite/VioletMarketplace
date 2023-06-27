@@ -10,39 +10,32 @@
   height: 55vh;
   border-radius: 2px;
   opacity: .8;
+
+  .register-tab-container {
+    // TODO GPT says this is the only way, but
+    // * need to investigate further
+
+    &::ng-deep.mat-tab-label {
+      width: 17vw;
+      height: 50px;
+      @include basic-precise-font($size: 1.3rem);
+    }
+  }
+
 }
 
 // * THIS WORKS
-::ng-deep #mat-tab-content-1-0>.mat-tab-body-content,
-::ng-deep #mat-tab-content-0-0>.mat-tab-body-content {
+::ng-deep .mat-tab-body-content {
   overflow: hidden !important;
 }
 
-.register-tab-container {
-  width: 100%;
-  height: 55vh;
+.dg-button-container {
+  width: 50%;
+  height: 70px;
+  @include flex-align-justify-direction($align: flex-start, $justify: center);
+  margin-top: 2em;
 }
 
-// TODO GPT says this is the only way, but
-// need to investigate that claim further
-// ::ng-deep.mat-tab,
-// ::ng-deep.register-tab,
-.register-tab-container ::ng-deep.mat-tab-label {
-  width: 17vw;
-  height: 50px;
-  @include basic-precise-font($size: 1.3rem);
-}
-
-
-.register-tab-container ::ng-deep.mat-tab,
-::ng-deep mat-tab,
-::ng-deep .register-tab {
-  height: 55vh;
-  width: 50vw;
-  background: black !important;
-}
-
-.dg-button-submit {
-  width: 180px;
-  height: 80px;
+.summary-tab {
+  overflow: hidden;
 }

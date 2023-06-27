@@ -1,14 +1,16 @@
 <div class="register-container">
-  <mat-tab-group class="register-tab-container" [(selectedIndex)]="selectedTabIndex" (selectedIndexChange)="onTabChange($event)">
-    <mat-tab class="register-tab first-tab" label="Required">
+  <mat-tab-group class="register-tab-container" selectedIndex=2 (selectedIndexChange)="onTabChange($event)">
+    <mat-tab class="register-tab required-tab" label="Required">
       <app-required-form [formFields]="requiredFields"></app-required-form>
     </mat-tab>
-    <mat-tab label="Optional">
+    <mat-tab class="register-tab optional-tab" label="Optional">
       <app-optional-form [fields]="optionalFieldsStrings" [optionalFormGroup]="optionalFields"></app-optional-form>
     </mat-tab>
-    <mat-tab label="Summary">
+    <mat-tab class="register-tab summary-tab" label="Summary">
       <app-summary-tab [summary]="summary"></app-summary-tab>
-      <app-double-grad-button [label]="'submit'" (click)="onSubmit()"></app-double-grad-button>
+      <div class="dg-button-container">
+        <app-double-grad-button [label]="'submit'" (click)="onSubmit()" [gradient]="'primary'" [size]="'large'"></app-double-grad-button>
+      </div>
     </mat-tab>
   </mat-tab-group>
 </div>
