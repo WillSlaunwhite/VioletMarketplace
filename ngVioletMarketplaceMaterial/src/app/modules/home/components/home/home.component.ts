@@ -12,6 +12,7 @@ import { getAllTokens } from 'src/app/modules/tokens/state/tokens.selectors';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { MatDialog } from '@angular/material/dialog';
 import { AltRegisterComponent } from 'src/app/modules/register/components/alt-register/alt-register.component';
+import { RegisterComponent } from 'src/app/modules/register/components/register/register.component';
 
 @Component({
   selector: 'app-home',
@@ -24,19 +25,7 @@ export class HomeComponent implements OnInit {
   tokens$: Observable<Token[] | null> = of(null);
   token: Token | null = new Token();
   descriptionShowing: boolean = false;
-
-  // this seems to be working for the border but only with one layer + glass
-  // and not the borders
-  gradientConfigs = {
-    redButtonConfig: {
-      gradientLayers: [
-        'linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%)',
-        'linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%)'
-      ],
-      borderGradient: 'linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%)'
-    },
-    // ...other button configurations...
-  };
+  // animationData: string;
 
   constructor(
     private tokenSvc: TokenService,
@@ -47,15 +36,10 @@ export class HomeComponent implements OnInit {
     private store: Store,
     private dialog: MatDialog
   ) {
-    this.animationData = this.getRouteAnimationData();
+    // this.animationData = this.getRouteAnimationData();
   }
-  animationData: string;
-
-  @ViewChild('sidenav', { static: true })
-  sidenav!: ElementRef;
 
   ngOnInit(): void {
-    // this.store.dispatch(loadTokens());
     this.tokens$ = this.store.select(getAllTokens);
   }
 
@@ -71,25 +55,28 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onAnimationEnd(event: AnimationEvent) {
-    if (event.animationName === 'fade') {
-      // Animation with name 'fade' has ended, add 'myClass' class to myElement
-      this.sidenav.nativeElement.classList.add('fill-forward');
-    }
-  }
 
   openRegisterDialog(): void {
-    this.dialog.open(AltRegisterComponent);
+    this.dialog.open(RegisterComponent, {
+      data: {
+        optionalFieldsStrings: ['display name', 'biography', 'profile picture', 'wallet url'],
+        selectedTabIndex: 0
+      }
+    });
   }
-
-
-
 
   getRouteAnimationData() {
     const routeData = this.router.getCurrentNavigation()?.extractedUrl;
     const animationData = routeData ? routeData.toString() : '';
     return animationData;
   }
+
+  // onAnimationEnd(event: AnimationEvent) {
+  //   if (event.animationName === 'fade') {
+  //     // Animation with name 'fade' has ended, add 'myClass' class to myElement
+  //     this.sidenav.nativeElement.classList.add('fill-forward');
+  //   }
+  // }
 
   // ngAfterViewInit() {
   //   console.log('in after view');

@@ -1,8 +1,9 @@
 import { Store } from '@ngrx/store';
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnChanges, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import User from 'src/app/models/user';
 import { registerUser } from '../../state/register.actions';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-register',
@@ -10,18 +11,19 @@ import { registerUser } from '../../state/register.actions';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit, OnChanges {
-  @Input() selectedTabIndex: number = 0;
-  @Input() optionalFieldsStrings: string[] = [];
-
   registerForm: FormGroup;
   optionalFieldsArr: FormArray = this.fb.array([]);
-
+  selectedTabIndex: number = 0;
+  optionalFieldsStrings: string[] = [];
   summary: any = {};
 
-  constructor(private fb: FormBuilder, private store: Store) {
+  constructor(private fb: FormBuilder,
+    private store: Store,
+    public dialogRef: MatDialogRef<RegisterComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
     this.registerForm = this.fb.group({
       requiredFields: this.fb.group({
-        email: ['', Validators.required],
+        email: ['', Validators.email],
         username: ['', Validators.required],
         password: ['', Validators.required],
         confirmPassword: ['', Validators.required],
@@ -33,17 +35,19 @@ export class RegisterComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     // turns the passed in array of field strings
     // into form controls
-    this.optionalFieldsStrings.forEach((field: string) => {
-      this.addOptionalField(field);
-    });
+    console.log(this.data.optionalFieldsStrings);
+
+    if (this.data.optionalFieldsStrings) {
+      this.data.optionalFieldsStrings.forEach((field: string) => {
+        this.addOptionalField(field);
+      });
+    }
   }
 
   ngOnChanges(): void {
     // adds the value to the summary object
     // as the form changes
     this.registerForm.valueChanges.subscribe(value => {
-      console.log(value.optionalFields);
-
       if (value) { this.summary = value; }
     });
   }
@@ -67,6 +71,7 @@ export class RegisterComponent implements OnInit, OnChanges {
   }
 
   addOptionalField(fieldName: string) {
+    this.optionalFieldsStrings.push(fieldName);
     (this.registerForm.get('optionalFields')! as FormGroup).addControl(this.toCamelCase(fieldName), new FormControl(''));
   }
 
