@@ -1,6 +1,12 @@
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/variables';
 
+
+#mat-tab-content-0-0 {
+  height: 60vh;
+}
+
+
 .register-container {
   @include bg-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
 
@@ -12,9 +18,10 @@
   opacity: .8;
 
   .register-tab-container {
+    height: 100%;
+
     // TODO GPT says this is the only way, but
     // * need to investigate further
-
     &::ng-deep.mat-tab-label {
       width: 17vw;
       height: 50px;
@@ -22,11 +29,25 @@
     }
   }
 
+  .tab-nav-next {
+    position: absolute;
+    right: 7%;
+    bottom: 8%;
+  }
+
+  .tab-nav-back {
+    position: absolute;
+    left: 7%;
+    bottom: 8%;
+  }
+
 }
 
 // * THIS WORKS
+::ng-deep .mat-tab-body,
 ::ng-deep .mat-tab-body-content {
   overflow: hidden !important;
+  height: 50vh !important;
 }
 
 .dg-button-container {

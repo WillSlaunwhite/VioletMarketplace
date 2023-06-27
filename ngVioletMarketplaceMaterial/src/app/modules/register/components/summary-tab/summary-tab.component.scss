@@ -8,14 +8,9 @@
   overflow-x: hidden;
   text-align: flex-start;
 
-  background: white;
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-
-  .required-container {
-    background: green;
-  }
 
   .fields-container {
     display: flex;

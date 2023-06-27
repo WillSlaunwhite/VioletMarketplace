@@ -3,7 +3,7 @@
 * a grid based on that instead
 * also, how do I handle the textarea?
 * -->
-<div class="tab-content">
+<div class="form-content">
   <div *ngFor="let field of fields; index as i; ">
     <app-form-field class="form-field" [type]="getFieldType(field)" [control]="getControl(field | toCamelCase)" [label]="field" [placeholder]="''"></app-form-field>
   </div>
