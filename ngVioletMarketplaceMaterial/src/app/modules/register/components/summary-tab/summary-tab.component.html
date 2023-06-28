@@ -6,23 +6,22 @@
 <div class="summary-tab-content">
   <div class="required-container">
     <div class="fields-container">
-      <!-- <div class="summary-field required-field" *ngFor="let key of objectKeys(summary.requiredFields)">
+      <div class="summary-field required-field" *ngFor="let key of objectKeys(summary?.requiredFields)">
         <p class="key-text ">
           <strong>{{key | fromCamelCase}}:</strong>
           {{summary.requiredFields[key]}}
-
         </p>
-      </div> -->
+      </div>
     </div>
   </div>
   <div class="optional-container">
     <div class="fields-container">
-      <!-- <div class="summary-field optional-field" *ngFor="let key of objectKeys(summary.optionalFields)">
+      <div class="summary-field optional-field" *ngFor="let key of objectKeys(summary?.optionalFields)">
         <p class="key-text ">
           <strong>{{key | fromCamelCase}}:</strong>
           {{summary.optionalFields[key]}}
         </p>
-      </div> -->
+      </div>
     </div>
   </div>
 </div>
