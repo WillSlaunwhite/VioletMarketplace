@@ -1,4 +1,4 @@
-<div class="register-container">
+<div @slideInTop class="register-container">
   <mat-tab-group class="register-tab-container" [selectedIndex]="selectedTabIndex" (selectedIndexChange)="onTabChange($event)">
     <mat-tab class="register-tab required-tab" label="Required">
       <app-required-form [formFields]="requiredFields"></app-required-form>

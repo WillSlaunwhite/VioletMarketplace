@@ -40,7 +40,12 @@ export class NavbarComponent implements OnInit {
   }
 
   openRegisterDialog(): void {
-    this.dialog.open(RegisterComponent);
+    this.dialog.open(RegisterComponent, {
+      data: {
+        optionalFieldsStrings: ['display name', 'biography', 'profile picture', 'wallet url'],
+        selectedTabIndex: 0
+      }
+    });
   }
 
   openLoginDialog(): void {
