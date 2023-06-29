@@ -1,8 +1,6 @@
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/variables';
 
-@include remove-autofill-background;
-
 .tab-content {
   height: 80%;
   width: 88%;
@@ -10,25 +8,22 @@
   overflow-y: auto;
   overflow-x: hidden;
 
+  .form-container {
+    @include flex-full-wh;
+    @include rel-top-left($top: 7%, $left: 7%);
+    justify-content: space-between;
+    flex-direction: column;
+    height: 90%;
+
+  }
 
   .form-field {
-    width: 65%;
-    margin-inline: auto;
-    @include basic-precise-font($size: 1.3rem);
-    color: green;
-    padding-left: 2em;
-
-    &:last-child {
-      padding-bottom: 5rem;
-    }
-
 
     // * this works btw
     // * doesn't even bleed over
     ::ng-deep mat-label {
-      @include basic-precise-font($size: 1.3rem);
       letter-spacing: .05rem;
-      color: green;
+      color: orange;
     }
   }
 
@@ -47,7 +42,8 @@
 
 
   .labels-container {
-    grid-column: 2;
+    position: relative;
+    bottom: -30%;
     width: 90%;
     text-align: right;
     margin-bottom: 1rem;

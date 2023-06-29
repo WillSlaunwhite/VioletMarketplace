@@ -11,20 +11,22 @@
   overflow-y: auto;
   overflow-x: hidden;
 
+  .form-container {
+    @include flex-full-wh;
+    @include rel-top-left($top: 7%, $left: 7%);
+    justify-content: space-between;
+    flex-direction: column;
+    height: 90%;
+
+  }
+
   .form-field {
-    width: 65%;
-    margin-inline: auto;
-    margin-top: 3em;
-    @include basic-precise-font($size: 1.3rem);
-    color: green;
-    padding-left: 2em;
 
     // * this works btw
     // * doesn't even bleed over
     ::ng-deep mat-label {
-      @include basic-precise-font($size: 1.3rem);
       letter-spacing: .05rem;
-      color: green;
+      color: $secondary-light;
     }
   }
 }
