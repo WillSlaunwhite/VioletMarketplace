@@ -3,44 +3,6 @@
 
 @include remove-autofill-background;
 
-.form-field {
-  // padding-left: 5em;
-}
-
-.tab-content {
-  display: grid;
-  height: 50vh;
-  width: 50vw;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-
-}
-
-.required-label,
-.text-danger {
-  @include basic-precise-font($size: 1.45rem);
-}
-
-.text-danger {
-  color: $warning-color;
-}
-
-.required-label {
-  color: $secondary-light;
-}
-
-
-.labels-container {
-  grid-column: 2;
-  width: 90%;
-  text-align: right;
-  margin-bottom: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-}
 
 //TODO fix this, encapsulate styles better
 // * hits search bar, etc.
@@ -77,4 +39,13 @@ mat-hint,
 form button ::ng-deep .text-wrapper {
   font-weight: 200 !important;
   font-size: 2rem !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: white;
+  -webkit-text-size-adjust: 50%;
 }

@@ -1,4 +1,4 @@
-<mat-form-field class="form-field">
+<mat-form-field class="form-field" [ngClass]=" { 'form-field-large' : size === 'large' } ">
   <mat-label>{{label}}</mat-label>
   <textarea *ngIf="type === 'textarea'" matInput [name]="label" [formControl]="control" [placeholder]="placeholder" [type]="type"></textarea>
   <input *ngIf="type !== 'textarea'" matInput [name]="label" [formControl]="control" [placeholder]="placeholder" [type]="type">
