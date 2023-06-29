@@ -5,11 +5,13 @@ import User from 'src/app/models/user';
 import { registerUser } from '../../state/register.actions';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { startWith } from 'rxjs';
+import { slideInTop } from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  animations: [slideInTop]
 })
 export class RegisterComponent implements OnInit, OnChanges {
   registerForm: FormGroup;
