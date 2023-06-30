@@ -5,22 +5,29 @@
 
 
 
-
 .ghost-button-wrapper {
   position: relative;
   background: linear-gradient(45deg, $secondary-light, $primary-dark, $secondary-dark);
+  background-size: 200% 200%; // Ensures the background image is large enough to animate smoothly
+  animation: gradient 8s linear infinite;
   // border: 5px solid transparent;
   // border-image: linear-gradient(45deg, $secondary-light, $primary-dark, $secondary-dark) .8;
-  width: 245px;
-  height: 75px;
-  border-radius: 6px;
+  width: 244px;
+  height: 74px;
+  border-radius: 4px;
   @include flex-center;
+
+  @include glass-effect(linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+    linear-gradient(90deg, rgba(197, 197, 197, 0.364) 0%, rgba(255, 255, 255, 0.424) 100%),
+    linear-gradient(180deg, rgba(121, 121, 121, 0.364) 0%, rgba(255, 255, 255, 0.124) 100%),
+    radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
+  @include glass-border;
 
   .ghost-button {
     background: #0a0a37;
     width: 240px;
     height: 70px;
-    border-radius: 6px;
+    border-radius: 4px;
 
 
     .text-wrapper {
@@ -29,9 +36,17 @@
       @include flex-full-wh;
       z-index: 3;
       background: transparent;
-      border-radius: 6px;
+      border-radius: 4px;
       pointer-events: none; // Add this line to make sure the button is still clickable
     }
+  }
+
+  .glass-wrapper {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    margin-left: 2px;
+    margin-top: 2px;
+    opacity: .275;
   }
 }
 
