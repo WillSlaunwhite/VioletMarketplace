@@ -1,18 +1,15 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
 
-.form-field {
+.form-field-large {
   width: 75%;
   margin-inline: auto;
-  margin-top: 3em;
-  @include basic-precise-font($size: 1.3rem);
-  color: green;
+  @include basic-precise-font($size: 1.6rem);
 
   // * this works btw
   // * doesn't even bleed over
   ::ng-deep mat-label {
-    @include basic-precise-font($size: 1.3rem);
+    @include basic-precise-font($size: 1.6rem);
     letter-spacing: .05rem;
-    color: green;
   }
 }

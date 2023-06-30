@@ -4,18 +4,25 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import User from 'src/app/models/user';
 import { registerUser } from '../../state/register.actions';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { startWith } from 'rxjs';
+import { slideInTop } from 'src/app/animations/animations';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  animations: [slideInTop]
 })
 export class RegisterComponent implements OnInit, OnChanges {
   registerForm: FormGroup;
   optionalFieldsArr: FormArray = this.fb.array([]);
   selectedTabIndex: number = 0;
   optionalFieldsStrings: string[] = [];
-  summary: any = {};
+
+  @Input() summary: any = {
+    requiredFields: {},
+    optionalFields: {}
+  };
 
   constructor(private fb: FormBuilder,
     private store: Store,
@@ -42,14 +49,16 @@ export class RegisterComponent implements OnInit, OnChanges {
         this.addOptionalField(field);
       });
     }
+
+    this.registerForm.valueChanges.pipe(startWith(this.registerForm.value))
+      .subscribe(value => {
+        if (value) { this.summary = value; }
+      });
   }
 
   ngOnChanges(): void {
     // adds the value to the summary object
     // as the form changes
-    this.registerForm.valueChanges.subscribe(value => {
-      if (value) { this.summary = value; }
-    });
   }
 
   onSubmit(): void {
