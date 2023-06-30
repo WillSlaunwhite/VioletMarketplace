@@ -1,32 +1,29 @@
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/variables';
-// @import '/src/scss/components/forms/forms';
-
-@include remove-autofill-background;
-
-.form-field {
-  padding-left: 2em;
-}
 
 .tab-content {
-  display: grid;
-  height: 40vh;
-  width: 50vw;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  height: 80%;
+  width: 88%;
+  padding-left: 5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .form-container {
+    @include flex-full-wh;
+    @include rel-top-left($top: 7%, $left: 7%);
+    justify-content: space-between;
+    flex-direction: column;
+    height: 90%;
+
+  }
 
   .form-field {
-    width: 100%;
-    margin-inline: auto;
-    @include basic-precise-font($size: 1.3rem);
-    color: green;
 
     // * this works btw
     // * doesn't even bleed over
     ::ng-deep mat-label {
-      @include basic-precise-font($size: 1.3rem);
       letter-spacing: .05rem;
-      color: green;
+      color: orange;
     }
   }
 
@@ -45,7 +42,8 @@
 
 
   .labels-container {
-    grid-column: 2;
+    position: relative;
+    bottom: -30%;
     width: 90%;
     text-align: right;
     margin-bottom: 1rem;
@@ -57,97 +55,3 @@
   }
 
 }
-
-// .form-field {
-//   padding-left: 5em;
-// }
-
-// .tab-content {
-//   display: grid;
-//   height: 50vh;
-//   width: 50vw;
-//   grid-template-columns: 1fr 1fr;
-//   gap: 1.5rem;
-
-// }
-
-// .required-label,
-// .text-danger {
-//   @include basic-precise-font($size: 1.45rem);
-// }
-
-// .text-danger {
-//   color: $warning-color;
-// }
-
-// .required-label {
-//   color: $secondary-light;
-// }
-
-
-// .labels-container {
-//   grid-column: 2;
-//   width: 90%;
-//   text-align: right;
-//   margin-bottom: 1rem;
-
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   align-items: flex-end;
-// }
-
-// .tab-content {
-//   display: grid;
-//   height: 50vh;
-//   width: 50vw;
-//   grid-template-columns: 1fr 1fr;
-//   gap: 1.5rem;
-
-//   .form-field {
-//     width: 75%;
-//     margin-inline: auto;
-//     margin-top: 3em;
-//     @include basic-precise-font($size: 1.3rem);
-//     color: green;
-
-//     // * this works btw
-//     // * doesn't even bleed over
-//     ::ng-deep mat-label {
-//       @include basic-precise-font($size: 1.3rem);
-//       letter-spacing: .05rem;
-//       color: green;
-//     }
-//   }
-
-//   .required-label,
-//   .text-danger {
-//     @include basic-precise-font($size: 1.45rem);
-//   }
-
-//   .text-danger {
-//     color: $warning-color;
-//   }
-
-//   .required-label {
-//     color: $secondary-light;
-//   }
-
-
-//   .labels-container {
-//     grid-column: 2;
-//     width: 90%;
-//     text-align: right;
-//     margin-bottom: 1rem;
-
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     align-items: flex-end;
-//   }
-
-// }
-
-// ::ng-deep .register-container .mat-tab-body-content {
-//   overflow: hidden !important;
-// }

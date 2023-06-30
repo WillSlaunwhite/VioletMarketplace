@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RegisterRoutingModule } from './register-routing.module';
-import { AltRegisterComponent } from './components/alt-register/alt-register.component';
 import { OptionalFieldsContainerComponent } from './components/optional-fields-container/optional-fields-container.component';
 import { OptionalFormComponent } from './components/optional-form/optional-form.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -17,7 +16,6 @@ import { FromCamelCasePipe } from './pipes/from-camel-case.pipe';
 
 @NgModule({
   declarations: [
-    AltRegisterComponent,
     OptionalFieldsContainerComponent,
     OptionalFormComponent,
     RegisterComponent,

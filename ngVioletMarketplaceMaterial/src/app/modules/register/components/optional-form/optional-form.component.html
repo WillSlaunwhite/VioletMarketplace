@@ -4,7 +4,9 @@
 * also, how do I handle the textarea?
 * -->
 <div class="form-content">
-  <div *ngFor="let field of fields; index as i; ">
-    <app-form-field class="form-field" [type]="getFieldType(field)" [control]="getControl(field | toCamelCase)" [label]="field" [placeholder]="''"></app-form-field>
+  <div class="form-container">
+    <div *ngFor="let field of fields; index as i; ">
+      <app-form-field class="form-field" [size]="'large'" [type]="getFieldType(field)" [control]="getControl(field | toCamelCase)" [label]="field" [placeholder]="''"></app-form-field>
+    </div>
   </div>
 </div>

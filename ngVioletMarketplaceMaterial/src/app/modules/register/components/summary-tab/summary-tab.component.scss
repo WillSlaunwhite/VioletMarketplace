@@ -3,13 +3,10 @@
 
 .summary-tab-content {
   height: 30vh;
-  width: 50vw;
+  width: 88%;
+  padding-left: 5rem;
   overflow-y: auto;
   overflow-x: hidden;
-  text-align: flex-start;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 
 
   .fields-container {
@@ -22,19 +19,24 @@
     .summary-field {
       height: 80px;
       width: 100%;
-      overflow: hidden;
 
       .key-text {
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
-        overflow: hidden;
         text-overflow: ellipsis;
+        overflow-y: hidden;
+        overflow-x: scroll;
         white-space: normal;
         color: orange;
         width: 90%;
         margin: 6px 24px;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
       }
+
     }
   }
 

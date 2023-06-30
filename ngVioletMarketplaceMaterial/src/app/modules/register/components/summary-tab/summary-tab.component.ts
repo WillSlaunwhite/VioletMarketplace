@@ -13,9 +13,12 @@ export class SummaryTabComponent implements OnInit {
   // when the event to move to the third tab happens
   // get current form data, take all the field names
   // and values and display them for confirmation
-  @Input() summary: any = {};
+  @Input() summary: any = {
+    requiredFields: {},
+    optionalFields: {}
+  };
 
-  // objectKeys = Object.keys;
+  objectKeys = Object.keys;
 
   constructor() { }
 

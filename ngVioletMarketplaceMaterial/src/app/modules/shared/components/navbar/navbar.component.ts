@@ -1,15 +1,14 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { BehaviorSubject, Observable, map, mergeMap, of, startWith, switchMap, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import User from 'src/app/models/user';
 import { MatDialog } from '@angular/material/dialog';
-import { MatDivider, MatDividerModule } from '@angular/material/divider';
 import { } from '@angular/material/divider';
 import { LoginComponent } from 'src/app/modules/user/components/login/login.component';
 import { Store } from '@ngrx/store';
 import { isLoggedIn, selectCurrentUser } from 'src/app/modules/user/state/user.selectors';
-import { logout, removeJwt } from 'src/app/modules/user/state/user.actions';
-import { AltRegisterComponent } from 'src/app/modules/register/components/alt-register/alt-register.component';
+import { removeJwt } from 'src/app/modules/user/state/user.actions';
 import { FormControl, FormGroup } from '@angular/forms';
+import { RegisterComponent } from 'src/app/modules/register/components/register/register.component';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -41,7 +40,12 @@ export class NavbarComponent implements OnInit {
   }
 
   openRegisterDialog(): void {
-    this.dialog.open(AltRegisterComponent);
+    this.dialog.open(RegisterComponent, {
+      data: {
+        optionalFieldsStrings: ['display name', 'biography', 'profile picture', 'wallet url'],
+        selectedTabIndex: 0
+      }
+    });
   }
 
   openLoginDialog(): void {
