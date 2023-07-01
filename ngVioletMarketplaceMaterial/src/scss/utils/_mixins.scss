@@ -69,7 +69,7 @@
 
 
 
-// POSITIONING
+// * ##### POSITIONING
 
 // center a div
 @mixin flex-center() {
@@ -100,13 +100,18 @@
   left: $left;
 }
 
+@mixin full-wh-no-mrgpad($width: 100%, $height: 100%, $margin: 0, $padding: 0) {
+  width: $width;
+  height: $height;
+  margin: $margin;
+  padding: $padding;
+}
+
 @mixin flex-full-wh() {
   height: 100%;
   width: 100%;
   display: flex;
 }
-
-
 
 
 
@@ -121,7 +126,6 @@
 
 // hide form field underline
 @mixin hide-underline {
-
   .search ::ng-deep .mat-form-field-underline {
     display: none !important;
   }
@@ -134,28 +138,24 @@
   .glass-wrapper {
     @include abs-top-left;
     @include bg-gradient($gradients);
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+    @include full-wh-no-mrgpad;
     z-index: 2;
     border-radius: inherit;
     pointer-events: none;
   }
 }
 
-@mixin glass-border() {
+@mixin glass-border($gradients...) {
   .glass-wrapper::before {
     @include abs-top-left;
+    @include bg-gradient($gradients);
+    @include full-wh-no-mrgpad;
     content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
-      radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+    // background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+    //   radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+    // background: linear-gradient(135deg, blue, red);
+    opacity: .5;
     z-index: -1;
-    padding: 0;
-    margin: 0;
     border-radius: inherit;
   }
 }
