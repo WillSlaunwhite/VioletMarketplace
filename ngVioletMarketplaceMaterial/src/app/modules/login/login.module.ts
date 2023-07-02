@@ -5,6 +5,7 @@ import { SocialMediaContainerComponent } from './components/social-media-contain
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [
     LoginComponent
