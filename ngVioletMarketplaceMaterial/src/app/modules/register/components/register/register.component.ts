@@ -42,8 +42,6 @@ export class RegisterComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     // turns the passed in array of field strings
     // into form controls
-    console.log(this.data.optionalFieldsStrings);
-
     if (this.data.optionalFieldsStrings) {
       this.data.optionalFieldsStrings.forEach((field: string) => {
         this.addOptionalField(field);
@@ -62,13 +60,20 @@ export class RegisterComponent implements OnInit, OnChanges {
   }
 
   onSubmit(): void {
-    const user: User = {
-      ...this.registerForm.value.requiredFields,
-      ...this.registerForm.value.optionalFields
-    };
-    console.log(user);
-    // TODO: send user to backend
-    this.store.dispatch(registerUser({ user }));
+    if (this.registerForm.valid) {
+
+      const user: User = {
+        ...this.registerForm.value.requiredFields,
+        ...this.registerForm.value.optionalFields
+      };
+      console.log(user);
+
+      // TODO: send user to backend
+      this.store.dispatch(registerUser({ user }));
+    } else {
+      // * shows all validation
+      this.registerForm.markAllAsTouched();
+    }
   }
 
   passwordMatchValidator(fg: FormGroup) {
