@@ -1,12 +1,11 @@
 import { Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import User from 'src/app/models/user';
 import { AuthService } from '../../../auth/services/auth.service';
 import { slideInTop } from 'src/app/animations/animations';
 import { login } from '../../state/user.actions';
-import { RegisterComponent } from 'src/app/modules/register/components/register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +14,10 @@ import { RegisterComponent } from 'src/app/modules/register/components/register/
   animations: [slideInTop]
 })
 export class LoginComponent implements OnInit {
-  constructor(private dialogRef: MatDialogRef<RegisterComponent>,
-    private auth: AuthService, private router: Router,
+  constructor(@Optional() private dialogRef: MatDialogRef<LoginComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
+    private auth: AuthService,
+    private router: Router,
     private store: Store) { }
 
   loginUser = new User();
@@ -30,6 +31,8 @@ export class LoginComponent implements OnInit {
   }
 
   closeDialog(): void {
-    this.dialogRef.close();
+    if (this.dialogRef) {
+      this.dialogRef.close();
+    }
   }
 }
