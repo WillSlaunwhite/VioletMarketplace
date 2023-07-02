@@ -1,0 +1,21 @@
+@import '/src/scss/utils/mixins';
+@import '/src/scss/utils/variables';
+
+.social-icon,
+svg-icon {
+  background-color: transparent !important;
+  color: transparent;
+  transition: ease .2s;
+}
+
+.social-icon:hover {
+  transition: ease .4s;
+  transform: scale(1.1);
+
+}
+
+.socials-container {
+  width: 100%;
+  height: 50px;
+  @include flex-center;
+}

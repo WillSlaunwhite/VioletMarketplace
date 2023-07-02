@@ -6,6 +6,7 @@ import { TokenModule } from '../tokens/token.module';
 import { SharedModule } from '../shared/shared.module';
 import { UserModule } from '../user/user.module';
 import { RegisterModule } from '../register/register.module';
+import { LoginModule } from '../login/login.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RegisterModule } from '../register/register.module';
     SharedModule,
     UserModule,
     RegisterModule,
+    LoginModule,
   ]
 })
 export class HomeModule { }

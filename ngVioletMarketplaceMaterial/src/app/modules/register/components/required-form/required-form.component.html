@@ -6,7 +6,7 @@
     <app-form-field class="form-field" [size]="'large'" [type]="'password'" [label]="'confirm password'" [control]="getControl('confirmPassword')" [placeholder]="''"></app-form-field>
   </div>
 
-  <div class="labels-container">
+  <div *ngIf="requiredFormFields.hasError('mismatch')" class="labels-container">
     <mat-label class="text-danger">* Passwords do not match</mat-label>
   </div>
   <!-- * Password Match Error -->

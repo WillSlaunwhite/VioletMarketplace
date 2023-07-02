@@ -30,11 +30,11 @@ export class RegisterComponent implements OnInit, OnChanges {
     @Inject(MAT_DIALOG_DATA) public data: any) {
     this.registerForm = this.fb.group({
       requiredFields: this.fb.group({
-        email: ['', Validators.email],
+        email: ['', [Validators.required, Validators.email]],
         username: ['', Validators.required],
-        password: ['', Validators.required],
-        confirmPassword: ['', Validators.required],
-      }),
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
+      }, { validator: this.passwordMatchValidator }),
       optionalFields: this.fb.group({})
     });
   }
@@ -42,8 +42,6 @@ export class RegisterComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     // turns the passed in array of field strings
     // into form controls
-    console.log(this.data.optionalFieldsStrings);
-
     if (this.data.optionalFieldsStrings) {
       this.data.optionalFieldsStrings.forEach((field: string) => {
         this.addOptionalField(field);
@@ -62,13 +60,29 @@ export class RegisterComponent implements OnInit, OnChanges {
   }
 
   onSubmit(): void {
-    const user: User = {
-      ...this.registerForm.value.requiredFields,
-      ...this.registerForm.value.optionalFields
-    };
-    console.log(user);
-    // TODO: send user to backend
-    this.store.dispatch(registerUser({ user }));
+    if (this.registerForm.valid) {
+      const user: User = {
+        ...this.registerForm.value.requiredFields,
+        ...this.registerForm.value.optionalFields
+      };
+      console.log(user);
+
+      // TODO: send user to backend
+      this.store.dispatch(registerUser({ user }));
+    } else {
+      // * shows all validation
+      this.registerForm.markAllAsTouched();
+    }
+  }
+
+  passwordMatchValidator(fg: FormGroup) {
+    if (fg) {
+      return fg.get('password')!.value === fg.get('confirmPassword')!.value
+        ? null
+        : { mismatch: true };
+    } else {
+      return null;
+    }
   }
 
   get requiredFields(): FormGroup {

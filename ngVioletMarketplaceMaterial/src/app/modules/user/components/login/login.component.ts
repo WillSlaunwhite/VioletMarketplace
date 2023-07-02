@@ -8,7 +8,7 @@ import { slideInTop } from 'src/app/animations/animations';
 import { login } from '../../state/user.actions';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-alt-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   animations: [slideInTop]

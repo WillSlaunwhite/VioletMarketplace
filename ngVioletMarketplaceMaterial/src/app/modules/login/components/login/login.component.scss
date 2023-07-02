@@ -1,0 +1,32 @@
+@import '/src/scss/utils/mixins';
+@import '/src/scss/utils/variables';
+
+@include glass-effect(linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+  radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%));
+
+.login-container {
+  @include bg-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
+
+  width: 50vw;
+  height: 65vh;
+  border-radius: 2px;
+  opacity: .95;
+  display: flex;
+  flex-direction: column;
+
+  .login-header {
+    @include basic-precise-font($size: 2.1rem, $align: center);
+    width: 100%;
+    height: 10%;
+  }
+
+  app-login-form {
+    width: 100%;
+    height: 70%;
+  }
+
+  app-social-media-container {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
