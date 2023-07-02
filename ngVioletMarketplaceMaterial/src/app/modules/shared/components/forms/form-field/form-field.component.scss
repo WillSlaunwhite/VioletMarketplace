@@ -2,7 +2,7 @@
 @import '/src/scss/utils/mixins';
 
 .form-field-large {
-  width: 75%;
+  width: 100%;
   margin-inline: auto;
   @include basic-precise-font($size: 1.6rem);
 

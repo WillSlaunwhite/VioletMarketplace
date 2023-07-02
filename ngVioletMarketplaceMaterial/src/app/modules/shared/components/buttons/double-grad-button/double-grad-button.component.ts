@@ -1,5 +1,5 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-double-grad-button',
@@ -27,6 +27,7 @@ export class DoubleGradButtonComponent implements OnInit {
   @Input() directionX: number = Math.random() * 20 - 10;
   @Input() directionY: number = Math.random() * 20 - 10;
 
+  @Output() submitEvent = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit(): void {
