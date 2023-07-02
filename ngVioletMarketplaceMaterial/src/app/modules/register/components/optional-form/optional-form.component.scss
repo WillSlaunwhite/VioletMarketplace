@@ -6,18 +6,15 @@
 
 .form-content {
   height: 80%;
-  width: 88%;
-  padding-left: 5rem;
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 
   .form-container {
-    @include flex-full-wh;
-    @include rel-top-left($top: 7%, $left: 7%);
-    justify-content: space-between;
-    flex-direction: column;
-    height: 90%;
-
+    @include flex-align-justify-direction($direction: column, $justify: space-between);
+    width: 60%;
+    margin-inline: auto;
+    margin-top: 1rem;
   }
 
   .form-field {
@@ -26,7 +23,6 @@
     // * doesn't even bleed over
     ::ng-deep mat-label {
       letter-spacing: .05rem;
-      color: $secondary-light;
     }
   }
 }
