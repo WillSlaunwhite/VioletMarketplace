@@ -35,6 +35,7 @@ import { RegisterModule } from '../register/register.module';
   exports: [
     ProfileManagementComponent,
     UserPageComponent,
+    LoginComponent,
   ]
 })
 export class UserModule { }
