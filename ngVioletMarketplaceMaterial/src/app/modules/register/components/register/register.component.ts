@@ -32,9 +32,9 @@ export class RegisterComponent implements OnInit, OnChanges {
       requiredFields: this.fb.group({
         email: ['', Validators.email],
         username: ['', Validators.required],
-        password: ['', Validators.required],
-        confirmPassword: ['', Validators.required],
-      }),
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
+      }, { validator: this.passwordMatchValidator }),
       optionalFields: this.fb.group({})
     });
   }
@@ -69,6 +69,16 @@ export class RegisterComponent implements OnInit, OnChanges {
     console.log(user);
     // TODO: send user to backend
     this.store.dispatch(registerUser({ user }));
+  }
+
+  passwordMatchValidator(fg: FormGroup) {
+    if (fg) {
+      return fg.get('password')!.value === fg.get('confirmPassword')!.value
+        ? null
+        : { mismatch: true };
+    } else {
+      return null;
+    }
   }
 
   get requiredFields(): FormGroup {

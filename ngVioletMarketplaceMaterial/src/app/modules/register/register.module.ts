@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RegisterRoutingModule } from './register-routing.module';
-import { OptionalFieldsContainerComponent } from './components/optional-fields-container/optional-fields-container.component';
 import { OptionalFormComponent } from './components/optional-form/optional-form.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RequiredFormComponent } from './components/required-form/required-form.component';
@@ -16,7 +14,6 @@ import { FromCamelCasePipe } from './pipes/from-camel-case.pipe';
 
 @NgModule({
   declarations: [
-    OptionalFieldsContainerComponent,
     OptionalFormComponent,
     RegisterComponent,
     RequiredFormComponent,
@@ -26,7 +23,6 @@ import { FromCamelCasePipe } from './pipes/from-camel-case.pipe';
   ],
   imports: [
     CommonModule,
-    RegisterRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
     SharedModule
