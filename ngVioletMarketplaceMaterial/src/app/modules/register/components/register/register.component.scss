@@ -14,7 +14,7 @@
   opacity: .95;
 
   .register-tab-container {
-    height: 100%;
+    height: 65vh;
 
     // TODO GPT says this is the only way, but
     // * need to investigate further
@@ -23,27 +23,29 @@
       height: 50px;
       @include basic-precise-font($size: 1.3rem);
     }
+
+    // * THIS WORKS
+    // * literally cannot find another
+    // * way to do this
+    >::ng-deep.mat-tab-body-wrapper {
+      overflow: hidden !important;
+      height: 100% !important;
+    }
+  }
+
+  .tab-nav-button {
+    position: absolute;
+    bottom: 5%;
   }
 
   .tab-nav-next {
-    position: absolute;
-    right: 7%;
-    bottom: 8%;
+    right: 5%;
   }
 
   .tab-nav-back {
-    position: absolute;
-    left: 7%;
-    bottom: 8%;
+    left: 5%;
   }
 
-}
-
-// * THIS WORKS
-::ng-deep .mat-tab-body,
-::ng-deep .mat-tab-body-content {
-  overflow: hidden !important;
-  height: 50vh !important;
 }
 
 .dg-button-container {

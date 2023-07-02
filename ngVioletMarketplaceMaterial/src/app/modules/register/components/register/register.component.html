@@ -10,7 +10,7 @@
         <app-ghost-grad-button (click)="onTabChange(selectedTabIndex-1)" class="tab-nav-button tab-nav-back" [size]="'small'" [gradient]="'red'" [label]="'back'"></app-ghost-grad-button>
         <app-ghost-grad-button (click)="onTabChange(selectedTabIndex+1)" class="tab-nav-button tab-nav-next" [size]="'small'" [gradient]="'orange'" [label]="'next'"></app-ghost-grad-button>
       </mat-tab>
-      <mat-tab class="register-tab summary-tab" label="Summary">
+      <mat-tab style="height: 100; background: white" class="register-tab summary-tab" label="Summary">
         <app-summary-tab [summary]="summary"></app-summary-tab>
         <div class="dg-button-container">
           <app-double-grad-button [label]="'submit'" [size]="'large'"></app-double-grad-button>
