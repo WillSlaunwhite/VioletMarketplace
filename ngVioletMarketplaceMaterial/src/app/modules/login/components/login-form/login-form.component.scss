@@ -3,10 +3,19 @@
 
 .form-container {
   @include flex-align-justify-direction($direction: column, $justify: space-around);
-  width: 60%;
-  height: 60%;
-  margin-top: 15%;
+  width: 100%;
+  height: 100%;
   margin-inline: auto;
 
   background: gray;
+
+  app-form-field {
+    width: 60%;
+    margin: auto;
+
+    ::ng-deep mat-label {
+      font-size: 2rem;
+      color: pink;
+    }
+  }
 }

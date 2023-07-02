@@ -6,6 +6,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 
 
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MaterialModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularSvgIconModule,
   ],
   exports: [
     LoginComponent

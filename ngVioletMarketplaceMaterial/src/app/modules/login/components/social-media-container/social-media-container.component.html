@@ -1,1 +1,13 @@
-<p>social-media-container works!</p>
+<div class="socials-container d-flex justify-content-center">
+  <button class="google-button social-icon" mat-button style="font-size: 32px">
+    <em style="color: rgb(170, 167, 167);" class="bi bi-google"></em>
+  </button>
+  <button class="coinbase-button social-icon" mat-button>
+    <svg-icon src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Coinbase.svg" [class]="'meta-icon'"
+      [svgStyle]="{ 'fill-rule':'evenodd', 'background-color':'transparent', 'width.px': 48, 'height.px':48}"></svg-icon>
+  </button>
+  <button class="metamask-button social-icon" mat-button>
+    <svg-icon src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" [class]="'metamask-icon'"
+      [svgStyle]="{ 'background-color':'transparent', 'width.px':40, 'height.px':40}"></svg-icon>
+  </button>
+</div>
