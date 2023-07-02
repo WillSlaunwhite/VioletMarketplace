@@ -55,7 +55,7 @@ import { GhostGradButtonComponent } from './components/buttons/ghost-grad-button
     FormFieldComponent,
     FormContainerComponent,
     TabContainerComponent,
-    GhostGradButtonComponent
+    GhostGradButtonComponent,
   ],
 })
 export class SharedModule { }

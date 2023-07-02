@@ -50,6 +50,8 @@ export class RegisterComponent implements OnInit, OnChanges {
       });
     }
 
+    // adds the value to the summary object
+    // as the form changes
     this.registerForm.valueChanges.pipe(startWith(this.registerForm.value))
       .subscribe(value => {
         if (value) { this.summary = value; }
@@ -57,8 +59,6 @@ export class RegisterComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    // adds the value to the summary object
-    // as the form changes
   }
 
   onSubmit(): void {

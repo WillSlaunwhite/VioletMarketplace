@@ -6,8 +6,7 @@
 // TODO need to abstract out all these styles
 .ghost-button-wrapper {
   position: relative;
-  background: linear-gradient(45deg, orange, white);
-  filter: brightness(.85);
+  background: linear-gradient(45deg, $secondary-light, $primary-dark, $secondary-dark);
   background-size: 200% 200%; // Ensures the background image is large enough to animate smoothly
   animation: gradient 8s linear infinite;
   // border: 5px solid transparent;
