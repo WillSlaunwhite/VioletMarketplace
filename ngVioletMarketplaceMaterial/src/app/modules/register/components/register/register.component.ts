@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit, OnChanges {
     @Inject(MAT_DIALOG_DATA) public data: any) {
     this.registerForm = this.fb.group({
       requiredFields: this.fb.group({
-        email: ['', Validators.email],
+        email: ['', [Validators.required, Validators.email]],
         username: ['', Validators.required],
         password: ['', [Validators.required, Validators.minLength(8)]],
         confirmPassword: ['', [Validators.required, Validators.minLength(8)]],
@@ -61,7 +61,6 @@ export class RegisterComponent implements OnInit, OnChanges {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
-
       const user: User = {
         ...this.registerForm.value.requiredFields,
         ...this.registerForm.value.optionalFields

@@ -1,0 +1,12 @@
+@import '/src/scss/utils/mixins';
+@import '/src/scss/utils/variables';
+
+.form-container {
+  @include flex-align-justify-direction($direction: column, $justify: space-around);
+  width: 60%;
+  height: 60%;
+  margin-top: 15%;
+  margin-inline: auto;
+
+  background: gray;
+}
