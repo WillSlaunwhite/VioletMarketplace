@@ -7,15 +7,25 @@
   height: 100%;
   margin-inline: auto;
 
-  background: gray;
-
   app-form-field {
     width: 60%;
-    margin: 2.5rem auto;
+    margin: 1rem auto;
 
     ::ng-deep mat-label {
       font-size: 2rem;
-      color: pink;
+      color: $text-primary-dark;
+    }
+
+    ::ng-deep .mat-form-field-required-marker {
+      display: none;
+    }
+
+    // * changes small form label
+    // * in its different states
+    ::ng-deep .ng-valid mat-label,
+    ::ng-deep .ng-pristine mat-label,
+    ::ng-deep .mat-focused mat-label {
+      color: green !important;
     }
 
     &:last-of-type {
