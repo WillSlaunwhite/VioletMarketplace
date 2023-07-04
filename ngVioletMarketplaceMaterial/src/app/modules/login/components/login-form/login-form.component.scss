@@ -2,20 +2,34 @@
 @import '/src/scss/utils/variables';
 
 .form-container {
-  @include flex-align-justify-direction($direction: column, $justify: space-around);
+  @include flex-align-justify-direction($direction: column, $justify: space-evenly);
   width: 100%;
   height: 100%;
   margin-inline: auto;
 
-  background: gray;
-
   app-form-field {
     width: 60%;
-    margin: auto;
+    margin: 1rem auto;
 
     ::ng-deep mat-label {
       font-size: 2rem;
-      color: pink;
+      color: $text-primary-dark;
+    }
+
+    ::ng-deep .mat-form-field-required-marker {
+      display: none;
+    }
+
+    // * changes small form label
+    // * in its different states
+    ::ng-deep .ng-valid mat-label,
+    ::ng-deep .ng-pristine mat-label,
+    ::ng-deep .mat-focused mat-label {
+      color: green !important;
+    }
+
+    &:last-of-type {
+      margin-bottom: 5rem;
     }
   }
 }

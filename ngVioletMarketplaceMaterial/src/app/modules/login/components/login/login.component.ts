@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { slideInTop } from 'src/app/animations/animations';
 import User from 'src/app/models/user';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [slideInTop]
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;

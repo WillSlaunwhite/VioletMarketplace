@@ -8,14 +8,37 @@ svg-icon {
   transition: ease .2s;
 }
 
-.social-icon:hover {
-  transition: ease .4s;
-  transform: scale(1.1);
-
-}
 
 .socials-container {
   width: 100%;
   height: 50px;
   @include flex-center;
+  cursor: default;
+
+  .social-icon {
+    cursor: default;
+    margin-inline: 1rem;
+
+    &:hover {
+      transition: ease .4s;
+      transform: scale(1.1);
+    }
+  }
+
+
+  .bi-google {
+    font-size: 42px;
+    position: relative;
+    top: -4px;
+  }
+
+  &::ng-deep.mat-button-focus-overlay {
+    display: none;
+  }
+}
+
+svg,
+em {
+  cursor: pointer;
+  transform: scale(1.45);
 }
