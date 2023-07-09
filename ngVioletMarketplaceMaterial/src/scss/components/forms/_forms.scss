@@ -31,7 +31,7 @@ mat-hint,
 // HANDLING THE PLACEHOLDER TEXT AND DECORATIONS
 // AS WELL AS AUTOFILL BACKGROUND
 ::ng-deep .mat-input-element {
-  caret-color: white;
+  caret-color: $text-primary-dark;
 }
 
 // changes font weight on submit button
@@ -45,7 +45,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
-  -webkit-text-fill-color: white;
+  -webkit-text-fill-color: white !important;
   -webkit-text-size-adjust: 50%;
 }
 
