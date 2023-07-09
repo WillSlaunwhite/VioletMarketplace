@@ -41,14 +41,14 @@
   .search {
     // TODO really don't like current search interaction
     width: 50vmin;
-    color: $light-gray;
+    @include basic-precise-font($size: 1.6rem);
     margin-top: 12px;
     margin-right: 4rem;
     position: relative;
 
     // search focus animation
     &:focus-within {
-      // transform: translate(0, 120px);
+      transform: translate(0, 120px);
       transition: all ease-out .75s;
     }
 
@@ -78,4 +78,8 @@
 .mat-divider {
   border-top-color: $secondary-dark;
   opacity: .5;
+}
+
+::ng-deep .search mat-label {
+  color: $text-primary-dark !important;
 }

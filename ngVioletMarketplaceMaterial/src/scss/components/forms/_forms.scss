@@ -10,8 +10,7 @@
 mat-hint,
 .mat-input-element::placeholder,
 .mat-form-field-required-marker {
-  @include basic-precise-font($size: 1.6rem);
-  color: $secondary-light !important;
+  color: $text-primary-light;
   caret-color: white !important;
   text-decoration: white;
   background: transparent;
@@ -48,4 +47,11 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   -webkit-text-fill-color: white;
   -webkit-text-size-adjust: 50%;
+}
+
+// * changes color on focused states
+::ng-deep .ng-valid mat-label,
+::ng-deep .ng-pristine mat-label,
+::ng-deep .mat-focused mat-label {
+  color: $secondary-light;
 }
