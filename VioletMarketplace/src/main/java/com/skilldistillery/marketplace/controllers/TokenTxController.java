@@ -40,7 +40,7 @@ public class TokenTxController {
 
     /////////////// GET METHODS ///////////////////
 
-    //	GET ALL TRANSFERS WHERE USER IS SELLER
+    // GET ALL TRANSFERS WHERE USER IS SELLER
     @GetMapping("transfers/seller/{userId}")
     public ResponseEntity<Set<TokenTx>> sellerTransferRecord(HttpServletRequest req, HttpServletResponse resp,
                                                              @PathVariable int userId) {
@@ -69,7 +69,7 @@ public class TokenTxController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-    //		GET ALL TRANSFERS FOR USER REGARDLESS OF ROLE
+    // GET ALL TRANSFERS FOR USER REGARDLESS OF ROLE
     @GetMapping("transfers/{userId}")
     public ResponseEntity<Set<TokenTx>> index(HttpServletRequest req, HttpServletResponse resp,
                                               @PathVariable int userId) {
@@ -85,7 +85,7 @@ public class TokenTxController {
     }
     /////////////// POST METHODS ///////////////////
 
-    //	POST NEW TRANSFER
+    // POST NEW TRANSFER
     @PostMapping("transfers")
     public ResponseEntity<TokenTx> create(HttpServletRequest req, HttpServletResponse resp,
                                           @RequestBody TokenTx transfer) {
