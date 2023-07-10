@@ -25,7 +25,7 @@
     ::ng-deep .ng-valid mat-label,
     ::ng-deep .ng-pristine mat-label,
     ::ng-deep .mat-focused mat-label {
-      color: green !important;
+      color: $secondary-light;
     }
 
     &:last-of-type {
