@@ -4,7 +4,7 @@
 
 .login-container {
   @include bg-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
-  filter: grayscale(.5);
+  filter: grayscale(.2);
 
   width: 50vw;
   height: 65vh;
@@ -20,20 +20,28 @@
   }
 
   app-login-form {
+    display: block;
     width: 100%;
     height: 70%;
+    margin-top: 3rem;
   }
 
   app-social-media-container {
     position: relative;
     right: 2%;
-    margin-bottom: 2rem;
+    top: 20%;
   }
 
   .submit-button {
     position: relative;
-    top: -20%;
+    top: -3%;
     left: 25%;
+  }
+
+  app-login-form,
+  app-social-media-container,
+  .submit-button {
+    z-index: 2;
   }
 
 }
