@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import User from 'src/app/models/user';
 import { MatDialog } from '@angular/material/dialog';
 import { } from '@angular/material/divider';
-import { LoginComponent } from 'src/app/modules/user/components/login/login.component';
+import { LoginComponent } from 'src/app/modules/login/components/login/login.component';
 import { Store } from '@ngrx/store';
 import { isLoggedIn, selectCurrentUser } from 'src/app/modules/user/state/user.selectors';
 import { removeJwt } from 'src/app/modules/user/state/user.actions';
