@@ -9,7 +9,7 @@
 
   app-form-field {
     width: 60%;
-    margin: 1rem auto;
+    margin: .25rem auto;
 
     ::ng-deep mat-label {
       font-size: 2rem;
@@ -26,10 +26,6 @@
     ::ng-deep .ng-pristine mat-label,
     ::ng-deep .mat-focused mat-label {
       color: $secondary-light;
-    }
-
-    &:last-of-type {
-      margin-bottom: 5rem;
     }
   }
 }

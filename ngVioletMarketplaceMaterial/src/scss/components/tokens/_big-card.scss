@@ -58,8 +58,11 @@
 
       .card-img-title {
         pointer-events: none;
-        transform: translateY(-120px) scale(.8);
         transition: all .5s ease-in;
+      }
+
+      &:hover .card-img-title {
+        display: none;
       }
 
       .glass-wrapper {
