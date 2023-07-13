@@ -1,9 +1,7 @@
 import { Store } from '@ngrx/store';
 import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import User from 'src/app/models/user';
-import { AuthService } from '../../../auth/services/auth.service';
 import { slideInTop } from 'src/app/animations/animations';
 import { login } from '../../state/user.actions';
 
@@ -16,8 +14,6 @@ import { login } from '../../state/user.actions';
 export class LoginComponent implements OnInit {
   constructor(@Optional() private dialogRef: MatDialogRef<LoginComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
-    private auth: AuthService,
-    private router: Router,
     private store: Store) { }
 
   loginUser = new User();
