@@ -13,10 +13,11 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.skilldistillery.marketplace.interfaces.Searchable;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-public class User {
+public class User implements Searchable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -73,6 +74,16 @@ public class User {
 
     public User() {
         super();
+    }
+
+    @Override
+    public String getDescription() {
+        return "";
+    }
+
+    @Override
+    public String getType() {
+        return "User";
     }
 
     public List<Cart> getCarts() {

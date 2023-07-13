@@ -13,9 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.skilldistillery.marketplace.interfaces.Searchable;
 
 @Entity
-public class Token {
+public class Token implements Searchable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -66,6 +67,16 @@ public class Token {
 		this.offered = offered;
 		this.releaseDate = releaseDate;
 		this.tokenLocation = tokenLocation;
+	}
+
+	@Override
+	public String getType() {
+		return "Token";
+	}
+
+	@Override
+	public String getDisplayName() {
+		return "";
 	}
 
 	public int getId() {
