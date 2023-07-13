@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import { slideInTop } from 'src/app/animations/animations';
 import User from 'src/app/models/user';
+import { login } from 'src/app/modules/user/state/user.actions';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,12 @@ import User from 'src/app/models/user';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+
+  constructor(private fb: FormBuilder,
+    private store: Store,
+    @Optional() private dialogRef: MatDialogRef<LoginComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
+  ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -32,6 +40,10 @@ export class LoginComponent implements OnInit {
     // else {
     // this.loginForm.markAllAsTouched();
     // }
+
+    this.store.dispatch(login(user));
+
+    // this.dialogRef.close();
   }
 
 

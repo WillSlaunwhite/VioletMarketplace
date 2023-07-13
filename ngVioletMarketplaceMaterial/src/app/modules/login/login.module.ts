@@ -7,6 +7,7 @@ import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { UserModule } from '../user/user.module';
 
 
 
@@ -20,6 +21,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     CommonModule,
     MaterialModule,
     SharedModule,
+    UserModule,
     ReactiveFormsModule,
     AngularSvgIconModule,
   ],
