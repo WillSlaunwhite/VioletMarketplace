@@ -1,8 +1,6 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
 @import '/src/scss/utils/utilities';
-@import '/src/scss/components/forms/forms';
-@import '/src/scss/components/forms/labels';
 
 @include hide-underline;
 
@@ -48,7 +46,9 @@
 
     // search focus animation
     &:focus-within {
-      transform: translate(0, 120px);
+      // TODO
+      // * this is what's breaking the navbar
+      // transform: translate(0, 120px);
       transition: all ease-out .75s;
     }
 
