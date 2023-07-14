@@ -56,4 +56,29 @@ export class AuthService {
     return localStorage.getItem('jwt');
   }
 
+  login(username: string, password: string): Observable<string> {
+    console.log('auth service login');
+    const credentials = { username: username, password: password };
+    let headers: { [key: string]: string } = {
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest',
+    };
+    let options = { headers };
+    return this.http.post<string>(this.baseUrl + 'authenticate', credentials, options).pipe(
+      tap((jwt: string) => {
+        this.store.dispatch(setJwt({ jwt }));
+      })
+    )
+  }
+
+
+  logout(): Observable<void> {
+    // * I changed this to be a one line,
+    // todo test and make sure it works properly
+    return of(this.store.dispatch(logout()));
+  }
+
+  isUserLoggedIn(): boolean {
+    return localStorage.getItem('jwt') ? true : false;
+  }
 }

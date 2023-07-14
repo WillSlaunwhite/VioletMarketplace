@@ -14,7 +14,7 @@ export class AuthEffects {
     ofType(login),
     mergeMap(({ username, password }) => {
       console.log('login effect triggered');
-      return this.userSvc.login(username, password)
+      return this.auth.login(username, password)
         .pipe(
           switchMap((jwt) => {
             this.store.dispatch(setJwt({ jwt }));
@@ -32,7 +32,7 @@ export class AuthEffects {
   logout$ = createEffect(() => this.actions$.pipe(
     ofType(logout),
     mergeMap(() => {
-      return this.userSvc.logout()
+      return this.auth.logout()
         .pipe(
           map(() => logoutSuccess()),
           catchError(error => of(logoutFailure({ error })))
