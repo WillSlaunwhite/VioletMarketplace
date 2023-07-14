@@ -2,13 +2,13 @@ import { createReducer, on } from "@ngrx/store";
 import { Searchable } from "../searchable";
 import { searchFailure, searchSuccess } from "./search.actions";
 
-export interface State {
-  data: Searchable[] | null;
+export interface SearchState {
+  results: Searchable[] | null;
   error: any;
 };
 
-export const initialState: State = {
-  data: null,
+export const initialState: SearchState = {
+  results: null,
   error: null
 };
 
