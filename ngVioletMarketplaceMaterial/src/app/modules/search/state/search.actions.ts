@@ -9,9 +9,9 @@ export const search = createAction(
 export const searchSuccess = createAction(
   '[Search] Search Success',
   props<{ results: Searchable[] }>()
-)
+);
 
 export const searchFailure = createAction(
   '[Search] Search Failure',
   props<{ err: any }>()
-)
+);
