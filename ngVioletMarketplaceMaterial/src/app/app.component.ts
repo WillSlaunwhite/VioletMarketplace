@@ -3,10 +3,9 @@ import {
   Router,
 } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { loadTokens, loadUserTokens } from './modules/tokens/state/tokens.actions';
 import { AuthService } from './modules/auth/services/auth.service';
+import { loadUserTokens } from './modules/tokens/state/tokens.actions';
 import { loginSuccess } from './modules/user/state/user.actions';
-import { selectCurrentUser } from './modules/user/state/user.selectors';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +14,10 @@ import { selectCurrentUser } from './modules/user/state/user.selectors';
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild('starfield') starfield!: ElementRef<HTMLCanvasElement>;
+  title = 'ngVioletMarketplaceMaterial';
+  animationData: string = '';
+
+  constructor(private router: Router, private store: Store, private authService: AuthService) { }
 
   // * create background
   ngAfterViewInit() {
@@ -44,11 +47,6 @@ export class AppComponent implements AfterViewInit {
       drawStar(random(canvas.width), random(canvas.height), Math.random());
     }
   }
-
-  title = 'ngVioletMarketplaceMaterial';
-  animationData: string = '';
-
-  constructor(private router: Router, private store: Store, private authService: AuthService) { }
 
   ngOnInit() {
     // * check for valid jwt

@@ -18,6 +18,6 @@ export class UserEffects {
 
   constructor(
     private actions$: Actions,
-    private userService: UserService
+    private userService: UserService,
   ) { }
 }
