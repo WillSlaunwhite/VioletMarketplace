@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
-import { Token } from 'typescript';
+import { Observable, catchError, switchMap, throwError } from 'rxjs';
 import { Bid } from 'src/app/models/bid';
-import { TokenService } from './token.service';
 import Transaction from 'src/app/models/transaction';
 import { AuthService } from '../../auth/services/auth.service';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +20,7 @@ export class TransactionService {
 
   // what I'm thinking is, when you load the token page that has the list of bids
   // onInit it will load the list of bids for each token and will also load a list of
-  // that token's transaction history
+  // that tokens' transaction history
 
   // you click the buy, we submit to purchase, you click on the make bid, it's tied to a
   // click event that that calls the createBid() method on that page. That launches a form
@@ -37,11 +36,13 @@ export class TransactionService {
 
   create(bid: Bid): Observable<Bid> {
     bid.accepted = false;
-    return this.http.post<Bid>(this.url, bid, this.auth.getHttpOptions()).pipe(
-      catchError((err: any) => {
-        console.log(err);
-        return throwError('transactionService.create(): Error creating bid');
-      })
+    return this.auth.getHttpOptions().pipe(
+      switchMap(options => this.http.post<Bid>(`${this.url}/bid`, bid).pipe(
+        catchError((err: any) => {
+          console.error(err);
+          return throwError('transactionService.getAllTransfers(): Error retrieving Token Transaction list')
+        })
+      ))
     );
   }
 
@@ -50,59 +51,57 @@ export class TransactionService {
   // search for transfers by buyer seller and then all user transactions
 
   getAllTransfers(): Observable<Transaction[]> {
-    return this.http
-      .get<Transaction[]>(this.url + 'transfers/1', this.auth.getHttpOptions())
-      .pipe(
+    return this.auth.getHttpOptions().pipe(
+      switchMap(options => this.http.get<Transaction[]>(`${this.url}/transfers/1`).pipe(
         catchError((err: any) => {
-          console.log(err);
-          return throwError(
-            'transactionService.getAllTransfers(): Error retrieving Token Transaction list'
-          );
+          console.error(err);
+          return throwError('transactionService.getAllTransfers(): Error retrieving Token Transaction list')
         })
-      );
+      )),
+    );
   }
 
   getBuyerTransfers(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.url, this.auth.getHttpOptions()).pipe(
-      catchError((err: any) => {
-        console.log(err);
-        return throwError(
-          'transactionService.getBuyerTransfers(): Error retrieving Token Transaction list'
-        );
-      })
+    return this.auth.getHttpOptions().pipe(
+      switchMap(options => this.http.get<Transaction[]>(`${this.url}/buyer`).pipe(
+        catchError((err: any) => {
+          console.error(err);
+          return throwError('transactionService.getBuyerTransfers(): Error retrieving buyer tokens transactions list')
+        })
+      )),
     );
   }
 
   getSellerTransfers(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.url, this.auth.getHttpOptions()).pipe(
-      catchError((err: any) => {
-        console.log(err);
-        return throwError(
-          'transactionService.getSellerTransfers(): Error retrieving Token Transaction list'
-        );
-      })
+    return this.auth.getHttpOptions().pipe(
+      switchMap(options => this.http.get<Transaction[]>(`${this.url}/seller`).pipe(
+        catchError((err: any) => {
+          console.error(err);
+          return throwError('transactionService.getSellerTransfers(): Error retrieving seller tokens transactionsList')
+        })
+      )),
     );
   }
 
   getAllUserTransfers(): Observable<Transaction[]> {
-    return this.http.get<Transaction[]>(this.url, this.auth.getHttpOptions()).pipe(
-      catchError((err: any) => {
-        console.log(err);
-        return throwError(
-          'transactionService.getAllUserTransfers(): Error retrieving Token Transaction list'
-        );
-      })
+    return this.auth.getHttpOptions().pipe(
+      switchMap(options => this.http.get<Transaction[]>(`${this.url}/transfers/user`, options).pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('transactionService.getAllUserTransfers(): Error retrieving user transactions list');
+        })
+      )),
     );
   }
 
   getAllBids(): Observable<Bid[]> {
-    return this.http.get<Bid[]>(this.url + 'bids/1', this.auth.getHttpOptions()).pipe(
-      catchError((err: any) => {
-        console.log(err);
-        return throwError(
-          'transactionService.getAllBids(): Error retrieving Bid list'
-        );
-      })
+    return this.auth.getHttpOptions().pipe(
+      switchMap(options => this.http.get<Bid[]>(`${this.url}/bids`, options).pipe(
+        catchError((err: any) => {
+          console.log(err);
+          return throwError('transactionService.getAllBids(): Error retrieving bids list');
+        })
+      )),
     );
   }
 }

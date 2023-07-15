@@ -9,6 +9,9 @@ import { isLoggedIn, selectCurrentUser } from 'src/app/modules/user/state/user.s
 import { removeJwt } from 'src/app/modules/user/state/user.actions';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RegisterComponent } from 'src/app/modules/register/components/register/register.component';
+import { search } from 'src/app/modules/search/state/search.actions';
+import { Searchable } from 'src/app/modules/search/searchable';
+import { selectSearchResults } from 'src/app/modules/search/state/search.selectors';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -20,14 +23,13 @@ export class NavbarComponent implements OnInit {
   isSearchFieldFocused: boolean = false;
   searchForm: FormGroup;
   searchTerm: FormControl;
+  searchResults$: Observable<Searchable[] | null> = this.store.select(selectSearchResults);
 
   constructor(private store: Store, private dialog: MatDialog, private renderer: Renderer2, private el: ElementRef,
   ) {
     this.user$ = this.store.select(selectCurrentUser);
     this.searchTerm = new FormControl('');
-    this.searchForm = new FormGroup({
-      search: this.searchTerm
-    })
+    this.searchForm = new FormGroup({ search: this.searchTerm });
   }
 
   ngOnInit(): void {
@@ -71,5 +73,14 @@ export class NavbarComponent implements OnInit {
     } else {
       this.renderer.removeClass(this.el.nativeElement.querySelector('.search'), 'focused');
     }
+  }
+
+  onSubmit(): void {
+    console.log('hello');
+    console.log(this.searchResults$);
+    this.store.dispatch(search({ query: this.searchTerm.value }));
+    this.searchTerm.setValue('');
+    this.searchResults$ = this.store.select(selectSearchResults);
+    console.log(this.searchResults$);
   }
 }
