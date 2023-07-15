@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UserModule } from '../user/user.module';
 import { RegisterModule } from '../register/register.module';
 import { LoginModule } from '../login/login.module';
+import { SearchModule } from '../search/search.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoginModule } from '../login/login.module';
     UserModule,
     RegisterModule,
     LoginModule,
+    SearchModule,
   ]
 })
 export class HomeModule { }
