@@ -29,6 +29,8 @@ public class SearchServiceImpl implements SearchService {
         searchResults.addAll(tokenResults);
         searchResults.addAll(userResults);
 
+        System.out.println("+++++++++" + searchResults);
+
         return searchResults;
     }
 }

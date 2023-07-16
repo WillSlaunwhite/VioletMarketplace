@@ -7,11 +7,11 @@ export const search = createAction(
 );
 
 export const searchSuccess = createAction(
-  '[Search] Search Success',
+  '[Search] Action Success',
   props<{ results: Searchable[] }>()
 );
 
 export const searchFailure = createAction(
-  '[Search] Search Failure',
+  '[Search] Action Failure',
   props<{ err: any }>()
 );

@@ -16,6 +16,7 @@ public class SearchController {
 
     @GetMapping("/search/{query}")
     public List<Searchable> search(@PathVariable String query) {
+        System.out.println("%%%%%%%%%%%%%%%%%%%" + query);
         return searchService.search(query);
     }
 }

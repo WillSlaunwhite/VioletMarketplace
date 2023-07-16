@@ -11,5 +11,5 @@ export const getAllTokens = createSelector(
 
 export const getUserTokens = createSelector(
   selectTokensState,
-  (tokenState: TokensState) => tokenState.userTokens.length ? tokenState.userTokens : null
+  (tokenState: TokensState) => tokenState.userTokens.length > 0 ? tokenState.userTokens : null
 );
