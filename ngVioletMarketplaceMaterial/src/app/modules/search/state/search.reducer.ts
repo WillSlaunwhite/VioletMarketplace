@@ -3,17 +3,17 @@ import { Searchable } from "../searchable";
 import { searchFailure, searchSuccess } from "./search.actions";
 
 export interface SearchState {
-  results: Searchable[] | null;
+  results: Searchable[];
   error: any;
 };
 
 export const initialState: SearchState = {
-  results: null,
+  results: [],
   error: null
 };
 
 export const reducer = createReducer(
   initialState,
-  on(searchSuccess, (state, { results }) => { return { ...state, results } }),
+  on(searchSuccess, (state, { results }) => { return { ...state, results: results } }),
   on(searchFailure, (state, { err }) => { return { ...state, error: err } })
 );
