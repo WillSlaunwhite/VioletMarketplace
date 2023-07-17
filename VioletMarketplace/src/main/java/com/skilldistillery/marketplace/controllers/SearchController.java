@@ -19,4 +19,5 @@ public class SearchController {
         System.out.println("%%%%%%%%%%%%%%%%%%%" + query);
         return searchService.search(query);
     }
+
 }

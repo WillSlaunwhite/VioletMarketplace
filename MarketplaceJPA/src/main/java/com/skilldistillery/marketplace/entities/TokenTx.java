@@ -1,4 +1,4 @@
- package com.skilldistillery.marketplace.entities;
+package com.skilldistillery.marketplace.entities;
 
 import java.time.LocalDateTime;
 
@@ -15,95 +15,98 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name="market_transfer")
+@Table(name = "market_transfer")
 public class TokenTx {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	@ManyToOne
-	@JoinColumn(name="token_id")
-	private Token token;
-	
-	private String description;
-	
-	@OneToOne
-	@JoinColumn(name="seller_id")
-	private User seller;
-	
-	public User getSeller() {
-		return seller;
-	}
+    @ManyToOne
+    @JoinColumn(name = "token_id")
+    private Token token;
 
-	public void setSeller(User seller) {
-		this.seller = seller;
-	}
+    private String description;
 
-	public User getBuyer() {
-		return buyer;
-	}
+    @OneToOne
+    @JoinColumn(name = "seller_id")
+    private User seller;
 
-	public void setBuyer(User buyer) {
-		this.buyer = buyer;
-	}
 
-	@OneToOne
-	@JoinColumn(name="buyer_id")
-	private User buyer;
-	
-	@Column(name="transfer_date")
-	@CreationTimestamp
-	private LocalDateTime transferDate;
-	
-	public TokenTx() { super(); }
+    @OneToOne
+    @JoinColumn(name = "buyer_id")
+    private User buyer;
 
-	public TokenTx(int id, Token token, String description, LocalDateTime transferDate, User buyer, User seller) {
-		
-		this.token = token;
-		this.description = description;
-		this.transferDate = transferDate;
-		this.seller=seller;
-		this.buyer=buyer;
-		
-	}
+    @Column(name = "transfer_date")
+    @CreationTimestamp
+    private LocalDateTime transferDate;
 
-	public int getId() {
-		return id;
-	}
+    public TokenTx() {
+        super();
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public TokenTx(int id, Token token, String description, LocalDateTime transferDate, User buyer, User seller) {
 
-	public Token getToken() {
-		return token;
-	}
+        this.token = token;
+        this.description = description;
+        this.transferDate = transferDate;
+        this.seller = seller;
+        this.buyer = buyer;
 
-	public void setToken(Token token) {
-		this.token = token;
-	}
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public LocalDateTime getTransferDate() {
-		return transferDate;
-	}
+    public User getSeller() {
+        return seller;
+    }
 
-	public void setTransferDate(LocalDateTime transferDate) {
-		this.transferDate = transferDate;
-	}
+    public void setSeller(User seller) {
+        this.seller = seller;
+    }
 
-	@Override
-	public String toString() {
-		return "TokenTx [id=" + id + ", token=" + token + ", description=" + description + ", seller=" + seller
-				+ ", buyer=" + buyer + ", transferDate=" + transferDate + "]";
-	}
-	
-	
+    public User getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(User buyer) {
+        this.buyer = buyer;
+    }
+
+    public Token getToken() {
+        return token;
+    }
+
+    public void setToken(Token token) {
+        this.token = token;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDateTime getTransferDate() {
+        return transferDate;
+    }
+
+    public void setTransferDate(LocalDateTime transferDate) {
+        this.transferDate = transferDate;
+    }
+
+    @Override
+    public String toString() {
+        return "TokenTx [id=" + id  + ", description=" + description + ", seller=" + seller
+                + ", buyer=" + buyer + ", transferDate=" + transferDate + "]";
+    }
+
+
 }
