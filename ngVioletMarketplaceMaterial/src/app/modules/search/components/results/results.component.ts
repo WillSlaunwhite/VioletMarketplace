@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { selectSearchResults } from '../../state/search.selectors';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss']
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit, AfterViewInit {
   searchResults$: Observable<Searchable[] | null> = of(null);
 
   users$: Observable<Searchable[] | []> = of([]);
@@ -25,17 +25,16 @@ export class ResultsComponent implements OnInit {
   // * need to fix logic for loading results
   ngOnInit(): void {
     this.searchResults$ = this.store.select(selectSearchResults);
-    this.searchResults$.pipe(map(results => {
+  }
+
+  ngAfterViewInit(): void {
+    this.searchResults$.subscribe(results => {
       console.log(results);
       if (results) {
         this.users$ = of(results.filter(result => result.type.toLowerCase() === 'user'));
-      }
-    }));
-    this.searchResults$.pipe(map(results => {
-      if (results) {
         this.tokens$ = of(results.filter(result => result.type.toLowerCase() === 'token'));
       }
-    }));
+    });
     this.searchResults$.subscribe(results => console.log(results));
     this.tokens$.subscribe(results => console.log(results));
     this.users$.subscribe(results => console.log(results));
