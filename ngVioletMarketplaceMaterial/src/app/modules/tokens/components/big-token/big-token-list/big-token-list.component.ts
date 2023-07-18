@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of, filter, switchMap, combineLatest, tap, map } from 'rxjs';
 import User from 'src/app/models/user';
@@ -14,7 +14,9 @@ import { getAllTokens, getUserTokens } from '../../../state/tokens.selectors';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BigTokenListComponent implements OnInit {
+  @Input()
   tokens$: Observable<Token[] | null> = of(null);
+
   user$: Observable<User | null> = of(null);
   scrollInterval: any;
   velocity: any;
@@ -47,12 +49,6 @@ export class BigTokenListComponent implements OnInit {
       }),
       map(([user, allTokens, userTokens]) => user ? userTokens : allTokens)
     );
-  }
-
-  ngAfterContentChecked(): void {
-  }
-
-  ngAfterViewInit(): void {
   }
 
   startScrollLeft(tokensContainer: HTMLElement): void {

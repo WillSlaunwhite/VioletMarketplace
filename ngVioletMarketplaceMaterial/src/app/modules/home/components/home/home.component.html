@@ -15,7 +15,7 @@
         <app-double-grad-button label="Join Now" (click)="openRegisterDialog()" [size]="'large'" [gradient]="'primary'" class="grad-button dg-button-register"></app-double-grad-button>
       </div>
       <div class="token-list-container">
-        <app-big-token-list></app-big-token-list>
+        <app-big-token-list [tokens$]="tokens$"></app-big-token-list>
       </div>
     </div>
   </div>
