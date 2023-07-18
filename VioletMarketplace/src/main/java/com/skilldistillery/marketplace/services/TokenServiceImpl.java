@@ -90,4 +90,13 @@ public class TokenServiceImpl implements TokenService {
         return deleted;
     }
 
+    @Override
+    public boolean tokenExists(int tid) {
+        return tokenRepo.existsById(tid);
+    }
+
+    @Override
+    public boolean userOwnsToken(String username, int tid) {
+        return tokenRepo.queryById(tid) != null;
+    }
 }

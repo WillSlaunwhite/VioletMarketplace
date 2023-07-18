@@ -1,6 +1,8 @@
 package com.skilldistillery.marketplace.controllers;
 
 import com.skilldistillery.marketplace.entities.Token;
+import com.skilldistillery.marketplace.exceptions.InvalidTokenException;
+import com.skilldistillery.marketplace.exceptions.TokenNotFoundException;
 import com.skilldistillery.marketplace.services.TokenService;
 import com.skilldistillery.marketplace.services.UserService;
 import com.skilldistillery.marketplace.security.JwtUtil;
@@ -64,15 +66,11 @@ public class TokenController {
     //	Get a specific token by id
     @GetMapping("tokens/id/{tid}")
     public ResponseEntity<Token> show(@PathVariable int tid) {
-        try {
-            Token token = tokenSvc.showById(tid);
-            if (token == null) {
-                return ResponseEntity.notFound().build();
-            }
-            return ResponseEntity.ok(token);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        Token token = tokenSvc.showById(tid);
+        if (token == null) {
+            throw new TokenNotFoundException("Token with id " + tid + " not found");
         }
+        return ResponseEntity.ok(token);
     }
 
 
@@ -82,18 +80,14 @@ public class TokenController {
     //	Get principal's list of tokens
     @GetMapping("tokens/myTokens")
     public ResponseEntity<Set<Token>> indexByUsername(HttpServletRequest request) {
-        try {
-            String jwt = request.getHeader("Authorization").substring(7);
-            String username = jwtUtil.extractUsername(jwt);
+        String jwt = request.getHeader("Authorization").substring(7);
+        String username = jwtUtil.extractUsername(jwt);
+        Set<Token> tokenList = tokenSvc.indexByUsername(username);
 
-            Set<Token> tokenList = tokenSvc.indexByUsername(username);
-            if (tokenList.isEmpty()) {
-                return ResponseEntity.notFound().build();
-            }
-            return ResponseEntity.ok(tokenList);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        if (tokenList.isEmpty()) {
+            return ResponseEntity.notFound().build();
         }
+        return ResponseEntity.ok(tokenList);
     }
 
 
@@ -103,15 +97,11 @@ public class TokenController {
     @PostMapping("tokens")
     public ResponseEntity<Token> create(Principal principal,
                                         @RequestBody Token token) {
-        try {
-            if (token == null) {
-                return ResponseEntity.badRequest().build();
-            }
-            tokenSvc.create(principal.getName(), token);
-            return ResponseEntity.status(HttpStatus.CREATED).body(token);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        if (token == null) {
+            throw new InvalidTokenException("unable to create token");
         }
+        tokenSvc.create(principal.getName(), token);
+        return ResponseEntity.status(HttpStatus.CREATED).body(token);
     }
 
 
@@ -122,16 +112,12 @@ public class TokenController {
     @PutMapping("tokens/{tid}")
     public ResponseEntity<Token> purchaseToken(Principal principal,
                                                @PathVariable int tid) {
-        try {
-            Token token = tokenSvc.showByUsernameId(principal.getName(), tid);
-            if (token == null) {
-                return ResponseEntity.notFound().build();
-            }
-            token = tokenSvc.update(principal.getName(), "dave", tid, token);
-            return ResponseEntity.ok(token);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        Token token = tokenSvc.showByUsernameId(principal.getName(), tid);
+        if (token == null) {
+            throw new InvalidTokenException("unable to update token");
         }
+        token = tokenSvc.update(principal.getName(), "dave", tid, token);
+        return ResponseEntity.ok(token);
     }
 
 
@@ -140,17 +126,12 @@ public class TokenController {
 
     @DeleteMapping("tokens/{tid}")
     public ResponseEntity<Void> destroy(HttpServletResponse resp, Principal principal, @PathVariable int tid) {
-        try {
-            boolean isDeleted = tokenSvc.destroy(principal.getName(), tid);
-            if (isDeleted) {
-                return ResponseEntity.noContent().build();
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        if (!tokenSvc.tokenExists(tid)) {
+            return ResponseEntity.noContent().build();
         }
+        if (!tokenSvc.userOwnsToken(principal.getName(), tid)) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
-
-
 }
