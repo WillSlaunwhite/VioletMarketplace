@@ -19,5 +19,9 @@ public interface TokenService {
 
 	Token showById(int tid);
 
+    boolean tokenExists(int tid);
+
+	boolean userOwnsToken(String username, int tid);
+
 //	public Token update(String name, int tid, Token token);
 }
