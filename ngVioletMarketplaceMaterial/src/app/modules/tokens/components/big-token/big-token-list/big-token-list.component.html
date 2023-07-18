@@ -1,4 +1,4 @@
-<div #tokensContainer class="tokens-container d-flex flex-row">
+<div #tokensContainer appScroll class="tokens-container d-flex flex-row">
   <!-- <button disableRipple mat-button (click)="scrollFarLeft(tokensContainer)" (mouseover)="startScrollLeft(tokensContainer)" (mouseleave)="mouseleaveScroll()" class="scroll-button scroll-button-left">
     left</button> -->
   <app-big-token-card *ngFor="let token of tokens$ | async" [token]="token"></app-big-token-card>

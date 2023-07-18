@@ -7,6 +7,8 @@ import { loadTokens, loadTokensFailure, loadTokensSuccess, loadUserTokens, loadU
 
 @Injectable()
 export class TokenEffects {
+  constructor(private actions$: Actions, private tokenService: TokenService) { }
+
   loadTokens$ = createEffect(() => this.actions$.pipe(
     ofType(loadTokens),
     mergeMap(() => this.tokenService.index()
@@ -19,12 +21,11 @@ export class TokenEffects {
 
   loadUserTokens$ = createEffect(() => this.actions$.pipe(
     ofType(loadUserTokens),
-    mergeMap(action => this.tokenService.getByUsername(action.username)
+    mergeMap(user => this.tokenService.getByUsername(user.username)
       .pipe(
         map(tokens => loadUserTokensSuccess({ tokens })),
         catchError(error => of(loadUserTokensFailure({ error })))
       )
     )
   ));
-  constructor(private actions$: Actions, private tokenService: TokenService) { }
 }

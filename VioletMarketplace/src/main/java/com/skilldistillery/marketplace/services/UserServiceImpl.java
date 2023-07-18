@@ -1,15 +1,15 @@
 package com.skilldistillery.marketplace.services;
 
+import com.skilldistillery.marketplace.entities.User;
+import com.skilldistillery.marketplace.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.marketplace.entities.User;
-import com.skilldistillery.marketplace.repositories.UserRepository;
-
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -19,6 +19,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Override
 	public User getUserByUsername(String username) {
 		return userRepo.findByUsername(username);
+	}
+
+	public List<User> getAllEnabledUsers() {
+		return userRepo.findByEnabled(true);
 	}
 
 	@Override

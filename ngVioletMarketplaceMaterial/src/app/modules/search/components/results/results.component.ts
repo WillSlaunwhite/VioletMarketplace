@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Searchable } from '../../searchable';
-import { Observable, of } from 'rxjs';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Searchable } from '../../searchable';
+import { search } from '../../state/search.actions';
 import { selectSearchResults } from '../../state/search.selectors';
 
 @Component({
@@ -9,15 +11,29 @@ import { selectSearchResults } from '../../state/search.selectors';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss']
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit, AfterViewInit {
   searchResults$: Observable<Searchable[] | null> = of(null);
 
+  users$: Observable<Searchable[] | []> = of([]);
+  tokens$: Observable<Searchable[] | []> = of([]);
+
   constructor(private store: Store) {
+    // * need to handle initial query better
+    this.store.dispatch(search({ query: "all" }))
+  }
+
+  // * need to fix logic for loading results
+  ngOnInit(): void {
     this.searchResults$ = this.store.select(selectSearchResults);
   }
 
-  ngOnInit(): void {
-    console.log(this.searchResults$);
+  ngAfterViewInit(): void {
+    this.searchResults$.subscribe(results => {
+      if (results) {
+        this.users$ = of(results.filter(result => result.type.toLowerCase() === 'user'));
+        this.tokens$ = of(results.filter(result => result.type.toLowerCase() === 'token'));
+      }
+    });
   }
 
 }
