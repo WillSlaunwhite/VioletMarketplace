@@ -14,6 +14,8 @@ import java.util.Set;
 
 @Service
 public class SearchServiceImpl implements SearchService {
+    public static final String ALL_QUERY = "all";
+
 
     @Autowired
     private TokenRepository tokenRepo;
@@ -24,12 +26,11 @@ public class SearchServiceImpl implements SearchService {
     public List<Searchable> search(String query) {
         List<Searchable> searchResults = new ArrayList<>();
 
-        if(query.trim().equalsIgnoreCase("all")) {
+        if(query.trim().equalsIgnoreCase(ALL_QUERY)) {
             Set<Token> tokenResults = tokenRepo.findByOfferedTrue();
             List<User> userResults = userRepo.findByEnabled(true);
             searchResults.addAll(tokenResults);
             searchResults.addAll(userResults);
-            System.out.println("#############" + searchResults);
             return searchResults;
         }
 
@@ -38,8 +39,6 @@ public class SearchServiceImpl implements SearchService {
 
         searchResults.addAll(tokenResults);
         searchResults.addAll(userResults);
-
-        System.out.println("+++++++++" + searchResults);
 
         return searchResults;
     }

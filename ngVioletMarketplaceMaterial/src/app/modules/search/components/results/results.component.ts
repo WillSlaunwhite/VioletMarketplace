@@ -29,15 +29,11 @@ export class ResultsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.searchResults$.subscribe(results => {
-      console.log(results);
       if (results) {
         this.users$ = of(results.filter(result => result.type.toLowerCase() === 'user'));
         this.tokens$ = of(results.filter(result => result.type.toLowerCase() === 'token'));
       }
     });
-    this.searchResults$.subscribe(results => console.log(results));
-    this.tokens$.subscribe(results => console.log(results));
-    this.users$.subscribe(results => console.log(results));
   }
 
 }
