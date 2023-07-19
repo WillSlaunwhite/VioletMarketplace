@@ -3,6 +3,7 @@ package com.skilldistillery.marketplace.services;
 import java.util.Set;
 
 import com.skilldistillery.marketplace.entities.Token;
+import com.skilldistillery.marketplace.requests.TokenUpdateRequest;
 
 public interface TokenService {
 	Set<Token> index();
@@ -11,7 +12,7 @@ public interface TokenService {
 
 	Token create(String username, Token token);
 
-	Token purchase(String buyerName, Token token);
+	Token purchase(String buyerName, TokenUpdateRequest token);
 
 	Token update(String ownerName, Token token);
 

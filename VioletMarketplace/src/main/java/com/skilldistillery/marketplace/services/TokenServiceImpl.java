@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.skilldistillery.marketplace.exceptions.AuthorizationException;
+import com.skilldistillery.marketplace.requests.TokenUpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -80,7 +81,7 @@ public class TokenServiceImpl implements TokenService {
     }
 
     @Override
-    public Token purchase(String buyerName, Token token) {
+    public Token purchase(String buyerName, TokenUpdateRequest token) {
         Token existingToken = tokenRepo.findById(token.getId());
         User buyer = userRepo.findByUsername(buyerName);
         if(existingToken != null) {
