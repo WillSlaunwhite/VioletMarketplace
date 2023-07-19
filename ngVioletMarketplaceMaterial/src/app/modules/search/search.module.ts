@@ -16,7 +16,6 @@ import { reducer } from './state/search.reducer';
   imports: [
     CommonModule,
     SearchRoutingModule,
-    StoreModule.forRoot({}),
     StoreModule.forFeature('search', reducer),
     EffectsModule.forFeature([SearchEffects])
   ],
