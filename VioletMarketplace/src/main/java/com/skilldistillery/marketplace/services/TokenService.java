@@ -3,21 +3,25 @@ package com.skilldistillery.marketplace.services;
 import java.util.Set;
 
 import com.skilldistillery.marketplace.entities.Token;
+import com.skilldistillery.marketplace.requests.TokenUpdateRequest;
 
 public interface TokenService {
 	Set<Token> index();
 
-	Token showByUsernameId(String username, int tid);
+	Set<Token> indexByUsername(String username);
+
+	Token findById(int tid);
 
 	Token create(String username, Token token);
 
-	Set<Token> indexByUsername(String username);
+	Token purchase(String buyerName, int tid);
+
+	Token update(String ownerName, TokenUpdateRequest request);
 
 	boolean destroy(String username, int tid);
 
-	Token update(String ownerName, String buyerName, int tid, Token token);
+    boolean tokenExists(int tid);
 
-	Token showById(int tid);
+	boolean userOwnsToken(String username, int tid);
 
-//	public Token update(String name, int tid, Token token);
 }

@@ -21,31 +21,30 @@ public class TokenTx {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "token_id")
-    private Token token;
-
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "transfer_date")
+    @CreationTimestamp
+    private LocalDateTime transferDate;
 
     @OneToOne
     @JoinColumn(name = "seller_id")
     private User seller;
 
-
     @OneToOne
     @JoinColumn(name = "buyer_id")
     private User buyer;
 
-    @Column(name = "transfer_date")
-    @CreationTimestamp
-    private LocalDateTime transferDate;
+    @ManyToOne
+    @JoinColumn(name = "token_id")
+    private Token token;
 
     public TokenTx() {
         super();
     }
 
     public TokenTx(int id, Token token, String description, LocalDateTime transferDate, User buyer, User seller) {
-
         this.token = token;
         this.description = description;
         this.transferDate = transferDate;
@@ -107,6 +106,4 @@ public class TokenTx {
         return "TokenTx [id=" + id  + ", description=" + description + ", seller=" + seller
                 + ", buyer=" + buyer + ", transferDate=" + transferDate + "]";
     }
-
-
 }
