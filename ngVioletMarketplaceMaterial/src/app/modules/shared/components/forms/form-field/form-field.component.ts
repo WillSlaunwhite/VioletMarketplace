@@ -12,6 +12,7 @@ export class FormFieldComponent implements OnInit {
   @Input() placeholder: string = '';
   @Input() type: string = '';
   @Input() size: string = 'medium';
+  @Input() isSubmitOnEnter: boolean = false;
 
   constructor() { }
 
