@@ -1,6 +1,7 @@
 package com.skilldistillery.marketplace.controllers;
 
 import com.skilldistillery.marketplace.entities.Token;
+import com.skilldistillery.marketplace.exceptions.AuthorizationException;
 import com.skilldistillery.marketplace.exceptions.InvalidTokenException;
 import com.skilldistillery.marketplace.exceptions.TokenNotFoundException;
 import com.skilldistillery.marketplace.services.TokenService;
@@ -127,11 +128,12 @@ public class TokenController {
     @DeleteMapping("tokens/{tid}")
     public ResponseEntity<Void> destroy(HttpServletResponse resp, Principal principal, @PathVariable int tid) {
         if (!tokenSvc.tokenExists(tid)) {
-            return ResponseEntity.noContent().build();
+            throw new TokenNotFoundException("Token with id " + tid + " not found.");
         }
         if (!tokenSvc.userOwnsToken(principal.getName(), tid)) {
-            return ResponseEntity.notFound().build();
+            throw new AuthorizationException("User is not authorized to delete this token.");
         }
+        tokenSvc.destroy(principal.getName(), tid);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 }
