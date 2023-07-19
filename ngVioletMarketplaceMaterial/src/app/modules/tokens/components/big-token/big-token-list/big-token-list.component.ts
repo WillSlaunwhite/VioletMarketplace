@@ -51,53 +51,9 @@ export class BigTokenListComponent implements OnInit {
     );
   }
 
-  startScrollLeft(tokensContainer: HTMLElement): void {
-    this.stopScroll();
-    this.velocity = -7; // initial velocity
-    const scrollStep = () => {
-      if (tokensContainer) {
-        tokensContainer.scrollLeft += this.velocity;
-        if (Math.abs(this.velocity) > 3.75) { // stop when velocity is low enough
-          this.scrollInterval = requestAnimationFrame(scrollStep);
-        }
-        else if (Math.abs(this.velocity) >= 0.5) { // stop when velocity is low enough
-          this.scrollInterval = requestAnimationFrame(scrollStep);
-          this.velocity *= .9;
-        }
-      }
-    };
-    this.scrollInterval = requestAnimationFrame(scrollStep);
-  }
-
-  startScrollRight(tokensContainer: HTMLElement): void {
-    this.stopScroll()
-    this.velocity = 7; // initial velocity
-    const scrollStep = () => {
-      if (tokensContainer) {
-        tokensContainer.scrollLeft += this.velocity;
-        if (Math.abs(this.velocity) > 3.75) { // stop when velocity is low enough
-          this.scrollInterval = requestAnimationFrame(scrollStep);
-        }
-        else if (Math.abs(this.velocity) >= 0.5) { // stop when velocity is low enough
-          this.scrollInterval = requestAnimationFrame(scrollStep);
-          this.velocity *= .9;
-        }
-      }
-    };
-    this.scrollInterval = requestAnimationFrame(scrollStep);
-  }
-
   mouseleaveScroll(): void {
     this.velocity *= .45; // rapid deceleration factor
   }
-
-  stopScroll(): void {
-    if (this.scrollInterval) {
-      cancelAnimationFrame(this.scrollInterval);
-      this.scrollInterval = null;
-    }
-  }
-
 
   scrollFarLeft(tokensContainer: HTMLElement): void {
     tokensContainer.scrollLeft -= 50; // adjust this value as needed

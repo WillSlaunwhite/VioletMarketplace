@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skilldistillery.marketplace.interfaces.Searchable;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class User implements Searchable {
@@ -31,6 +32,10 @@ public class User implements Searchable {
     @CreationTimestamp
     @Column(name = "created_on")
     private LocalDateTime createdOn;
+
+    @UpdateTimestamp
+    @Column(name = "created_on")
+    private LocalDateTime updatedOn;
 
     @Column(name = "display_name")
     private String displayName;
@@ -235,6 +240,13 @@ public class User implements Searchable {
         this.createdOn = createdOn;
     }
 
+    public LocalDateTime getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(LocalDateTime updatedOn) {
+        this.updatedOn = updatedOn;
+    }
 
     public String getDisplayName() {
         return displayName;
