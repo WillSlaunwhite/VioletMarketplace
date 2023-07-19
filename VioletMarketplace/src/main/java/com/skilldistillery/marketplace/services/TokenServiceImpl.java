@@ -5,6 +5,8 @@ import java.util.Set;
 
 import com.skilldistillery.marketplace.exceptions.AuthorizationException;
 import com.skilldistillery.marketplace.exceptions.TokenNotFoundException;
+import com.skilldistillery.marketplace.exceptions.UserNotFoundException;
+import com.skilldistillery.marketplace.repositories.TokenTxRepository;
 import com.skilldistillery.marketplace.requests.TokenUpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,8 @@ public class TokenServiceImpl implements TokenService {
     @Autowired
     private UserRepository userRepo;
 
+    @Autowired
+    private TokenTxRepository txRepository;
 
     @Override
     public Set<Token> index() {
@@ -30,27 +34,35 @@ public class TokenServiceImpl implements TokenService {
 
     @Override
     public Set<Token> indexByUsername(String username) {
+        User user = userRepo.findByUsername(username);
+        if (user == null) {
+            throw new UserNotFoundException("User with username " + username + " not found.");
+        }
         return tokenRepo.findByOwner_Username(username);
     }
 
     @Override
     public Token findById(int tid) {
+        Token existingToken = tokenRepo.findById(tid);
+        if (existingToken == null) {
+            throw new TokenNotFoundException("Token with id " + tid + " not found.");
+        }
         return tokenRepo.findById(tid);
     }
 
     @Override
     public Token create(String username, Token token) {
         User user = userRepo.findByUsername(username);
-        if (user != null) {
-            token.setCreator(user);
-            token.setOwner(user);
-//			token.setCollection(collectionRepo.findById(1))   probably need collection repo
-//			token.setTransfers(transferRepo.findAll());       probably need transfer repo
-            tokenRepo.saveAndFlush(token);
-            return token;
-        } else {
-            return null;
+        if (user == null) {
+            throw new UserNotFoundException("User with username " + username + " not found.");
         }
+
+        token.setCreator(user);
+        token.setOwner(user);
+//		token.setCollection(collectionRepo.findById(1));
+        token.setTransfers(txRepository.findAll()); // every token has every transaction
+        tokenRepo.saveAndFlush(token);
+        return token;
     }
 
     @Override
@@ -69,6 +81,7 @@ public class TokenServiceImpl implements TokenService {
         existingToken.setId(request.getTokenId());
         existingToken.setName(request.getName());
         existingToken.setDescription(request.getDescription());
+        existingToken.set(request.getDescription());
         existingToken.setOffered(request.isOffered());
         existingToken.setPrice(request.getPrice());
         existingToken.setRarity(request.getRarity());
@@ -82,13 +95,18 @@ public class TokenServiceImpl implements TokenService {
     @Override
     public Token purchase(String buyerName, int tid) {
         Token existingToken = tokenRepo.findById(tid);
-        User buyer = userRepo.findByUsername(buyerName);
-        if (existingToken != null) {
-            existingToken.setOwner(buyer);
-            tokenRepo.saveAndFlush(existingToken);
-            return existingToken;
+        if (existingToken == null) {
+            throw new TokenNotFoundException("Token with id " + tid + " not found.");
         }
-        return null;
+
+        User buyer = userRepo.findByUsername(buyerName);
+        if (buyer.equals(existingToken.getOwner())) {
+            throw new AuthorizationException("User already owns this token.");
+        }
+
+        existingToken.setOwner(buyer);
+        tokenRepo.saveAndFlush(existingToken);
+        return existingToken;
     }
 
     @Override
@@ -109,6 +127,7 @@ public class TokenServiceImpl implements TokenService {
 
     @Override
     public boolean userOwnsToken(String username, int tid) {
-        return tokenRepo.findById(tid) != null;
+        Token token = tokenRepo.findByOwner_UsernameAndId(username, tid);
+        return token != null;
     }
 }

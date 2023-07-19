@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `enabled` TINYINT NULL,
   `role` VARCHAR(45) NULL,
   `created_on` DATETIME NULL,
+  `updated_on` DATETIME NULL,
   `email` VARCHAR(45) NULL,
   `display_name` VARCHAR(45) NULL,
   `picture_url` VARCHAR(3000) NULL,
@@ -46,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `collection` (
   `name` VARCHAR(45) NULL,
   `description` TEXT NULL,
   `release_date` DATETIME NULL,
+  `updated_on` DATETIME NULL,
   `created_by` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_collection_user1_idx` (`created_by` ASC),
@@ -68,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `token` (
   `description` TEXT NULL,
   `rarity` VARCHAR(45) NULL,
   `release_date` DATETIME NULL,
+  `updated_on` DATETIME NULL,
   `price` INT NULL,
   `collection_id` INT NULL,
   `owner_id` INT NOT NULL,
@@ -136,7 +139,8 @@ DROP TABLE IF EXISTS `cart` ;
 
 CREATE TABLE IF NOT EXISTS `cart` (
   `id` INT NOT NULL,
-  `created_date` DATETIME NULL,
+  `created_on` DATETIME NULL,
+  `updated_on` DATETIME NULL,
   `completed` TINYINT NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -233,7 +237,8 @@ DROP TABLE IF EXISTS `message` ;
 CREATE TABLE IF NOT EXISTS `message` (
   `id` INT NOT NULL,
   `content` TEXT NULL,
-  `created_at` DATETIME NULL,
+  `created_on` DATETIME NULL,
+  `updated_on` DATETIME NULL,
   `sender_id` INT NOT NULL,
   `recipient_id` INT NOT NULL,
   `in_reply_to` INT NULL,
@@ -293,6 +298,7 @@ DROP TABLE IF EXISTS `favorite` ;
 CREATE TABLE IF NOT EXISTS `favorite` (
   `user_id` INT NOT NULL,
   `token_id` INT NOT NULL,
+  `added_on` DATETIME NULL,
   PRIMARY KEY (`user_id`, `token_id`),
   INDEX `fk_user_has_token_token1_idx` (`token_id` ASC),
   INDEX `fk_user_has_token_user1_idx` (`user_id` ASC),
@@ -358,11 +364,11 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (1, 'will', '$2a$12$.aXI64OEVlXoGf8fNHOlhef6SFgQzI4bqn2unNELnfIWTPwJj.zR6', 1, 'admin', '2020-01-01 10:10:10', 'will@email.com', 'tristan', 'picture_url', '');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (2, 'dave', '$2a$12$R3Gj2zoDDSmxyIPjxfeRcuAP87PMJ.u6UZmNuUdoqihFaFsM7gIbG', 1, 'user', '2022-11-25 00:00:00', 'brando@email.com', 'Mr. Manager', 'url here', 'Brandon Discovered his love for ponies at the bottom of a bottle, once blew his mortgage at a furry convention');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (3, 'caleb', '$2a$12$NMv8KhaOlQXCjWaqNz9AKeGZeIZgetYyE/lThHcStVdWFNPUnWUgu', 1, 'user', '2020-01-01 10:10:10', 'dealindave@email.com', 'Frank Reynolds', 'url here', 'Daves claim to fame is that you have never seen someone work so hard for $5 (or a mcDouble you pick)');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (4, 'peyton', '$2a$12$InIDf.XH4fNZiztDLAzS1OvuQZEAR61eD31.BJoSt4SK0zurAlV0K', 1, 'user', '2020-01-01 10:10:10', 'technicallyinnocent@email.com', 'KingOfRats', 'url here', 'Some say he is a monster, some say hes human garbage, but none of them can prove a damn thing');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (5, 'john', '$2a$12$jfwtmyxQVyMrGaeDO3bx2eOfaHpMA5cUmySNldej4iyVDYe.Dcssi', 1, 'user', '2020-01-01 10:10:10', 'sixhead@email.com', 'MantisToboggan', 'url here', 'Peyton was a big deal until his arm turned into a wet noodle. Scientists say his forehead will expand until it explodes');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `updated_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (1, 'will', '$2a$12$.aXI64OEVlXoGf8fNHOlhef6SFgQzI4bqn2unNELnfIWTPwJj.zR6', 1, 'admin', '2020-01-01 10:10:10', '2020-01-01 10:10:10', 'will@email.com', 'tristan', 'picture_url', '');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `updated_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (2, 'dave', '$2a$12$R3Gj2zoDDSmxyIPjxfeRcuAP87PMJ.u6UZmNuUdoqihFaFsM7gIbG', 1, 'user', '2022-11-25 00:00:00', '2022-11-25 00:00:00', 'dealindave@email.com', 'Mr. Manager', 'url here', 'Brandon Discovered his love for ponies at the bottom of a bottle, once blew his mortgage at a furry convention');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `updated_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (3, 'caleb', '$2a$12$NMv8KhaOlQXCjWaqNz9AKeGZeIZgetYyE/lThHcStVdWFNPUnWUgu', 1, 'user', '2020-01-01 10:10:10', '2020-01-01 10:10:10', 'technicallyinnocent@email.com', 'Frank Reynolds', 'url here', 'Daves claim to fame is that you have never seen someone work so hard for $5 (or a mcDouble you pick)');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `updated_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (4, 'peyton', '$2a$12$InIDf.XH4fNZiztDLAzS1OvuQZEAR61eD31.BJoSt4SK0zurAlV0K', 1, 'user', '2020-01-01 10:10:10', '2020-01-01 10:10:10', 'brando@email.com', 'KingOfRats', 'url here', 'Some say he is a monster, some say hes human garbage, but none of them can prove a damn thing');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `created_on`, `updated_on`, `email`, `display_name`, `picture_url`, `biography`) VALUES (5, 'john', '$2a$12$jfwtmyxQVyMrGaeDO3bx2eOfaHpMA5cUmySNldej4iyVDYe.Dcssi', 1, 'user', '2020-01-01 10:10:10', '2020-01-01 10:10:10', 'sixhead@email.com', 'MantisToboggan', 'url here', 'Peyton was a big deal until his arm turned into a wet noodle. Scientists say his forehead will expand until it explodes');
 
 COMMIT;
 
@@ -387,23 +393,23 @@ USE `nftdb`;
 -- Removing because of checkered background, will return!
 -- INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (1, 'Violet Glow', 'Loyal, dependable', 'Extremely rare', '2010-12-01 10:10:10', 5000, 1, 1, 1, 1, 'https://i.imgur.com/j1sqmhy.jpg');
 -- INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (2, 'Princess Luna', 'Honest, brave', 'rare', '2019-07-15 10:10:10', 199, 1, 2, 1, 2, 'https://i.imgur.com/ZrKjIWb.jpg');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (1, 'Pinkie Pie', 'Fashionable', 'rare', '2021-10-05 10:10:10', 200, 1, 3, 1, 3, 'assets/other_token_images/pinkie_pie.jpeg');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (2, 'Granny Smith', 'Friendly, Sweet', 'rare', '2018-03-05 10:10:10', 350, 1, 4, 1, 4, 'assets/other_token_images/granny_smith.jpeg');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (3, 'Applejack', 'Silly, Upbeat', 'rare', '2021-01-03 10:10:10', 980, 1, 5, 1, 5, 'assets/other_token_images/applejack.png');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (1, 'Pinkie Pie', 'Fashionable', 'rare', '2021-10-05 10:10:10','2021-10-05 10:10:10', 200, 1, 3, 1, 3, 'assets/other_token_images/pinkie_pie.jpeg');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (2, 'Granny Smith', 'Friendly, Sweet', 'rare', '2021-03-05 10:10:10','2021-03-05 10:10:10', 350, 1, 4, 1, 4, 'assets/other_token_images/granny_smith.jpeg');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (3, 'Applejack', 'Silly, Upbeat', 'rare', '2021-01-03 10:10:10','2021-01-03 10:10:10', 980, 1, 5, 1, 5, 'assets/other_token_images/applejack.png');
 
 
 -- MOVIES
 
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (4, 'The Princess Bride', 'A bedridden boy''s grandfather reads him the story of a farmboy-turned-pirate who encounters numerous obstacles, enemies and allies in his quest to be reunited with his true love.', 'common', '2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/princess_bride_inigo.webp');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (5, 'The Dark Knight', 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.', 'common', '2023-02-27 12:00:00', 25, 3, 1, 1, 1, 'assets/webp_images/the_dark_knight.webp');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (6, 'Django Unchained', 'With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation owner in Mississippi.', 'common', '2023-02-27 12:00:00', 25, 3, 1, 1, 1, 'assets/webp_images/django_unchained.webp');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (7, 'Batman Begins', 'After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from corruption.', 'common', '2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/batman_begins.webp');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (8, 'Pulp Fiction', 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.', 'common', '2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/pulp_fiction.webp');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (9, 'Howl''s Moving Castle', 'When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking castle.', 'common', '2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/howl_s_moving_castle.webp');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (10, 'Spirited Away', 'During her family''s move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.', 'common', '2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/spirited_away_1.webp');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (11, 'Goodfellas', 'The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.', 'common', '2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/goodfellas_young_henry.webp');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (12, 'The Godfather', 'The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.', 'common', '2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/the_godfather.webp');
-INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (13, 'The Dark Knight Rises', 'Eight years after the Joker''s reign of chaos, Batman is coerced out of exile with the assistance of the mysterious Selina Kyle in order to defend Gotham City from the vicious guerrilla terrorist Bane.', 'common', '2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/the_dark_knight_rises.webp');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (4, 'The Princess Bride', 'A bedridden boy''s grandfather reads him the story of a farmboy-turned-pirate who encounters numerous obstacles, enemies and allies in his quest to be reunited with his true love.', 'common', '2023-02-27 12:00:00','2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/princess_bride_inigo.webp');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (5, 'The Dark Knight', 'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.', 'common', '2023-02-27 12:00:00','2023-02-27 12:00:00', 25, 3, 1, 1, 1, 'assets/webp_images/the_dark_knight.webp');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (6, 'Django Unchained', 'With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation owner in Mississippi.', 'common', '2023-02-27 12:00:00','2023-02-27 12:00:00', 25, 3, 1, 1, 1, 'assets/webp_images/django_unchained.webp');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (7, 'Batman Begins', 'After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from corruption.', 'common', '2023-02-27 12:00:00','2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/batman_begins.webp');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (8, 'Pulp Fiction', 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.', 'common', '2023-02-27 12:00:00','2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/pulp_fiction.webp');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (9, 'Howl''s Moving Castle', 'When an unconfident young woman is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking castle.', 'common', '2023-02-27 12:00:00','2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/howl_s_moving_castle.webp');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (10, 'Spirited Away', 'During her family''s move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.', 'common', '2023-02-27 12:00:00','2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/spirited_away_1.webp');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (11, 'Goodfellas', 'The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.', 'common', '2023-02-27 12:00:00','2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/goodfellas_young_henry.webp');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (12, 'The Godfather', 'The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son.', 'common', '2023-02-27 12:00:00','2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/the_godfather.webp');
+INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `updated_on`, `price`, `collection_id`, `owner_id`, `offered`, `creator_id`, `token_location`) VALUES (13, 'The Dark Knight Rises', 'Eight years after the Joker''s reign of chaos, Batman is coerced out of exile with the assistance of the mysterious Selina Kyle in order to defend Gotham City from the vicious guerrilla terrorist Bane.', 'common', '2023-02-27 12:00:00','2023-02-27 12:00:00', 20, 3, 1, 1, 1, 'assets/webp_images/the_dark_knight_rises.webp');
 
 
 -- -------------------------------------------------------
@@ -443,9 +449,6 @@ INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `release_date`, `pri
 
 
 
-
-
-
 COMMIT;
 
 
@@ -464,8 +467,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
-INSERT INTO `cart` (`id`, `created_date`, `completed`, `user_id`) VALUES (1, '2020-01-01 10:10:10', 0, 1);
-INSERT INTO `cart` (`id`, `created_date`, `completed`, `user_id`) VALUES (2, '2020-01-01 10:10:10', 0, 2);
+INSERT INTO `cart` (`id`, `created_on`, `updated_on`, `completed`, `user_id`) VALUES (1, '2020-01-01 10:10:10', '2020-01-01 10:10:10', 0, 1);
+INSERT INTO `cart` (`id`, `created_on`, `updated_on`, `completed`, `user_id`) VALUES (2, '2020-01-01 10:10:10', '2020-01-01 10:10:10', 0, 2);
 
 COMMIT;
 
@@ -491,8 +494,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
-INSERT INTO `message` (`id`, `content`, `created_at`, `sender_id`, `recipient_id`, `in_reply_to`) VALUES (1, 'blah blah blah', '2020-01-01 10:10:10', 1, 2, NULL);
-INSERT INTO `message` (`id`, `content`, `created_at`, `sender_id`, `recipient_id`, `in_reply_to`) VALUES (2, 'beep beep beep', '2020-01-01 10:10:10', 2, 1, 1);
+INSERT INTO `message` (`id`, `content`, `created_on`, `updated_on`, `sender_id`, `recipient_id`, `in_reply_to`) VALUES (1, 'blah blah blah', '2020-01-01 10:10:10','2020-01-01 10:10:10', 1, 2, NULL);
+INSERT INTO `message` (`id`, `content`, `created_on`, `updated_on`, `sender_id`, `recipient_id`, `in_reply_to`) VALUES (2, 'beep beep beep', '2020-01-01 10:10:10', '2020-01-01 10:10:10', 2, 1, 1);
 
 COMMIT;
 
@@ -502,7 +505,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
-INSERT INTO `favorite` (`user_id`, `token_id`) VALUES (1, 1);
+INSERT INTO `favorite` (`user_id`, `token_id`, `added_on`) VALUES (1, 1, '2021-11-03');
 
 COMMIT;
 
