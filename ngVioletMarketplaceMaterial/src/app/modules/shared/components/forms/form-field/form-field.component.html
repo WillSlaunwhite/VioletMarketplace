@@ -5,4 +5,5 @@
   <button class="clear" *ngIf="control.value" matSuffix mat-icon-button aria-label="Clear" (click)="control.setValue('')">
     <mat-icon>clear</mat-icon>
   </button>
+  <button *ngIf="isSubmitOnEnter" type="submit" style="display: none;"></button>
 </mat-form-field>

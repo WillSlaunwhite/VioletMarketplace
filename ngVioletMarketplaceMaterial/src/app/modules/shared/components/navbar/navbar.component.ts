@@ -6,12 +6,13 @@ import { } from '@angular/material/divider';
 import { LoginComponent } from 'src/app/modules/login/components/login/login.component';
 import { Store } from '@ngrx/store';
 import { isLoggedIn, selectCurrentUser } from 'src/app/modules/user/state/user.selectors';
-import { removeJwt } from 'src/app/modules/user/state/user.actions';
+import { logout, removeJwt } from 'src/app/modules/user/state/user.actions';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RegisterComponent } from 'src/app/modules/register/components/register/register.component';
 import { search } from 'src/app/modules/search/state/search.actions';
 import { Searchable } from 'src/app/modules/search/searchable';
 import { selectSearchResults } from 'src/app/modules/search/state/search.selectors';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -25,7 +26,11 @@ export class NavbarComponent implements OnInit {
   searchTerm: FormControl;
   searchResults$: Observable<Searchable[] | null> = this.store.select(selectSearchResults);
 
-  constructor(private store: Store, private dialog: MatDialog, private renderer: Renderer2, private el: ElementRef,
+  constructor(private store: Store,
+    private dialog: MatDialog,
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private router: Router,
   ) {
     this.user$ = this.store.select(selectCurrentUser);
     this.searchTerm = new FormControl('');
@@ -36,7 +41,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(): void {
-    // this.store.dispatch(logout());
+    this.store.dispatch(logout());
     this.store.dispatch(removeJwt());
     window.location.reload();
   }
@@ -77,10 +82,8 @@ export class NavbarComponent implements OnInit {
 
   onSubmit(): void {
     console.log('hello');
-    console.log(this.searchResults$);
     this.store.dispatch(search({ query: this.searchTerm.value }));
     this.searchTerm.setValue('');
-    this.searchResults$ = this.store.select(selectSearchResults);
-    console.log(this.searchResults$);
+    this.router.navigateByUrl('/results');
   }
 }
