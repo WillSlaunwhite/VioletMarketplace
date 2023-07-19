@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.skilldistillery.marketplace.exceptions.AuthorizationException;
+import com.skilldistillery.marketplace.exceptions.TokenNotFoundException;
 import com.skilldistillery.marketplace.requests.TokenUpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public class TokenServiceImpl implements TokenService {
     }
 
     @Override
-    public Token showById(int tid) {
+    public Token findById(int tid) {
         return tokenRepo.findById(tid);
     }
 
@@ -53,38 +54,36 @@ public class TokenServiceImpl implements TokenService {
     }
 
     @Override
-    public Token update(String ownerName, Token token) {
-        Token existingToken = tokenRepo.findByOwner_UsernameAndId(token.getOwner().getUsername(), token.getId());
-        User owner = userRepo.findByUsername(ownerName);
+    public Token update(String ownerName, TokenUpdateRequest request) {
+        Token existingToken = tokenRepo.findById(request.getTokenId());
+        if (existingToken == null) {
+            throw new TokenNotFoundException("Token with id " + request.getTokenId() + " not found.");
+        }
 
-        if(!owner.equals(token.getOwner())) {
+        User owner = userRepo.findByUsername(ownerName);
+        if (!owner.equals(existingToken.getOwner())) {
             throw new AuthorizationException("User does not have permission to update this token.");
         }
 
-        if (existingToken != null) {
-            existingToken.setId(token.getId());
-            existingToken.setName(token.getName());
-            existingToken.setDescription(token.getDescription());
-            existingToken.setOffered(token.isOffered());
-            existingToken.setPrice(token.getPrice());
-            existingToken.setRarity(token.getRarity());
-            existingToken.setReleaseDate(token.getReleaseDate());
-            existingToken.setTokenLocation(token.getTokenLocation());
 
-            existingToken.setCollection(token.getCollection());
-            existingToken.setTransfers(token.getTransfers());
-            existingToken.setCreator(token.getCreator());
-            tokenRepo.saveAndFlush(existingToken);
-            return existingToken;
-        }
-        return null;
+        existingToken.setId(request.getTokenId());
+        existingToken.setName(request.getName());
+        existingToken.setDescription(request.getDescription());
+        existingToken.setOffered(request.isOffered());
+        existingToken.setPrice(request.getPrice());
+        existingToken.setRarity(request.getRarity());
+        existingToken.setTokenLocation(request.getTokenLocation());
+
+        existingToken.setCollection(request.getCollection());
+        tokenRepo.saveAndFlush(existingToken);
+        return existingToken;
     }
 
     @Override
-    public Token purchase(String buyerName, TokenUpdateRequest token) {
-        Token existingToken = tokenRepo.findById(token.getId());
+    public Token purchase(String buyerName, int tid) {
+        Token existingToken = tokenRepo.findById(tid);
         User buyer = userRepo.findByUsername(buyerName);
-        if(existingToken != null) {
+        if (existingToken != null) {
             existingToken.setOwner(buyer);
             tokenRepo.saveAndFlush(existingToken);
             return existingToken;

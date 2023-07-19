@@ -10,15 +10,15 @@ public interface TokenService {
 
 	Set<Token> indexByUsername(String username);
 
+	Token findById(int tid);
+
 	Token create(String username, Token token);
 
-	Token purchase(String buyerName, TokenUpdateRequest token);
+	Token purchase(String buyerName, int tid);
 
-	Token update(String ownerName, Token token);
+	Token update(String ownerName, TokenUpdateRequest request);
 
 	boolean destroy(String username, int tid);
-
-	Token showById(int tid);
 
     boolean tokenExists(int tid);
 
