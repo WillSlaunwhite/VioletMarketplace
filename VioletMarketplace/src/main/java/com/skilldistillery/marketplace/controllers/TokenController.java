@@ -4,6 +4,7 @@ import com.skilldistillery.marketplace.entities.Token;
 import com.skilldistillery.marketplace.exceptions.AuthorizationException;
 import com.skilldistillery.marketplace.exceptions.InvalidTokenException;
 import com.skilldistillery.marketplace.exceptions.TokenNotFoundException;
+import com.skilldistillery.marketplace.requests.TokenUpdateRequest;
 import com.skilldistillery.marketplace.services.TokenService;
 import com.skilldistillery.marketplace.services.UserService;
 import com.skilldistillery.marketplace.security.JwtUtil;
@@ -86,7 +87,7 @@ public class TokenController {
         Set<Token> tokenList = tokenSvc.indexByUsername(username);
 
         if (tokenList.isEmpty()) {
-            return ResponseEntity.notFound().build();
+            throw new TokenNotFoundException("No tokens found for user with username " + username);
         }
         return ResponseEntity.ok(tokenList);
     }
@@ -99,7 +100,7 @@ public class TokenController {
     public ResponseEntity<Token> create(Principal principal,
                                         @RequestBody Token token) {
         if (token == null) {
-            throw new InvalidTokenException("unable to create token");
+            throw new InvalidTokenException("Unable to create empty token, please check fields and try again.");
         }
         tokenSvc.create(principal.getName(), token);
         return ResponseEntity.status(HttpStatus.CREATED).body(token);
@@ -109,15 +110,16 @@ public class TokenController {
     /////////////// PUT METHODS ///////////////////
 
 
-    // method has extra params it probably doesn't need
     @PutMapping("tokens/{tid}")
     public ResponseEntity<Token> purchaseToken(Principal principal,
-                                               @PathVariable int tid) {
-        Token token = tokenSvc.showByUsernameId(principal.getName(), tid);
+                                               @PathVariable int tid,
+                                               @RequestBody TokenUpdateRequest updateRequest) {
+        Token token = tokenSvc.showById(tid);
+
         if (token == null) {
-            throw new InvalidTokenException("unable to update token");
+            throw new InvalidTokenException("Unable to purchase token.");
         }
-        token = tokenSvc.update(principal.getName(), "dave", tid, token);
+        token = tokenSvc.purchase(principal.getName(), token);
         return ResponseEntity.ok(token);
     }
 

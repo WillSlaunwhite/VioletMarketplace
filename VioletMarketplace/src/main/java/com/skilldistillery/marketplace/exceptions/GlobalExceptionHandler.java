@@ -18,13 +18,15 @@ public class GlobalExceptionHandler {
         return ResponseEntity.notFound().build();
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Void> handleTokenNotFoundException(Exception e) {
+    @ExceptionHandler(AuthorizationException.class)
+    public ResponseEntity<Void> handleAuthorizationException(AuthorizationException e) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
+
+
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Void> handleAuthorizationException(AuthorizationException e) {
+    public ResponseEntity<Void> handleTokenNotFoundException(Exception e) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 }

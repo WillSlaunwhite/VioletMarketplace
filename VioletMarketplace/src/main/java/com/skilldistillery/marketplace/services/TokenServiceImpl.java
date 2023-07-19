@@ -3,6 +3,7 @@ package com.skilldistillery.marketplace.services;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.skilldistillery.marketplace.exceptions.AuthorizationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,13 +32,8 @@ public class TokenServiceImpl implements TokenService {
     }
 
     @Override
-    public Token showByUsernameId(String username, int tid) {
-        return tokenRepo.findByOwner_UsernameAndId(username, tid);
-    }
-
-    @Override
     public Token showById(int tid) {
-        return tokenRepo.queryById(tid);
+        return tokenRepo.findById(tid);
     }
 
     @Override
@@ -56,9 +52,14 @@ public class TokenServiceImpl implements TokenService {
     }
 
     @Override
-    public Token update(String ownerName, String buyerName, int tid, Token token) {
-        Token existingToken = tokenRepo.findByOwner_UsernameAndId(ownerName, tid);
-        User buyer = userRepo.findByUsername(buyerName);
+    public Token update(String ownerName, Token token) {
+        Token existingToken = tokenRepo.findByOwner_UsernameAndId(token.getOwner().getUsername(), token.getId());
+        User owner = userRepo.findByUsername(ownerName);
+
+        if(!owner.equals(token.getOwner())) {
+            throw new AuthorizationException("User does not have permission to update this token.");
+        }
+
         if (existingToken != null) {
             existingToken.setId(token.getId());
             existingToken.setName(token.getName());
@@ -72,6 +73,17 @@ public class TokenServiceImpl implements TokenService {
             existingToken.setCollection(token.getCollection());
             existingToken.setTransfers(token.getTransfers());
             existingToken.setCreator(token.getCreator());
+            tokenRepo.saveAndFlush(existingToken);
+            return existingToken;
+        }
+        return null;
+    }
+
+    @Override
+    public Token purchase(String buyerName, Token token) {
+        Token existingToken = tokenRepo.findById(token.getId());
+        User buyer = userRepo.findByUsername(buyerName);
+        if(existingToken != null) {
             existingToken.setOwner(buyer);
             tokenRepo.saveAndFlush(existingToken);
             return existingToken;
@@ -97,6 +109,6 @@ public class TokenServiceImpl implements TokenService {
 
     @Override
     public boolean userOwnsToken(String username, int tid) {
-        return tokenRepo.queryById(tid) != null;
+        return tokenRepo.findById(tid) != null;
     }
 }
