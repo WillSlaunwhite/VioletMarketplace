@@ -7,15 +7,15 @@ import com.skilldistillery.marketplace.entities.Token;
 public interface TokenService {
 	Set<Token> index();
 
-	Token showByUsernameId(String username, int tid);
+	Set<Token> indexByUsername(String username);
 
 	Token create(String username, Token token);
 
-	Set<Token> indexByUsername(String username);
+	Token purchase(String buyerName, Token token);
+
+	Token update(String ownerName, Token token);
 
 	boolean destroy(String username, int tid);
-
-	Token update(String ownerName, String buyerName, int tid, Token token);
 
 	Token showById(int tid);
 
@@ -23,5 +23,4 @@ public interface TokenService {
 
 	boolean userOwnsToken(String username, int tid);
 
-//	public Token update(String name, int tid, Token token);
 }
