@@ -81,7 +81,6 @@ export class NavbarComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('hello');
     this.store.dispatch(search({ query: this.searchTerm.value }));
     this.searchTerm.setValue('');
     this.router.navigateByUrl('/results');
