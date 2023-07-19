@@ -1,6 +1,7 @@
 package com.skilldistillery.marketplace.entities;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,11 +21,16 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "content")
     private String content;
 
     @CreationTimestamp
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    @Column(name = "created_on")
+    private LocalDateTime createdOn;
+
+    @UpdateTimestamp
+    @Column(name = "updated_on")
+    private LocalDateTime updatedOn;
 
     @ManyToOne
     @JoinColumn(name = "sender_id")
@@ -57,12 +63,20 @@ public class Message {
         this.content = content;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getCreatedOn() {
+        return createdOn;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedOn(LocalDateTime createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public LocalDateTime getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(LocalDateTime updatedOn) {
+        this.updatedOn = updatedOn;
     }
 
     public User getSender() {
@@ -102,7 +116,8 @@ public class Message {
         return "Message{" +
                 "id=" + id +
                 ", content='" + content + '\'' +
-                ", createdAt=" + createdAt +
+                ", createdOn=" + createdOn +
+                ", updatedOn=" + updatedOn +
                 ", sender=" + sender +
                 ", recipient=" + recipient +
                 ", replies=" + replies +
