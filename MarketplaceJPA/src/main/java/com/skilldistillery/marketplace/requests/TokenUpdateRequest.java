@@ -35,7 +35,7 @@ public class TokenUpdateRequest {
         this.tokenId = tokenId;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 

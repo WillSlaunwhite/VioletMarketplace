@@ -68,7 +68,7 @@ public class TokenController {
     //	Get a specific token by id
     @GetMapping("tokens/id/{tid}")
     public ResponseEntity<Token> show(@PathVariable int tid) {
-        Token token = tokenSvc.showById(tid);
+        Token token = tokenSvc.findById(tid);
         if (token == null) {
             throw new TokenNotFoundException("Token with id " + tid + " not found");
         }
@@ -110,16 +110,20 @@ public class TokenController {
     /////////////// PUT METHODS ///////////////////
 
 
-    @PutMapping("tokens/{tid}")
+    @PutMapping("tokens/buy/{tid}")
     public ResponseEntity<Token> purchaseToken(Principal principal,
-                                               @RequestBody TokenUpdateRequest request) {
-        if (request == null) {
-            throw new InvalidTokenException("Unable to purchase token.");
-        }
-        Token token = tokenSvc.purchase(principal.getName(), request);
+                                               @PathVariable int tid) {
+        Token token = tokenSvc.purchase(principal.getName(), tid);
         return ResponseEntity.ok(token);
     }
 
+    @PutMapping("tokens/{tid}")
+    public ResponseEntity<Token> update(Principal principal, @RequestBody TokenUpdateRequest request) {
+        if(request == null) {
+            throw new InvalidTokenException("Cannot update using empty token.");
+        }
+        Token token = tokenSvc.update(principal.getName(), request);
+    }
 
     /////////////// DELETE METHODS ///////////////////
 
