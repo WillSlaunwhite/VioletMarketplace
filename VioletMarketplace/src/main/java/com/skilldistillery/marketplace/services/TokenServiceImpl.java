@@ -1,5 +1,6 @@
 package com.skilldistillery.marketplace.services;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -81,7 +82,7 @@ public class TokenServiceImpl implements TokenService {
         existingToken.setId(request.getTokenId());
         existingToken.setName(request.getName());
         existingToken.setDescription(request.getDescription());
-        existingToken.set(request.getDescription());
+        existingToken.setUpdatedOn(LocalDate.now());
         existingToken.setOffered(request.isOffered());
         existingToken.setPrice(request.getPrice());
         existingToken.setRarity(request.getRarity());

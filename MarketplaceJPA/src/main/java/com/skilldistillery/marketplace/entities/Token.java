@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.skilldistillery.marketplace.interfaces.Searchable;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Token implements Searchable {
@@ -33,7 +34,9 @@ public class Token implements Searchable {
     @Column(name = "release_date")
     private LocalDate releaseDate;
 
-
+    @UpdateTimestamp
+    @Column(name = "updated_on")
+    private LocalDate updatedOn;
 
     @Column(name = "token_location")
     private String tokenLocation;
@@ -139,13 +142,15 @@ public class Token implements Searchable {
         this.releaseDate = releaseDate;
     }
 
+    public LocalDate getUpdatedOn() { return updatedOn; }
+
+    public void setUpdatedOn(LocalDate updatedOn) { this.updatedOn = updatedOn; }
+
     public String getTokenLocation() {
         return tokenLocation;
     }
 
     public void setTokenLocation(String tokenLocation) { this.tokenLocation = tokenLocation; }
-
-
 
     public Collection getCollection() {
         return collection;

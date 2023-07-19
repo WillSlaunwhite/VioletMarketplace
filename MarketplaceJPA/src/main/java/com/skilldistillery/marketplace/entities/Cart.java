@@ -1,9 +1,13 @@
 package com.skilldistillery.marketplace.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,8 +29,13 @@ public class Cart {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@Column(name = "created_date")
-	private LocalDate createdDate;
+	@CreationTimestamp
+	@Column(name = "created_on")
+	private LocalDate createdOn;
+
+	@UpdateTimestamp
+	@Column(name = "updated_on")
+	private LocalDate updatedOn;
 
 	@OneToMany(mappedBy = "cart")
 	private List<CartItem> items;
@@ -48,11 +57,8 @@ public class Cart {
 	}
 
 	public Cart() {
-
 		items = new ArrayList<CartItem>();
 		completed = false;
-		createdDate = LocalDate.now();
-
 	}
 
 	public List<CartItem> addCartItem(CartItem newItem) {
@@ -91,18 +97,44 @@ public class Cart {
 		this.completed = completed;
 	}
 
-	public LocalDate getCreatedDate() {
-		return createdDate;
+	public LocalDate getUpdatedOn() {
+		return updatedOn;
 	}
 
-	public void setCreatedDate(LocalDate createdDate) {
-		this.createdDate = createdDate;
+	public void setUpdatedOn(LocalDate updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public LocalDate getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(LocalDate createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Cart cart = (Cart) o;
+		return id == cart.id && completed == cart.completed && Objects.equals(user, cart.user) && Objects.equals(createdOn, cart.createdOn) && Objects.equals(updatedOn, cart.updatedOn) && Objects.equals(items, cart.items);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, completed, user, createdOn, updatedOn, items);
 	}
 
 	@Override
 	public String toString() {
-		return "Cart [id=" + id + ", completed=" + completed + ", user=" + user + ", createdDate=" + createdDate
-				+ ", items=" + items + "]";
+		return "Cart{" +
+				"id=" + id +
+				", completed=" + completed +
+				", user=" + user +
+				", createdOn=" + createdOn +
+				", updatedOn=" + updatedOn +
+				", items=" + items +
+				'}';
 	}
-
 }
