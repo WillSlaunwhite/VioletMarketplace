@@ -49,9 +49,7 @@ public class Token implements Searchable {
 	@JoinColumn(name="owner_id")
 	private User owner;
 	
-//	private Collection collection;
-	
-	
+
 	// update constructors and getters and setters once mappings are added
 	
 	public Token() { super(); }

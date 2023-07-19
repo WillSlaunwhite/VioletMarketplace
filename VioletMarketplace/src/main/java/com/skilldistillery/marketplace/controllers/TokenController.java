@@ -112,14 +112,11 @@ public class TokenController {
 
     @PutMapping("tokens/{tid}")
     public ResponseEntity<Token> purchaseToken(Principal principal,
-                                               @PathVariable int tid,
-                                               @RequestBody TokenUpdateRequest updateRequest) {
-        Token token = tokenSvc.showById(tid);
-
-        if (token == null) {
+                                               @RequestBody TokenUpdateRequest request) {
+        if (request == null) {
             throw new InvalidTokenException("Unable to purchase token.");
         }
-        token = tokenSvc.purchase(principal.getName(), token);
+        Token token = tokenSvc.purchase(principal.getName(), request);
         return ResponseEntity.ok(token);
     }
 
