@@ -1,5 +1,4 @@
 import { createAction, props } from "@ngrx/store";
-import { SearchResults } from "../search-results";
 import Token from "src/app/models/token";
 import User from "src/app/models/user";
 
