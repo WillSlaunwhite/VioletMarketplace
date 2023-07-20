@@ -60,6 +60,7 @@ export class RegisterComponent implements OnInit, OnChanges {
   }
 
   onSubmit(): void {
+    console.log('hello');
     if (this.registerForm.valid) {
       const user: User = {
         ...this.registerForm.value.requiredFields,

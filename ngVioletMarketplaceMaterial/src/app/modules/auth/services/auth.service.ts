@@ -1,10 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, map, mergeMap, Observable, of, switchMap, tap, throwError } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { Observable, map, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import User from '../../../models/user';
-import { Store } from '@ngrx/store';
-import { login, loginSuccess, loginFailure, logout, setJwt } from '../../user/state/user.actions';
+import { logout, setJwt } from '../../user/state/user.actions';
 import { selectCurrentUser, selectJwt } from '../../user/state/user.selectors';
 
 
@@ -39,7 +39,7 @@ export class AuthService {
         };
 
         if (jwt) {
-          headers['Authorization'] = 'Bearer ${jwt}';
+          headers['Authorization'] = `Bearer ${jwt}`;
         }
         let options = { headers };
         return options;

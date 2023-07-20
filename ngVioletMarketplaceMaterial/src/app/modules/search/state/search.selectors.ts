@@ -3,9 +3,21 @@ import { SearchState } from "./search.reducer";
 
 export const selectSearchState = createFeatureSelector<SearchState>('search');
 
-export const selectSearchResults = createSelector(
+export const selectUsers = createSelector(
   selectSearchState,
   (state: SearchState) =>
-    state.results.length > 0 ? state.results : null
+    state.users
+);
 
-)
+
+export const selectTokens = createSelector(
+  selectSearchState,
+  (state: SearchState) =>
+    state.tokens
+);
+
+export const isSearchResultsLoaded = createSelector(
+  selectSearchState,
+  (state: SearchState) => !state.loading
+);
+
