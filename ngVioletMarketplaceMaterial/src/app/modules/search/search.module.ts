@@ -6,6 +6,7 @@ import { ResultsComponent } from './components/results/results.component';
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchEffects } from './state/search.effects';
 import { reducer } from './state/search.reducer';
+import { TokenModule } from '../tokens/token.module';
 
 
 
@@ -17,7 +18,8 @@ import { reducer } from './state/search.reducer';
     CommonModule,
     SearchRoutingModule,
     StoreModule.forFeature('search', reducer),
-    EffectsModule.forFeature([SearchEffects])
+    EffectsModule.forFeature([SearchEffects]),
+    TokenModule,
   ],
   exports: [
     ResultsComponent
