@@ -4,7 +4,7 @@ import com.skilldistillery.marketplace.entities.Token;
 import com.skilldistillery.marketplace.exceptions.AuthorizationException;
 import com.skilldistillery.marketplace.exceptions.InvalidTokenException;
 import com.skilldistillery.marketplace.exceptions.TokenNotFoundException;
-import com.skilldistillery.marketplace.requests.TokenUpdateRequest;
+import com.skilldistillery.marketplace.dto.TokenUpdateRequest;
 import com.skilldistillery.marketplace.services.TokenService;
 import com.skilldistillery.marketplace.services.UserService;
 import com.skilldistillery.marketplace.security.JwtUtil;
