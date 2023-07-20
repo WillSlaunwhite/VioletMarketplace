@@ -1,0 +1,13 @@
+<mat-card @slideInTop class="gradient-blue" *ngIf="user">
+  <a routerLink="/user/id/{{ user.id }}"><img mat-card-image src="{{ user.pictureUrl}}" />
+    <p class="card-img-title">{{ user.username }}</p>
+    <p class="card-img-description">{{ user.biography}}</p>
+  </a>
+  <mat-card-content class="content">
+    <p class="user-text user-joined-date">Joined on {{ user.joinedOn | date }}</p>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+    <button mat-button>Follow</button>
+  </mat-card-actions>
+  <div class="glass-wrapper"></div>
+</mat-card>
