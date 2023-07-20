@@ -8,6 +8,7 @@ export default class User {
   biography: string;
   displayName: string;
   pictureUrl: string;
+  joinedOn: Date;
   wallet: string;
 
   constructor(
@@ -20,6 +21,7 @@ export default class User {
     biography: string = '',
     displayName: string = '',
     pictureUrl: string = '',
+    joinedOn: Date = new Date(),
     wallet: string = ''
   ) {
     this.id = id;
@@ -31,6 +33,7 @@ export default class User {
     this.biography = biography;
     this.displayName = displayName;
     this.pictureUrl = pictureUrl;
+    this.joinedOn = joinedOn;
     this.wallet = wallet;
   }
 }
