@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { slideInTop } from 'src/app/animations/animations';
+import Token from 'src/app/models/token';
 
 @Component({
   selector: 'app-big-token-card',
@@ -9,7 +11,8 @@ import { slideInTop } from 'src/app/animations/animations';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BigTokenCardComponent implements OnInit {
-  @Input() token: any;
+  @Input()
+  token: Token | null = null;
 
   constructor() { }
 

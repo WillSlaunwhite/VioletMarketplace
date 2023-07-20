@@ -12,12 +12,16 @@ import { TokenModule } from '../tokens/token.module';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterModule } from '../register/register.module';
+import BigUserCardComponent from './components/big-user/big-user-card/big-user-card.component';
+import { BigUserListComponent } from './components/big-user/big-user-list/big-user-list.component';
 
 @NgModule({
   declarations: [
     ProfileManagementComponent,
     UserPageComponent,
     LoginComponent,
+    BigUserCardComponent,
+    BigUserListComponent,
   ],
   imports: [
     CommonModule,
@@ -30,12 +34,13 @@ import { RegisterModule } from '../register/register.module';
     UserRoutingModule,
     TokenModule,
     SharedModule,
-    RegisterModule
+    RegisterModule,
   ],
   exports: [
     ProfileManagementComponent,
     UserPageComponent,
     LoginComponent,
+    BigUserListComponent,
   ]
 })
 export class UserModule { }

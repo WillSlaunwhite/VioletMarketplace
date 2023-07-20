@@ -1,11 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, of, filter, switchMap, combineLatest, tap, map } from 'rxjs';
-import User from 'src/app/models/user';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { Observable, of } from 'rxjs';
 import Token from 'src/app/models/token';
-import { loadUserTokens, loadTokens } from '../../../state/tokens.actions';
-import { getAllTokens, getUserTokens } from '../../../state/tokens.selectors';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 @Component({
   selector: 'app-big-token-list',
@@ -17,18 +14,12 @@ export class BigTokenListComponent implements OnInit {
   @Input()
   tokens$: Observable<Token[] | null> = of(null);
 
-  user$: Observable<User | null> = of(null);
-  scrollInterval: any;
-  velocity: any;
-  startIndex: number = 0;
-  private previousScrollWidth = 0;
   tokensLoaded: boolean = false;
+  velocity: any;
 
   constructor(private store: Store, private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.user$ = this.auth.currentUser;
-    this.tokens$.subscribe(tokens => console.log('Tokens in BigTokenListComponent:', tokens));
   }
 
   mouseleaveScroll(): void {
