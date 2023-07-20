@@ -37,7 +37,6 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     TokenRoutingModule,
     MaterialModule,
-    StoreModule.forRoot({}),
     StoreModule.forFeature('token', reducer),
     EffectsModule.forFeature([TokenEffects])
   ],
