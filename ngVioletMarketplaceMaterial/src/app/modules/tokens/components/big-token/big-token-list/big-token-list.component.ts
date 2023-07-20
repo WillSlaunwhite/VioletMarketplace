@@ -28,27 +28,7 @@ export class BigTokenListComponent implements OnInit {
 
   ngOnInit(): void {
     this.user$ = this.auth.currentUser;
-
-    const allTokens$ = this.store.select(getAllTokens);
-    const userTokens$ = this.user$.pipe(
-      filter(user => true),
-      switchMap(user => this.store.select(getUserTokens))
-    );
-
-    this.tokens$ = combineLatest([this.user$, allTokens$, userTokens$]).pipe(
-      tap(([user, allTokens, userTokens]) => {
-        if (user) {
-          if (!userTokens || userTokens.length === 0) {
-            this.store.dispatch(loadUserTokens({ username: user.username }));
-          }
-        } else {
-          if (!allTokens || allTokens.length === 0) {
-            this.store.dispatch(loadTokens());
-          }
-        }
-      }),
-      map(([user, allTokens, userTokens]) => user ? userTokens : allTokens)
-    );
+    this.tokens$.subscribe(tokens => console.log('Tokens in BigTokenListComponent:', tokens));
   }
 
   mouseleaveScroll(): void {
