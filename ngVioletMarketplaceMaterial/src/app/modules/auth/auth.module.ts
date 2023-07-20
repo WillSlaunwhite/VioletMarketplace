@@ -23,7 +23,6 @@ import { AuthEffects } from '../user/state/user.effect';
     AngularSvgIconModule,
     AuthRoutingModule,
     FormsModule,
-    StoreModule.forRoot({}),
     StoreModule.forFeature('auth', reducer),
     EffectsModule.forFeature([AuthEffects])
   ],

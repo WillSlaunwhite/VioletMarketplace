@@ -1,4 +1,4 @@
-package com.skilldistillery.marketplace.requests;
+package com.skilldistillery.marketplace.dto;
 
 import com.skilldistillery.marketplace.entities.Collection;
 
@@ -9,14 +9,14 @@ public class TokenUpdateRequest {
     private String name;
     private String description;
     private boolean offered;
-    private double price;
+    private int price;
     private String rarity;
     private String tokenLocation;
     private Collection collection;
 
     public TokenUpdateRequest() {}
 
-    public TokenUpdateRequest(int tokenId, String name, String description, boolean offered, double price, String rarity, String tokenLocation, Collection collection) {
+    public TokenUpdateRequest(int tokenId, String name, String description, boolean offered, int price, String rarity, String tokenLocation, Collection collection) {
         this.tokenId = tokenId;
         this.name = name;
         this.description = description;
@@ -39,7 +39,7 @@ public class TokenUpdateRequest {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

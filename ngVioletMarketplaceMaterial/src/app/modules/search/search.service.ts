@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/services/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { Searchable } from './searchable';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, map, switchMap, tap } from 'rxjs';
+import { SearchResults } from './search-results';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +14,21 @@ export class SearchService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }
 
-  search(query: string): Observable<Searchable[]> {
+  search(query: string): Observable<SearchResults> {
     return this.auth.getHttpOptions().pipe(
-      switchMap(options => this.http.get<Searchable[]>(`${this.url}/${query}`, options))
+      tap(options => console.log("HTTP Options: ", options)),
+      switchMap(options => this.http.get<any>(`${this.url}/${query}`, options).pipe(
+        tap(rawData => console.log('Raw data:', rawData)), // New line
+        map(results => {
+          let searchResults: SearchResults = {
+            tokens: results.tokens || [],
+            users: results.users || []
+          };
+
+          console.log("Search Results: ", JSON.stringify(searchResults));
+          return searchResults;
+        })
+      ))
     );
   }
 }

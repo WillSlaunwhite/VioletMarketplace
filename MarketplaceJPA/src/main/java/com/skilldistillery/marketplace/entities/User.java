@@ -34,7 +34,7 @@ public class User implements Searchable {
     private LocalDateTime createdOn;
 
     @UpdateTimestamp
-    @Column(name = "created_on")
+    @Column(name = "updated_on")
     private LocalDateTime updatedOn;
 
     @Column(name = "display_name")

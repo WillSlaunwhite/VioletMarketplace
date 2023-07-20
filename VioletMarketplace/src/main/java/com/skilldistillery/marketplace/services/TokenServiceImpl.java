@@ -8,7 +8,7 @@ import com.skilldistillery.marketplace.exceptions.AuthorizationException;
 import com.skilldistillery.marketplace.exceptions.TokenNotFoundException;
 import com.skilldistillery.marketplace.exceptions.UserNotFoundException;
 import com.skilldistillery.marketplace.repositories.TokenTxRepository;
-import com.skilldistillery.marketplace.requests.TokenUpdateRequest;
+import com.skilldistillery.marketplace.dto.TokenUpdateRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
