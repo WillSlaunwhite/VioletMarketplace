@@ -94,6 +94,24 @@
   left: $left;
 }
 
+@mixin abs-top-right($top: 0, $right: 0) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+
+@mixin abs-bot-left($bot: 0, $left: 0) {
+  position: absolute;
+  bottom: $bot;
+  left: $left;
+}
+
+@mixin abs-bot-right($bot: 0, $right: 0) {
+  position: absolute;
+  bottom: $bot;
+  right: $right;
+}
+
 @mixin rel-top-left($top: 0, $left: 0) {
   position: relative;
   top: $top;
