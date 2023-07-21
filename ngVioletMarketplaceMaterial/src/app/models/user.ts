@@ -7,7 +7,7 @@ export default class User {
   role: string;
   biography: string;
   displayName: string;
-  pictureUrl: string;
+  pictureUrl: string | null;
   joinedOn: Date;
   wallet: string;
 

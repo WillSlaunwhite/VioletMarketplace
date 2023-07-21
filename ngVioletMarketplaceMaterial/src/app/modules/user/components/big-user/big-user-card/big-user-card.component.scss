@@ -34,8 +34,12 @@
       }
 
       .card-img {
+        @include abs-top-left($top: -2px, $left: -2px);
         object-fit: cover;
         background: transparent;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        margin: auto;
       }
 
       .glass-pane {
