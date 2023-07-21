@@ -1,7 +1,7 @@
 <mat-card class="big-user-card" *ngIf="user">
   <div class="card-front" [routerLink]="['/user/id', user.id]">
     <div class="image-wrapper">
-      <img src="{{'assets/user_images/default_image.png'}}" class="card-img" />
+      <img [src]="user.pictureUrl ?? 'assets/user_images/default_image.png'" class="card-img" />
       <div class="glass-pane"></div>
     </div>
     <div class="card-details">

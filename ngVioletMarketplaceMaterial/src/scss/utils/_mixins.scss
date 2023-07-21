@@ -40,6 +40,7 @@
   letter-spacing: $spacing;
   line-height: $height;
   text-align: $align;
+  cursor: text;
 }
 
 @mixin basic-bold-font($size: 1.1rem, $weight: 300, $spacing: normal, $height: normal, $align: initial) {
@@ -52,6 +53,7 @@
   letter-spacing: $spacing;
   line-height: $height;
   text-align: $align;
+  cursor: text;
 }
 
 @mixin remove-autofill-background {
