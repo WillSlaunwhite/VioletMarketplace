@@ -40,6 +40,7 @@
   letter-spacing: $spacing;
   line-height: $height;
   text-align: $align;
+  cursor: text;
 }
 
 @mixin basic-bold-font($size: 1.1rem, $weight: 300, $spacing: normal, $height: normal, $align: initial) {
@@ -52,6 +53,7 @@
   letter-spacing: $spacing;
   line-height: $height;
   text-align: $align;
+  cursor: text;
 }
 
 @mixin remove-autofill-background {
@@ -94,6 +96,24 @@
   left: $left;
 }
 
+@mixin abs-top-right($top: 0, $right: 0) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+
+@mixin abs-bot-left($bot: 0, $left: 0) {
+  position: absolute;
+  bottom: $bot;
+  left: $left;
+}
+
+@mixin abs-bot-right($bot: 0, $right: 0) {
+  position: absolute;
+  bottom: $bot;
+  right: $right;
+}
+
 @mixin rel-top-left($top: 0, $left: 0) {
   position: relative;
   top: $top;
@@ -113,6 +133,11 @@
   display: flex;
 }
 
+@mixin full-size {
+  @include full-wh-no-mrgpad;
+  @include abs-top-left;
+  border-radius: inherit;
+}
 
 
 // TODO need to move all gradient definitions here

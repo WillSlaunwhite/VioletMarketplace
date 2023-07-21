@@ -8,11 +8,13 @@
   border: none;
   bottom: -2px;
   left: 0%;
+  top: 10%;
   right: -2px;
   width: 2px;
-  height: 98%;
+  height: 80%;
   z-index: -1;
-  background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
+  background-color: black; // temporary
+  // background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
   background-size: 150% 100%;
   transition: all .8s ease-in-out;
   pointer-events: none;
