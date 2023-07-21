@@ -10,8 +10,14 @@
   perspective: 1500px;
 }
 
-.big-token-card {
+.full-size {
   @include full-wh-no-mrgpad;
+  @include abs-top-left;
+  border-radius: inherit;
+}
+
+.big-token-card {
+  @include full-size;
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
@@ -19,30 +25,26 @@
   background: transparent;
 
   .card-front {
-    @include full-wh-no-mrgpad;
-    position: relative;
+    @include full-size;
     overflow: hidden;
     background-size: cover;
     border-radius: inherit;
     cursor: pointer;
 
     .image-wrapper {
-      position: relative;
+      @include full-size;
       overflow: hidden;
-      width: 100%;
-      height: 100%;
-      border-radius: inherit;
+
+      .card-img,
+      .glass-pane {
+        @include full-size;
+      }
 
       .card-img {
-        @include full-wh-no-mrgpad;
-        @include abs-top-left;
-        border-radius: inherit;
         object-fit: cover;
       }
 
       .glass-pane {
-        @include abs-top-left;
-        @include full-wh-no-mrgpad;
         background: rgba(255, 255, 255, 0.1);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(4px);
@@ -53,9 +55,8 @@
     }
 
     .card-details {
-      @include abs-top-left;
-      color: white !important;
-      z-index: 3;
+      @include full-size;
+      z-index: 2;
       transition: 0.3s ease-in-out;
       opacity: 0;
 
@@ -72,7 +73,7 @@
     }
 
     &:hover .glass-pane {
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.25);
       opacity: 0.65;
 
     }
@@ -80,18 +81,22 @@
     &:hover .card-details {
       opacity: 1 !important;
     }
+
+    &:hover .token-price {
+      z-index: 2;
+    }
   }
 
   .content {
     position: relative;
-    top: -35%;
+    top: 65%;
 
     .token-price {
       @include basic-bold-font($size: 1.5rem, $align: center, $weight: 400);
       margin-right: 5px;
       cursor: default;
       position: relative;
-      z-index: 3;
+      z-index: 1;
     }
   }
 
