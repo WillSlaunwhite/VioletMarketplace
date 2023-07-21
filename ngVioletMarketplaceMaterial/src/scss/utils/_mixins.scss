@@ -131,6 +131,11 @@
   display: flex;
 }
 
+@mixin full-size {
+  @include full-wh-no-mrgpad;
+  @include abs-top-left;
+  border-radius: inherit;
+}
 
 
 // TODO need to move all gradient definitions here
