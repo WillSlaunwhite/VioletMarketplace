@@ -1,18 +1,48 @@
-body::-webkit-scrollbar {
+@import '/src/scss/utils/variables';
+
+
+// WEBKIT SCROLLBAR IS NON-STANDARD
+
+.scrollbar-light::-webkit-scrollbar {
   overflow: auto;
   width: .5rem;
-  height: .5rem;
-
+  height: .4rem;
+  scroll-behavior: smooth;
 }
 
-body::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background: #524888;
+.scrollbar-light::-webkit-scrollbar-track {
+  margin-inline: 1.5em;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+  background: transparent;
   border-radius: 10px;
+  scroll-behavior: smooth;
 }
 
-body::-webkit-scrollbar-thumb {
-  background: rgba(71, 29, 144, 0.3);
+.scrollbar-light::-webkit-scrollbar-thumb {
+  background: $secondary-light;
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  scroll-behavior: smooth;
+}
+
+.scrollbar-dark::-webkit-scrollbar {
+  overflow: auto;
+  width: .5rem;
+  height: .4rem;
+  scroll-behavior: smooth;
+}
+
+.scrollbar-dark::-webkit-scrollbar-track {
+  margin-inline: 1.5em;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  border-radius: 10px;
+  scroll-behavior: smooth;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  background: $secondary-dark;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  scroll-behavior: smooth;
 }
