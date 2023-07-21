@@ -1,0 +1,18 @@
+<mat-card class="big-user-card" *ngIf="user">
+  <div class="card-front" [routerLink]="['/user/id', user.id]">
+    <div class="image-wrapper">
+      <img [src]="user.pictureUrl ?? 'assets/user_images/default_image.png'" class="card-img" />
+      <div class="glass-pane"></div>
+    </div>
+    <div class="card-details">
+      <p class="card-img-title">{{ user.displayName }}</p>
+      <p class="card-img-description">{{ user.biography }}</p>
+    </div>
+    <mat-card-content class="content">
+      <!-- Add additional user info here -->
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <!-- Add any actions here -->
+    </mat-card-actions>
+  </div>
+</mat-card>

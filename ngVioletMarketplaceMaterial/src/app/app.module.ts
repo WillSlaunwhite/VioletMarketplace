@@ -22,6 +22,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { MaterialModule } from './modules/material/material.module';
 import { UserEffects } from './modules/register/state/register.effects';
+import { environment } from 'src/environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,8 @@ import { UserEffects } from './modules/register/state/register.effects';
     UserModule,
     AuthModule,
     TokenModule,
-    MaterialModule
+    MaterialModule,
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],
   bootstrap: [AppComponent],
