@@ -90,9 +90,8 @@
     }
 
     &:hover .glass-pane {
-      background: rgba(0, 0, 0, 0.5) !important;
+      background: rgba(0, 0, 0, 0.35) !important;
       opacity: 0.65;
-      backdrop-filter: blur(0px);
 
     }
 
@@ -111,10 +110,10 @@
 
     .token-price {
       @include basic-bold-font($size: 1.5rem, $align: center, $weight: 400);
-      margin-right: 5px;
       position: relative;
       z-index: 1;
-      width: auto;
+      width: 20%;
+      margin-inline: auto;
       cursor: default;
     }
   }
