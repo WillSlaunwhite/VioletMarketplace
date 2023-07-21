@@ -1,7 +1,8 @@
-@import '~bootstrap/scss/bootstrap';
-@import '/src/scss/components/tokens/big-card';
+@import '/src/scss/utils/variables';
+@import '/src/scss/utils/mixins';
 
 .tokens-container {
+  @include flex-align-justify-direction($justify: center, $direction: row);
   position: relative;
   height: 100%;
   width: 100%;
@@ -11,20 +12,9 @@
   scroll-behavior: auto;
   margin: auto;
   margin-bottom: 0;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
 
-
-  app-big-token-card {
-    margin: auto;
-    margin-bottom: 2.5rem;
-  }
-
-  app-big-token-card:first-of-type {
-    margin-left: 2.5em;
-  }
-
-  app-big-token-card:last-of-type {
-    margin-right: 2.5em;
-  }
 
   .scroll-button {
     position: fixed;
@@ -47,28 +37,4 @@
     right: 0;
   }
 
-}
-
-// WEBKIT SCROLLBAR IS NON-STANDARD
-
-.tokens-container::-webkit-scrollbar {
-  overflow: auto;
-  width: .5rem;
-  height: .4rem;
-  scroll-behavior: smooth;
-}
-
-.tokens-container::-webkit-scrollbar-track {
-  margin-inline: 1.5em;
-  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
-  background: transparent;
-  border-radius: 10px;
-  scroll-behavior: smooth;
-}
-
-.tokens-container::-webkit-scrollbar-thumb {
-  background: rgba(71, 29, 144, 0.3);
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-  scroll-behavior: smooth;
 }
