@@ -138,6 +138,15 @@
 }
 
 
+
+
+
+
+
+
+
+
+
 // TODO need to move all gradient definitions here
 @mixin preset-gradients {
   .dg-button-red {
@@ -149,7 +158,7 @@
 
 // hide form field underline
 @mixin hide-underline {
-  .search ::ng-deep .mat-form-field-underline {
+  form ::ng-deep .mat-form-field-underline {
     display: none !important;
   }
 }
@@ -220,4 +229,19 @@
   &::after {
     background-image: $after-background-image;
   }
+}
+
+@mixin purchase-button-divider() {
+  position: absolute;
+  content: '';
+  border: none;
+  top: 10%;
+  width: 1px;
+  height: 75%;
+  z-index: -1;
+  background-color: black; // temporary
+  // background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
+  background-size: 150% 100%;
+  transition: all .8s ease-in-out;
+  pointer-events: none;
 }
