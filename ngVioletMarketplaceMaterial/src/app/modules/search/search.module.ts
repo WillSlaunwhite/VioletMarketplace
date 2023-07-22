@@ -8,12 +8,17 @@ import { SearchEffects } from './state/search.effects';
 import { reducer } from './state/search.reducer';
 import { TokenModule } from '../tokens/token.module';
 import { UserModule } from '../user/user.module';
+import { MaterialModule } from '../material/material.module';
+import { TokenResultsComponent } from './components/results/token-results/token-results.component';
+import { UserResultsComponent } from './components/results/user-results/user-results.component';
 
 
 
 @NgModule({
   declarations: [
-    ResultsComponent
+    ResultsComponent,
+    TokenResultsComponent,
+    UserResultsComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +27,7 @@ import { UserModule } from '../user/user.module';
     EffectsModule.forFeature([SearchEffects]),
     TokenModule,
     UserModule,
+    MaterialModule,
   ],
   exports: [
     ResultsComponent

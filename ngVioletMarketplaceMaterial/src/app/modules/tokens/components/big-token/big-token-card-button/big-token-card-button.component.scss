@@ -1,55 +1,45 @@
 @import '/src/scss/utils/variables';
-@import '/src/scss/components/tokens/big-card';
+@import '/src/scss/utils/mixins';
+// @import '/src/scss/components/tokens/big-card';
 
 // border
 .large-purchase-button-buy::before {
-  position: absolute;
-  content: '';
-  border: none;
-  bottom: -2px;
-  left: 0%;
-  top: 10%;
-  right: -2px;
-  width: 2px;
-  height: 80%;
-  z-index: -1;
-  background-color: black; // temporary
-  // background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
-  background-size: 150% 100%;
-  transition: all .8s ease-in-out;
-  pointer-events: none;
+  @include purchase-button-divider();
+  left: 0;
+}
+
+
+.large-purchase-button-bid::after {
+  @include purchase-button-divider();
+  right: 0;
 }
 
 button {
   width: 50%;
-  text-align: center;
   height: 100%;
-  font-family: "Nunito";
-  color: $text-primary-dark;
-  filter: brightness(2);
-  font-size: 1.75em;
+  @include basic-precise-font($size: 2.5rem, $weight: 300, $align: center);
   z-index: 2;
   margin: .2em 0;
   padding: 0;
-  letter-spacing: .025em;
-  font-weight: 200 !important;
 
   &:hover {
     color: $text-secondary-dark;
   }
 
   &.large-purchase-button-bid {
+    border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
   }
 
   &.large-purchase-button-buy {
+    border-top-right-radius: 0px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
   }
 
   &.large-purchase-button:hover {
     transition: opacity .2s;
-    background-color: hsla(262, 66%, 34%, 0.6);
+    background-color: rgba($primary-dark, 0.85);
   }
 }
