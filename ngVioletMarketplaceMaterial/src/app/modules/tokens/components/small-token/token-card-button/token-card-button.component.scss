@@ -1,12 +1,12 @@
 @import '/src/scss/utils/variables';
+@import '/src/scss/utils/mixins';
 
 .purchase-button {
+  @include basic-bold-font;
   transition: ease-in-out .6s;
   width: 50%;
-  font-family: "Nunito";
-  font-weight: 200;
-  letter-spacing: .1rem;
-  font-size: 1.05rem;
+
+
   background: transparent;
   position: absolute;
   bottom: 0;

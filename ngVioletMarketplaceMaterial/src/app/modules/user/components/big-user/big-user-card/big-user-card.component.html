@@ -1,7 +1,8 @@
 <mat-card class="big-user-card" *ngIf="user">
   <div class="card-front" [routerLink]="['/user/id', user.id]">
     <div class="image-wrapper">
-      <img [src]="user.pictureUrl ?? 'assets/user_images/default_image.png'" class="card-img" />
+      <!--* need to add condition back on line below -->
+      <img [src]="'assets/user_images/default_no_avatar.png'" class="card-img" />
       <div class="glass-pane"></div>
     </div>
     <div class="card-details">
