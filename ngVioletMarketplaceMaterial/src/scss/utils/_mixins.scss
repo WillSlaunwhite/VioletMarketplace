@@ -245,3 +245,13 @@
   transition: all .8s ease-in-out;
   pointer-events: none;
 }
+
+@mixin limit-paragraph-to-n-lines($n: 5) {
+  // LIMIT PARAGRAPH TEXT TO N LINES
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  line-clamp: $n;
+  text-overflow: ellipsis !important;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
