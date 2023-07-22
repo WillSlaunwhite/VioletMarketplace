@@ -73,19 +73,12 @@
       }
 
       .card-img-description {
-        font-size: 1.25rem;
-        width: 95%;
+        @include basic-precise-font($size: 1.4rem, $align: center, $height: 1.75rem);
+        @include limit-paragraph-to-n-lines;
+        width: 90%;
         margin-inline: auto;
         pointer-events: none;
-        text-align: center;
-        // LIMIT PARAGRAPH TEXT TO N LINES
-        text-overflow: ellipsis !important;
-        -webkit-line-clamp: 5;
-        /* number of lines to show */
-        display: -webkit-box;
-        line-clamp: 5;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+
       }
     }
 

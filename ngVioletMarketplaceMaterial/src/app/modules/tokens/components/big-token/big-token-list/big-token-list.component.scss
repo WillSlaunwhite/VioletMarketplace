@@ -4,13 +4,13 @@
 .tokens-container {
   @include flex-align-justify-direction($justify: flex-start, $direction: row);
   position: relative;
-  width: 90%;
+  width: 92.5%;
   overflow-x: scroll;
   flex-wrap: nowrap;
   gap: .5rem;
   scroll-behavior: auto;
   margin: auto;
-  margin-block: 1rem;
+  margin-right: 0;
   padding-bottom: 1rem;
   padding-top: 0.5rem;
   background: rgba(122, 122, 122, 0.2);
