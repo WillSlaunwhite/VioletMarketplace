@@ -4,8 +4,8 @@
 
 :host {
   display: block;
-  width: 24rem;
-  height: 18rem;
+  min-width: 24rem;
+  min-height: 18rem;
   margin: 1rem;
   perspective: 1500px;
 }
@@ -41,11 +41,14 @@
       }
 
       .card-img {
+        background: transparent;
+        image-resolution: from-image;
+        image-rendering: optimizeQuality;
         object-fit: cover;
       }
 
       .glass-pane {
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(170, 170, 170, 0.15);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(4px);
         border-radius: inherit;
@@ -59,21 +62,28 @@
       z-index: 2;
       transition: 0.3s ease-in-out;
       opacity: 0;
+      pointer-events: none;
 
       .card-img-title,
       .card-img-description {
         @include basic-precise-font($size: 1.4rem, $align: center, $weight: 400);
+        margin: 8px 0;
+        padding: 0;
+        pointer-events: none;
       }
 
       .card-img-description {
-        font-size: 1.25rem;
-        width: 95%;
-        margin: auto;
+        @include basic-precise-font($size: 1.4rem, $align: center, $height: 1.75rem);
+        @include limit-paragraph-to-n-lines;
+        width: 90%;
+        margin-inline: auto;
+        pointer-events: none;
+
       }
     }
 
     &:hover .glass-pane {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.45) !important;
       opacity: 0.65;
 
     }
@@ -93,9 +103,11 @@
 
     .token-price {
       @include basic-bold-font($size: 1.5rem, $align: center, $weight: 400);
-      margin-right: 5px;
       position: relative;
       z-index: 1;
+      width: 20%;
+      margin-inline: auto;
+      cursor: default;
     }
   }
 

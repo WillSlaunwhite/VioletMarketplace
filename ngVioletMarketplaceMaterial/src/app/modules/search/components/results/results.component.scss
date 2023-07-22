@@ -1,0 +1,38 @@
+@import '/src/scss/utils/mixins';
+@import '/src/scss/utils/variables';
+
+.results-container {
+  // @include bg-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
+  background: transparent;
+  border-radius: 2px;
+  opacity: .95;
+
+  .search-tab-container {
+    height: 92.5%;
+    width: 100%;
+    margin-top: 1rem;
+
+    // TODO GPT says this is the only way, but
+    // * need to investigate further
+    &::ng-deep.mat-tab-label {
+      width: 45%;
+      height: 4rem;
+      @include basic-bold-font($size: 2.5rem);
+      background: $primary-dark;
+      margin: 0;
+      padding: 0;
+
+      &:first-of-type {
+        margin-left: 5%;
+      }
+    }
+
+    // * THIS WORKS
+    // * literally cannot find another
+    // * way to do this
+    >::ng-deep.mat-tab-body-wrapper {
+      overflow: hidden !important;
+      height: 100% !important;
+    }
+  }
+}

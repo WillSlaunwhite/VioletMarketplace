@@ -1,0 +1,40 @@
+@import '/src/scss/utils/variables';
+@import '/src/scss/utils/mixins';
+
+.users-container {
+  @include flex-align-justify-direction($justify: flex-start, $direction: row);
+  position: relative;
+  width: 90%;
+  height: 80vh;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  gap: .5rem;
+  scroll-behavior: auto;
+  margin: auto;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  background: rgba(122, 122, 122, 0.2);
+  border-radius: 2px;
+
+  .scroll-button {
+    position: fixed;
+    top: 0%;
+    width: 3em;
+    height: 100%;
+    padding-top: 1em;
+    z-index: 2;
+    opacity: .45;
+    cursor: pointer;
+  }
+
+  .scroll-button-left {
+    background: linear-gradient(to left, rgb(0, 0, 0, .3), rgba(0, 0, 0, .6));
+    left: 0;
+  }
+
+  .scroll-button-right {
+    background: linear-gradient(to right, rgb(0, 0, 0, .3), rgba(0, 0, 0, .6));
+    right: 0;
+  }
+
+}

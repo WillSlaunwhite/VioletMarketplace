@@ -1,2 +1,10 @@
-<app-big-token-list [tokens$]="tokens$"></app-big-token-list>
-<app-big-user-list [users$]="users$"></app-big-user-list>
+<div class="results-container">
+  <mat-tab-group class="search-tab-container" [selectedIndex]="1">
+    <mat-tab label="Tokens" class="search-tab search-tab-tokens">
+      <app-token-results [tokens$]="tokens$"></app-token-results>
+    </mat-tab>
+    <mat-tab label="Users" class="search-tab search-tab-users">
+      <app-big-user-list [users$]="users$"></app-big-user-list>
+    </mat-tab>
+  </mat-tab-group>
+</div>

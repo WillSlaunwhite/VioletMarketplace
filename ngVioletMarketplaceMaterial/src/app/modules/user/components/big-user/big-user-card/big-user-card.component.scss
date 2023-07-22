@@ -83,8 +83,7 @@
   .content {
     position: relative;
     top: -35%;
-    /* style the content block here, example: */
-    color: white;
+    color: $text-secondary-dark;
     z-index: 3;
   }
 

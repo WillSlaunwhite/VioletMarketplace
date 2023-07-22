@@ -1,0 +1,28 @@
+@import '/src/scss/utils/variables';
+@import '/src/scss/utils/mixins';
+
+.user-results-container {
+  background: orange;
+  width: 100%;
+  margin: auto;
+  margin-top: 0;
+  position: relative;
+  top: -1rem;
+
+
+  .user-list-container {
+    background: green;
+  }
+
+  .container-header {
+    @include basic-precise-font($size: 2.5rem, $weight: 400);
+    margin: 0;
+    margin-left: 7rem;
+    padding-block: 1rem;
+  }
+
+  .featured-header {
+    padding-top: 2rem;
+  }
+
+}
