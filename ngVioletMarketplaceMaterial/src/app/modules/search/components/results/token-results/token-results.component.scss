@@ -1,0 +1,23 @@
+@import '/src/scss/utils/variables';
+@import '/src/scss/utils/mixins';
+
+
+.results-container {
+  background: rgba(122, 122, 122, 0.2);
+  width: 90%;
+  margin: auto;
+  margin-top: 0;
+  position: relative;
+  top: -1rem;
+
+  .container-header {
+    @include basic-precise-font($size: 2.5rem, $weight: 400);
+    margin: 0;
+    margin-left: 7rem;
+  }
+
+  .featured-header {
+    padding-top: 2rem;
+  }
+
+}
