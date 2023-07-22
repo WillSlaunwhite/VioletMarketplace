@@ -1,0 +1,7 @@
+<div #usersContainer appScroll class="users-container scrollbar-dark">
+  <!-- <button disableRipple mat-button (click)="scrollFarLeft(tokensContainer)" (mouseover)="startScrollLeft(tokensContainer)" (mouseleave)="mouseleaveScroll()" class="scroll-button scroll-button-left">
+    left</button> -->
+  <app-big-user-card *ngFor="let user of users$ | async" [user]="user"></app-big-user-card>
+  <!-- <button disableRipple mat-button (click)="scrollFarRight(tokensContainer)" (mouseover)="startScrollRight(tokensContainer)" (mouseleave)="mouseleaveScroll()"
+    class="scroll-button scroll-button-right">right</button> -->
+</div>

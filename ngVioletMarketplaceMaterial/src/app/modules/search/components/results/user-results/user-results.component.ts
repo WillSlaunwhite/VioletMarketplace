@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import User from 'src/app/models/user';
 
 @Component({
   selector: 'app-user-results',
@@ -7,6 +9,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserResultsComponent implements OnInit {
+  @Input()
+  users$: Observable<User[] | null> = of(null);
 
   constructor() { }
 
