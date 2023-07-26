@@ -7,7 +7,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { secretKey } from 'key';
 import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
@@ -22,7 +21,6 @@ import { ProfileManagementComponent } from '../profile-management/profile-manage
 export class UserPageComponent implements OnInit, AfterViewInit {
   // COIN BASE API KEY
   publicKey = 'RKgBiI3QrJDhUNPD';
-  private secretKey = secretKey;
 
   editProfile: boolean = false;
   user: User = new User();
