@@ -1,22 +1,17 @@
 package com.skilldistillery.marketplace.entities;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Objects;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.skilldistillery.marketplace.converters.AccountStatusConverter;
 import com.skilldistillery.marketplace.enums.AccountStatus;
 import com.skilldistillery.marketplace.interfaces.Searchable;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class User implements Searchable {
@@ -25,6 +20,7 @@ public class User implements Searchable {
     private int id;
     private String username;
     private String password;
+    @Convert(converter = AccountStatusConverter.class)
     @Column(name = "account_status")
     private AccountStatus accountStatus;
     private String role;

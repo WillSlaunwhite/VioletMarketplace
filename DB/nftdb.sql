@@ -111,10 +111,11 @@ CREATE TABLE IF NOT EXISTS `market_transfer` (
   `description` VARCHAR(100) NULL,
   `seller_id` INT NOT NULL,
   `buyer_id` INT NOT NULL,
+  `block_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_market_transfer_user1_idx` (`seller_id` ASC),
   INDEX `fk_market_transfer_user2_idx` (`buyer_id` ASC),
-  CONSTRAINT `fk_transaction_token1`
+  CONSTRAINT `fk_market_transfer_token1`
     FOREIGN KEY (`token_id`)
     REFERENCES `token` (`id`)
     ON DELETE NO ACTION
@@ -127,6 +128,11 @@ CREATE TABLE IF NOT EXISTS `market_transfer` (
   CONSTRAINT `fk_market_transfer_user2`
     FOREIGN KEY (`buyer_id`)
     REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_market_transfer_block1`
+    FOREIGN KEY (`block_id`)
+    REFERENCES `block` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -156,15 +162,17 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `block`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `block` ;
+DROP TABLE IF EXISTS `block`;
 
 CREATE TABLE IF NOT EXISTS `block` (
   `id` INT NOT NULL,
-  `hash_code` VARCHAR(200) NULL,
-  `prev_hash_code` VARCHAR(200) NOT NULL,
-  `hashcode` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  `nonce` INT NULL,
+  `timestamp` DATETIME NULL,
+  `hash` VARCHAR(255) NULL,
+  `prev_hash` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
