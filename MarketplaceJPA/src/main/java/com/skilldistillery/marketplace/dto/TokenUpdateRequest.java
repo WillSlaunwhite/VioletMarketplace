@@ -1,6 +1,8 @@
 package com.skilldistillery.marketplace.dto;
 
 import com.skilldistillery.marketplace.entities.Collection;
+import com.skilldistillery.marketplace.enums.Rarity;
+import com.skilldistillery.marketplace.enums.Status;
 
 import java.util.Objects;
 
@@ -8,19 +10,18 @@ public class TokenUpdateRequest {
     private int tokenId;
     private String name;
     private String description;
-    private boolean offered;
+    private Status status;
     private int price;
-    private String rarity;
+    private Rarity rarity;
     private String tokenLocation;
     private Collection collection;
 
     public TokenUpdateRequest() {}
 
-    public TokenUpdateRequest(int tokenId, String name, String description, boolean offered, int price, String rarity, String tokenLocation, Collection collection) {
+    public TokenUpdateRequest(int tokenId, String name, String description, Status status, int price, Rarity rarity, String tokenLocation, Collection collection) {
         this.tokenId = tokenId;
         this.name = name;
         this.description = description;
-        this.offered = offered;
         this.price = price;
         this.rarity = rarity;
         this.tokenLocation = tokenLocation;
@@ -59,22 +60,6 @@ public class TokenUpdateRequest {
         this.description = description;
     }
 
-    public boolean isOffered() {
-        return offered;
-    }
-
-    public void setOffered(boolean offered) {
-        this.offered = offered;
-    }
-
-    public String getRarity() {
-        return rarity;
-    }
-
-    public void setRarity(String rarity) {
-        this.rarity = rarity;
-    }
-
     public String getTokenLocation() {
         return tokenLocation;
     }
@@ -91,27 +76,44 @@ public class TokenUpdateRequest {
         this.collection = collection;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Rarity getRarity() {
+        return rarity;
+    }
+
+    public void setRarity(Rarity rarity) {
+        this.rarity = rarity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TokenUpdateRequest that = (TokenUpdateRequest) o;
-        return offered == that.offered && Double.compare(that.price, price) == 0 && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(rarity, that.rarity) && Objects.equals(tokenLocation, that.tokenLocation) && Objects.equals(collection, that.collection);
+        return tokenId == that.tokenId && price == that.price && Objects.equals(name, that.name) && Objects.equals(description, that.description) && status == that.status && rarity == that.rarity && Objects.equals(tokenLocation, that.tokenLocation) && Objects.equals(collection, that.collection);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, offered, price, rarity, tokenLocation, collection);
+        return Objects.hash(tokenId, name, description, status, price, rarity, tokenLocation, collection);
     }
 
     @Override
     public String toString() {
         return "TokenUpdateRequest{" +
-                "name='" + name + '\'' +
+                "tokenId=" + tokenId +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", offered=" + offered +
+                ", status=" + status +
                 ", price=" + price +
-                ", rarity='" + rarity + '\'' +
+                ", rarity=" + rarity +
                 ", tokenLocation='" + tokenLocation + '\'' +
                 ", collection=" + collection +
                 '}';

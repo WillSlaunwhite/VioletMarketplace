@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.skilldistillery.marketplace.enums.Status;
 import com.skilldistillery.marketplace.exceptions.AuthorizationException;
 import com.skilldistillery.marketplace.exceptions.TokenNotFoundException;
 import com.skilldistillery.marketplace.exceptions.UserNotFoundException;
@@ -30,7 +31,7 @@ public class TokenServiceImpl implements TokenService {
 
     @Override
     public Set<Token> index() {
-        return new HashSet<>(tokenRepo.findByOfferedTrue());
+        return new HashSet<>(tokenRepo.findByStatus(Status.AVAILABLE));
     }
 
     @Override
@@ -83,7 +84,7 @@ public class TokenServiceImpl implements TokenService {
         existingToken.setName(request.getName());
         existingToken.setDescription(request.getDescription());
         existingToken.setUpdatedOn(LocalDate.now());
-        existingToken.setOffered(request.isOffered());
+        existingToken.setStatus(request.getStatus());
         existingToken.setPrice(request.getPrice());
         existingToken.setRarity(request.getRarity());
         existingToken.setTokenLocation(request.getTokenLocation());

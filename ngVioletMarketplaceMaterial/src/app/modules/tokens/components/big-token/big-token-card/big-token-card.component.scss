@@ -1,6 +1,6 @@
 // @import '/src/scss/components/tokens/big-card';
-@import '/src/scss/utils/variables';
-@import '/src/scss/utils/mixins';
+@import "/src/scss/utils/variables";
+@import "/src/scss/utils/mixins";
 
 :host {
   display: block;
@@ -23,6 +23,7 @@
   transform-style: preserve-3d;
   border-radius: 6px;
   background: transparent;
+  backdrop-filter: brightness(0.9);
 
   .card-front {
     @include full-size;
@@ -78,14 +79,12 @@
         width: 90%;
         margin-inline: auto;
         pointer-events: none;
-
       }
     }
 
     &:hover .glass-pane {
       background: rgba(0, 0, 0, 0.45) !important;
       opacity: 0.65;
-
     }
 
     &:hover .card-details {
