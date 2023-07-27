@@ -3,6 +3,8 @@ package com.skilldistillery.marketplace.services;
 import com.skilldistillery.marketplace.dto.SearchResults;
 import com.skilldistillery.marketplace.entities.Token;
 import com.skilldistillery.marketplace.entities.User;
+import com.skilldistillery.marketplace.enums.AccountStatus;
+import com.skilldistillery.marketplace.enums.Status;
 import com.skilldistillery.marketplace.repositories.TokenRepository;
 import com.skilldistillery.marketplace.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +29,8 @@ public class SearchServiceImpl implements SearchService {
         SearchResults searchResults = new SearchResults();
 
         if(query.trim().equalsIgnoreCase(ALL_QUERY)) {
-            Set<Token> tokenResults = tokenRepo.findByOfferedTrue();
-            List<User> userResults = userRepo.findByEnabled(true);
+            Set<Token> tokenResults = tokenRepo.findByStatus(Status.AVAILABLE);
+            List<User> userResults = userRepo.findByAccountStatus(AccountStatus.ACTIVE);
             searchResults.setUsers(userResults);
             searchResults.setTokens(tokenResults);
             return searchResults;

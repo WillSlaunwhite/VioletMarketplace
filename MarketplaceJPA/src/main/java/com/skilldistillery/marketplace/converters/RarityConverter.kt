@@ -7,8 +7,8 @@ import javax.persistence.Converter
 @Converter(autoApply = true)
 class RarityConverter : AttributeConverter<Rarity, String> {
 
-    override fun convertToDatabaseColumn(status: Rarity): String {
-        return status.name.lowercase()
+    override fun convertToDatabaseColumn(rarity: Rarity): String {
+        return rarity.name.lowercase()
     }
 
     override fun convertToEntityAttribute(dbData: String): Rarity {

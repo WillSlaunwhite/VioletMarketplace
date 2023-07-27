@@ -11,7 +11,6 @@ import java.util.List;
 
 
 public interface UserRepository extends JpaRepository<User, Integer> {
-    List<User> findByEnabled(boolean enabled);
 	User findByUsername(String username);
     List<User> findByAccountStatus(AccountStatus accountStatus);
 
