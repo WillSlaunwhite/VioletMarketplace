@@ -1,21 +1,17 @@
 package com.skilldistillery.marketplace.entities;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Objects;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.skilldistillery.marketplace.converters.AccountStatusConverter;
+import com.skilldistillery.marketplace.enums.AccountStatus;
 import com.skilldistillery.marketplace.interfaces.Searchable;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class User implements Searchable {
@@ -24,7 +20,9 @@ public class User implements Searchable {
     private int id;
     private String username;
     private String password;
-    private boolean enabled;
+    @Convert(converter = AccountStatusConverter.class)
+    @Column(name = "account_status")
+    private AccountStatus accountStatus;
     private String role;
     private String email;
     private String biography;
@@ -195,12 +193,12 @@ public class User implements Searchable {
         this.password = password;
     }
 
-    public boolean isEnabled() {
-        return enabled;
+    public AccountStatus getAccountStatus() {
+        return accountStatus;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public void setAccountStatus(AccountStatus accountStatus) {
+        this.accountStatus = accountStatus;
     }
 
     public String getRole() {
@@ -267,27 +265,33 @@ public class User implements Searchable {
         this.pictureUrl = pictureUrl;
     }
 
-
     @Override
-    public String toString() {
-        return "User [id=" + id + ", username=" + username + ", enabled=" + enabled + ", role=" + role + ", createdOn="
-                + createdOn + "]";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && Objects.equals(username, user.username) && Objects.equals(displayName, user.displayName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, username, displayName);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        User other = (User) obj;
-        return id == other.id;
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", accountStatus=" + accountStatus +
+                ", role='" + role + '\'' +
+                ", email='" + email + '\'' +
+                ", biography='" + biography + '\'' +
+                ", createdOn=" + createdOn +
+                ", updatedOn=" + updatedOn +
+                ", displayName='" + displayName + '\'' +
+                ", pictureUrl='" + pictureUrl + '\'' +
+                '}';
     }
 }

@@ -1,7 +1,4 @@
-import {
-  AfterViewInit,
-  Component, Input, OnInit
-} from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -33,11 +30,12 @@ export class UserPageComponent implements OnInit, AfterViewInit {
     redButtonConfig: {
       gradientLayers: [
         'linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%)',
-        'linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%)'
+        'linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%)',
       ],
-      borderGradient: 'linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%)'
+      borderGradient:
+        'linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%)',
     },
-  }
+  };
   //  linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1 %, rgba(119, 179, 136, 0.175) 89.58 %), linear - gradient(95.71deg, rgba(14, 14, 69, 0.7) 19.97 %, rgba(136, 181, 223, 0.7) 85.88 %), linear - gradient(93.24deg, #77B388 0.65 %, #D5752A 74.14 %);;
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -65,11 +63,10 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(ProfileManagementComponent, {
       width: '25em',
-      data: { name: "hello", animal: "world" },
-
+      data: { name: 'hello', animal: 'world' },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
     });
   }
@@ -80,7 +77,7 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.auth.currentUser.subscribe(user => {
+    this.auth.currentUser.subscribe((user) => {
       if (user) {
         this.user = user;
       }
@@ -98,7 +95,9 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   }
 
   assignFloatingAnimations() {
-    const buttons = document.querySelectorAll('.button-container .button-wrapper');
+    const buttons = document.querySelectorAll(
+      '.button-container .button-wrapper'
+    );
     buttons.forEach((button: any) => {
       const animationDuration = Math.random() * 10 + 10;
       const animationDelay = Math.random() * 3;
@@ -108,7 +107,7 @@ export class UserPageComponent implements OnInit, AfterViewInit {
         [
           { transform: 'translate(0, 0)' },
           { transform: `translate(${directionX}px, ${directionY}px)` },
-          { transform: 'translate(0, 0)' }
+          { transform: 'translate(0, 0)' },
         ],
         {
           duration: animationDuration * 1000,
@@ -121,7 +120,9 @@ export class UserPageComponent implements OnInit, AfterViewInit {
   }
 
   generateRandomAnimations() {
-    const buttons = Array.from(document.querySelectorAll('.button-container .button-wrapper'));
+    const buttons = Array.from(
+      document.querySelectorAll('.button-container .button-wrapper')
+    );
 
     buttons.forEach((button: any) => {
       button.onmousemove = (e: MouseEvent) => {
@@ -135,13 +136,14 @@ export class UserPageComponent implements OnInit, AfterViewInit {
         const multiplier = 10;
         // button.style.transform = `rotateX(${multiplier * -y}deg) rotateY(${multiplier * x}deg)`;
         // button.style.transform = `rotate(${multiplier * -y}deg, ${multiplier * x}deg)`;
-        button.style.transform = `rotate3d(${multiplier * (-x + y)}, ${multiplier * (-y + x)})`;
-      }
+        button.style.transform = `rotate3d(${multiplier * (-x + y)}, ${
+          multiplier * (-y + x)
+        })`;
+      };
 
       button.onmouseout = () => {
         button.style.transform = '';
-      }
+      };
     });
   }
-
 }
