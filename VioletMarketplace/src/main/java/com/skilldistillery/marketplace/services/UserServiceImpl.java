@@ -1,6 +1,7 @@
 package com.skilldistillery.marketplace.services;
 
 import com.skilldistillery.marketplace.entities.User;
+import com.skilldistillery.marketplace.enums.AccountStatus;
 import com.skilldistillery.marketplace.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,9 +22,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		return userRepo.findByUsername(username);
 	}
 
-	public List<User> getAllEnabledUsers() {
-		return userRepo.findByEnabled(true);
-	}
+	public List<User> getAllActiveUsers() { return userRepo.findByAccountStatus(AccountStatus.ACTIVE); }
 
 	@Override
 	public User show(int userId) {

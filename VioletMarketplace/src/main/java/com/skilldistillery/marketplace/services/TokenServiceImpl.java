@@ -83,7 +83,7 @@ public class TokenServiceImpl implements TokenService {
         existingToken.setName(request.getName());
         existingToken.setDescription(request.getDescription());
         existingToken.setUpdatedOn(LocalDate.now());
-        existingToken.setOffered(request.isOffered());
+        existingToken.getStatus(request.getStatus());
         existingToken.setPrice(request.getPrice());
         existingToken.setRarity(request.getRarity());
         existingToken.setTokenLocation(request.getTokenLocation());
