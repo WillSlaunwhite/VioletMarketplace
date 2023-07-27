@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "market_transfer")
-public class TokenTx {
+public class TokenTxOld {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -34,11 +34,11 @@ public class TokenTx {
     @JoinColumn(name = "token_id")
     private Token token;
 
-    public TokenTx() {
+    public TokenTxOld() {
         super();
     }
 
-    public TokenTx(int id, Token token, String description, LocalDateTime transferDate, User buyer, User seller) {
+    public TokenTxOld(int id, Token token, String description, LocalDateTime transferDate, User buyer, User seller) {
         this.token = token;
         this.description = description;
         this.transferDate = transferDate;
