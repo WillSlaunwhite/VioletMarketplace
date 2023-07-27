@@ -1,6 +1,8 @@
 package com.skilldistillery.marketplace.dto;
 
 import com.skilldistillery.marketplace.entities.Collection;
+import com.skilldistillery.marketplace.enums.Rarity;
+import com.skilldistillery.marketplace.enums.Status;
 
 import java.util.Objects;
 
@@ -8,9 +10,9 @@ public class TokenUpdateRequest {
     private int tokenId;
     private String name;
     private String description;
-    private boolean offered;
+    private Status status;
     private int price;
-    private String rarity;
+    private Rarity rarity;
     private String tokenLocation;
     private Collection collection;
 
@@ -20,7 +22,6 @@ public class TokenUpdateRequest {
         this.tokenId = tokenId;
         this.name = name;
         this.description = description;
-        this.offered = offered;
         this.price = price;
         this.rarity = rarity;
         this.tokenLocation = tokenLocation;
