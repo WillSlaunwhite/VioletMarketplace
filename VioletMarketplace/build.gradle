@@ -8,8 +8,7 @@ plugins {
 	id 'org.jetbrains.kotlin.plugin.jpa' version '1.5.31'
 }
 
-apply plugin: 'war'
-war {
+bootWar {
 	enabled = true
 	archiveFileName = "${archivesBaseName}.war"
 	destinationDirectory = file("../")
