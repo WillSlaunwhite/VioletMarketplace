@@ -59,8 +59,8 @@ public class TokenServiceImpl implements TokenService {
             throw new UserNotFoundException("User with username " + username + " not found.");
         }
 
-        token.setCreator(user);
-        token.setOwner(user);
+        token.creator = user;
+        token.owner = user;
 //		token.setCollection(collectionRepo.findById(1));
         token.setTransfers(txRepository.findAll()); // every token has every transaction
         tokenRepo.saveAndFlush(token);
@@ -75,21 +75,21 @@ public class TokenServiceImpl implements TokenService {
         }
 
         User owner = userRepo.findByUsername(ownerName);
-        if (!owner.equals(existingToken.getOwner())) {
+        if (!owner.equals(existingToken.owner)) {
             throw new AuthorizationException("User does not have permission to update this token.");
         }
 
 
-        existingToken.setId(request.getTokenId());
-        existingToken.setName(request.getName());
+        existingToken.id = request.getTokenId();
+        existingToken.name = request.getName();
         existingToken.setDescription(request.getDescription());
-        existingToken.setUpdatedOn(LocalDate.now());
-        existingToken.setStatus(request.getStatus());
-        existingToken.setPrice(request.getPrice());
-        existingToken.setRarity(request.getRarity());
-        existingToken.setTokenLocation(request.getTokenLocation());
+        existingToken.updatedOn = LocalDate.now();
+        existingToken.status = request.getStatus();
+        existingToken.price = request.getPrice();
+        existingToken.rarity = request.getRarity();
+        existingToken.tokenLocation = request.getTokenLocation();
 
-        existingToken.setCollection(request.getCollection());
+        existingToken.collection = request.getCollection();
         tokenRepo.saveAndFlush(existingToken);
         return existingToken;
     }
@@ -102,11 +102,11 @@ public class TokenServiceImpl implements TokenService {
         }
 
         User buyer = userRepo.findByUsername(buyerName);
-        if (buyer.equals(existingToken.getOwner())) {
+        if (buyer.equals(existingToken.owner)) {
             throw new AuthorizationException("User already owns this token.");
         }
 
-        existingToken.setOwner(buyer);
+        existingToken.owner = buyer;
         tokenRepo.saveAndFlush(existingToken);
         return existingToken;
     }
