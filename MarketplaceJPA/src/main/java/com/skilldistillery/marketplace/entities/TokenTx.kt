@@ -6,15 +6,14 @@ import javax.persistence.*
 @Entity
 @Table(name = "market_transfer")
 data class TokenTx (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
 
-    @Column(name = "transfer_date", nullable = false)
-    val transferDate: LocalDateTime,
+    val timestamp: LocalDateTime,
 
-    @Column(name = "description")
     val description: String?,
+
+    val type: String?,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "token_id")
@@ -40,7 +39,7 @@ data class TokenTx (
         other as TokenTx
 
         if (id != other.id) return false
-        if (transferDate != other.transferDate) return false
+        if (timestamp != other.timestamp) return false
         if (description != other.description) return false
         if (token != other.token) return false
         if (seller != other.seller) return false
@@ -50,7 +49,7 @@ data class TokenTx (
 
     override fun hashCode(): Int {
         var result = id
-        result = 31 * result + transferDate.hashCode()
+        result = 31 * result + timestamp.hashCode()
         result = 31 * result + (description?.hashCode() ?: 0)
         result = 31 * result + token.hashCode()
         result = 31 * result + seller.hashCode()
@@ -60,6 +59,6 @@ data class TokenTx (
     }
 
     override fun toString(): String {
-        return "TokenTx(id=$id, transferDate=$transferDate, description=$description, token=$token, seller=$seller, buyer=$buyer, block=$block)"
+        return "TokenTx(id=$id, transferDate=$timestamp, description=$description, token=$token, seller=$seller, buyer=$buyer, block=$block)"
     }
 }

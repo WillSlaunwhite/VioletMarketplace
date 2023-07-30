@@ -7,111 +7,95 @@ import com.skilldistillery.marketplace.enums.AccountStatus
 import com.skilldistillery.marketplace.interfaces.Searchable
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
+import org.hibernate.proxy.HibernateProxy
 import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.*
 
 @Entity
-class User : Searchable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id = 0
-    var username: String? = null
-    var password: String? = null
+data class User  (
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Int = 0,
+    var username: String? = null,
+    var password: String? = null,
 
     @Convert(converter = AccountStatusConverter::class)
     @Column(name = "account_status")
-    var accountStatus: AccountStatus? = null
-    var role: String? = null
-    var email: String? = null
-    var biography: String? = null
+    var accountStatus: AccountStatus? = null,
+    var role: String? = null,
+    var email: String? = null,
+    var biography: String? = null,
+
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
+    val balances: List<UserCurrencyBalance>  = emptyList(),
 
     @CreationTimestamp
     @Column(name = "created_on")
-    var createdOn: LocalDateTime? = null
+    var createdOn: LocalDateTime? = null,
 
     @UpdateTimestamp
     @Column(name = "updated_on")
-    var updatedOn: LocalDateTime? = null
+    var updatedOn: LocalDateTime? = null,
 
+    @get: JvmName("getDisplayNameProperty")
     @Column(name = "display_name")
-    private var displayName: String? = null
+    var displayName: String? = null,
 
     @Column(name = "picture_url")
-    var pictureUrl: String? = null
+    var pictureUrl: String? = null,
 
-    // added a bunch of json ignore
     @JsonIgnore
     @OneToMany(mappedBy = "user")
-    var carts: List<Cart>? = null
+    var carts: List<Cart>? = null,
 
     @JsonBackReference(value = "sender")
     @OneToMany(mappedBy = "sender")
-    var sentMessages: List<Message>? = null
+    var sentMessages: List<Message>? = null,
 
     @JsonBackReference(value = "recipient")
     @OneToMany(mappedBy = "recipient")
-    var receivedMessages: List<Message>? = null
+    var receivedMessages: List<Message>? = null,
 
     @JsonIgnore
     @OneToMany(mappedBy = "creator")
-    var createdTokens: List<Token>? = null
+    var createdTokens: List<Token>? = null,
 
     @JsonIgnore
     @OneToMany(mappedBy = "owner")
-    var ownedTokens: List<Token>? = null
+    var ownedTokens: List<Token>? = null,
 
     @JsonIgnore
     @OneToMany(mappedBy = "creator")
-    var collectionsCreated: List<Collection>? = null
+    var collectionsCreated: List<Collection>? = null,
 
     @JsonIgnore
     @OneToMany(mappedBy = "seller")
-    var sellerTransfers: List<TokenTx>? = null
+    var sales: List<TokenTx>? = null,
 
     @JsonIgnore
     @OneToMany(mappedBy = "buyer")
-    var buyerTransfers: List<TokenTx>? = null
-    override fun getDescription(): String {
-        return ""
+    var purchases: List<TokenTx>? = null
+) : Searchable {
+    override fun getDisplayName() : String? {
+        return this.displayName ?: this.username
+    }
+    override fun getDescription() : String? {
+        return this.biography;
+    }
+    override fun getType() : String {
+        return "user";
     }
 
-    override fun getType(): String {
-        return "User"
+    final override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || other !is User) return false
+
+        return username == other.username
     }
 
-    override fun getDisplayName(): String {
-        return displayName!!
-    }
-
-    fun setDisplayName(displayName: String?) {
-        this.displayName = displayName
-    }
-
-    override fun equals(o: Any?): Boolean {
-        if (this === o) return true
-        if (o == null || javaClass != o.javaClass) return false
-        val user = o as User
-        return id == user.id && username == user.username && displayName == user.displayName
-    }
-
-    override fun hashCode(): Int {
-        return Objects.hash(id, username, displayName)
-    }
-
+    final override fun hashCode(): Int = username?.hashCode() ?: 0
+    @Override
     override fun toString(): String {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", accountStatus=" + accountStatus +
-                ", role='" + role + '\'' +
-                ", email='" + email + '\'' +
-                ", biography='" + biography + '\'' +
-                ", createdOn=" + createdOn +
-                ", updatedOn=" + updatedOn +
-                ", displayName='" + displayName + '\'' +
-                ", pictureUrl='" + pictureUrl + '\'' +
-                '}'
+        return this::class.simpleName + "(id = $id , username = $username , password = $password , accountStatus = $accountStatus , role = $role , email = $email , biography = $biography , createdOn = $createdOn , updatedOn = $updatedOn , displayName = $displayName , pictureUrl = $pictureUrl )"
     }
 }

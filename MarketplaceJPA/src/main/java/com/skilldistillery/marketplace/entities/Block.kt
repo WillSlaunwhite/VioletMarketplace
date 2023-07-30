@@ -1,5 +1,6 @@
 package com.skilldistillery.marketplace.entities
 
+import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
@@ -7,13 +8,26 @@ import javax.persistence.*
 data class Block (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
+
     @Column(name = "hash_code", nullable = false)
     val hashCode: String,
+
     @Column(name = "previous_hash_code", nullable = false)
     val prevHashCode: String,
-    @OneToMany(mappedBy = "block", cascade = [CascadeType.ALL])
-    val transactions: List<TokenTx> = emptyList()
 
+    @OneToMany(mappedBy = "block", cascade = [CascadeType.ALL])
+    val transactions: List<TokenTx> = emptyList(),
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    val user: User?,
+
+    @Column(name = "transaction_count")
+    val transactionCount: Int?,
+
+    val status: String?,
+
+    val timestamp: LocalDateTime,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
