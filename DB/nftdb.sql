@@ -100,15 +100,37 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `user_currency_balance`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `user_currency_balance` ;
+
+CREATE TABLE IF NOT EXISTS `user_currency_balance` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `currency_type` ENUM('vm_bronze', 'vm_silver', 'vm_gold') NOT NULL,
+  `balance` DECIMAL(16,8) NOT NULL DEFAULT 0.0,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_user_currency_balance1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_user_currency_balance1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+
+-- -----------------------------------------------------
 -- Table `market_transfer`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `market_transfer` ;
 
 CREATE TABLE IF NOT EXISTS `market_transfer` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `transfer_date` DATETIME NOT NULL,
+  `timestamp` DATETIME NOT NULL,
   `token_id` INT NOT NULL,
   `description` VARCHAR(100) NULL,
+  `type` VARCHAR(100) NULL,
   `seller_id` INT NOT NULL,
   `buyer_id` INT NOT NULL,
   `block_id` INT NOT NULL,
@@ -170,7 +192,17 @@ CREATE TABLE IF NOT EXISTS `block` (
   `timestamp` DATETIME NULL,
   `hash` VARCHAR(255) NULL,
   `prev_hash` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  `status` VARCHAR(255) NULL,
+  `transaction_count` INT NULL,
+  `user_id` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `idx_block_hash` (`hash`),
+  INDEX `idx_block_prev_hash` (`prev_hash`),
+  CONSTRAINT `fk_block_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
 
@@ -597,11 +629,19 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `block`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `nftdb`;
+INSERT INTO `block` (`id`, `nonce`, `timestamp`, `hash`, `prev_hash`, `status`, `transaction_count`, `user_id`) VALUES (1, 1, '2020-01-01 10:10:10', 'testhash1', 'testprevhash1', 'teststatus', 1, 1);
+
+COMMIT;
+-- -----------------------------------------------------
 -- Data for table `market_transfer`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
-INSERT INTO `market_transfer` (`id`, `transfer_date`, `token_id`, `description`, `seller_id`, `buyer_id`) VALUES (1, '2020-01-01 10:10:10', 1, 'test transfer', 1, 2);
+INSERT INTO `market_transfer` (`id`, `timestamp`, `type`, `token_id`, `description`, `seller_id`, `buyer_id`, `block_id`) VALUES (1, '2020-01-01 10:10:10', 'purchase', 1, 'test transfer', 1, 2, 1);
 
 COMMIT;
 
