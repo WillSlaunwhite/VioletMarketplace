@@ -105,12 +105,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `user_currency_balance` ;
 
 CREATE TABLE IF NOT EXISTS `user_currency_balance` (
-  `id` INT NOT NULL AUTO_INCREMENT,
   `currency_type` ENUM('vm_bronze', 'vm_silver', 'vm_gold') NOT NULL,
   `balance` DECIMAL(16,8) NOT NULL DEFAULT 0.0,
   `user_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_user_currency_balance1_idx` (`user_id` ASC),
+  PRIMARY KEY (`user_id`, `currency_type`),
   CONSTRAINT `fk_user_currency_balance1`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)

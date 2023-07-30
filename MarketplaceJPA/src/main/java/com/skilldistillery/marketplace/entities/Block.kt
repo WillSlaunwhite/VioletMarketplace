@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "block")
-data class Block (
+data class Block(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
 
@@ -21,6 +21,7 @@ data class Block (
     @ManyToOne
     @JoinColumn(name = "user_id")
     val user: User?,
+
 
     @Column(name = "transaction_count")
     val transactionCount: Int?,
