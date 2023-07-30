@@ -30,7 +30,7 @@ class Message {
     @JoinColumn(name = "recipient_id")
     var recipient: User? = null
 
-    @OneToMany(mappedBy = field)
+    @OneToMany(mappedBy = "message")
     var replies: List<Message>? = null
 
     @ManyToOne

@@ -14,16 +14,21 @@ import javax.persistence.*
 
 @Entity
 class Token : Searchable {
+    @JvmField
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id = 0
+    @JvmField
     var name: String? = null
     private var description: String? = null
+    @JvmField
     var price = 0
 
+    @JvmField
     @Convert(converter = StatusConverter::class)
     var status: Status? = null
 
+    @JvmField
     @Convert(converter = RarityConverter::class)
     var rarity: Rarity? = null
 
@@ -31,13 +36,16 @@ class Token : Searchable {
     @Column(name = "release_date")
     var releaseDate: LocalDate? = null
 
+    @JvmField
     @UpdateTimestamp
     @Column(name = "updated_on")
     var updatedOn: LocalDate? = null
 
+    @JvmField
     @Column(name = "token_location")
     var tokenLocation: String? = null
 
+    @JvmField
     @ManyToOne
     @JoinColumn(name = "collection_id")
     var collection: Collection? = null
@@ -46,10 +54,12 @@ class Token : Searchable {
     @OneToMany(mappedBy = "token")
     var transfers: List<TokenTx>? = null
 
+    @JvmField
     @ManyToOne
     @JoinColumn(name = "creator_id")
     var creator: User? = null
 
+    @JvmField
     @ManyToOne
     @JoinColumn(name = "owner_id")
     var owner: User? = null
