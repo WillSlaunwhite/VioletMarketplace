@@ -1,20 +1,27 @@
+<app-balance-display></app-balance-display>
 <div class="container-fluid d-flex">
-  <div class="main-content">
-    <div class="top-twenty">
-      <div class="hero-section">
-        Create, exchange, and explore thousands of tokens.<br>
-        Become part of the digital art revolution - turn your favorite media
-        into Tokens you can bid on, buy, sell and trade with your friends.
-      </div>
-    </div>
-    <div class="middle-half">
-      <div class="cta-container">
-        <h2 class="token-list-header">Start trading with your friends</h2>
-        <app-double-grad-button label="Join Now" (click)="openRegisterDialog()" [size]="'large'" [gradient]="'primary'" class="grad-button dg-button-register"></app-double-grad-button>
-      </div>
-      <div class="token-list-container">
-        <app-big-token-list [tokens$]="tokens$"></app-big-token-list>
-      </div>
-    </div>
-  </div>
+	<div class="main-content">
+		<div class="top-twenty">
+			<div class="hero-section">
+				Create, exchange, and explore thousands of tokens.<br />
+				Become part of the digital art revolution - turn your favorite media into Tokens you can bid on, buy,
+				sell and trade with your friends.
+			</div>
+		</div>
+		<div class="middle-half">
+			<div class="cta-container">
+				<h2 class="token-list-header">Start trading with your friends</h2>
+				<app-double-grad-button
+					label="Join Now"
+					(click)="openRegisterDialog()"
+					[size]="'large'"
+					[gradient]="'primary'"
+					class="grad-button dg-button-register"
+				></app-double-grad-button>
+			</div>
+			<div class="token-list-container">
+				<app-big-token-list [tokens$]="tokens$"></app-big-token-list>
+			</div>
+		</div>
+	</div>
 </div>

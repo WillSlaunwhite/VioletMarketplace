@@ -8,6 +8,7 @@ import { UserModule } from '../user/user.module';
 import { RegisterModule } from '../register/register.module';
 import { LoginModule } from '../login/login.module';
 import { SearchModule } from '../search/search.module';
+import { UserBalanceModule } from '../user/modules/user-balance/user-balance.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SearchModule } from '../search/search.module';
     RegisterModule,
     LoginModule,
     SearchModule,
+    UserBalanceModule,
   ]
 })
 export class HomeModule { }
