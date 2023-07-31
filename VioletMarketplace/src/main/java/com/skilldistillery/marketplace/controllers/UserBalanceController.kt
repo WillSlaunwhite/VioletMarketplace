@@ -1,5 +1,6 @@
 package com.skilldistillery.marketplace.controllers
 
+import com.skilldistillery.marketplace.entities.UserCurrencyBalance
 import com.skilldistillery.marketplace.enums.CurrencyType
 import com.skilldistillery.marketplace.services.UserBalanceServiceImpl
 import org.springframework.http.ResponseEntity
@@ -29,15 +30,15 @@ class UserBalanceController(private val userBalanceService: UserBalanceServiceIm
     }
 
     @GetMapping("/{userId}/balance/{currencyType}")
-    fun getBalance(@PathVariable userId: Int, @PathVariable currencyType: CurrencyType): ResponseEntity<BigDecimal> {
+    fun getBalance(@PathVariable userId: Int, @PathVariable currencyType: CurrencyType): ResponseEntity<UserCurrencyBalance> {
         val balance = userBalanceService.getBalance(userId, currencyType)
         return ResponseEntity.ok(balance)
     }
 
 
     @GetMapping("/{userId}/balance")
-    fun getAllBalances(@PathVariable userId: Int): ResponseEntity<List<BigDecimal>> {
-        val balances: List<BigDecimal> = userBalanceService.getAllBalances(userId)
+    fun getAllBalances(@PathVariable userId: Int): ResponseEntity<List<UserCurrencyBalance>> {
+        val balances: List<UserCurrencyBalance> = userBalanceService.getAllBalances(userId)
         return ResponseEntity.ok(balances)
     }
 }
