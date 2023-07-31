@@ -8,6 +8,11 @@ export const selectCurrentUser = createSelector(
   (authState: AuthState) => authState.user
 );
 
+export const selectCurrentUserId = createSelector(
+  selectAuthState,
+  (authState: AuthState) => authState.user?.id ?? null
+);
+
 export const isLoggedIn = createSelector(
   selectAuthState,
   (state: AuthState) => !!state.user
