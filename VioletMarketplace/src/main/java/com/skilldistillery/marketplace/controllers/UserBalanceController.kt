@@ -6,23 +6,26 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import java.math.BigDecimal
+
+data class BalanceRequest(val userId: Int, val currencyType: CurrencyType, val amount: BigDecimal)
 
 @RestController
 @RequestMapping("/api/user-balance")
 class UserBalanceController(private val userBalanceService: UserBalanceServiceImpl) {
 
     @PostMapping("/credit")
-    fun credit(@RequestParam userId: Int, @RequestParam currencyType: CurrencyType, @RequestParam amount: BigDecimal) {
-        userBalanceService.credit(userId, currencyType, amount)
+    fun credit(@RequestBody balanceRequest: BalanceRequest) {
+        userBalanceService.credit(balanceRequest.userId, balanceRequest.currencyType, balanceRequest.amount)
     }
 
     @PostMapping("/debit")
-    fun debit(@RequestParam userId: Int, @RequestParam currencyType: CurrencyType, @RequestParam amount: BigDecimal) {
-        userBalanceService.debit(userId, currencyType, amount)
+    fun debit(@RequestBody balanceRequest: BalanceRequest) {
+        userBalanceService.debit(balanceRequest.userId, balanceRequest.currencyType, balanceRequest.amount)
     }
 
     @GetMapping("/{userId}/balance/{currencyType}")
@@ -33,7 +36,7 @@ class UserBalanceController(private val userBalanceService: UserBalanceServiceIm
 
 
     @GetMapping("/{userId}/balance")
-    fun getAllBalance(@PathVariable userId: Int): ResponseEntity<List<BigDecimal>> {
+    fun getAllBalances(@PathVariable userId: Int): ResponseEntity<List<BigDecimal>> {
         val balances: List<BigDecimal> = userBalanceService.getAllBalances(userId)
         return ResponseEntity.ok(balances)
     }

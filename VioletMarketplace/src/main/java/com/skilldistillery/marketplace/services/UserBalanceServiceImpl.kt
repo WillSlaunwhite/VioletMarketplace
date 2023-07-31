@@ -15,14 +15,15 @@ class UserBalanceServiceImpl(
 ) : UserBalanceService {
     @Transactional
     override fun credit(userId: Int, currencyType: CurrencyType, amount: BigDecimal) {
-        val balance = userCurrencyBalanceRepository.findByUserIdAndCurrencyType(userId, currencyType)
+        val balance = userCurrencyBalanceRepository.findById_UserIdAndId_CurrencyType(userId, currencyType)
             ?: UserCurrencyBalance(UserCurrencyBalanceKey(userId, currencyType), BigDecimal.ZERO)
         balance.balance = balance.balance.add(amount)
         userCurrencyBalanceRepository.saveAndFlush(balance)
     }
 
+    @Transactional
     override fun debit(userId: Int, currencyType: CurrencyType, amount: BigDecimal) {
-        val balance = userCurrencyBalanceRepository.findByUserIdAndCurrencyType(userId, currencyType)
+        val balance = userCurrencyBalanceRepository.findById_UserIdAndId_CurrencyType(userId, currencyType)
             ?: throw IllegalArgumentException("Insufficient Balance")
         if(balance.balance < amount) {
             throw IllegalArgumentException("Insufficient Balance")
@@ -31,13 +32,15 @@ class UserBalanceServiceImpl(
         userCurrencyBalanceRepository.saveAndFlush(balance)
     }
 
+    @Transactional
     override fun getBalance(userId: Int, currencyType: CurrencyType): BigDecimal {
-        val balance = userCurrencyBalanceRepository.findByUserIdAndCurrencyType(userId, currencyType)
+        val balance = userCurrencyBalanceRepository.findById_UserIdAndId_CurrencyType(userId, currencyType)
         return balance?.balance ?: BigDecimal.ZERO
     }
 
+    @Transactional
     override fun getAllBalances(userId: Int): List<BigDecimal> {
-        val balances: List<UserCurrencyBalance> = userCurrencyBalanceRepository.findByUserId(userId)
+        val balances: List<UserCurrencyBalance> = userCurrencyBalanceRepository.findById_UserId(userId)
         val decBalances: MutableList<BigDecimal> = mutableListOf()
         if(balances.isNotEmpty()) {
             for(balance in balances) {
