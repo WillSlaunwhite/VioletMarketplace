@@ -2,13 +2,13 @@ import { UserCurrencyBalance } from '../user-balance.models';
 import { createReducer, on } from '@ngrx/store';
 import * as UserBalanceActions from './user-balance.actions';
 
-export interface State {
+export interface UserBalanceState {
   balances: UserCurrencyBalance[];
   loading: boolean;
   error: string | null;
 }
 
-export const initialState: State = {
+export const initialState: UserBalanceState = {
   balances: [],
   loading: false,
   error: null,
