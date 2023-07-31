@@ -24,14 +24,12 @@ export const reducer = createReducer(
     loading: true,
   })),
   on(searchSuccess, (state, { results }) => {
-    console.log('Incoming results:', results);
     const updatedState = {
       ...state,
       users: results.users,
       tokens: results.tokens,
       loading: false,
     };
-    console.log('Updated state:', updatedState);
     return updatedState;
   }),
   on(searchFailure, (state, { err }) => ({ ...state, error: err, loading: false }))
