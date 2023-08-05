@@ -26,9 +26,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
+  
   onSubmit() {
     const user: User = {
       ...this.loginForm.value
@@ -43,7 +42,7 @@ export class LoginComponent implements OnInit {
 
     this.store.dispatch(login(user));
 
-    // this.dialogRef.close();
+    this.dialogRef.close();
   }
 
 }

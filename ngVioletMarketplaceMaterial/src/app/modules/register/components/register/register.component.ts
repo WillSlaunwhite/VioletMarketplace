@@ -56,8 +56,7 @@ export class RegisterComponent implements OnInit, OnChanges {
       });
   }
 
-  ngOnChanges(): void {
-  }
+  ngOnChanges(): void { }
 
   onSubmit(): void {
     console.log('hello');
@@ -70,6 +69,7 @@ export class RegisterComponent implements OnInit, OnChanges {
 
       // TODO: send user to backend
       this.store.dispatch(registerUser({ user }));
+      this.dialogRef.close();
     } else {
       // * shows all validation
       this.registerForm.markAllAsTouched();
