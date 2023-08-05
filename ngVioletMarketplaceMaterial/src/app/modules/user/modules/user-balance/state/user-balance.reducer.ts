@@ -14,6 +14,7 @@ export const initialState: UserBalanceState = {
   error: null,
 };
 
+
 export const userBalanceReducer = createReducer(
   initialState,
   on(UserBalanceActions.getBalances, (state) => ({ ...state, loading: true })),
