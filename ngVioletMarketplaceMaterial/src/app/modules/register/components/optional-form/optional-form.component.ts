@@ -11,13 +11,9 @@ export class OptionalFormComponent implements OnInit {
   @Input() fields: string[] = [];
   fieldType: string = "text";
 
-  constructor(private fb: FormBuilder) {
-    console.log(this.optionalFormGroup);
-  }
+  constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {
-    console.log(this.fields);
-  }
+  ngOnInit(): void { }
 
   getControl(fieldName: string): FormControl {
     return this.optionalFormGroup.get(fieldName) as FormControl;

@@ -12,8 +12,7 @@ export class LoginFormComponent implements OnInit {
     this.loginForm = this.fb.group({});
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   getControl(name: string): FormControl {
     return this.loginForm.get(name) as FormControl;

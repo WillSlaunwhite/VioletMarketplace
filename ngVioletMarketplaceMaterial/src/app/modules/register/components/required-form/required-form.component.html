@@ -1,15 +1,18 @@
 <div class="tab-content">
-  <div class="form-container">
-    <app-form-field class="form-field" [size]="'large'" [type]="'email'" [label]="'email'" [control]="getControl('email')" [placeholder]="''"></app-form-field>
-    <app-form-field class="form-field" [size]="'large'" [type]="'text'" [label]="'username'" [control]="getControl('username')" [placeholder]="''"></app-form-field>
-    <app-form-field class="form-field" [size]="'large'" [type]="'password'" [label]="'password'" [control]="getControl('password')" [placeholder]="''"></app-form-field>
-    <app-form-field class="form-field" [size]="'large'" [type]="'password'" [label]="'confirm password'" [control]="getControl('confirmPassword')" [placeholder]="''"></app-form-field>
-  </div>
+	<div class="form-container">
+		<app-form-field class="form-field" [size]="'large'" [type]="'email'" [label]="'email'" [control]="getControl('email')" [placeholder]="''"></app-form-field>
+		<app-warning-message *ngIf="getControl('email').hasError('required') && getControl('email').touched" [message]="getErrorMessage('email', 'required')"></app-warning-message>
+		<app-warning-message *ngIf="getControl('email').hasError('email') && getControl('email').touched" [message]="getErrorMessage('email', 'email')"></app-warning-message>
 
-  <div *ngIf="requiredFormFields.hasError('mismatch')" class="labels-container">
-    <mat-label class="text-danger">* Passwords do not match</mat-label>
-  </div>
-  <!-- * Password Match Error -->
-  <!-- * need to fix in .ts -->
+		<app-form-field class="form-field" [size]="'large'" [type]="'text'" [label]="'username'" [control]="getControl('username')" [placeholder]="''"></app-form-field>
+		<app-warning-message *ngIf="getControl('email').hasError('required') && getControl('username').touched" [message]="getErrorMessage('username', 'required')"></app-warning-message>
 
+		<app-form-field class="form-field" [size]="'large'" [type]="'password'" [label]="'password'" [control]="getControl('password')" [placeholder]="''"></app-form-field>
+		<app-warning-message *ngIf="getControl('password').hasError('required') && getControl('password').touched" [message]="getErrorMessage('password', 'required')"></app-warning-message>
+		<app-warning-message *ngIf="getControl('password').hasError('minLength') && getControl('password').touched" [message]="getErrorMessage('password', 'minLength')"></app-warning-message>
+
+		<app-form-field class="form-field" [size]="'large'" [type]="'password'" [label]="'confirm password'" [control]="getControl('confirmPassword')" [placeholder]="''"></app-form-field>
+		<app-warning-message *ngIf="getControl('confirmPassword').hasError('required') && getControl('confirmPassword').touched" [message]="getErrorMessage('confirmPassword' ,'required')"></app-warning-message>
+		<app-warning-message *ngIf="getControl('confirmPassword').hasError('mismatch') && getControl('confirmPassword').touched" [message]="getErrorMessage('confirmPassword', 'mismiatch')"></app-warning-message>
+	</div>
 </div>
