@@ -1,12 +1,7 @@
-<!-- TODO need to make this component dynamic
-* so I can pass in an array of fields and generate
-* a grid based on that instead
-* also, how do I handle the textarea?
-* -->
 <div class="form-content">
-  <div class="form-container">
-    <div *ngFor="let field of fields; index as i; ">
-      <app-form-field class="form-field" [size]="'large'" [type]="getFieldType(field)" [control]="getControl(field | toCamelCase)" [label]="field" [placeholder]="''"></app-form-field>
-    </div>
-  </div>
+	<div class="form-container">
+		<div *ngFor="let field of fields; index as i;">
+			<app-form-field class="form-field" [size]="'large'" [type]="getFieldType(field)" [control]="getControl(field | toCamelCase)" [label]="field" [placeholder]="''"></app-form-field>
+		</div>
+	</div>
 </div>

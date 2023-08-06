@@ -59,20 +59,17 @@ export class RegisterComponent implements OnInit, OnChanges {
   ngOnChanges(): void { }
 
   onSubmit(): void {
-    console.log('hello');
     if (this.registerForm.valid) {
       const user: User = {
         ...this.registerForm.value.requiredFields,
         ...this.registerForm.value.optionalFields
       };
-      console.log(user);
-
-      // TODO: send user to backend
       this.store.dispatch(registerUser({ user }));
       this.dialogRef.close();
     } else {
       // * shows all validation
       this.registerForm.markAllAsTouched();
+      this.selectedTabIndex = 0;
     }
   }
 
