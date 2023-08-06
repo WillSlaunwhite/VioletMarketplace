@@ -58,6 +58,7 @@ import { ScrollDirective } from './directives/scroll.directive';
     FormContainerComponent,
     TabContainerComponent,
     GhostGradButtonComponent,
+    WarningMessageComponent,
   ],
 })
 export class SharedModule { }

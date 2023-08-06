@@ -1,1 +1,3 @@
-<p>warning-message works!</p>
+<div class="warning-container" *ngIf="message">
+  <mat-error class="text-danger">{{message}}</mat-error>
+</div>
