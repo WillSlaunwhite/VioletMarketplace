@@ -74,14 +74,15 @@ export class RegisterComponent implements OnInit, OnChanges {
   }
 
   passwordMatchValidator(fg: FormGroup) {
-    if (fg) {
-      return fg.get('password')!.value === fg.get('confirmPassword')!.value
-        ? null
-        : { mismatch: true };
+    const mismatch = fg.get('password')!.value !== fg.get('confirmPassword')!.value;
+    if (mismatch) {
+      fg.get('confirmPassword')!.setErrors({ mismatch: true });
     } else {
-      return null;
+      fg.get('confirmPassword')!.setErrors(null);
     }
+    return null; // Return null since the error is now on the control itself
   }
+  
 
   get requiredFields(): FormGroup {
     return this.registerForm.get('requiredFields') as FormGroup;
