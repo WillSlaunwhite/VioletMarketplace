@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterModule } from '../register/register.module';
 import BigUserCardComponent from './components/big-user/big-user-card/big-user-card.component';
 import { BigUserListComponent } from './components/big-user/big-user-list/big-user-list.component';
+import { UserBalanceModule } from './modules/user-balance/user-balance.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { BigUserListComponent } from './components/big-user/big-user-list/big-us
     TokenModule,
     SharedModule,
     RegisterModule,
+    UserBalanceModule,
   ],
   exports: [
     ProfileManagementComponent,

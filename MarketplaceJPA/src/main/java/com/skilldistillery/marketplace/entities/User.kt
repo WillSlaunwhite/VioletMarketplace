@@ -26,7 +26,8 @@ data class User  (
     var email: String? = null,
     var biography: String? = null,
 
-    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
+    @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true)
+    @JoinColumn(name = "user_id")
     val balances: List<UserCurrencyBalance>  = emptyList(),
 
     @CreationTimestamp

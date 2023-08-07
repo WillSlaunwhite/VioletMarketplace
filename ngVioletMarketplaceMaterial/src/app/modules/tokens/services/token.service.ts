@@ -27,8 +27,6 @@ export class TokenService {
   }
 
   getByUsername(username: string): Observable<Token[]> {
-    console.log('HERE');
-
     return this.auth.getHttpOptions().pipe(
       switchMap(options =>
         this.http.get<Token[]>(this.baseUrl + 'api/tokens/user/' + username, options).pipe(

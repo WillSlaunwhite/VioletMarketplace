@@ -6,6 +6,7 @@ import { getAllTokens, getUserTokens } from '../../../state/tokens.selectors';
 import { loadTokens, loadUserTokens } from '../../../state/tokens.actions';
 import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import User from 'src/app/models/user';
+import { selectCurrentUser } from 'src/app/modules/user/state/user.selectors';
 
 @Component({
   selector: 'app-token-list',
@@ -24,7 +25,7 @@ export class TokenListComponent implements OnInit, AfterViewInit, AfterContentCh
   constructor(private store: Store, private auth: AuthService) { }
 
   ngOnInit(): void {
-    this.user$ = this.auth.currentUser;
+    this.user$ = this.store.select(selectCurrentUser);
 
     const allTokens$ = this.store.select(getAllTokens);
     const userTokens$ = this.user$.pipe(
@@ -44,7 +45,7 @@ export class TokenListComponent implements OnInit, AfterViewInit, AfterContentCh
           }
         }
       }),
-      // todo backup logic doesn't seem to be working when you get 404 for tokens/user
+      // TODO backup logic doesn't seem to be working when you get 404 for tokens/user
       map(([user, allTokens, userTokens]) => user ? userTokens : allTokens)
     );
   }

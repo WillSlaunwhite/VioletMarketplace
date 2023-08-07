@@ -1,0 +1,5 @@
+<div *ngIf="balances$ | async as balances">
+	<div *ngFor="let balance of balances">
+		<h2>{{ balance.id.currencyType }}: {{ balance.balance }}</h2>
+	</div>
+</div>

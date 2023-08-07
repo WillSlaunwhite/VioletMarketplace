@@ -12,10 +12,6 @@ export class SearchEffects {
     ofType(search),
     mergeMap(({ query }) => {
       return this.searchService.search(query).pipe(
-        tap(results => {
-          console.log('Search results:', results)
-          console.log('Dispatching searchSuccess action with users:', results.users, ' and tokens:', results.tokens);
-        }),
         map(results => searchSuccess({ results })),
         catchError(err => of(searchFailure({ err })))
       )

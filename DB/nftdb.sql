@@ -548,6 +548,35 @@ INSERT INTO `user` (`id`, `username`, `password`, `account_status`, `role`, `cre
 
 COMMIT;
 
+-- -----------------------------------------------------
+-- Data for table `user`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `nftdb`;
+
+INSERT INTO `user_currency_balance` (`currency_type`, `balance`, `user_id`) 
+VALUES 
+('vm_bronze', 1000.00, 1),
+('vm_silver', 500.00, 1),
+('vm_gold', 100.00, 1),
+
+('vm_bronze', 800.00, 2),
+('vm_silver', 400.00, 2),
+('vm_gold', 80.00, 2),
+
+('vm_bronze', 600.00, 3),
+('vm_silver', 300.00, 3),
+('vm_gold', 60.00, 3),
+
+('vm_bronze', 400.00, 4),
+('vm_silver', 200.00, 4),
+('vm_gold', 40.00, 4),
+
+('vm_bronze', 200.00, 5),
+('vm_silver', 100.00, 5),
+('vm_gold', 20.00, 5);
+
+
 
 -- -----------------------------------------------------
 -- Data for table `collection`
@@ -633,7 +662,15 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
+
 INSERT INTO `block` (`id`, `nonce`, `timestamp`, `hash`, `prev_hash`, `status`, `transaction_count`, `user_id`) VALUES (1, 1, '2020-01-01 10:10:10', 'testhash1', 'testprevhash1', 'teststatus', 1, 1);
+INSERT INTO `block` (`id`, `nonce`, `timestamp`, `hash`, `prev_hash`, `status`, `transaction_count`, `user_id`) 
+VALUES 
+(2, 2, '2023-02-28 10:10:10', 'testhash2', 'testhash1', 'teststatus', 2, 2),
+(3, 3, '2023-03-01 10:10:10', 'testhash3', 'testhash2', 'teststatus', 3, 3),
+(4, 4, '2023-03-02 10:10:10', 'testhash4', 'testhash3', 'teststatus', 4, 4),
+(5, 5, '2023-03-03 10:10:10', 'testhash5', 'testhash4', 'teststatus', 5, 5);
+
 
 COMMIT;
 -- -----------------------------------------------------

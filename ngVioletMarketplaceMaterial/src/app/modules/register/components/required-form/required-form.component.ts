@@ -9,6 +9,15 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class RequiredFormComponent implements OnInit {
   requiredFormFields: FormGroup;
 
+  constructor(private fb: FormBuilder) {
+    this.requiredFormFields = this.fb.group({})
+  }
+
+  ngOnInit(): void { 
+    console.log(this.requiredFormFields);
+    
+  }
+
   @Input()
   set formFields(formGroup: FormGroup) {
     if (!(formGroup instanceof FormGroup)) {
@@ -21,11 +30,22 @@ export class RequiredFormComponent implements OnInit {
     return this.requiredFormFields.get(name) as FormControl;
   }
 
-  constructor(private fb: FormBuilder) {
-    this.requiredFormFields = this.fb.group({})
+  getErrorMessage(controlName: string, errorType: string): string {
+    const control = this.requiredFormFields.get(controlName);
+    if (control?.hasError(errorType)) {
+      switch (errorType) {
+        case 'required':
+          return `${controlName} is required`;
+        case 'email':
+          return `Invalid ${controlName}`;
+        case 'minlength':
+          return `Password must be at least 8 characters`;
+        case 'mismatch':
+          return `Passwords must match`;
+        default:
+          return 'default'; // Or some generic error message
+      }
+    }
+    return '';
   }
-
-  ngOnInit(): void {
-  }
-
 }
