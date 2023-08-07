@@ -13,7 +13,10 @@ export class RequiredFormComponent implements OnInit {
     this.requiredFormFields = this.fb.group({})
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    console.log(this.requiredFormFields);
+    
+  }
 
   @Input()
   set formFields(formGroup: FormGroup) {
@@ -29,13 +32,13 @@ export class RequiredFormComponent implements OnInit {
 
   getErrorMessage(controlName: string, errorType: string): string {
     const control = this.requiredFormFields.get(controlName);
-    if (control && control.hasError(errorType)) {
+    if (control?.hasError(errorType)) {
       switch (errorType) {
         case 'required':
           return `${controlName} is required`;
         case 'email':
           return `Invalid ${controlName}`;
-        case 'minLength':
+        case 'minlength':
           return `Password must be at least 8 characters`;
         case 'mismatch':
           return `Passwords must match`;
