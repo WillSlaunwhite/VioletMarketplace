@@ -1,64 +1,58 @@
-@import '/src/scss/utils/mixins';
-@import '/src/scss/utils/variables';
-@import '/src/scss/components/grad-buttons';
+@import "/src/scss/utils/mixins";
+@import "/src/scss/utils/variables";
+@import "/src/scss/components/grad-buttons";
 
+.home-container {
+  height: 92.5vh;
+  @include flex-align-justify-direction($align: center, $direction: column);
 
-.main-content {
-  @include flex-align-justify-direction($align: flex-start, $direction: column);
-  width: 100vw;
-
-  .top-twenty,
-  .middle-half,
-  .bottom {
-    @include flex-align-justify-direction($justify: center, $align: center, $direction: column);
+  .header-token-container {
+    @include flex-align-justify-direction($justify: space-between, $direction: row);
+    height: 50%;
     width: 100%;
 
+    .header-container {
+      @include basic-precise-font($size: 1.9rem, $align: center);
+      @include flex-align-justify-direction($align: center, $justify: center);
+      @include rel-top-left($left: 5%);
+      width: 30%;
+      height: 35vh;
 
-    &.top-twenty {
-      @include basic-precise-font($size: 2rem, $weight: 200, $spacing: .2rem, $align: center);
-      width: 55%;
-      margin: 2.5rem auto auto 18rem;
+      margin-top: 2rem;
     }
 
-    &.middle-half {
-      @include flex-align-justify-direction($align: flex-start, $direction: column);
-      margin-top: 2.5rem;
-      overflow-y: hidden;
+    .token-list-container {
+      height: 100%;
+      width: 100%;
+      @include flex-align-justify-direction($align: flex-end, $justify: center, $direction: column);
 
-      .cta-container {
-        width: 70%;
-        height: 100%;
-
-        .grad-button {
-          @include abs-top-left($top: 27.5%, $left: 65.5%);
-          color: $text-primary-dark;
-        }
-
-        .token-list-header {
-          @include basic-precise-font($size: 3.25rem, $align: start);
-          width: fit-content;
-          padding: 0;
-          margin: 4.25rem 0 auto 20%;
-        }
-      }
-
-      .token-list-container {
-        height: 100%;
-        width: 100%;
-        @include flex-align-justify-direction($align: flex-end, $justify: center, $direction: column);
-
-        app-big-token-list {
-          height: 30em;
-          width: 80%;
-          margin-inline: auto;
-        }
+      app-big-token-list {
+        height: 30em;
+        width: 80%;
+        margin-inline: auto;
       }
     }
   }
-}
 
+  .cta-container {
+    height: 30vh;
+    width: 85%;
+    display: flex;
 
-app-login {
-  width: 50vw;
-  height: 65vh;
+    .token-list-header {
+      width: 70%;
+      @include basic-precise-font($size: 3.25rem, $align: start);
+    }
+
+    .grad-button {
+      width: 30%;
+      margin-top: 2rem;
+      color: $text-primary-dark;
+    }
+  }
+
+  .name-tag {
+    position: absolute;
+    bottom: 0;
+  }
 }
