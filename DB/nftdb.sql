@@ -722,7 +722,6 @@ USE `nftdb`;
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (3, 8); -- Featured movie token
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (4, 8); -- Featured movie token
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (5, 8); -- Featured movie token
-INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (5, 8); -- Featured movie token
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (6, 8); -- Popular movie token
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (8, 8); -- Popular movie token
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (9, 8); -- Featured movie token
@@ -730,7 +729,7 @@ INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (11, 8); -- 
 
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (6, 9); -- Popular movie token
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (8, 9); -- Popular movie token
-INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (11, 8); -- Popular movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (11, 9); -- Popular movie token
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (12, 9); -- Popular movie token
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (13, 9); -- Popular movie token
 COMMIT;
