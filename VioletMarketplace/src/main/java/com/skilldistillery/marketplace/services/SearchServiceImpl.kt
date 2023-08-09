@@ -16,9 +16,10 @@ class SearchServiceImpl(private val userRepo: UserRepository, private val tokenR
     // TODO removed all check from function, need to adjust accordingly
     override fun search(query: String): SearchResults {
         val trieResults = trieRepo.trie.search(query)
+        println(trieResults)
 
-        val tokenResults = trieResults.filter { it.type == "token" }.map { it as Token }.toSet()
-        val userResults = trieResults.filter { it.type == "user" }.map { it as User }.toSet()
+        val tokenResults = trieResults.filter { it.getType() == "token" }.map { it as Token }.toSet()
+        val userResults = trieResults.filter { it.getType() == "user" }.map { it as User }.toSet()
         return SearchResults(userResults, tokenResults)
     }
 }
