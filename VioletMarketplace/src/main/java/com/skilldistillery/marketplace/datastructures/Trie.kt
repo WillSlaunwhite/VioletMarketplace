@@ -10,6 +10,7 @@ class Trie {
     val root = TrieNode()
 
     fun insert(word: String, searchable: Searchable) {
+        println("Inserting word: $word, type: ${searchable.type}")
         var current = root
         for (ch in word) {
             current = current.children.getOrPut(ch) { TrieNode() }
@@ -19,19 +20,23 @@ class Trie {
     }
 
     fun search(prefix: String): List<Searchable> {
+        println("Searching for prefix: $prefix")
         val result = mutableListOf<Searchable>()
-        var current = root
-        for (ch in prefix) {
-            current = current.children[ch] ?: return emptyList()
-        }
-        findWordsFrom(current, prefix, result)
+
+        findWordsFrom(root, "", prefix, result, mutableSetOf())
+        println("Found results: $result")
         return result
     }
 
-    fun findWordsFrom(node: TrieNode, currentWord: String, result: MutableList<Searchable>) {
-        node.searchable?.let { result.add(it) }
+    fun findWordsFrom( node: TrieNode, currentWord: String, prefix: String, result: MutableList<Searchable>, visited: MutableSet<Searchable> ) {
+        println("Exploring word: $currentWord, isEndOfWord: ${node.isEndOfWord}")
+        node.searchable?.let { searchable ->
+            if (currentWord.contains(prefix) && visited.add(searchable)) {
+                result.add(searchable)
+            }
+        }
         for ((ch, child) in node.children) {
-            findWordsFrom(child, currentWord + ch, result)
+            findWordsFrom(child, currentWord + ch, prefix, result, visited)
         }
     }
 }
