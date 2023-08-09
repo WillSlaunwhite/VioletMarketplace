@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 @Service
@@ -22,7 +23,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		return userRepo.findByUsername(username);
 	}
 
-	public List<User> getAllActiveUsers() { return userRepo.findByAccountStatus(AccountStatus.ACTIVE); }
+	public LinkedHashSet<User> getAllActiveUsers() { return userRepo.findByAccountStatus(AccountStatus.ACTIVE); }
 
 	@Override
 	public User show(int userId) {

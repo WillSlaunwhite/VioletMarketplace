@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp
 import org.hibernate.proxy.HibernateProxy
 import java.time.LocalDateTime
 import java.util.*
+import java.util.Collections.emptyList
 import javax.persistence.*
 
 @Entity
@@ -28,7 +29,7 @@ data class User  (
 
     @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true)
     @JoinColumn(name = "user_id")
-    val balances: List<UserCurrencyBalance>  = emptyList(),
+    val balances: Set<UserCurrencyBalance>  = emptySet(),
 
     @CreationTimestamp
     @Column(name = "created_on")
@@ -59,15 +60,15 @@ data class User  (
 
     @JsonIgnore
     @OneToMany(mappedBy = "creator")
-    var createdTokens: List<Token>? = null,
+    var createdTokens: Set<Token>? = null,
 
     @JsonIgnore
     @OneToMany(mappedBy = "owner")
-    var ownedTokens: List<Token>? = null,
+    var ownedTokens: Set<Token>? = null,
 
     @JsonIgnore
     @OneToMany(mappedBy = "creator")
-    var collectionsCreated: List<Collection>? = null,
+    var collectionsCreated: Set<Collection>? = null,
 
     @JsonIgnore
     @OneToMany(mappedBy = "seller")
