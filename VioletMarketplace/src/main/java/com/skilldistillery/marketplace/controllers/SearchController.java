@@ -1,15 +1,10 @@
 package com.skilldistillery.marketplace.controllers;
 
-import com.skilldistillery.marketplace.dto.SearchResults;
-import com.skilldistillery.marketplace.exceptions.TokenNotFoundException;
-import com.skilldistillery.marketplace.exceptions.UserNotFoundException;
-import com.skilldistillery.marketplace.interfaces.Searchable;
+import com.skilldistillery.marketplace.dtos.SearchResults;
 import com.skilldistillery.marketplace.services.SearchServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("api")

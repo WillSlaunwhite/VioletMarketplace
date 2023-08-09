@@ -1,4 +1,4 @@
-package com.skilldistillery.marketplace.dto
+package com.skilldistillery.marketplace.dtos
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.skilldistillery.marketplace.entities.Token
