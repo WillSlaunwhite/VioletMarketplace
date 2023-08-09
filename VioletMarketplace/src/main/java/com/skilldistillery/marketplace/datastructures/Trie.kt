@@ -7,7 +7,7 @@ class TrieNode {
 }
 
 class Trie {
-    private val root = TrieNode()
+    val root = TrieNode()
 
     fun insert(word: String, searchable: Searchable) {
         var current = root

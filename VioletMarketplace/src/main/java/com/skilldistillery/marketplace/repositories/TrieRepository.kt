@@ -22,5 +22,6 @@ class TrieRepository(
             trie.insert("${token.name}", token)
             trie.insert(token.description, token)
         }
+        println(trie.root.children)
     }
 }
