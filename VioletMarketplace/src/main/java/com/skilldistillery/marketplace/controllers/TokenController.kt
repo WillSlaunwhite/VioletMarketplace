@@ -1,6 +1,6 @@
 package com.skilldistillery.marketplace.controllers
 
-import com.skilldistillery.marketplace.dto.TokenUpdateRequest
+import com.skilldistillery.marketplace.dtos.TokenUpdateRequest
 import com.skilldistillery.marketplace.entities.Token
 import com.skilldistillery.marketplace.exceptions.AuthorizationException
 import com.skilldistillery.marketplace.exceptions.InvalidTokenException

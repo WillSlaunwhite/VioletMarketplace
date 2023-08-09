@@ -1,4 +1,4 @@
-package com.skilldistillery.marketplace.dto;
+package com.skilldistillery.marketplace.dtos;
 
 import com.skilldistillery.marketplace.entities.Collection;
 import com.skilldistillery.marketplace.enums.Rarity;

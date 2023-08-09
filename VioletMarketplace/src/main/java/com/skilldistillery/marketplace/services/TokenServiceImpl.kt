@@ -1,10 +1,9 @@
 package com.skilldistillery.marketplace.services
 
-import com.skilldistillery.marketplace.dto.TokenUpdateRequest
+import com.skilldistillery.marketplace.dtos.TokenUpdateRequest
 import com.skilldistillery.marketplace.entities.Token
 import com.skilldistillery.marketplace.enums.Status
 import com.skilldistillery.marketplace.exceptions.AuthorizationException
-import com.skilldistillery.marketplace.exceptions.UserNotFoundException
 import com.skilldistillery.marketplace.repositories.TokenRepository
 import com.skilldistillery.marketplace.repositories.TokenTxRepository
 import com.skilldistillery.marketplace.repositories.UserRepository
