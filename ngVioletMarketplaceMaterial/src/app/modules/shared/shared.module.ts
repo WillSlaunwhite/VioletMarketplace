@@ -20,6 +20,7 @@ import { FormContainerComponent } from './components/forms/form-container/form-c
 import { TabContainerComponent } from './components/tabs/tab-container/tab-container.component';
 import { GhostGradButtonComponent } from './components/buttons/ghost-grad-button/ghost-grad-button.component';
 import { ScrollDirective } from './directives/scroll.directive';
+import { SearchModule } from '../search/search.module';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ScrollDirective } from './directives/scroll.directive';
     UserRoutingModule,
     AngularSvgIconModule,
     ReactiveFormsModule,
+    SearchModule,
   ],
   exports: [
     NavbarComponent,

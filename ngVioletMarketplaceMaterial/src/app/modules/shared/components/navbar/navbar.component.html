@@ -1,8 +1,5 @@
 <mat-toolbar class="toolbar">
-  <div class="brand-container"><svg-icon class="brand" src="/assets/logos/matrix_vm_logo.svg"></svg-icon></div>
-  <form (ngSubmit)="onSubmit()" class="search" [formGroup]="searchForm">
-    <app-form-field [label]="'Search...'" [size]="'large'" [type]="'text'" [control]="searchTerm" [isSubmitOnEnter]="true"></app-form-field>
-  </form>
+<div class="brand-container"><svg-icon class="brand" src="/assets/logos/matrix_vm_logo.svg"></svg-icon></div>
   <div class="links">
     <app-nav-grad-button class="nav-grad-button" buttonText="home" routerLink="/home"></app-nav-grad-button>
     <app-nav-grad-button class="nav-grad-button" buttonText="about us" routerLink="/about"></app-nav-grad-button>
