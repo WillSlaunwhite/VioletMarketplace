@@ -14,6 +14,7 @@ import { UserResultsComponent } from './components/results/user-results/user-res
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { DropdownTileComponent } from './components/dropdown/dropdown-tile/dropdown-tile.component';
 import { DropdownContainerComponent } from './components/dropdown/dropdown-container/dropdown-container.component';
+import { SearchContainerComponent } from './components/search-container/search-container.component';
 
 
 
@@ -24,7 +25,8 @@ import { DropdownContainerComponent } from './components/dropdown/dropdown-conta
     UserResultsComponent,
     SearchBarComponent,
     DropdownTileComponent,
-    DropdownContainerComponent
+    DropdownContainerComponent,
+    SearchContainerComponent
   ],
   imports: [
     CommonModule,

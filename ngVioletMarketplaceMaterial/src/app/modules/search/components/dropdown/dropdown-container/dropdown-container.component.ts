@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchResultItem } from 'src/app/models/search-result-item';
 
 @Component({
   selector: 'app-dropdown-container',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dropdown-container.component.scss']
 })
 export class DropdownContainerComponent implements OnInit {
+  suggestions: SearchResultItem[] = [];
 
   constructor() { }
 

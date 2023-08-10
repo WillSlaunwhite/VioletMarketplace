@@ -1,10 +1,10 @@
-<div *ngIf="result" class="dropdown-tile">
-	<img [src]="result.item.imageUrl" alt="Image" class="tile-image" />
-	<div class="tile-content">
-		<h3 class="tile-title">{{ result.item.title }}</h3>
-		<p class="tile-description">{{ result.item.description }}</p>
-		<p class="tile-type">{{ result.item.type }}</p>
-		<!-- <button class="tile-button">Bid</button>
-      <button class="tile-button">Buy</button> -->
-	</div>
+<div class="dropdown-tile" *ngIf="result">
+	<ng-container *ngIf="userItem; else tokenTemplate">
+		<h3 class="tile-title">{{ userItem.username }}</h3>
+	</ng-container>
+	<ng-template #tokenTemplate>
+		<ng-container *ngIf="tokenItem">
+			<h3 class="tile-title">{{ tokenItem.name }}</h3>
+		</ng-container>
+	</ng-template>
 </div>
