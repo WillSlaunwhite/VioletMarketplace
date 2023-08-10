@@ -2,6 +2,8 @@ package com.skilldistillery.marketplace.repositories
 
 import Trie
 import com.skilldistillery.marketplace.entities.Token
+import com.skilldistillery.marketplace.entities.User
+import com.skilldistillery.marketplace.interfaces.Searchable
 import org.springframework.stereotype.Service
 import javax.annotation.PostConstruct
 
@@ -15,21 +17,21 @@ class TrieRepository(
     @PostConstruct
     fun initialize() {
         userRepository.findAll().forEach { user ->
-            trie.insert("${user.username}", user)
-            trie.insert("${user.displayName}", user)
+            tokenizeAndInsert(user.username, user.id, "User")
+            tokenizeAndInsert(user.displayName, user.id, "User")
         }
 
         tokenRepository.findAll().forEach { token ->
-            trie.insert("${token.name}", token)
-            tokenizeAndInsert(token.description, token)
+            tokenizeAndInsert(token.name, token.id, "Token")
+            tokenizeAndInsert(token.description, token.id, "Token")
         }
     }
 
-    fun tokenizeAndInsert(description: String, token: Token) {
+    fun tokenizeAndInsert(description: String, id: Int, type: String) {
         // Splitting the description by whitespace and punctuation
-        val words = description.split(Regex("\\s+|\\p{Punct}"))
+        val words = description.split(Regex(pattern = "\\s+|\\p{Punct}"))
         words.forEach { word ->
-            trie.insert(word, token)
+            trie.insert(word, id, type)
         }
     }
 }

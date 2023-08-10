@@ -5,7 +5,7 @@ import com.skilldistillery.marketplace.entities.Token
 import com.skilldistillery.marketplace.entities.User
 
 data class SearchResults(
-    @JsonProperty("users") val users: Set<User> = LinkedHashSet(),
-    @JsonProperty("tokens") val tokens: Set<Token> = LinkedHashSet()
+    @JsonProperty("users") val users: MutableSet<CommonUserDTO> = LinkedHashSet(),
+    @JsonProperty("tokens") val tokens: MutableSet<CommonTokenDTO> = LinkedHashSet()
 ) {
 }
