@@ -9,6 +9,8 @@ import java.util.*
 import kotlin.collections.LinkedHashSet
 
 interface TokenRepository : JpaRepository<Token, Int>, CustomTokenRepository {
+    @Query("SELECT COUNT(t) > 0 FROM Token t WHERE t.owner.username = :username AND t.id = :tokenId")
+    fun userOwnsToken(@Param("username") username: String, @Param("tokenId") tokenId: Int): Boolean
     @Query("SELECT t FROM Token t WHERE LOWER(t.name) LIKE LOWER(CONCAT('%',:query,'%')) OR LOWER(t.description) LIKE LOWER(CONCAT('%',:query,'%'))")
     fun findByNameOrDescriptionIgnoreCase(@Param("query") query: String): LinkedHashSet<Token>
     fun findByName(name: String): Token

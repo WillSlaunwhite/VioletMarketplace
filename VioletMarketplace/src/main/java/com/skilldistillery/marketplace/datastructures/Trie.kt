@@ -2,37 +2,38 @@ import com.skilldistillery.marketplace.interfaces.Searchable
 
 class TrieNode {
     var isEndOfWord: Boolean = false
-    var searchable: Searchable? = null
+    var entityReferences: MutableSet<EntityReference> = mutableSetOf()
     var children: MutableMap<Char, TrieNode> = mutableMapOf()
 }
+data class EntityReference(val id: Int, val type: String)
 
 class Trie {
     val root = TrieNode()
 
-    fun insert(word: String, searchable: Searchable) {
-        println("Inserting word: $word, type: ${searchable.type}")
+    fun insert(word: String, id: Int, type: String) {
         var current = root
         for (ch in word) {
             current = current.children.getOrPut(ch) { TrieNode() }
         }
         current.isEndOfWord = true
-        current.searchable = searchable
+        current.entityReferences.add(EntityReference(id, type))
     }
 
-    fun search(prefix: String): List<Searchable> {
+    fun search(prefix: String): Set<EntityReference> {
         println("Searching for prefix: $prefix")
-        val result = mutableListOf<Searchable>()
-
-        findWordsFrom(root, "", prefix, result, mutableSetOf())
-        println("Found results: $result")
-        return result
+        val results = mutableSetOf<EntityReference>()
+        findWordsFrom(root, "", prefix, results, mutableSetOf())
+        println("Found results: $results")
+        return results
     }
 
-    fun findWordsFrom( node: TrieNode, currentWord: String, prefix: String, result: MutableList<Searchable>, visited: MutableSet<Searchable> ) {
-        println("Exploring word: $currentWord, isEndOfWord: ${node.isEndOfWord}")
-        node.searchable?.let { searchable ->
-            if (currentWord.contains(prefix) && visited.add(searchable)) {
-                result.add(searchable)
+    private fun findWordsFrom(node: TrieNode, currentWord: String, prefix: String, result: MutableSet<EntityReference>, visited: MutableSet<EntityReference> ) {
+        println("Match found for prefix: $prefix in word: $currentWord, references: ${node.entityReferences}")
+        if (currentWord.startsWith(prefix)) {
+            node.entityReferences.forEach { reference ->
+                if (visited.add(reference)) {
+                    result.add(reference)
+                }
             }
         }
         for ((ch, child) in node.children) {

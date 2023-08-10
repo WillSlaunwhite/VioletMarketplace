@@ -1,7 +1,10 @@
 package com.skilldistillery.marketplace.services
 
+import com.skilldistillery.marketplace.dtos.CommonTokenDTO
+import com.skilldistillery.marketplace.dtos.CommonUserDTO
 import com.skilldistillery.marketplace.dtos.TokenUpdateRequest
 import com.skilldistillery.marketplace.entities.Token
+import com.skilldistillery.marketplace.entities.User
 import com.skilldistillery.marketplace.enums.Status
 import com.skilldistillery.marketplace.exceptions.AuthorizationException
 import com.skilldistillery.marketplace.repositories.TokenRepository
@@ -43,12 +46,12 @@ class TokenServiceImpl(
     @Transactional
     override fun update(ownerName: String, request: TokenUpdateRequest): Token {
         val existingToken: Token = tokenRepo.findByIdOrThrow(request.tokenId)
-        if (existingToken.owner?.username != ownerName) {
+        if (existingToken.owner.username != ownerName) {
             throw AuthorizationException("User does not have permission to update this token.")
         }
         existingToken.id = request.tokenId
         existingToken.name = request.name
-        existingToken.setDescription(request.description)
+        existingToken.description = request.description
         existingToken.updatedOn = LocalDate.now()
         existingToken.status = request.status
         existingToken.price = request.price
@@ -87,6 +90,9 @@ class TokenServiceImpl(
     }
 
     override fun userOwnsToken(username: String, tid: Int): Boolean {
-        return tokenRepo.findByOwner_UsernameAndId(username, tid) != null
+        return tokenRepo.userOwnsToken(username, tid)
     }
+
+
+
 }
