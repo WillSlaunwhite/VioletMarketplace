@@ -11,6 +11,9 @@ import { UserModule } from '../user/user.module';
 import { MaterialModule } from '../material/material.module';
 import { TokenResultsComponent } from './components/results/token-results/token-results.component';
 import { UserResultsComponent } from './components/results/user-results/user-results.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { DropdownTileComponent } from './components/dropdown/dropdown-tile/dropdown-tile.component';
+import { DropdownContainerComponent } from './components/dropdown/dropdown-container/dropdown-container.component';
 
 
 
@@ -18,7 +21,10 @@ import { UserResultsComponent } from './components/results/user-results/user-res
   declarations: [
     ResultsComponent,
     TokenResultsComponent,
-    UserResultsComponent
+    UserResultsComponent,
+    SearchBarComponent,
+    DropdownTileComponent,
+    DropdownContainerComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +36,10 @@ import { UserResultsComponent } from './components/results/user-results/user-res
     MaterialModule,
   ],
   exports: [
-    ResultsComponent
+    ResultsComponent,
+    SearchBarComponent,
+    DropdownTileComponent,
+    DropdownContainerComponent,
   ]
 })
 export class SearchModule { }
