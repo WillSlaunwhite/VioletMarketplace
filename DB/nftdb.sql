@@ -702,12 +702,38 @@ USE `nftdb`;
 INSERT INTO `category` (`id`, `type`, `description`) VALUES (1, 'image', 'still image tokens');
 INSERT INTO `category` (`id`, `type`, `description`) VALUES (2, 'gif', 'moving images');
 INSERT INTO `category` (`id`, `type`, `description`) VALUES (3, 'code', 'important or valuable snippets of code');
-INSERT INTO `category` (`id`, `type`, `description`) VALUES (4, 'short video', 'videos less than 1 min in length');
-INSERT INTO `category` (`id`, `type`, `description`) VALUES (5, 'long video', 'videos over 1 min in length');
+INSERT INTO `category` (`id`, `type`, `description`) VALUES (4, 'short_video', 'videos less than 1 min in length');
+INSERT INTO `category` (`id`, `type`, `description`) VALUES (5, 'long_video', 'videos over 1 min in length');
 INSERT INTO `category` (`id`, `type`, `description`) VALUES (6, 'music', 'music files ');
 INSERT INTO `category` (`id`, `type`, `description`) VALUES (7, 'audio', 'non-music audiofiles');
+INSERT INTO `category` (`id`, `type`, `description`) VALUES (8, 'featured', 'featured tokens');
+INSERT INTO `category` (`id`, `type`, `description`) VALUES (9, 'popular', 'popular tokens');
+INSERT INTO `category` (`id`, `type`, `description`) VALUES (10, 'most_viewed', 'most viewed tokens');
+COMMIT;
+
 
 COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `token_has_category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `nftdb`;
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (3, 8); -- Featured movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (4, 8); -- Featured movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (5, 8); -- Featured movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (6, 8); -- Popular movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (8, 8); -- Popular movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (9, 8); -- Featured movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (11, 8); -- Featured movie token
+
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (6, 9); -- Popular movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (8, 9); -- Popular movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (11, 9); -- Popular movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (12, 9); -- Popular movie token
+INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (13, 9); -- Popular movie token
+COMMIT;
+
 
 
 -- -----------------------------------------------------

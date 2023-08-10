@@ -3,7 +3,7 @@ package com.skilldistillery.marketplace.services;
 import java.util.Set;
 
 import com.skilldistillery.marketplace.entities.Token;
-import com.skilldistillery.marketplace.dto.TokenUpdateRequest;
+import com.skilldistillery.marketplace.dtos.TokenUpdateRequest;
 
 public interface TokenService {
 	Set<Token> index();

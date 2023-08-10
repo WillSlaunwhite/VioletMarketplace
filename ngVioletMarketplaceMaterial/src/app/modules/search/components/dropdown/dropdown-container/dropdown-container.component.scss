@@ -1,0 +1,17 @@
+.dropdown-container {
+  width: 40vw; // Adjust as needed
+  max-height: calc(4.5vh * 5); // 5 tiles
+  overflow-y: auto;
+  background: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin: auto;
+}
+
+.see-all-results {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  color: #007bff;
+  text-decoration: none;
+}
