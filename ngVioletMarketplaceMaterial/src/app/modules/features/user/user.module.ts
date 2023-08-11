@@ -5,7 +5,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { UserRoutingModule } from './user-routing.module';
 import { EffectsModule } from '@ngrx/effects';
 import { MaterialModule } from '../../material/material.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../ui/shared/shared.module';
 import { TokenModule } from '../../tokens/token.module';
 import BigUserCardComponent from '../../ui/user/big-user-display/big-user-card/big-user-card.component';
 import { UserEffects } from '../register/state/register.effects';

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { SharedRoutingModule } from './modules/shared/shared-routing.module';
+import { SharedRoutingModule } from './modules/ui/shared/shared-routing.module';
 import { HomeRoutingModule } from './modules/home/home-routing.module';
 import { AuthRoutingModule } from './modules/features/auth/auth-routing.module';
 import { TokenRoutingModule } from './modules/tokens/token-routing.module';

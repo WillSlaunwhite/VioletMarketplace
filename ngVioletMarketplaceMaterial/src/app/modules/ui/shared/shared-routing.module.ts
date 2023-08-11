@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { slideInAnimation } from 'src/app/animations/animations';
-import { AboutUsComponent } from './components/about-us/about-us.component';
+import { AboutUsComponent } from '../about-us/about-us.component';
 
 const routes: Routes = [
   {

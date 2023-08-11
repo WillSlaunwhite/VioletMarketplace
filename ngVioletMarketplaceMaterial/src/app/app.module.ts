@@ -8,8 +8,9 @@ import { CoreModule } from './modules/core/core.module';
 import { AuthModule } from './modules/features/auth/auth.module';
 import { UserModule } from './modules/features/user/user.module';
 import { HomeModule } from './modules/home/home.module';
-import { SharedModule } from './modules/shared/shared.module';
+import { SharedModule } from './modules/ui/shared/shared.module';
 import { TokenModule } from './modules/tokens/token.module';
+import { NavigationModule } from './modules/ui/navigation/navigation.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { TokenModule } from './modules/tokens/token.module';
     UserModule,
     AuthModule,
     TokenModule,
+    NavigationModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   bootstrap: [AppComponent],

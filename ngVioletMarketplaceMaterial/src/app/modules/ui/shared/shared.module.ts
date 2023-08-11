@@ -1,32 +1,28 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { MaterialModule } from '../material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AboutUsComponent } from './components/about-us/about-us.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SharedRoutingModule } from './shared-routing.module';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DoubleGradButtonComponent } from './components/buttons/double-grad-button/double-grad-button.component';
-import { NavGradButtonComponent } from './components/buttons/nav-grad-button/nav-grad-button.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { FormFieldComponent } from './components/forms/form-field/form-field.component';
-import { ParagraphComponent } from './components/text/paragraph/paragraph.component';
-import { HeaderComponent } from './components/text/header/header.component';
-import { WarningMessageComponent } from './components/text/warning-message/warning-message.component';
-import { FormContainerComponent } from './components/forms/form-container/form-container.component';
-import { TabContainerComponent } from './components/tabs/tab-container/tab-container.component';
+import { MaterialModule } from '../../material/material.module';
+import { AboutUsComponent } from '../about-us/about-us.component';
+import { DoubleGradButtonComponent } from './components/buttons/double-grad-button/double-grad-button.component';
 import { GhostGradButtonComponent } from './components/buttons/ghost-grad-button/ghost-grad-button.component';
+import { NavGradButtonComponent } from './components/buttons/nav-grad-button/nav-grad-button.component';
+import { FormContainerComponent } from './components/forms/form-container/form-container.component';
+import { FormFieldComponent } from './components/forms/form-field/form-field.component';
+import { TabContainerComponent } from './components/tabs/tab-container/tab-container.component';
+import { HeaderComponent } from './components/text/header/header.component';
+import { ParagraphComponent } from './components/text/paragraph/paragraph.component';
+import { WarningMessageComponent } from './components/text/warning-message/warning-message.component';
 import { ScrollDirective } from './directives/scroll.directive';
+import { SharedRoutingModule } from './shared-routing.module';
 
 @NgModule({
   declarations: [
-    NavbarComponent,
     AboutUsComponent,
     DoubleGradButtonComponent,
     NavGradButtonComponent,
-    SidenavComponent,
     FormFieldComponent,
     FormContainerComponent,
     ParagraphComponent,
@@ -47,8 +43,6 @@ import { ScrollDirective } from './directives/scroll.directive';
     SharedRoutingModule,
   ],
   exports: [
-    NavbarComponent,
-    SidenavComponent,
     AboutUsComponent,
     DoubleGradButtonComponent,
     NavGradButtonComponent,
