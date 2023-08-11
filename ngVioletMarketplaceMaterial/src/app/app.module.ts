@@ -28,34 +28,19 @@ import { MaterialModule } from './modules/material/material.module';
 import { UserEffects } from './modules/register/state/register.effects';
 import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CoreModule } from './modules/core/core.module';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    AppRoutingModule,
+    CoreModule,
     SharedModule,
     HomeModule, // import HomeModule here
-    BrowserModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    NgbModule,
-    AngularSvgIconModule.forRoot(),
-    AngularSvgIconPreloaderModule.forRoot({
-      configUrl: './assets/json/icons.json',
-    }),
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([UserEffects]),
-    FontAwesomeModule,
     UserModule,
     AuthModule,
     TokenModule,
-    MaterialModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
