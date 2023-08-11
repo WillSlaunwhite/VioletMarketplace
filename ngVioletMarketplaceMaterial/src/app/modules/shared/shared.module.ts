@@ -48,7 +48,6 @@ import { SearchModule } from '../search/search.module';
     UserRoutingModule,
     AngularSvgIconModule,
     ReactiveFormsModule,
-    SearchModule,
   ],
   exports: [
     NavbarComponent,
