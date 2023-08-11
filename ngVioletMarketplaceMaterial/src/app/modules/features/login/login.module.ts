@@ -3,7 +3,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SocialMediaContainerComponent } from './components/social-media-container/social-media-container.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { MaterialModule } from '../../material/material.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../ui/shared/shared.module';
 
 
 
@@ -14,7 +14,6 @@ import { SharedModule } from '../../shared/shared.module';
     LoginFormComponent
   ],
   imports: [
-    MaterialModule,
     SharedModule,
   ],
   exports: [

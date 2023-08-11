@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../ui/shared/shared.module';
 import { CreateTokenComponent } from './components/create-token/create-token.component';
 import { TokenEffects } from './state/tokens.effects';
 import { reducer } from './state/tokens.reducer';

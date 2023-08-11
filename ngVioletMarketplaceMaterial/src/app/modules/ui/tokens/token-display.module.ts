@@ -6,7 +6,7 @@ import { TokenListComponent } from './small-token/token-list/token-list.componen
 import { BigTokenCardButtonComponent } from './big-token/big-token-card-button/big-token-card-button.component';
 import { BigTokenCardComponent } from './big-token/big-token-card/big-token-card.component';
 import { BigTokenListComponent } from './big-token/big-token-list/big-token-list.component';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
