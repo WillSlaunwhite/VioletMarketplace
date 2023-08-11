@@ -40,14 +40,13 @@ import { SearchModule } from '../search/search.module';
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     LayoutModule,
     FontAwesomeModule,
-    SharedRoutingModule,
     FormsModule,
-    UserRoutingModule,
     AngularSvgIconModule,
     ReactiveFormsModule,
+    MaterialModule,
+    SharedRoutingModule,
   ],
   exports: [
     NavbarComponent,
@@ -60,6 +59,11 @@ import { SearchModule } from '../search/search.module';
     TabContainerComponent,
     GhostGradButtonComponent,
     WarningMessageComponent,
+    MaterialModule,
+    FormsModule,
+    AngularSvgIconModule,
+    ReactiveFormsModule,
+    SharedRoutingModule,
   ],
 })
 export class SharedModule { }

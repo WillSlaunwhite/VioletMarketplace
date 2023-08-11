@@ -36,7 +36,6 @@ import { SharedModule } from '../shared/shared.module';
     AngularSvgIconModule,
     SharedModule,
     TokenRoutingModule,
-    MaterialModule,
     StoreModule.forFeature('token', reducer),
     EffectsModule.forFeature([TokenEffects])
   ],
