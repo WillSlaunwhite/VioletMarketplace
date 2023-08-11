@@ -17,6 +17,7 @@ import { ParagraphComponent } from './components/text/paragraph/paragraph.compon
 import { WarningMessageComponent } from './components/text/warning-message/warning-message.component';
 import { ScrollDirective } from './directives/scroll.directive';
 import { SharedRoutingModule } from './shared-routing.module';
+import { SocialMediaContainerComponent } from './social-media-container/social-media-container.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SharedRoutingModule } from './shared-routing.module';
     TabContainerComponent,
     GhostGradButtonComponent,
     ScrollDirective,
+    SocialMediaContainerComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +61,7 @@ import { SharedRoutingModule } from './shared-routing.module';
     FontAwesomeModule,
     CommonModule,
     LayoutModule,
+    SocialMediaContainerComponent,
   ],
 })
 export class SharedModule { }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { OptionalFormComponent } from './components/optional-form/optional-form.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './views/register/register.component';
 import { RequiredFormComponent } from './components/required-form/required-form.component';
 import { SummaryTabComponent } from './components/summary-tab/summary-tab.component';
 import { MaterialModule } from '../../material/material.module';

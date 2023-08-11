@@ -4,7 +4,7 @@ import {
 } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AuthService } from './modules/features/auth/services/auth.service';
-import { loadUserTokens } from './modules/tokens/state/tokens.actions';
+import { loadUserTokens } from './modules/features/tokens/state/tokens.actions';
 import { loginSuccess } from './modules/features/user/state/user.actions';
 
 @Component({

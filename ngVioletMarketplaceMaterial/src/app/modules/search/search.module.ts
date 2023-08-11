@@ -4,7 +4,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { UserModule } from '../features/user/user.module';
 import { MaterialModule } from '../material/material.module';
-import { TokenModule } from '../tokens/token.module';
 import { TokenDisplayModule } from "../ui/tokens/token-display.module";
 import { DropdownContainerComponent } from './components/dropdown/dropdown-container/dropdown-container.component';
 import { DropdownTileComponent } from './components/dropdown/dropdown-tile/dropdown-tile.component';
