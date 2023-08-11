@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, map, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import User from '../../../models/user';
+import User from '../../../../models/user';
 import { logout, setJwt } from '../../user/state/user.actions';
 import { selectCurrentUser, selectJwt } from '../../user/state/user.selectors';
 

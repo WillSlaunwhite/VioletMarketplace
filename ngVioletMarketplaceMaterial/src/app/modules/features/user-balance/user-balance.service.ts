@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, switchMap, throwError } from 'rxjs';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { AuthService } from 'src/app/modules/features/auth/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { UserCurrencyBalance } from './user-balance.models';
 

@@ -5,10 +5,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { } from '@angular/material/divider';
 import { LoginComponent } from 'src/app/modules/features/login/components/login/login.component';
 import { Store } from '@ngrx/store';
-import { isLoggedIn, selectCurrentUser } from 'src/app/modules/user/state/user.selectors';
-import { logout, removeJwt } from 'src/app/modules/user/state/user.actions';
+import { isLoggedIn, selectCurrentUser } from 'src/app/modules/features/user/state/user.selectors';
+import { logout, removeJwt } from 'src/app/modules/features/user/state/user.actions';
 import { FormControl, FormGroup } from '@angular/forms';
-import { RegisterComponent } from 'src/app/modules/register/components/register/register.component';
+import { RegisterComponent } from 'src/app/modules/features/register/components/register/register.component';
 import { Router } from '@angular/router';
 
 @Component({

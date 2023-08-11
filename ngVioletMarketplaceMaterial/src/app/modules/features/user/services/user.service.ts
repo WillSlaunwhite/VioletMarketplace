@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, catchError, mergeMap, switchMap, throwError } from 'rxjs';
+import User from 'src/app/models/user';
 import { environment } from 'src/environments/environment';
-import User from '../../../models/user';
 import { AuthService } from '../../auth/services/auth.service';
 
 @Injectable({

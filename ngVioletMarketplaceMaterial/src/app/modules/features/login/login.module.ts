@@ -4,7 +4,6 @@ import { SocialMediaContainerComponent } from './components/social-media-contain
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { MaterialModule } from '../../material/material.module';
 import { SharedModule } from '../../shared/shared.module';
-import { UserModule } from '../../user/user.module';
 
 
 
@@ -17,7 +16,6 @@ import { UserModule } from '../../user/user.module';
   imports: [
     MaterialModule,
     SharedModule,
-    UserModule,
   ],
   exports: [
     LoginComponent

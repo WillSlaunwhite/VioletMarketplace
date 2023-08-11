@@ -15,7 +15,7 @@ import { DropdownTileComponent } from './components/dropdown/dropdown-tile/dropd
 import { DropdownContainerComponent } from './components/dropdown/dropdown-container/dropdown-container.component';
 import { SearchContainerComponent } from './components/search-container/search-container.component';
 import { LoginModule } from '../features/login/login.module';
-import { UserModule } from '../user/user.module';
+import { UserModule } from '../features/user/user.module';
 
 
 

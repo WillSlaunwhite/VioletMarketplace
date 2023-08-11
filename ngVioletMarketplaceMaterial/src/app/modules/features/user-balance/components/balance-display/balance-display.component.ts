@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, filter, of, switchMap, take, tap } from 'rxjs';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
-import { selectCurrentUserId } from 'src/app/modules/user/state/user.selectors';
+import { AuthService } from 'src/app/modules/features/auth/services/auth.service';
+import { selectCurrentUserId } from '../../../user/state/user.selectors';
 import { getBalances } from '../../state/user-balance.actions';
 import { selectAllBalances } from '../../state/user-balance.selectors';
 import { UserCurrencyBalance } from '../../user-balance.models';
