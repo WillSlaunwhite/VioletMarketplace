@@ -1,6 +1,6 @@
-import { UserCurrencyBalance } from '../user-balance.models';
 import { createReducer, on } from '@ngrx/store';
-import * as UserBalanceActions from './user-balance.actions';
+import { UserCurrencyBalance } from '../user-balance.models';
+import { getBalances, getBalancesSuccess, getBalancesFailure, credit, creditSuccess, creditFailure, debit, debitSuccess, debitFailure } from './user-balance.actions';
 
 export interface UserBalanceState {
   balances: UserCurrencyBalance[];
@@ -17,20 +17,20 @@ export const initialState: UserBalanceState = {
 
 export const userBalanceReducer = createReducer(
   initialState,
-  on(UserBalanceActions.getBalances, (state) => ({ ...state, loading: true })),
-  on(UserBalanceActions.getBalancesSuccess, (state, { balances }) => ({
+  on(getBalances, (state) => ({ ...state, loading: true })),
+  on(getBalancesSuccess, (state, { balances }) => ({
     ...state,
     balances,
     loading: false,
   })),
-  on(UserBalanceActions.getBalancesFailure, (state, { error }) => ({
+  on(getBalancesFailure, (state, { error }) => ({
     ...state,
     error,
     loading: false,
   })),
 
-  on(UserBalanceActions.credit, (state) => ({ ...state, loading: true })),
-  on(UserBalanceActions.creditSuccess, (state, { balance }) => {
+  on(credit, (state) => ({ ...state, loading: true })),
+  on(creditSuccess, (state, { balance }) => {
     const balances = [...state.balances];
     const index = balances.findIndex(
       (b) =>
@@ -44,14 +44,14 @@ export const userBalanceReducer = createReducer(
     }
     return { ...state, balances, loading: false };
   }),
-  on(UserBalanceActions.creditFailure, (state, { error }) => ({
+  on(creditFailure, (state, { error }) => ({
     ...state,
     error,
     loading: false,
   })),
 
-  on(UserBalanceActions.debit, (state) => ({ ...state, loading: true })),
-  on(UserBalanceActions.debitSuccess, (state, { balance }) => {
+  on(debit, (state) => ({ ...state, loading: true })),
+  on(debitSuccess, (state, { balance }) => {
     const balances = [...state.balances];
     const index = balances.findIndex(
       (b) =>
@@ -65,7 +65,7 @@ export const userBalanceReducer = createReducer(
     }
     return { ...state, balances, loading: false };
   }),
-  on(UserBalanceActions.debitFailure, (state, { error }) => ({
+  on(debitFailure, (state, { error }) => ({
     ...state,
     error,
     loading: false,

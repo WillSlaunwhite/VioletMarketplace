@@ -10,7 +10,6 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DoubleGradButtonComponent } from './components/buttons/double-grad-button/double-grad-button.component';
 import { NavGradButtonComponent } from './components/buttons/nav-grad-button/nav-grad-button.component';
-import { UserRoutingModule } from '../user/user-routing.module';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { FormFieldComponent } from './components/forms/form-field/form-field.component';
 import { ParagraphComponent } from './components/text/paragraph/paragraph.component';
@@ -20,7 +19,6 @@ import { FormContainerComponent } from './components/forms/form-container/form-c
 import { TabContainerComponent } from './components/tabs/tab-container/tab-container.component';
 import { GhostGradButtonComponent } from './components/buttons/ghost-grad-button/ghost-grad-button.component';
 import { ScrollDirective } from './directives/scroll.directive';
-import { SearchModule } from '../search/search.module';
 
 @NgModule({
   declarations: [
@@ -64,6 +62,9 @@ import { SearchModule } from '../search/search.module';
     AngularSvgIconModule,
     ReactiveFormsModule,
     SharedRoutingModule,
+    FontAwesomeModule,
+    CommonModule,
+    LayoutModule,
   ],
 })
 export class SharedModule { }

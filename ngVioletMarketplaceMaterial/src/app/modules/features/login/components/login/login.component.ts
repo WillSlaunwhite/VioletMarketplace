@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { slideInTop } from 'src/app/animations/animations';
 import User from 'src/app/models/user';
-import { login } from 'src/app/modules/user/state/user.actions';
+import { login } from 'src/app/modules/features/user/state/user.actions';
 
 @Component({
   selector: 'app-login',

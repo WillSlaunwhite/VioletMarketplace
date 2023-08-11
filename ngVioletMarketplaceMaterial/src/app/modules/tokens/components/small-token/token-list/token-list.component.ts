@@ -4,9 +4,9 @@ import Token from 'src/app/models/token';
 import { Observable, combineLatest, filter, map, mergeMap, of, startWith, switchMap, take, tap, withLatestFrom } from 'rxjs';
 import { getAllTokens, getUserTokens } from '../../../state/tokens.selectors';
 import { loadTokens, loadUserTokens } from '../../../state/tokens.actions';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { AuthService } from 'src/app/modules/features/auth/services/auth.service';
 import User from 'src/app/models/user';
-import { selectCurrentUser } from 'src/app/modules/user/state/user.selectors';
+import { selectCurrentUser } from 'src/app/modules/features/user/state/user.selectors';
 
 @Component({
   selector: 'app-token-list',

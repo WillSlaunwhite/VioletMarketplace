@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import Token from 'src/app/models/token';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { AuthService } from 'src/app/modules/features/auth/services/auth.service';
 
 @Component({
   selector: 'app-big-token-list',
