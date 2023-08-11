@@ -1,12 +1,12 @@
-import { AfterContentChecked, AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterContentChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable, combineLatest, filter, map, of, switchMap, tap } from 'rxjs';
 import Token from 'src/app/models/token';
-import { Observable, combineLatest, filter, map, mergeMap, of, startWith, switchMap, take, tap, withLatestFrom } from 'rxjs';
-import { getAllTokens, getUserTokens } from '../../../state/tokens.selectors';
-import { loadTokens, loadUserTokens } from '../../../state/tokens.actions';
-import { AuthService } from 'src/app/modules/features/auth/services/auth.service';
 import User from 'src/app/models/user';
+import { AuthService } from 'src/app/modules/features/auth/services/auth.service';
 import { selectCurrentUser } from 'src/app/modules/features/user/state/user.selectors';
+import { loadTokens, loadUserTokens } from '../../../../tokens/state/tokens.actions';
+import { getAllTokens, getUserTokens } from '../../../../tokens/state/tokens.selectors';
 
 @Component({
   selector: 'app-token-list',
