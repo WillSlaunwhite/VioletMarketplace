@@ -3,13 +3,12 @@ import { Observable } from 'rxjs';
 import User from 'src/app/models/user';
 import { MatDialog } from '@angular/material/dialog';
 import { } from '@angular/material/divider';
-import { LoginComponent } from 'src/app/modules/login/components/login/login.component';
+import { LoginComponent } from 'src/app/modules/features/login/components/login/login.component';
 import { Store } from '@ngrx/store';
 import { isLoggedIn, selectCurrentUser } from 'src/app/modules/user/state/user.selectors';
 import { logout, removeJwt } from 'src/app/modules/user/state/user.actions';
 import { FormControl, FormGroup } from '@angular/forms';
 import { RegisterComponent } from 'src/app/modules/register/components/register/register.component';
-import { search } from 'src/app/modules/search/state/search.actions';
 import { Router } from '@angular/router';
 
 @Component({
