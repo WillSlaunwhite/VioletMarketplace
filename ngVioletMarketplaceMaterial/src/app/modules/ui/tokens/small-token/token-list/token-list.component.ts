@@ -4,9 +4,9 @@ import { Observable, combineLatest, filter, map, of, switchMap, tap } from 'rxjs
 import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/modules/features/auth/services/auth.service';
+import { loadUserTokens, loadTokens } from 'src/app/modules/features/tokens/state/tokens.actions';
+import { getAllTokens, getUserTokens } from 'src/app/modules/features/tokens/state/tokens.selectors';
 import { selectCurrentUser } from 'src/app/modules/features/user/state/user.selectors';
-import { loadTokens, loadUserTokens } from '../../../../tokens/state/tokens.actions';
-import { getAllTokens, getUserTokens } from '../../../../tokens/state/tokens.selectors';
 
 @Component({
   selector: 'app-token-list',
@@ -19,7 +19,6 @@ export class TokenListComponent implements OnInit, AfterViewInit, AfterContentCh
   scrollInterval: any;
   velocity: any;
   startIndex: number = 0;
-  private previousScrollWidth = 0;
   tokensLoaded: boolean = false;
 
   constructor(private store: Store, private auth: AuthService) { }

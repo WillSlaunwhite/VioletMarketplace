@@ -1,17 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { slideInTop } from 'src/app/animations/animations';
 import { AppComponent } from 'src/app/app.component';
 import Token from 'src/app/models/token';
-import { TokenService } from 'src/app/modules/tokens/services/token.service';
-import { loadTokens } from 'src/app/modules/tokens/state/tokens.actions';
-import { getAllTokens } from 'src/app/modules/tokens/state/tokens.selectors';
-import { AngularSvgIconModule } from 'angular-svg-icon';
-import { MatDialog } from '@angular/material/dialog';
-import { RegisterComponent } from 'src/app/modules/features/register/components/register/register.component';
+import { RegisterComponent } from 'src/app/modules/features/register/views/register/register.component';
+import { TokenService } from 'src/app/modules/features/tokens/services/token.service';
+import { getAllTokens } from 'src/app/modules/features/tokens/state/tokens.selectors';
 
 @Component({
   selector: 'app-home',

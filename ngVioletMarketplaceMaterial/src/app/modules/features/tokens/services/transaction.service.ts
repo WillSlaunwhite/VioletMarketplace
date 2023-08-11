@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, switchMap, throwError } from 'rxjs';
 import { Bid } from 'src/app/models/bid';
 import Transaction from 'src/app/models/transaction';
-import { AuthService } from '../../features/auth/services/auth.service';
+import { AuthService } from '../../auth/services/auth.service';
 import { TokenService } from './token.service';
 
 @Injectable({

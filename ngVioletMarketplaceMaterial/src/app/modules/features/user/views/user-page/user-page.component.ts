@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
 import { AuthService } from 'src/app/modules/features/auth/services/auth.service';
-import { TokenService } from 'src/app/modules/tokens/services/token.service';
+import { TokenService } from 'src/app/modules/features/tokens/services/token.service';
 import { ProfileManagementComponent } from '../profile-management/profile-management.component';
 
 @Component({
