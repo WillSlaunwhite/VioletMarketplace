@@ -4,8 +4,8 @@ import { AppComponent } from './app.component';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { CoreModule } from './modules/core/core.module';
-import { HomeModule } from './modules/home/home.module';
+import { CoreModule } from './modules/other/core/core.module';
+import { HomeModule } from './modules/other/home/home.module';
 import { NavigationModule } from './modules/ui/navigation/navigation.module';
 import { SharedModule } from './modules/ui/shared/shared.module';
 

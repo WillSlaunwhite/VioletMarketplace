@@ -5,7 +5,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AuthRoutingModule } from './auth-routing.module';
-import { MaterialModule } from '../../material/material.module';
+import { MaterialModule } from '../../ui/material/material.module';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from '../user/state/user.reducer';
 import { EffectsModule } from '@ngrx/effects';

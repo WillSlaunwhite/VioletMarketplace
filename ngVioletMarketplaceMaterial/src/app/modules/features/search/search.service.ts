@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { AuthService } from '../features/auth/services/auth.service';
+import { AuthService } from '../auth/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, switchMap, tap } from 'rxjs';
 import { SearchResults } from './search-results';
