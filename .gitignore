@@ -11,6 +11,7 @@ bin
 *.angular
 VioletMarketplace/src/main/resources/static/*
 .idea/*
+.env
 /node_modules
 node_modules/
 .vscode
