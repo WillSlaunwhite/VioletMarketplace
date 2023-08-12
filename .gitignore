@@ -12,3 +12,4 @@ bin
 VioletMarketplace/src/main/resources/static/*
 .idea/*
 package-lock.json
+.env
