@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { SearchResultItem } from 'src/app/models/search-result-item';
 
 @Component({
@@ -7,7 +8,7 @@ import { SearchResultItem } from 'src/app/models/search-result-item';
   styleUrls: ['./dropdown-container.component.scss']
 })
 export class DropdownContainerComponent implements OnInit {
-  suggestions: SearchResultItem[] = [];
+  suggestions: Observable<SearchResultItem[]> = of([]);
 
   constructor() { }
 

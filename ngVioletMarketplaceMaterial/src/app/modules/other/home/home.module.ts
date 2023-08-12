@@ -6,6 +6,7 @@ import { SharedModule } from '../../ui/shared/shared.module';
 import { UserBalanceModule } from '../../features/user-balance/user-balance.module';
 import { TokenDisplayModule } from '../../ui/tokens/token-display.module';
 import { SearchDisplayModule } from '../../ui/search-display/search-display.module';
+import { SearchFeatureModule } from '../../features/search/search-feature.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchDisplayModule } from '../../ui/search-display/search-display.modu
     TokenDisplayModule,
     SharedModule,
     UserBalanceModule,
-    SearchDisplayModule
-  ]
+    SearchDisplayModule,
+    SearchFeatureModule,
+  ],
 })
 export class HomeModule { }

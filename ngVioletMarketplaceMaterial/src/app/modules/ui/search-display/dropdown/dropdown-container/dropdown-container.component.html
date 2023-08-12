@@ -1,4 +1,4 @@
 <div class="dropdown-container">
-  <app-dropdown-tile *ngFor="let item of suggestions" [result]="item"></app-dropdown-tile>
+  <app-dropdown-tile *ngFor="let item of suggestions | async" [result]="item"></app-dropdown-tile>
   <a href="#" class="see-all-results">See All Results</a>
 </div>

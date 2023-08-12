@@ -8,6 +8,7 @@ import { DropdownTileComponent } from './dropdown/dropdown-tile/dropdown-tile.co
 import { UserModule } from '../../features/user/user.module';
 import { TokenDisplayModule } from '../tokens/token-display.module';
 import { SharedModule } from '../shared/shared.module';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 
 
@@ -18,9 +19,9 @@ import { SharedModule } from '../shared/shared.module';
     UserResultsComponent,
     DropdownTileComponent,
     DropdownContainerComponent,
+    SearchBarComponent,
   ],
   imports: [
-    CommonModule,
     UserModule,
     TokenDisplayModule,
     SharedModule,
@@ -31,6 +32,7 @@ import { SharedModule } from '../shared/shared.module';
     UserResultsComponent,
     DropdownTileComponent,
     DropdownContainerComponent,
+    SearchBarComponent,
   ]
 })
 export class SearchDisplayModule { }
