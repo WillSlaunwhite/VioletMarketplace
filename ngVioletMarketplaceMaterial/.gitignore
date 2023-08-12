@@ -47,4 +47,6 @@ Thumbs.db
 
 # API Key
 key.ts
+
+# environment
 .env

@@ -11,5 +11,9 @@ bin
 *.angular
 VioletMarketplace/src/main/resources/static/*
 .idea/*
-package-lock.json
 .env
+/node_modules
+node_modules/
+.vscode
+violetmarketplace.git/
+violetmarketplace.git/*
