@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
-import { selectTokens, selectUsers } from '../../state/search.selectors';
+import { selectTokens, selectUsers } from 'src/app/modules/features/search/state/search.selectors';
 
 @Component({
   selector: 'app-results',

@@ -4,7 +4,7 @@ import { ProfileManagementComponent } from './views/profile-management/profile-m
 import { LayoutModule } from '@angular/cdk/layout';
 import { UserRoutingModule } from './user-routing.module';
 import { EffectsModule } from '@ngrx/effects';
-import { MaterialModule } from '../../material/material.module';
+import { MaterialModule } from '../../ui/material/material.module';
 import { SharedModule } from '../../ui/shared/shared.module';
 import BigUserCardComponent from '../../ui/user/big-user-display/big-user-card/big-user-card.component';
 import { UserEffects } from '../register/state/register.effects';

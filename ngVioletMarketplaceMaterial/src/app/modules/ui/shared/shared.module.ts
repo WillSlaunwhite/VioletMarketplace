@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularSvgIconModule } from 'angular-svg-icon';
-import { MaterialModule } from '../../material/material.module';
+import { MaterialModule } from '../material/material.module';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { DoubleGradButtonComponent } from './components/buttons/double-grad-button/double-grad-button.component';
 import { GhostGradButtonComponent } from './components/buttons/ghost-grad-button/ghost-grad-button.component';
