@@ -18,7 +18,7 @@
 
     // * this works btw
     // * doesn't even bleed over
-    ::ng-deep mat-label {
+    ::ng-deep .mat-mdc__text-label {
       letter-spacing: .05rem;
     }
   }

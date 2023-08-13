@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { SearchResultItem } from 'src/app/models/search-result-item';
 import Token from 'src/app/models/token';
 import User from 'src/app/models/user';
@@ -10,22 +9,20 @@ import User from 'src/app/models/user';
   styleUrls: ['./dropdown-tile.component.scss']
 })
 export class DropdownTileComponent implements OnInit {
-  @Input() result: Observable<SearchResultItem | null> = of(null);
+  @Input() result: SearchResultItem | null = null;
   userItem: User | null = null;
-  tokenItem: Token | null = null;
+  tokenItem:Token | null = null;
 
 
   constructor() { }
 
   ngOnInit(): void {
-    this.result.subscribe(searchItem => {
-      if(searchItem && this.isUser(searchItem.item)) {
-        this.userItem = searchItem.item
-      } else if(searchItem && this.isToken(searchItem.item)) {
-        this.tokenItem = searchItem.item;
-
-      }
-    });
+    if (this.result && this.isUser(this.result.item)) {
+      this.userItem = this.result.item;
+    }
+    if (this.result && this.isToken(this.result.item)) {
+      this.tokenItem = this.result.item;
+    }
   }
 
   isUser(obj: User | Token): obj is User {

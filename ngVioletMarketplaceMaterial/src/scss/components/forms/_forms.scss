@@ -8,8 +8,9 @@
 // * hits search bar, etc.
 .search,
 mat-hint,
-.mat-input-element::placeholder,
-.mat-form-field-required-marker {
+.mdc-input-element::placeholder,
+.mat-mdc-text-field-wrapper,
+.form-field-large {
   color: $text-primary-light;
   caret-color: white !important;
   text-decoration: white;
@@ -18,19 +19,19 @@ mat-hint,
 }
 
 // CHANGES INPUT BORDER COLOR
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+::ng-deep .mat-mdc-form-field-appearance-outline .mat-mdc-form-field-outline {
   margin-bottom: 8px;
   color: gray !important;
 }
 
 // CHANGES BORDER COLOR ON FOCUS
-::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+::ng-deep .mat-mdc-form-field-appearance-outline.mat-mdc-focused .mat-mdc-form-field-outline {
   color: white !important;
 }
 
 // HANDLING THE PLACEHOLDER TEXT AND DECORATIONS
 // AS WELL AS AUTOFILL BACKGROUND
-::ng-deep .mat-input-element {
+::ng-deep .mat-mdc-input-element {
   caret-color: $text-primary-dark;
 }
 
@@ -50,8 +51,8 @@ input:-webkit-autofill:active {
 }
 
 // * changes color on focused states
-::ng-deep .ng-valid mat-label,
-::ng-deep .ng-pristine mat-label,
-::ng-deep .mat-focused mat-label {
+::ng-deep .ng-valid mat-mdc__text-label,
+::ng-deep .ng-pristine mat-mdc__text-label,
+::ng-deep .mat-mdc-focused mat-mdc__text-label {
   color: $secondary-light;
 }

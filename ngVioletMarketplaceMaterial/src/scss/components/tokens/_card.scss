@@ -7,7 +7,7 @@
 @include glass-border;
 
 // CARDS
-.mat-card {
+.mat-mdc-card {
   height: 16rem;
   width: 18rem;
   border-radius: 6px;
@@ -24,12 +24,12 @@
     border-radius: 0;
   }
 
-  &.mat-card a {
+  &.mat-mdc-card a {
     @include flex-center;
     align-items: flex-start;
   }
 
-  &.mat-card:hover {
+  &.mat-mdc-card:hover {
     opacity: .975;
     transform: translateY(-3px);
     transition: ease-out .25s;
@@ -38,40 +38,40 @@
 
   }
 
-  &.mat-card:hover .glass-wrapper {
+  &.mat-mdc-card:hover .glass-wrapper {
     opacity: .45;
   }
 
-  &.mat-card img {
+  &.mat-mdc-card img {
     background: transparent;
     image-resolution: from-image;
     image-rendering: optimizeQuality;
   }
 
-  &.mat-card:hover img {
+  &.mat-mdc-card:hover img {
     image-resolution: from-image;
     image-rendering: optimizeQuality;
     animation: clip-fade 10s infinite alternate;
     transition: all .2s;
   }
 
-  &.mat-card:hover .card-img-title {
+  &.mat-mdc-card:hover .card-img-title {
     opacity: 0;
     pointer-events: none;
     transition: ease-in-out .05s;
   }
 
-  &.mat-card:hover .token-price {
+  &.mat-mdc-card:hover .token-price {
     opacity: 1;
     pointer-events: none;
     transition: ease-out .4s;
   }
 
-  &.mat-card:hover.card-img-title {
+  &.mat-mdc-card:hover.card-img-title {
     color: $secondary-dark;
   }
 
-  .mat-card:hover .card-img-description {
+  .mat-mdc-card:hover .card-img-description {
     transition: ease-out .4s;
     pointer-events: none;
 
@@ -86,7 +86,7 @@
     -webkit-box-orient: vertical !important;
   }
 
-  .mat-card-image {
+  .mat-mdc-card-image {
     position: absolute;
     height: 100%;
     margin-top: 0;

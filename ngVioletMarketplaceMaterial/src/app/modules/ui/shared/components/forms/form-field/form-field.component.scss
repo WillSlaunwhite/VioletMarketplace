@@ -1,5 +1,6 @@
 @import '/src/scss/utils/variables';
 @import '/src/scss/utils/mixins';
+@import '/src/scss/components/forms/forms';
 
 .form-field-large {
   width: 100%;
@@ -17,4 +18,12 @@
     caret-color: $text-primary-dark;
   }
 
+}
+
+.mat-mdc-text-wrapper {
+  color: $text-primary-light;
+  caret-color: white !important;
+  text-decoration: white;
+  background: transparent;
+  transition: all ease-out .75s;
 }

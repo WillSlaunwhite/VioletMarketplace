@@ -3,8 +3,8 @@
 // sizing and font for form tabs
 mat-tab,
 mat-tab-label,
-.mat-tab,
-.mat-tab-label {
+.mat-mdc-tab,
+.mat-mdc-tab-label {
   width: 17vw;
   @include basic-precise-font($size: 1.3rem);
 }

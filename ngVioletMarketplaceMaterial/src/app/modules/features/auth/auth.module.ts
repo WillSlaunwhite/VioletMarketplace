@@ -10,19 +10,15 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from '../user/state/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from '../user/state/user.effect';
+import { SharedModule } from '../../ui/shared/shared.module';
 
 
 @NgModule({
   declarations: [
   ],
   imports: [
-    MaterialModule,
-    CommonModule,
-    LayoutModule,
-    ReactiveFormsModule,
-    AngularSvgIconModule,
+    SharedModule,
     AuthRoutingModule,
-    FormsModule,
     StoreModule.forFeature('auth', reducer),
     EffectsModule.forFeature([AuthEffects])
   ],

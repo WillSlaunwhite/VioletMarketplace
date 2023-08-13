@@ -1,9 +1,9 @@
 <div class="dropdown-tile" *ngIf="result">
-	<ng-container *ngIf="userItem | async; else tokenTemplate">
+	<ng-container *ngIf="userItem; else tokenTemplate">
 		<h3 class="tile-title">{{ userItem.username }}</h3>
 	</ng-container>
 	<ng-template #tokenTemplate>
-		<ng-container *ngIf="tokenItem | async">
+		<ng-container *ngIf="tokenItem;">
 			<h3 class="tile-title">{{ tokenItem.name }}</h3>
 		</ng-container>
 	</ng-template>
