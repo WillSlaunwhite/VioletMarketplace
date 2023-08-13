@@ -12,9 +12,11 @@
   border-radius: 2px;
   opacity: 0.95;
 
+  .register-tab,
   .register-tab-container {
-    height: 65vh;
-
+    height: 100%;
+    animation: none !important;
+    transition: none !important;
     // TODO GPT says this is the only way, but
     // * need to investigate further
     &::ng-deep.mdc-tab {
@@ -28,8 +30,12 @@
     // * way to do this
     > ::ng-deep.mdc-tab-body-content {
       overflow: hidden !important;
-      height: 100% !important;
+      height: calc(65vh - 100px) !important;
     }
+  }
+
+  .register-form {
+    height: 100%;
   }
 
   .tab-nav-button {
@@ -55,4 +61,9 @@
 
 .summary-tab {
   overflow: hidden;
+}
+.mat-mdc-tab-group {
+  background: transparent; 
+  border-radius: 2px;
+  height: 100%;
 }
