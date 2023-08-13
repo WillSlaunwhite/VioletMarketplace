@@ -1,24 +1,25 @@
-@import '/src/scss/utils/mixins';
-@import '/src/scss/utils/variables';
+@import "/src/scss/utils/mixins";
+@import "/src/scss/utils/variables";
+@import "/src/scss/components/forms/forms";
 
-
-@include glass-effect(linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
-  radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%));
+@include glass-effect(linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) 70%));
 
 .register-container {
-  @include bg-gradient(linear-gradient(180deg, rgba($primary-dark, .95), rgba($primary-light, .95)));
+  @include bg-gradient(linear-gradient(180deg, rgba($primary-dark, 0.95), rgba($primary-light, 0.95)));
 
   width: 50vw;
   height: 65vh;
   border-radius: 2px;
-  opacity: .95;
+  opacity: 0.95;
 
+  .register-tab,
   .register-tab-container {
-    height: 65vh;
-
+    height: 100%;
+    animation: none !important;
+    transition: none !important;
     // TODO GPT says this is the only way, but
     // * need to investigate further
-    &::ng-deep.mat-tab-label {
+    &::ng-deep.mdc-tab {
       width: 17vw;
       height: 50px;
       @include basic-precise-font($size: 1.3rem);
@@ -27,10 +28,14 @@
     // * THIS WORKS
     // * literally cannot find another
     // * way to do this
-    >::ng-deep.mat-tab-body-wrapper {
+    > ::ng-deep.mdc-tab-body-content {
       overflow: hidden !important;
-      height: 100% !important;
+      height: calc(65vh - 100px) !important;
     }
+  }
+
+  .register-form {
+    height: 100%;
   }
 
   .tab-nav-button {
@@ -45,7 +50,6 @@
   .tab-nav-back {
     left: 5%;
   }
-
 }
 
 .dg-button-container {
@@ -57,4 +61,9 @@
 
 .summary-tab {
   overflow: hidden;
+}
+.mat-mdc-tab-group {
+  background: transparent; 
+  border-radius: 2px;
+  height: 100%;
 }

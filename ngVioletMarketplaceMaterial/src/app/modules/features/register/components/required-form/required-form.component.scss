@@ -2,7 +2,7 @@
 @import '/src/scss/utils/variables';
 
 .tab-content {
-  height: 80%;
+  height: calc(65vh - 50px);
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -10,6 +10,7 @@
   .form-container {
     @include flex-align-justify-direction($direction: column, $justify: space-between);
     width: 60%;
+    height: 80%;
     margin-inline: auto;
     margin-top: 1rem;
   }
@@ -18,7 +19,7 @@
 
     // * this works btw
     // * doesn't even bleed over
-    ::ng-deep mat-label {
+    ::ng-deep .mat-mdc__text-label {
       letter-spacing: .05rem;
     }
   }

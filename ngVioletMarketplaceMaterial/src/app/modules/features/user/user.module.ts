@@ -12,6 +12,8 @@ import { UserBalanceModule } from '../user-balance/user-balance.module';
 import { UserPageComponent } from './views/user-page/user-page.component';
 import { BigUserListComponent } from '../../ui/user/big-user-display/big-user-list/big-user-list.component';
 import { TokenModule } from '../tokens/token.module';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './state/user.reducer';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { TokenModule } from '../tokens/token.module';
     SharedModule,
     UserBalanceModule,
     EffectsModule.forRoot([UserEffects]),
+    StoreModule.forFeature('auth', reducer),
   ],
   exports: [
     ProfileManagementComponent,

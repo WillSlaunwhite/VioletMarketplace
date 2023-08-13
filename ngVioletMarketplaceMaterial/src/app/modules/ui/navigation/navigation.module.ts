@@ -14,9 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SidenavComponent,
   ],
   imports: [
-    CommonModule,
     SharedModule,
-    MaterialModule,
   ],
   exports: [
     NavbarComponent,

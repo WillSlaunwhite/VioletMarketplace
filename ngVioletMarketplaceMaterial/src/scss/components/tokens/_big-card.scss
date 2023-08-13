@@ -12,7 +12,7 @@
   // * most of this is duplicate code from _card.scss
 
   // CARDS
-  .mat-card {
+  .mat-mdc-card {
     height: 22.5rem;
     width: 18rem;
     border-radius: 6px;
@@ -83,7 +83,7 @@
       align-items: flex-start;
     }
 
-    .mat-card-image {
+    .mat-mdc-card-image {
       position: absolute;
       height: 77.5%;
       margin-top: 0;
@@ -125,7 +125,7 @@
       image-rendering: optimizeQuality;
     }
 
-    .mat-card-content {
+    .mat-mdc-card-content {
       text-align: center;
     }
 
