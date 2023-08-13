@@ -1,7 +1,16 @@
-@import '/src/scss/utils/variables';
+@import "/src/scss/utils/variables";
+@import "/src/scss/utils/mixins";
 
+@include glass-effect(
+  linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+  linear-gradient(90deg, rgba(197, 197, 197, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  linear-gradient(180deg, rgba(121, 121, 121, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%)
+);
 
 .button-wrapper {
+  height: 8rem;
+  width: 150px;
   position: relative;
 
   &:hover::before,
@@ -11,9 +20,9 @@
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
-    opacity: .3;
+    opacity: 0.3;
     top: 51%;
     height: 1px;
     z-index: 2;
@@ -28,7 +37,6 @@
 
   &::after {
     left: 106%;
-
   }
 
   &::before {
@@ -38,35 +46,28 @@
 }
 
 // THE A TAGS FOR THE NAV LINKS
-.mdc-button {
-  position: relative;
-  font-size: 1.05em;
-  font-weight: 300;
-  align-items: center;
-  color: $light-gray;
+.nav-button {
+  @include rel-top-left($top: 40%);
+  @include basic-precise-font($size: 1.2rem, $align: center, );
+
   text-decoration: none;
-
-  height: 300px;
-  width: 182.5%;
-  padding-inline: 3rem;
   overflow: hidden;
-  background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
-    linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%);
+  background-image: linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%), linear-gradient(93.31deg, #833ab4 0%, #fd1d1d 53.39%, #fcb045 94.05%);
 
-  transform: rotate(22.5deg) translateX(-8px);
-  filter: blur(.01em) drop-shadow(0px 0px 1px $light-gray);
-  transition: ease-out .6s;
+  transform: rotate(-22.5deg) translateX(25px);
+  filter: blur(0.01em) drop-shadow(0px 0px 1px $light-gray);
+  transition: ease-out 0.6s;
   background-size: 200% 200%;
   animation: gradient 8s linear 10s infinite;
-  opacity: .7;
+  opacity: 0.7;
   z-index: 4;
 
   &:hover {
     color: $text-primary-dark;
     text-decoration: underline;
     text-underline-offset: 10px;
-    text-decoration-thickness: .01rem;
-    transition: ease-out .5s;
+    text-decoration-thickness: 0.01rem;
+    transition: ease-out 0.5s;
     transform: scale(1.025) rotate(22.5deg) translateX(-8px);
     opacity: 1;
     filter: saturate(1.1) brightness(1.2);
@@ -83,7 +84,7 @@
   }
 
   &:hover .glass-wrapper {
-    opacity: .75;
+    opacity: 0.75;
   }
 
   .glass-wrapper {
@@ -96,25 +97,26 @@
     z-index: 2;
     padding: 0;
     margin: 0;
-    opacity: .95;
-    background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%),
+    opacity: 0.95;
+    background: linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%), linear-gradient(90deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%), linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(255, 255, 255, 0.124) 80%),
       radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%);
   }
-
   .glass-wrapper::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
-      radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1) 70%);
     z-index: -1;
     border-radius: 6px;
     padding: 0;
     margin: 0;
+  }
+
+  ::ng-deep .mdc-button__label {
+    @include full-wh-no-mrgpad;
+    display: block;
   }
 }

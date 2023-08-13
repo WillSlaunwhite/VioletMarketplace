@@ -10,11 +10,13 @@
 mat-hint,
 .mdc-input-element::placeholder,
 .mat-mdc-text-field-wrapper,
-.form-field-large {
+.form-field-large,
+.form-field-large *,
+.form-field-large > * {
   color: $text-primary-light;
   caret-color: white !important;
   text-decoration: white;
-  background: transparent;
+  background: transparent !important;
   transition: all ease-out .75s;
 }
 
