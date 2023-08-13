@@ -6,5 +6,9 @@ mat-tab-label,
 .mat-mdc-tab,
 .mat-mdc-tab-label {
   width: 17vw;
+}
+
+.mdc-tab__label,
+.mat-mdc-tab .mdc-tab__text-label {
   @include basic-precise-font($size: 1.3rem);
 }

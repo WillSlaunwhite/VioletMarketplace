@@ -56,18 +56,19 @@
 
 
   .links {
-    display: flex;
     @include basic-precise-font;
+    display: flex;
     text-decoration: none;
     padding-inline-start: 1em;
     margin: 0;
 
     .nav-grad-button {
-      margin-inline: 2.95rem;
+      margin-inline: .4rem;
+      margin-right: calc(.4rem + 1px);
     }
 
     &:last-child {
-      margin-right: 2rem;
+      margin-right: -1rem;
     }
 
   }
