@@ -35,7 +35,7 @@ class TokenServiceImpl(
         token.creator = user
         token.owner = user
         //		token.setCollection(collectionRepo.findById(1));
-        token.transfers = txRepository.findAll() // every token has every transaction
+        token.transfers = txRepository.findAll().toSet()
         tokenRepo.saveAndFlush(token)
         return token
     }

@@ -15,13 +15,13 @@ class BidController(
     /////////////// GET METHODS ///////////////////
     ///// GET ALL BIDS FOR A TOKEN
     @GetMapping("bids/{tokenId}")
-    fun tokenBids(req: HttpServletRequest, resp: HttpServletResponse, @PathVariable tokenId: Int): List<Bid> {
+    fun tokenBids(req: HttpServletRequest, resp: HttpServletResponse, @PathVariable tokenId: Int): Set<Bid> {
         return bidService.userBids(tokenId)
     }
 
     ///// GET A ALL BIDS FOR A USER
     @GetMapping("bids/{userId}")
-    fun userBids(req: HttpServletRequest, resp: HttpServletResponse, @PathVariable userId: Int): List<Bid> {
+    fun userBids(req: HttpServletRequest, resp: HttpServletResponse, @PathVariable userId: Int): Set<Bid> {
         return bidService.userBids(userId)
     }
 

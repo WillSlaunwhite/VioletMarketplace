@@ -1,15 +1,18 @@
 package com.skilldistillery.marketplace.services
 
+import com.skilldistillery.marketplace.entities.Auction
 import com.skilldistillery.marketplace.entities.Bid
+import com.skilldistillery.marketplace.repositories.AuctionRepository
 import com.skilldistillery.marketplace.repositories.BidRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
 class BidServiceImpl(
-    private val bidRepo: BidRepository
+    private val bidRepo: BidRepository,
+    private val auctionRepo: AuctionRepository
 ) : BidService {
-    override fun userBids(userId: Int): List<Bid> {
+    override fun userBids(userId: Int): Set<Bid> {
         return bidRepo.findByUser(userId)
     }
 
@@ -24,7 +27,13 @@ class BidServiceImpl(
         return confirm
     }
 
-    override fun create(bid: Bid): Bid {
-        return bidRepo.saveAndFlush(bid)
+    override fun placeBid(bid: Bid, auction: Auction): Bid {
+        if (bid.offerAmount <= auction.currentHighestBid) {
+            throw IllegalArgumentException("Bid must be higher than the current highest bid")
+        }
+        val savedBid = bidRepo.saveAndFlush(bid)
+        auction.currentHighestBid = bid.offerAmount
+        auctionRepo.save(auction)
+        return bid
     }
 }
