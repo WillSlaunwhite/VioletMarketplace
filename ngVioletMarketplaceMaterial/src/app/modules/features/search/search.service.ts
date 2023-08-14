@@ -18,14 +18,11 @@ export class SearchService {
     return this.auth.getHttpOptions().pipe(
       tap(options => console.log("HTTP Options: ", options)),
       switchMap(options => this.http.get<any>(`${this.url}/${query}`, options).pipe(
-        tap(rawData => console.log('Raw data:', rawData)), // New line
         map(results => {
           let searchResults: SearchResults = {
             tokens: results.tokens || [],
             users: results.users || []
           };
-
-          console.log("Search Results: ", JSON.stringify(searchResults));
           return searchResults;
         })
       ))

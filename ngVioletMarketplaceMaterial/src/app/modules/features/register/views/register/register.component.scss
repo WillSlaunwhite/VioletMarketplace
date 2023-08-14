@@ -17,6 +17,8 @@
     height: 100%;
     animation: none !important;
     transition: none !important;
+    border-radius: 2px;
+
     // TODO GPT says this is the only way, but
     // * need to investigate further
     &::ng-deep.mdc-tab {
@@ -36,6 +38,7 @@
 
   .register-form {
     height: 100%;
+    border-radius: 2px;
   }
 
   .tab-nav-button {
@@ -62,8 +65,13 @@
 .summary-tab {
   overflow: hidden;
 }
+
 .mat-mdc-tab-group {
-  background: transparent; 
+  background: transparent;
   border-radius: 2px;
   height: 100%;
+}
+
+::ng-deep .mat-mdc-tab .mdc-tab__text-label {
+  @include basic-precise-font($size: 1.3rem);
 }

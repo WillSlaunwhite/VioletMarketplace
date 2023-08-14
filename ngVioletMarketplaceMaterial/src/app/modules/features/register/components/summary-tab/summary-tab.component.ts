@@ -23,7 +23,6 @@ export class SummaryTabComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.summary);
 
   }
 

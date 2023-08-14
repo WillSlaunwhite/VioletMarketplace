@@ -162,6 +162,7 @@
     @include abs-top-left;
     @include bg-gradient($gradients);
     @include full-wh-no-mrgpad;
+    content: '';
     z-index: 2;
     border-radius: inherit;
     pointer-events: none;

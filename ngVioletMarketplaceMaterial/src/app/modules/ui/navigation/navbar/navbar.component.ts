@@ -1,15 +1,13 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { Observable } from 'rxjs';
-import User from 'src/app/models/user';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { } from '@angular/material/divider';
-import { LoginComponent } from 'src/app/modules/features/login/views/login/login.component';
 import { Store } from '@ngrx/store';
-import { isLoggedIn, selectCurrentUser } from 'src/app/modules/features/user/state/user.selectors';
-import { logout, removeJwt } from 'src/app/modules/features/user/state/user.actions';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import User from 'src/app/models/user';
+import { LoginComponent } from 'src/app/modules/features/login/views/login/login.component';
 import { RegisterComponent } from 'src/app/modules/features/register/views/register/register.component';
-import { Router } from '@angular/router';
+import { logout, removeJwt } from 'src/app/modules/features/user/state/user.actions';
+import { isLoggedIn, selectCurrentUser } from 'src/app/modules/features/user/state/user.selectors';
 
 @Component({
   selector: 'app-navbar',
@@ -17,21 +15,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  isLoggedIn$: Observable<boolean | null> = this.store.select(isLoggedIn);
+  isLoggedIn$: Observable<boolean | null> ;
   user$: Observable<User | null>;
-  isSearchFieldFocused: boolean = false;
-  searchForm: FormGroup;
-  searchTerm: FormControl;
 
   constructor(private store: Store,
     private dialog: MatDialog,
-    private renderer: Renderer2,
-    private el: ElementRef,
-    private router: Router,
   ) {
     this.user$ = this.store.select(selectCurrentUser);
-    this.searchTerm = new FormControl('');
-    this.searchForm = new FormGroup({ search: this.searchTerm });
+
+    this.isLoggedIn$ = this.store.select(isLoggedIn);
   }
 
   ngOnInit(): void {
@@ -68,17 +60,5 @@ export class NavbarComponent implements OnInit {
     return () => this.openLoginDialog();
   }
 
-  toggleSearchFocus() {
-    this.isSearchFieldFocused = !this.isSearchFieldFocused;
-    if (this.isSearchFieldFocused) {
-      this.renderer.addClass(this.el.nativeElement.querySelector('.search'), 'focused');
-    } else {
-      this.renderer.removeClass(this.el.nativeElement.querySelector('.search'), 'focused');
-    }
-  }
 
-  onSubmit(): void {
-    this.router.navigate(['/results'], { queryParams: { query: this.searchTerm.value } });
-    this.searchTerm.setValue('');
-  }
 }

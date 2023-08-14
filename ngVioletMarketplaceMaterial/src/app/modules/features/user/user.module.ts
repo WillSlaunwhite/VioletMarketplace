@@ -30,7 +30,7 @@ import { reducer } from './state/user.reducer';
     TokenModule,
     SharedModule,
     UserBalanceModule,
-    EffectsModule.forRoot([UserEffects]),
+    EffectsModule.forFeature([UserEffects]),
     StoreModule.forFeature('auth', reducer),
   ],
   exports: [

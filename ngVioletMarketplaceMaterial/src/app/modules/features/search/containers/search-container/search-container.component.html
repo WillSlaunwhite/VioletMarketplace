@@ -1,1 +1,5 @@
-<p>search-container works!</p>
+<div class="search-container">
+  <form (ngSubmit)="onSubmit()" class="search" [formGroup]="searchForm">
+    <app-search-bar></app-search-bar>
+  </form>
+</div>

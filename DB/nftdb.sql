@@ -131,6 +131,7 @@ CREATE TABLE IF NOT EXISTS `market_transfer` (
   `token_id` INT NOT NULL,
   `description` VARCHAR(100) NULL,
   `type` VARCHAR(100) NULL,
+  `auction_id` INT NULL,
   `seller_id` INT NOT NULL,
   `buyer_id` INT NOT NULL,
   `block_id` INT NOT NULL,
@@ -202,8 +203,8 @@ CREATE TABLE IF NOT EXISTS `block` (
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-) ENGINE = InnoDB;
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 
@@ -497,6 +498,7 @@ CREATE TABLE IF NOT EXISTS `bid` (
   `description` VARCHAR(100) NULL,
   `offer_amount` INT NOT NULL,
   `token_id` INT NOT NULL,
+  `auction_id` INT NOT NULL,
   `seller_id` INT NOT NULL,
   `buyer_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -516,8 +518,40 @@ CREATE TABLE IF NOT EXISTS `bid` (
     FOREIGN KEY (`buyer_id`)
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_market_transfer_user20`
+    FOREIGN KEY (`buyer_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `auction`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auction` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `token_id` INT NOT NULL,
+  `start_price` INT NOT NULL,
+  `ceiling_price` INT NOT NULL,
+  `current_highest_bid` INT NOT NULL,
+  `end_time` DATETIME NOT NULL,
+  `status` ENUM('active', 'pending', 'closed') NOT NULL,
+  `seller_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_auction_token`
+    FOREIGN KEY (`token_id`)
+    REFERENCES `token` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_auction_seller`
+    FOREIGN KEY (`seller_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 
 SET SQL_MODE = '';
 DROP USER IF EXISTS nftdbuser@localhost;

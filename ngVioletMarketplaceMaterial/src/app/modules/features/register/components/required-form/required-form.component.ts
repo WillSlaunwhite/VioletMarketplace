@@ -14,7 +14,6 @@ export class RequiredFormComponent implements OnInit {
   }
 
   ngOnInit(): void { 
-    console.log(this.requiredFormFields);
     
   }
 

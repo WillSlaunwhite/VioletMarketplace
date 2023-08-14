@@ -6,6 +6,7 @@ import { SearchContainerComponent } from './containers/search-container/search-c
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchEffects } from './state/search.effects';
 import { reducer } from './state/search.reducer';
+import { SearchDisplayModule } from '../../ui/search-display/search-display.module';
 
 
 
@@ -18,6 +19,7 @@ import { reducer } from './state/search.reducer';
     StoreModule.forFeature('search', reducer),
     EffectsModule.forFeature([SearchEffects]),  
     SharedModule,
+    SearchDisplayModule
   ],
   exports: [
     SearchContainerComponent
