@@ -7,8 +7,7 @@ import javax.persistence.*
 @Entity
 @Table(name = "auction")
 data class Auction(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
 
     @Column(name = "token_id", nullable = false)
@@ -33,10 +32,10 @@ data class Auction(
     @Column(name = "status", nullable = false)
     val status: AuctionStatus,
 
-    @OneToOne @JoinColumn(name = "seller_id", nullable = false)
+    @OneToMany @JoinColumn(name = "seller_id", nullable = false)
     val seller: User,
 
-    @OneToOne @JoinColumn(name = "token_id", nullable = false)
+    @OneToMany @JoinColumn(name = "token_id", nullable = false)
     val token: Token
 ) {
     enum class AuctionStatus {
@@ -58,5 +57,7 @@ data class Auction(
         return id
     }
 
-
+    override fun toString(): String {
+        return "Auction(id=$id, tokenId=$tokenId, startPrice=$startPrice, currentHighestBid=$currentHighestBid, ceilingPrice=$ceilingPrice, startTime=$startTime, endTime=$endTime, status=$status, seller=$seller, token=$token)"
+    }
 }
