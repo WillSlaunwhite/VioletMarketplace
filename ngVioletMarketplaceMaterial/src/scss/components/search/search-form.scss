@@ -1,0 +1,31 @@
+
+.search input {
+  transform: translate(-2px, -10px);
+}
+
+.search .mdc-text-field--filled .mdc-floating-label--float-above {
+  transform: translateY(-115%) scae(.75) !important;
+}
+
+.search .mat-mdc-text-field-wrapper {
+  height: 80px;
+}
+
+// CHANGES INPUT BORDER COLOR
+.search .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+  // transform: translateY(20px)
+  border-bottom-color: $primary-light !important;
+  position: absolute;
+  height: 20px;
+  top: 50px;
+}
+
+.search .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+  display: none;
+}
+
+// MOVES POSITION OF LABEL
+.search .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+  position: relative;
+  top: 17px;
+}
