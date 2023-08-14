@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "market_transfer")
-data class TokenTx (
+data class Transaction (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
 
@@ -36,7 +36,7 @@ data class TokenTx (
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as TokenTx
+        other as Transaction
 
         if (id != other.id) return false
         if (timestamp != other.timestamp) return false
