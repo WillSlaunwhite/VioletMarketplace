@@ -1,6 +1,20 @@
 @import "/src/scss/utils/variables";
 @import "/src/scss/utils/mixins";
 
+@include glass-effect(
+  linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+  linear-gradient(90deg, rgba(197, 197, 197, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  linear-gradient(180deg, rgba(121, 121, 121, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%)
+);
+@include glass-border(
+  linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+  linear-gradient(90deg, rgba(197, 197, 197, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  linear-gradient(180deg, rgba(121, 121, 121, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%)
+);
+
+
 .button-wrapper {
   height: 8rem;
   width: 150px;
@@ -21,7 +35,7 @@
     z-index: 4;
     width: 8em;
     transform: rotate(-67.5deg);
-    background: blue;
+    filter: brightness(1.5);
 
     &:hover {
       transform: rotate(-67.5deg);
@@ -29,11 +43,13 @@
   }
 
   &::after {
-    left: 42%;
+    background-color: lime;
+    left: 45%;
   }
 
   &::before {
-    left: -67%;
+    background-color: #fcb045;
+    left: -65%;
   }
 }
 
@@ -42,7 +58,7 @@
   @include rel-top-left($top: -5%);
   @include basic-precise-font($size: 1.2rem, $align: center);
   @include full-wh-no-mrgpad;
-  height: 110%;
+  height: 120%;
 
   text-decoration: none;
   overflow: hidden;
@@ -73,23 +89,17 @@
     z-index: 3;
     color: $text-primary-dark;
     font-family: "Nunito";
-    transform: rotate(-22.5deg) translate(5px, 65px);
+    transform: rotate(-22.5deg) translate(2px, 68px);
+  }
+
+  .glass-wrapper {
+    filter: blur(5px);
+    opacity: 0.5;
   }
 
   &:hover .glass-wrapper {
-    opacity: 0.45;
+    opacity: 0.3;
   }
-  
-  .glass-wrapper {
-    opacity: .6;
-  }
-
-  @include glass-effect(
-    linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
-    linear-gradient(90deg, rgba(197, 197, 197, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
-    linear-gradient(180deg, rgba(121, 121, 121, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
-    radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%)
-  );
 
   ::ng-deep .mdc-button__label {
     @include full-wh-no-mrgpad;

@@ -10,8 +10,8 @@
 .toolbar {
   display: flex;
   justify-content: space-between;
-  height: 3.25em;
-  background: transparent;
+  height: 4.5rem;
+  background: rgba($secondary-dark, .8);
   overflow: hidden;
   padding: 0;
 
@@ -36,22 +36,8 @@
   }
 
   // SEARCH BAR
-  .search {
-    // TODO really don't like current search interaction
-    width: 50vmin;
-    @include basic-precise-font($size: 1.6rem);
-    margin-top: 12px;
-    margin-right: 4rem;
-    position: relative;
-
-    // search focus animation
-    &:focus-within {
-      // TODO
-      // * this is what's breaking the navbar
-      // transform: translate(0, 120px);
-      transition: all ease-out .75s;
-    }
-
+  .search-container {
+    margin-bottom: 12px;
   }
 
 
