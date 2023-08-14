@@ -2,7 +2,6 @@ package com.skilldistillery.marketplace.entities
 
 import com.skilldistillery.marketplace.converters.RarityConverter
 import com.skilldistillery.marketplace.converters.StatusConverter
-import com.skilldistillery.marketplace.dtos.CommonTokenDTO
 import com.skilldistillery.marketplace.enums.Rarity
 import com.skilldistillery.marketplace.enums.Status
 import com.skilldistillery.marketplace.interfaces.Searchable
@@ -32,7 +31,7 @@ data class Token(
     @ManyToOne @JoinColumn(name = "collection_id")
     var collection: Collection,
     @OneToMany(mappedBy = "token")
-    var transfers: List<TokenTx>,
+    var transfers: Set<Transaction> = emptySet(),
     @ManyToOne @JoinColumn(name = "creator_id")
     var creator: User,
     @ManyToOne @JoinColumn(name = "owner_id")
@@ -44,9 +43,26 @@ data class Token(
     @Transient
     override val type: String = "Token"
 
+
     @Override
     override fun toString(): String {
         return this::class.simpleName + "(id = $id , name = $name , description = $description , price = $price , status = $status , rarity = $rarity , owner = $owner )"
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Token
+
+        if (id != other.id) return false
+        return owner == other.owner
+    }
+
+    override fun hashCode(): Int {
+        var result = id
+        result = 31 * result + owner.hashCode()
+        return result
     }
 
 }
