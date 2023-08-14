@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { AngularSvgIconPreloaderModule } from 'angular-svg-icon-preloader';
+import { EffectsModule } from '@ngrx/effects';
 
 
 
@@ -30,6 +31,7 @@ import { AngularSvgIconPreloaderModule } from 'angular-svg-icon-preloader';
       configUrl: './assets/json/icons.json',
     }),
     StoreModule.forRoot({}),
+    EffectsModule.forRoot({}),
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },

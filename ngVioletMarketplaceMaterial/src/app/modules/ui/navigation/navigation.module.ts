@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SearchFeatureModule } from '../../features/search/search-feature.module';
+import { SharedModule } from '../shared/shared.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { SharedModule } from '../shared/shared.module';
-import { MaterialModule } from '../material/material.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -15,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   imports: [
     SharedModule,
+    SearchFeatureModule,
   ],
   exports: [
     NavbarComponent,
