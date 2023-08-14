@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,33 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
-  searchForm: FormGroup;
-  searchTerm: FormControl;
-  isSearchFieldFocused: boolean = false;
+  @Input() searchTerm: FormControl = new FormControl('');
+  @Output() submit: EventEmitter<void> = new EventEmitter<void>();
   
-  constructor(
-    private renderer: Renderer2,
-    private el: ElementRef,
-    private router: Router,
-  ) {
-    this.searchTerm = new FormControl('');
-    this.searchForm = new FormGroup({ search: this.searchTerm });
-  }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  onSubmit(): void {
-    this.router.navigate(['/results'], { queryParams: { query: this.searchTerm.value } });
-    this.searchTerm.setValue('');
-  }
-
-  toggleSearchFocus() {
-    this.isSearchFieldFocused = !this.isSearchFieldFocused;
-    if (this.isSearchFieldFocused) {
-      this.renderer.addClass(this.el.nativeElement.querySelector('.search'), 'focused');
-    } else {
-      this.renderer.removeClass(this.el.nativeElement.querySelector('.search'), 'focused');
-    }
-  }
 }
