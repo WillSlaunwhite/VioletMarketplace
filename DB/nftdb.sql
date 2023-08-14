@@ -120,45 +120,6 @@ ENGINE = InnoDB;
 
 
 
--- -----------------------------------------------------
--- Table `market_transfer`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `market_transfer` ;
-
-CREATE TABLE IF NOT EXISTS `market_transfer` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `timestamp` DATETIME NOT NULL,
-  `token_id` INT NOT NULL,
-  `description` VARCHAR(100) NULL,
-  `type` VARCHAR(100) NULL,
-  `auction_id` INT NULL,
-  `seller_id` INT NOT NULL,
-  `buyer_id` INT NOT NULL,
-  `block_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_market_transfer_user1_idx` (`seller_id` ASC),
-  INDEX `fk_market_transfer_user2_idx` (`buyer_id` ASC),
-  CONSTRAINT `fk_market_transfer_token1`
-    FOREIGN KEY (`token_id`)
-    REFERENCES `token` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_market_transfer_user1`
-    FOREIGN KEY (`seller_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_market_transfer_user2`
-    FOREIGN KEY (`buyer_id`)
-    REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_market_transfer_block1`
-    FOREIGN KEY (`block_id`)
-    REFERENCES `block` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -487,6 +448,55 @@ CREATE TABLE IF NOT EXISTS `favorite` (
 ENGINE = InnoDB;
 
 
+
+
+
+-- -----------------------------------------------------
+-- Table `market_transfer`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `market_transfer` ;
+
+CREATE TABLE IF NOT EXISTS `market_transfer` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `timestamp` DATETIME NOT NULL,
+  `token_id` INT NOT NULL,
+  `description` VARCHAR(100) NULL,
+  `type` VARCHAR(100) NULL,
+  `auction_id` INT NULL,
+  `seller_id` INT NOT NULL,
+  `buyer_id` INT NOT NULL,
+  `block_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_market_transfer_user1_idx` (`seller_id` ASC),
+  INDEX `fk_market_transfer_user2_idx` (`buyer_id` ASC),
+  CONSTRAINT `fk_market_transfer_token1`
+    FOREIGN KEY (`token_id`)
+    REFERENCES `token` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_market_transfer_user1`
+    FOREIGN KEY (`seller_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_market_transfer_user2`
+    FOREIGN KEY (`buyer_id`)
+    REFERENCES `user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_market_transfer_block1`
+    FOREIGN KEY (`block_id`)
+    REFERENCES `block` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_market_transfer_auction1`
+    FOREIGN KEY (`auction_id`)
+    REFERENCES `auction` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 -- -----------------------------------------------------
 -- Table `bid`
 -- -----------------------------------------------------
@@ -496,7 +506,7 @@ CREATE TABLE IF NOT EXISTS `bid` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `bid_date` DATETIME NOT NULL,
   `description` VARCHAR(100) NULL,
-  `offer_amount` INT NOT NULL,
+  `offer_amount` DECIMAL(20,8) NOT NULL,
   `token_id` INT NOT NULL,
   `auction_id` INT NOT NULL,
   `seller_id` INT NOT NULL,
@@ -519,9 +529,9 @@ CREATE TABLE IF NOT EXISTS `bid` (
     REFERENCES `user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_market_transfer_user20`
-    FOREIGN KEY (`buyer_id`)
-    REFERENCES `user` (`id`)
+  CONSTRAINT `fk_market_transfer_auction10`
+    FOREIGN KEY (`auction_id`)
+    REFERENCES `auction` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -533,9 +543,9 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `auction` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `token_id` INT NOT NULL,
-  `start_price` INT NOT NULL,
-  `ceiling_price` INT NOT NULL,
-  `current_highest_bid` INT NOT NULL,
+  `start_price` DECIMAL(20,8) NOT NULL,
+  `ceiling_price` DECIMAL(20,8) NOT NULL,
+  `current_highest_bid` DECIMAL(20,8) NOT NULL,
   `end_time` DATETIME NOT NULL,
   `status` ENUM('active', 'pending', 'closed') NOT NULL,
   `seller_id` INT NOT NULL,
@@ -582,6 +592,7 @@ INSERT INTO `user` (`id`, `username`, `password`, `account_status`, `role`, `cre
 
 COMMIT;
 
+
 -- -----------------------------------------------------
 -- Data for table `user`
 -- -----------------------------------------------------
@@ -610,6 +621,7 @@ VALUES
 ('vm_silver', 100.00, 5),
 ('vm_gold', 20.00, 5);
 
+COMMIT;
 
 
 -- -----------------------------------------------------
@@ -687,33 +699,6 @@ INSERT INTO `token` (`id`, `name`, `description`, `rarity`, `status`, `release_d
 -- (30, 'Placeholder Token', 'This is a placeholder token for testing purposes.', 'common', NOW(), 100, 1, 5, 1, 5, 'placeholder_for_url');
 
 
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `block`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `nftdb`;
-
-INSERT INTO `block` (`id`, `nonce`, `timestamp`, `hash`, `prev_hash`, `status`, `transaction_count`, `user_id`) VALUES (1, 1, '2020-01-01 10:10:10', 'testhash1', 'testprevhash1', 'teststatus', 1, 1);
-INSERT INTO `block` (`id`, `nonce`, `timestamp`, `hash`, `prev_hash`, `status`, `transaction_count`, `user_id`) 
-VALUES 
-(2, 2, '2023-02-28 10:10:10', 'testhash2', 'testhash1', 'teststatus', 2, 2),
-(3, 3, '2023-03-01 10:10:10', 'testhash3', 'testhash2', 'teststatus', 3, 3),
-(4, 4, '2023-03-02 10:10:10', 'testhash4', 'testhash3', 'teststatus', 4, 4),
-(5, 5, '2023-03-03 10:10:10', 'testhash5', 'testhash4', 'teststatus', 5, 5);
-
-
-COMMIT;
--- -----------------------------------------------------
--- Data for table `market_transfer`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `nftdb`;
-INSERT INTO `market_transfer` (`id`, `timestamp`, `type`, `token_id`, `description`, `seller_id`, `buyer_id`, `block_id`) VALUES (1, '2020-01-01 10:10:10', 'purchase', 1, 'test transfer', 1, 2, 1);
-
 COMMIT;
 
 
@@ -746,8 +731,6 @@ INSERT INTO `category` (`id`, `type`, `description`) VALUES (10, 'most_viewed', 
 COMMIT;
 
 
-COMMIT;
-
 -- -----------------------------------------------------
 -- Data for table `token_has_category`
 -- -----------------------------------------------------
@@ -766,8 +749,8 @@ INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (8, 9); -- P
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (11, 9); -- Popular movie token
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (12, 9); -- Popular movie token
 INSERT INTO `token_has_category` (`token_id`, `category_id`) VALUES (13, 9); -- Popular movie token
-COMMIT;
 
+COMMIT;
 
 
 -- -----------------------------------------------------
@@ -790,16 +773,53 @@ INSERT INTO `favorite` (`user_id`, `token_id`, `added_on`) VALUES (1, 1, '2021-1
 
 COMMIT;
 
+-- -----------------------------------------------------
+-- Data for table `block`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `nftdb`;
+
+INSERT INTO `block` (`id`, `nonce`, `timestamp`, `hash`, `prev_hash`, `status`, `transaction_count`, `user_id`) VALUES (1, 1, '2020-01-01 10:10:10', 'testhash1', 'testprevhash1', 'teststatus', 1, 1);
+INSERT INTO `block` (`id`, `nonce`, `timestamp`, `hash`, `prev_hash`, `status`, `transaction_count`, `user_id`) 
+VALUES 
+(2, 2, '2023-02-28 10:10:10', 'testhash2', 'testhash1', 'teststatus', 2, 2),
+(3, 3, '2023-03-01 10:10:10', 'testhash3', 'testhash2', 'teststatus', 3, 3),
+(4, 4, '2023-03-02 10:10:10', 'testhash4', 'testhash3', 'teststatus', 4, 4),
+(5, 5, '2023-03-03 10:10:10', 'testhash5', 'testhash4', 'teststatus', 5, 5);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `market_transfer`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `nftdb`;
+INSERT INTO `market_transfer` (`id`, `timestamp`, `type`, `token_id`, `description`, `auction_id`, `seller_id`, `buyer_id`, `block_id`) VALUES (1, '2020-01-01 10:10:10', 'purchase', 1, 'test transfer', NULL, 1, 2, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `auction`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `nftdb`;
+INSERT INTO `auction` (`token_id`, `start_price`, `ceiling_price`, `current_highest_bid`, `end_time`, `status`, `seller_id`) VALUES (1, 50, 200, 100, '2023-08-20 10:10:10', 'active', 1);
+INSERT INTO `auction` (`token_id`, `start_price`, `ceiling_price`, `current_highest_bid`, `end_time`, `status`, `seller_id`) VALUES (2, 30, 150, 45, '2023-08-22 10:10:10', 'active', 2);
+INSERT INTO `auction` (`token_id`, `start_price`, `ceiling_price`, `current_highest_bid`, `end_time`, `status`, `seller_id`) VALUES (3, 40, 180, 98, '2023-08-25 10:10:10', 'active', 3);
+
+COMMIT;
+
 
 -- -----------------------------------------------------
 -- Data for table `bid`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `nftdb`;
-INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `seller_id`, `buyer_id`) VALUES (1, '2021-11-03', 'Purchase', 100, 1, 1, 2);
-INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `seller_id`, `buyer_id`) VALUES (2, '2021-11-03', 'Purchase', 98, 3, 3, 1);
-INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `seller_id`, `buyer_id`) VALUES (3, '2021-11-03', 'Purchase', 45, 2, 2, 4);
-INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `seller_id`, `buyer_id`) VALUES (4, '2021-11-03', 'Purchase', 60, 5, 5, 1);
+INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `auction_id`, `seller_id`, `buyer_id`) VALUES (1, '2021-11-03', 'Purchase', 100, 1, 1, 1, 2);
+INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `auction_id`, `seller_id`, `buyer_id`) VALUES (2, '2021-11-03', 'Purchase', 98, 3, 1, 3, 1);
+INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `auction_id`, `seller_id`, `buyer_id`) VALUES (3, '2021-11-03', 'Purchase', 45, 2, 2, 2, 4);
+INSERT INTO `bid` (`id`, `bid_date`, `description`, `offer_amount`, `token_id`, `auction_id`, `seller_id`, `buyer_id`) VALUES (4, '2021-11-03', 'Purchase', 60, 5, 3, 5, 1);
 
 COMMIT;
-
