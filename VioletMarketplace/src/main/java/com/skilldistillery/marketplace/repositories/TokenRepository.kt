@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import java.util.*
-import kotlin.collections.LinkedHashSet
 
 interface TokenRepository : JpaRepository<Token, Int>, CustomTokenRepository {
     @Query("SELECT COUNT(t) > 0 FROM Token t WHERE t.owner.username = :username AND t.id = :tokenId")

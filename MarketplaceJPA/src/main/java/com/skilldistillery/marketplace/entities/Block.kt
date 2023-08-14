@@ -16,7 +16,7 @@ data class Block (
     val prevHashCode: String,
 
     @OneToMany(mappedBy = "block", cascade = [CascadeType.ALL])
-    val transactions: List<TokenTx> = emptyList(),
+    val transactions: Set<Transaction> = emptySet(),
 
     @ManyToOne
     @JoinColumn(name = "user_id")

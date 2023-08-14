@@ -1,14 +1,11 @@
 package com.skilldistillery.marketplace.services
 
-import com.skilldistillery.marketplace.dtos.CommonTokenDTO
-import com.skilldistillery.marketplace.dtos.CommonUserDTO
 import com.skilldistillery.marketplace.dtos.TokenUpdateRequest
 import com.skilldistillery.marketplace.entities.Token
-import com.skilldistillery.marketplace.entities.User
 import com.skilldistillery.marketplace.enums.Status
 import com.skilldistillery.marketplace.exceptions.AuthorizationException
 import com.skilldistillery.marketplace.repositories.TokenRepository
-import com.skilldistillery.marketplace.repositories.TokenTxRepository
+import com.skilldistillery.marketplace.repositories.TransactionRepository
 import com.skilldistillery.marketplace.repositories.UserRepository
 import org.springframework.stereotype.Service
 import java.time.LocalDate
@@ -18,7 +15,7 @@ import javax.transaction.Transactional
 class TokenServiceImpl(
     private val tokenRepo: TokenRepository,
     private val userRepo: UserRepository,
-    private val txRepository: TokenTxRepository
+    private val txRepository: TransactionRepository
 ) : TokenService {
     override fun index(): Set<Token> {
         return tokenRepo.findByStatus(Status.AVAILABLE)
@@ -92,7 +89,4 @@ class TokenServiceImpl(
     override fun userOwnsToken(username: String, tid: Int): Boolean {
         return tokenRepo.userOwnsToken(username, tid)
     }
-
-
-
 }

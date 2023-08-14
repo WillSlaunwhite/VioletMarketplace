@@ -3,15 +3,11 @@ package com.skilldistillery.marketplace.entities
 import com.fasterxml.jackson.annotation.JsonBackReference
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.skilldistillery.marketplace.converters.AccountStatusConverter
-import com.skilldistillery.marketplace.dtos.CommonUserDTO
 import com.skilldistillery.marketplace.enums.AccountStatus
 import com.skilldistillery.marketplace.interfaces.Searchable
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
-import org.hibernate.proxy.HibernateProxy
 import java.time.LocalDateTime
-import java.util.*
-import java.util.Collections.emptyList
 import javax.persistence.*
 import kotlin.jvm.Transient
 
@@ -44,23 +40,25 @@ data class User  (
     @Column(name = "picture_url")
     var pictureUrl: String? = null,
     @JsonIgnore @OneToMany(mappedBy = "user")
-    var carts: List<Cart>? = null,
+    var carts: Set<Cart> = emptySet(),
     @JsonBackReference(value = "sender")
     @OneToMany(mappedBy = "sender")
-    var sentMessages: List<Message>? = null,
+    var sentMessages: Set<Message> = emptySet(),
     @JsonBackReference(value = "recipient")
     @OneToMany(mappedBy = "recipient")
-    var receivedMessages: List<Message>? = null,
+    var receivedMessages: Set<Message> = emptySet(),
     @JsonIgnore @OneToMany(mappedBy = "creator")
-    var createdTokens: Set<Token>? = null,
+    var createdTokens: Set<Token>,
     @JsonIgnore @OneToMany(mappedBy = "owner")
-    var ownedTokens: Set<Token>? = null,
+    var ownedTokens: Set<Token>,
     @JsonIgnore @OneToMany(mappedBy = "creator")
-    var collectionsCreated: Set<Collection>? = null,
+    var collectionsCreated: Set<Collection>,
     @JsonIgnore @OneToMany(mappedBy = "seller")
-    var sales: List<TokenTx>? = null,
+    var sales: Set<Transaction> = emptySet(),
     @JsonIgnore @OneToMany(mappedBy = "buyer")
-    var purchases: List<TokenTx>? = null,
+    var purchases: Set<Transaction> = emptySet(),
+    @JsonIgnore @OneToMany(mappedBy = "seller")
+    var auctions: Set<Transaction> = emptySet(),
 
 ) : Searchable {
     @Transient
@@ -69,14 +67,13 @@ data class User  (
     override val type: String = "User"
 
 
-    final override fun equals(other: Any?): Boolean {
+    override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other == null || other !is User) return false
 
         return username == other.username
     }
-    final override fun hashCode(): Int = username?.hashCode() ?: 0
-    @Override
+    override fun hashCode(): Int = username.hashCode()
     override fun toString(): String {
         return this::class.simpleName + "(id = $id , username = $username , password = $password , accountStatus = $accountStatus , role = $role , email = $email , biography = $biography , createdOn = $createdOn , updatedOn = $updatedOn , displayName = $displayName , pictureUrl = $pictureUrl )"
     }
