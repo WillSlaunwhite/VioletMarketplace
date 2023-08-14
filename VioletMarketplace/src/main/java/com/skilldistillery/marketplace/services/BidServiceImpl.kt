@@ -6,16 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class BidServiceImpl : BidService {
-    @Autowired
-    private val bidRepo: BidRepository? = null
+class BidServiceImpl(
+    private val bidRepo: BidRepository
+) : BidService {
     override fun userBids(userId: Int): List<Bid> {
-        return bidRepo!!.findByUser(userId)
+        return bidRepo.findByUser(userId)
     }
 
     override fun destroyBid(bidId: Int): Boolean {
         var confirm = false
-        val bid = bidRepo!!.findById(bidId)
+        val bid = bidRepo.findById(bidId)
         if (bid.isPresent) {
             val realBid = bid.get()
             bidRepo.delete(realBid)
@@ -25,9 +25,6 @@ class BidServiceImpl : BidService {
     }
 
     override fun create(bid: Bid): Bid {
-        if (bid != null) {
-            bidRepo!!.saveAndFlush(bid)
-        }
-        return bid
+        return bidRepo.saveAndFlush(bid)
     }
 }
