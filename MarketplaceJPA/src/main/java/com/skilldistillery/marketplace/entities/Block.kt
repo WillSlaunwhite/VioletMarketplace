@@ -1,5 +1,6 @@
 package com.skilldistillery.marketplace.entities
 
+import org.hibernate.annotations.CreationTimestamp
 import java.time.LocalDateTime
 import javax.persistence.*
 
@@ -20,14 +21,15 @@ data class Block (
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    val user: User?,
+    val user: User? = null,
 
     @Column(name = "transaction_count")
-    val transactionCount: Int?,
+    val transactionCount: Int? = 0,
 
-    val status: String?,
+    val status: String? = "",
 
-    val timestamp: LocalDateTime,
+    @CreationTimestamp
+    val timestamp: LocalDateTime = LocalDateTime.now(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -52,5 +54,4 @@ data class Block (
     override fun toString(): String {
         return "Block(id=$id, hashCode='$hashCode', prevHashCode='$prevHashCode', transactions=$transactions)"
     }
-
 }

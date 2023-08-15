@@ -21,10 +21,10 @@ data class Transaction (
     val buyer: User,
 
     @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "block_id")
-    val block: Block,
+    val block: Block? = null,
 
     @OneToOne(fetch = FetchType.LAZY)
-    val auction: Auction?
+    val auction: Auction? = null
 
 ) {
     override fun equals(other: Any?): Boolean {
