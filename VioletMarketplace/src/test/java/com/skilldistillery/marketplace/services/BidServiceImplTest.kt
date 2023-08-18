@@ -7,11 +7,15 @@ import com.skilldistillery.marketplace.enums.Status
 import com.skilldistillery.marketplace.repositories.AuctionRepository
 import com.skilldistillery.marketplace.repositories.BidRepository
 import com.skilldistillery.marketplace.util.TestDataFactory
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
+import org.mockito.kotlin.whenever
 import java.math.BigDecimal
 import java.time.LocalDateTime
 
@@ -39,6 +43,26 @@ class BidServiceImplTest {
         val mockBid = TestDataFactory.mockBid(id = 333, offerAmount = BigDecimal.valueOf(555.55))
 
         val mockBids = setOf( mockBid )
+
+        whenever(bidRepo.findByUser(mockUser.id)).thenReturn(mockBids)
+
+        val result = bidsService.userBids(mockUser.id)
+
+        assertEquals(mockBids, result)
     }
 
+    @Test
+    fun `test placeBid throws IllegalArgumentException when bid is not higher than current highest`() {
+        // Mock data
+        val mockBid = TestDataFactory.mockBid(offerAmount = BigDecimal("80.00"))
+        val mockAuction = TestDataFactory.mockAuction(currentHighestBid = BigDecimal("100.00"))
+
+        // Expect exception
+        val exception = assertThrows<IllegalArgumentException> {
+            bidsService.placeBid(mockBid, mockAuction)
+        }
+
+        // Assert the results
+        assertEquals("Bid must be higher than the current highest bid", exception.message)
+    }
 }

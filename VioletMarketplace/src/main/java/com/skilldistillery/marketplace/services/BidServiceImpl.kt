@@ -19,7 +19,7 @@ class BidServiceImpl(
     override fun destroyBid(bidId: Int): Boolean {
         var confirm = false
         val bid = bidRepo.findById(bidId)
-        if (bid.isPresent) {
+    if (bid.isPresent) {
             val realBid = bid.get()
             bidRepo.delete(realBid)
             confirm = true

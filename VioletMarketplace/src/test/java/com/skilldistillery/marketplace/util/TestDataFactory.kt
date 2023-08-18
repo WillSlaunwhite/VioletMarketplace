@@ -40,11 +40,11 @@ object TestDataFactory {
         )
     }
 
-    fun mockAuction(id: Int = 789): Auction {
+    fun mockAuction(id: Int = 789, currentHighestBid: BigDecimal = BigDecimal("150.00")): Auction {
         return Auction(
             id = id,
             startPrice = BigDecimal("100.00"),
-            currentHighestBid = BigDecimal("150.00"),
+            currentHighestBid = currentHighestBid,
             ceilingPrice = BigDecimal("200.00"),
             startTime = LocalDateTime.now(),
             endTime = LocalDateTime.now().plusDays(1),
