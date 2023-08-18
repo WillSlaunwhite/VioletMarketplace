@@ -10,10 +10,10 @@ data class Block (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
 
-    @Column(name = "hash_code", nullable = false)
+    @Column(name = "hash", nullable = false)
     val hashCode: String,
 
-    @Column(name = "previous_hash_code", nullable = false)
+    @Column(name = "prev_hash", nullable = true)
     val prevHashCode: String,
 
     @OneToMany(mappedBy = "block", cascade = [CascadeType.ALL])

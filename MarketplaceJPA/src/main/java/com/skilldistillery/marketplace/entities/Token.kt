@@ -1,5 +1,6 @@
 package com.skilldistillery.marketplace.entities
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.skilldistillery.marketplace.converters.RarityConverter
 import com.skilldistillery.marketplace.converters.StatusConverter
 import com.skilldistillery.marketplace.enums.Rarity
@@ -30,12 +31,14 @@ data class Token(
     var tokenLocation: String,
     @ManyToOne @JoinColumn(name = "collection_id")
     var collection: Collection,
-    @OneToMany(mappedBy = "token")
+    @OneToMany(mappedBy = "token") @JsonIgnore
     var transfers: Set<Transaction> = emptySet(),
     @ManyToOne @JoinColumn(name = "creator_id")
     var creator: User,
     @ManyToOne @JoinColumn(name = "owner_id")
     var owner: User,
+    @OneToMany(mappedBy = "token")
+    var views: Set<TokenView> = emptySet(),
 
 ) : Searchable {
     @Transient
