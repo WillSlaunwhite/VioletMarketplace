@@ -4,53 +4,53 @@
 
 .home-container {
   height: 92.5vh;
-  @include flex-align-justify-direction($align: center, $direction: column);
+  @include flex-align-justify-direction($align: center, $direction: column, $justify: space-between);
 
-  .header-token-container {
-    @include flex-align-justify-direction($justify: space-between, $direction: row);
-    height: 50%;
-    width: 100%;
+  .header-cta-container {
+    display: flex;
+    width: 92%;
 
     .header-container {
       @include basic-precise-font($size: 1.9rem, $align: center);
       @include flex-align-justify-direction($align: center, $justify: center);
-      @include rel-top-left($left: 5%);
-      width: 30%;
-      height: 35vh;
-
-      margin-top: 2rem;
+      width: 45%;
+      height: 30vh;
+      margin-left: 2rem;
     }
 
-    .token-list-container {
-      height: 100%;
-      width: 100%;
-      @include flex-align-justify-direction($align: flex-end, $justify: center, $direction: column);
+    .cta-container {
+      @include flex-align-justify-direction($align: flex-end, $direction: column, $justify: flex-start);
+      width: 85%;
+      margin-left: 3rem;
 
-      app-big-token-list {
-        height: 30em;
-        width: 80%;
-        margin-inline: auto;
+      .token-list-header {
+        width: 85%;
+        @include basic-precise-font($size: 3.25rem, $align: start);
+      }
+
+      .grad-button {
+        margin-top: 2rem;
+        margin-right: 1rem;
+        align-self: center;
+        color: $text-primary-dark;
       }
     }
   }
 
-  .cta-container {
-    width: 85%;
-    display: flex;
+  .token-list-container {
+    height: 100%;
+    width: 100%;
+    @include flex-align-justify-direction($align: flex-end, $justify: center, $direction: column);
 
-    .token-list-header {
-      width: 70%;
-      @include basic-precise-font($size: 3.25rem, $align: start);
-    }
-
-    .grad-button {
-      width: 30%;
-      margin-top: 2rem;
-      color: $text-primary-dark;
+    app-big-token-list {
+      height: 30em;
+      width: 80%;
+      margin-inline: auto;
     }
   }
 
   .name-tag {
+    text-decoration: none;
     position: absolute;
     bottom: 0;
   }
