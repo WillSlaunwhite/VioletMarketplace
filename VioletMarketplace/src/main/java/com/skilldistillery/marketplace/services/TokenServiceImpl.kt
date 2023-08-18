@@ -21,6 +21,10 @@ class TokenServiceImpl(
         return tokenRepo.findByStatus(Status.AVAILABLE)
     }
 
+    override fun indexByPopular(): List<Token> {
+        return tokenRepo.findTop10ByStatusOrderByViewsDesc(Status.AVAILABLE)
+    }
+
     override fun indexByUsername(username: String): LinkedHashSet<Token> {
         return (tokenRepo.findByOwner_Username(username))
     }

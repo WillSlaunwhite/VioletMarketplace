@@ -13,4 +13,5 @@ interface TokenService {
     fun destroy(username: String, tid: Int): Boolean
     fun tokenExists(tid: Int): Boolean
     fun userOwnsToken(username: String, tid: Int): Boolean
+    fun indexByPopular(): List<Token>
 }
