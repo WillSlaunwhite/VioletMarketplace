@@ -1,0 +1,33 @@
+<mat-toolbar class="mobile-navbar">
+  <div class="brand-container"><svg-icon class="brand" src="/assets/logos/matrix_vm_logo.svg"></svg-icon></div>
+  <mat-icon class="menu-icon" fontIcon="menu" (click)="toggleMenu()">menu</mat-icon>
+</mat-toolbar>
+
+<div class="menu-dropdown" *ngIf="menuOpen">
+  <div class="nav-links">
+    <div routerLink="/home" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      <div>Home</div>
+    </div>
+    <mat-divider></mat-divider>
+    <div routerLink="/about-us" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      <div>About Us</div>
+    </div>
+    <mat-divider></mat-divider>
+    <div (click)="getRegisterDialogAction()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      <div>Register</div>
+    </div>
+    <mat-divider></mat-divider>
+    <div (click)="getLoginDialogAction()" routerLink="/home" class="nav-tile" matRipple
+      matRippleColor="rgb(54, 53, 172, .5)">
+      <div>Login</div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      <div routerLink="/account">My Account</div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      <div (click)="getLogoutAction()">Logout</div>
+    </div>
+  </div>
+</div>
