@@ -38,6 +38,19 @@ export class TokenService {
     );
   }
 
+  getByPopular(): Observable<Token[]> {
+    return this.auth.getHttpOptions().pipe(
+      switchMap(options =>
+        this.http.get<Token[]>(this.baseUrl + 'api/tokens/popular', options).pipe(
+          catchError((err: any) => {
+            return throwError(() => new Error('TokenService.getByPopular: error retrieving popular Token list.'));
+          })
+        )
+      )
+    );
+  }
+
+
   createToken(token: Token) {
     return this.auth.getHttpOptions().pipe(
       switchMap(options =>
