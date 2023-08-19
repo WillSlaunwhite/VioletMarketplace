@@ -21,11 +21,11 @@
     .cta-container {
       @include flex-align-justify-direction($align: flex-end, $direction: column, $justify: flex-start);
       width: 85%;
-      margin-left: 3rem;
 
       .token-list-header {
-        width: 85%;
         @include basic-precise-font($size: 3.25rem, $align: start);
+        width: 85%;
+        margin-inline: auto;
       }
 
       .grad-button {
@@ -38,9 +38,9 @@
   }
 
   .token-list-container {
+    @include flex-align-justify-direction($align: flex-end, $justify: center, $direction: column);
     height: 100%;
     width: 100%;
-    @include flex-align-justify-direction($align: flex-end, $justify: center, $direction: column);
 
     app-big-token-list {
       height: 30em;
