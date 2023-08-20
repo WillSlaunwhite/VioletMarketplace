@@ -2,6 +2,7 @@ package com.skilldistillery.marketplace.controllers
 
 import com.skilldistillery.marketplace.dtos.UserRegistrationDTO
 import com.skilldistillery.marketplace.exceptions.UserAlreadyExistsException
+import com.skilldistillery.marketplace.exceptions.UserNotFoundException
 import com.skilldistillery.marketplace.repositories.UserRepository
 import com.skilldistillery.marketplace.security.AuthenticationRequest
 import com.skilldistillery.marketplace.security.AuthenticationResponse
@@ -36,6 +37,7 @@ class AuthController(
         val registeredUser = authSvc.register(userDto)
 
         val userDetails = userService.loadUserByUsername(userDto.username)
+            ?: throw UserNotFoundException("Could not find user with username ${userDto.username} after registration.")
         val jwt = jwtUtil.generateToken(userDetails)
 
         return ResponseEntity.ok(AuthenticationResponse(jwt))
@@ -52,6 +54,7 @@ class AuthController(
         }
         println("username: " + authenticationRequest.username)
         val userDetails = userService.loadUserByUsername(authenticationRequest.username)
+            ?: throw UserNotFoundException("Could not find user with username ${authenticationRequest.username} after registration.")
         val jwt = jwtUtil.generateToken(userDetails)
         println("jwt: $jwt")
         return ResponseEntity.ok(AuthenticationResponse(jwt))

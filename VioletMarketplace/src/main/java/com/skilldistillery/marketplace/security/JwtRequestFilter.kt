@@ -1,7 +1,6 @@
 package com.skilldistillery.marketplace.security
 
 import com.skilldistillery.marketplace.services.UserService
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource
@@ -26,12 +25,12 @@ class JwtRequestFilter(
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             jwt = authorizationHeader.substring(7)
             if (jwt.split("\\.".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray().size == 3) {
-                username = jwtUtil!!.extractUsername(jwt)
+                username = jwtUtil.extractUsername(jwt)
             }
         }
         if (username != null && SecurityContextHolder.getContext().authentication == null) {
-            val userDetails = userService!!.loadUserByUsername(username)
-            if (jwtUtil!!.validateToken(jwt, userDetails!!)) {
+            val userDetails = userService.loadUserByUsername(username)
+            if (jwtUtil.validateToken(jwt, userDetails!!)) {
                 val usernamePasswordAuthenticationToken =
                     UsernamePasswordAuthenticationToken(userDetails, null, userDetails.authorities)
                 usernamePasswordAuthenticationToken.details = WebAuthenticationDetailsSource().buildDetails(request)
