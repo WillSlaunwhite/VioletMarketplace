@@ -1,12 +1,13 @@
 package com.skilldistillery.marketplace.controllers
 
-import com.skilldistillery.marketplace.entities.User
+import com.skilldistillery.marketplace.dtos.UserRegistrationDTO
+import com.skilldistillery.marketplace.exceptions.UserAlreadyExistsException
+import com.skilldistillery.marketplace.repositories.UserRepository
 import com.skilldistillery.marketplace.security.AuthenticationRequest
 import com.skilldistillery.marketplace.security.AuthenticationResponse
 import com.skilldistillery.marketplace.security.JwtUtil
 import com.skilldistillery.marketplace.services.AuthService
 import com.skilldistillery.marketplace.services.UserService
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.BadCredentialsException
@@ -16,42 +17,42 @@ import javax.servlet.http.HttpServletResponse
 
 @RestController
 @CrossOrigin("*", "http://localhost")
-class AuthController {
-    @Autowired
-    private val authenticationManager: AuthenticationManager? = null
+class AuthController(
+    private val authSvc: AuthService,
+    private val userRepo: UserRepository,
+    private val userService: UserService,
+    private val jwtUtil: JwtUtil,
+    private val authenticationManager: AuthenticationManager
+) {
 
-    @Autowired
-    private val jwtUtil: JwtUtil? = null
-
-    @Autowired
-    private val authSvc: AuthService? = null
-
-    @Autowired
-    private val userService: UserService? = null
-    @RequestMapping(path = ["/register"], method = [RequestMethod.POST])
-    fun register(@RequestBody user: User?, res: HttpServletResponse): User? {
-        var user = user
-        if (user == null) {
-            res.status = 400
+    @PostMapping("/register")
+    fun register(
+        @RequestBody userDto: UserRegistrationDTO, res: HttpServletResponse
+    ): ResponseEntity<AuthenticationResponse> {
+        userRepo.findByUsername(userDto.username)?.let {
+            throw UserAlreadyExistsException("User with username ${userDto.username} already exists.")
         }
-        user = authSvc!!.register(user)
-        return user
+
+        val registeredUser = authSvc.register(userDto)
+
+        val userDetails = userService.loadUserByUsername(userDto.username)
+        val jwt = jwtUtil.generateToken(userDetails)
+
+        return ResponseEntity.ok(AuthenticationResponse(jwt))
     }
 
-    @RequestMapping(path = ["/authenticate"], method = [RequestMethod.POST])
-    @Throws(Exception::class)
-    fun createAuthenticationToken(@RequestBody authenticationRequest: AuthenticationRequest): ResponseEntity<*> {
+    @PostMapping("/authenticate")
+    fun createAuthenticationToken(@RequestBody authenticationRequest: AuthenticationRequest): ResponseEntity<AuthenticationResponse> {
         try {
-            authenticationManager!!.authenticate(
+            authenticationManager.authenticate(
                 UsernamePasswordAuthenticationToken(authenticationRequest.username, authenticationRequest.password)
             )
         } catch (e: BadCredentialsException) {
             throw Exception("Incorrect username or password", e)
         }
         println("username: " + authenticationRequest.username)
-        val userDetails = userService
-            .loadUserByUsername(authenticationRequest.username)
-        val jwt = jwtUtil!!.generateToken(userDetails)
+        val userDetails = userService.loadUserByUsername(authenticationRequest.username)
+        val jwt = jwtUtil.generateToken(userDetails)
         println("jwt: $jwt")
         return ResponseEntity.ok(AuthenticationResponse(jwt))
     }

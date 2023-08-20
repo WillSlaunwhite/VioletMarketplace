@@ -1,5 +1,6 @@
 package com.skilldistillery.marketplace.services
 
+import com.skilldistillery.marketplace.dtos.UserRegistrationDTO
 import com.skilldistillery.marketplace.entities.User
 import com.skilldistillery.marketplace.enums.AccountStatus
 import com.skilldistillery.marketplace.repositories.UserRepository
@@ -10,23 +11,23 @@ import javax.transaction.Transactional
 
 @Repository
 @Transactional
-class AuthServiceImpl : AuthService {
-    @Autowired
-    private val userRepo: UserRepository? = null
-
-    @Autowired
-    private val encoder: PasswordEncoder? = null
-    override fun register(user: User): User {
-        val encodedPW = encoder!!.encode(user.password)
-        user.password = encodedPW
-        user.accountStatus = AccountStatus.ACTIVE
-        user.role = "user"
-        userRepo!!.saveAndFlush(user)
-        return user
+class AuthServiceImpl(
+    private val userRepo: UserRepository,
+    private val encoder: PasswordEncoder,
+) : AuthService {
+    override fun register(userDto: UserRegistrationDTO): User {
+        val user = User(
+            username = userDto.username,
+            password = encoder.encode(userDto.password),
+            email = userDto.email,
+            displayName = userDto.displayName ?: userDto.username,
+            biography = userDto.biography,
+            pictureUrl = userDto.pictureUrl,
+            accountStatus = AccountStatus.ACTIVE,
+            role = "user"
+        )
+        return userRepo.saveAndFlush(user)
     }
 
-    override fun getUser(username: String): User {
-        // TODO Auto-generated method stub
-        return userRepo!!.findByUsername(username)
-    }
+    override fun getUser(username: String): User? = userRepo.findByUsername(username)
 }

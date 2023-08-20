@@ -5,12 +5,12 @@ import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 
 interface UserService {
-    fun getUserByUsername(username: String?): User?
+    fun getUserByUsername(username: String): User?
     fun show(userId: Int): User?
-    fun create(user: User?): User?
-    fun update(userId: Int, user: User?): User?
-    fun delete(filmId: Int): Boolean
+    fun create(user: User): User
+    fun update(userId: Int, user: User): User
+    fun delete(userId: Int): Boolean
 
     @Throws(UsernameNotFoundException::class)
-    fun loadUserByUsername(username: String?): UserDetails?
+    fun loadUserByUsername(username: String): UserDetails?
 }

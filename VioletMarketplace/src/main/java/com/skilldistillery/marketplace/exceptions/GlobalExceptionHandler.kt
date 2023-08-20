@@ -17,6 +17,11 @@ class GlobalExceptionHandler {
         return ResponseEntity.notFound().build()
     }
 
+    @ExceptionHandler(UserAlreadyExistsException::class)
+    fun handleUserNotFoundException(e: UserAlreadyExistsException): ResponseEntity<String> {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(e.message)
+    }
+
     @ExceptionHandler(AuthorizationException::class)
     fun handleAuthorizationException(e: AuthorizationException?): ResponseEntity<Void> {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()

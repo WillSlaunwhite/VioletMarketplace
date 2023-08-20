@@ -19,8 +19,8 @@ data class User(
     var password: String,
     @Convert(converter = AccountStatusConverter::class)
     @Column(name = "account_status")
-    var accountStatus: AccountStatus,
-    var role: String,
+    var accountStatus: AccountStatus? = null,
+    var role: String = "user",
     var email: String,
     var biography: String? = null,
 
@@ -29,9 +29,9 @@ data class User(
     val balances: Set<UserCurrencyBalance> = mutableSetOf(),
 
     @CreationTimestamp @Column(name = "created_on")
-    var createdOn: LocalDateTime,
+    var createdOn: LocalDateTime = LocalDateTime.now(),
     @UpdateTimestamp @Column(name = "updated_on")
-    var updatedOn: LocalDateTime,
+    var updatedOn: LocalDateTime = LocalDateTime.now(),
 
     @get: JvmName(name = "getDisplayNameProperty")
     @Column(name = "display_name")
