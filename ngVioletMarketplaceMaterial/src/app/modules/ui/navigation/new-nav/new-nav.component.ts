@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { LoginComponent } from 'src/app/modules/features/login/views/login/login.component';
@@ -16,7 +17,7 @@ export class NewNavComponent {
 	isLoggedIn$: Observable<boolean | null>;
 	menuOpen: boolean = false;
 
-	constructor(private store: Store, private dialog: MatDialog) {
+	constructor(private router: Router, private store: Store, private dialog: MatDialog) {
 		this.isLoggedIn$ = this.store.select(isLoggedIn);
 	}
 
@@ -54,4 +55,8 @@ export class NewNavComponent {
 	getLoginDialogAction(): Function {
 		return () => this.openLoginDialog();
 	}
+
+  navigateToHome(): void { this.router.navigate(['/home']) }
+  navigateToAboutUs(): void { this.router.navigate(['/about']) }
+  navigateToAccount(): void { this.router.navigate(['/account']) }
 }

@@ -5,29 +5,32 @@
 
 <div class="menu-dropdown" *ngIf="menuOpen">
   <div class="nav-links">
-    <div routerLink="/home" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
-      <div>Home</div>
+    <div (click)="navigateToHome()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      Home
     </div>
     <mat-divider></mat-divider>
-    <div routerLink="/about-us" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
-      <div>About Us</div>
+    <div (click)="navigateToAboutUs()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      About Us
     </div>
     <mat-divider></mat-divider>
-    <div (click)="getRegisterDialogAction()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
-      <div>Register</div>
+    <div (click)="openRegisterDialog()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+      *ngIf="!(isLoggedIn$ | async)">
+      Register
     </div>
     <mat-divider></mat-divider>
-    <div (click)="getLoginDialogAction()" routerLink="/home" class="nav-tile" matRipple
-      matRippleColor="rgb(54, 53, 172, .5)">
-      <div>Login</div>
+    <div (click)="openLoginDialog()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+      *ngIf="!(isLoggedIn$ | async)">
+      Login
     </div>
     <mat-divider></mat-divider>
-    <div class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
-      <div routerLink="/account">My Account</div>
+    <div (click)="navigateToAccount()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+      *ngIf="(isLoggedIn$ | async)">
+      My Account
     </div>
     <mat-divider></mat-divider>
-    <div class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
-      <div (click)="getLogoutAction()">Logout</div>
+    <div (click)="getLogoutAction()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+      *ngIf="(isLoggedIn$ | async)">
+      Logout
     </div>
   </div>
 </div>
