@@ -13,8 +13,6 @@ import { AuthRoutingModule } from './auth-routing.module';
   imports: [
     SharedModule,
     AuthRoutingModule,
-    StoreModule.forFeature('auth', reducer),
-    EffectsModule.forFeature([AuthEffects])
   ],
   exports: [
   ]

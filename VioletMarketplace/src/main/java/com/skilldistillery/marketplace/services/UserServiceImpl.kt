@@ -2,6 +2,7 @@ package com.skilldistillery.marketplace.services
 
 import com.skilldistillery.marketplace.entities.User
 import com.skilldistillery.marketplace.enums.AccountStatus
+import com.skilldistillery.marketplace.exceptions.UserNotFoundException
 import com.skilldistillery.marketplace.repositories.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.userdetails.UserDetails
@@ -13,9 +14,9 @@ import org.springframework.stereotype.Service
 class UserServiceImpl(
     private val userRepo: UserRepository
 ) : UserService, UserDetailsService {
-    @Autowired
     override fun getUserByUsername(username: String): User {
         return userRepo.findByUsername(username)
+            ?: throw UserNotFoundException("User with username $username not found.")
     }
 
     val allActiveUsers: LinkedHashSet<User>
