@@ -13,8 +13,6 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { AngularSvgIconPreloaderModule } from 'angular-svg-icon-preloader';
 import { EffectsModule } from '@ngrx/effects';
 
-
-
 @NgModule({
   imports: [
     HttpClientModule,
@@ -35,7 +33,6 @@ import { EffectsModule } from '@ngrx/effects';
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },
-    // ...other core services
   ],
 })
 export class CoreModule { }

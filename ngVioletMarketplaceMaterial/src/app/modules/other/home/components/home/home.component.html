@@ -1,28 +1,30 @@
 <app-dropdown-tile></app-dropdown-tile>
 <app-dropdown-container suggestions="tokens$"></app-dropdown-container>
-
+<app-new-nav></app-new-nav>
 
 <div class="home-container">
-	<!-- Header and Token List Section -->
-	<div class="header-token-container">
+	<div class="header-cta-container">
 		<!-- Header Text -->
 		<div class="header-container">
 			<!-- Introductory Text -->
-			Create, exchange, and explore thousands of tokens. Become part of the digital art revolution - turn your favorite media into Tokens you can bid on, buy, sell and trade with your friends.
+			Create, exchange, and explore thousands of tokens. Become part of the digital art revolution - turn your favorite
+			media into Tokens you can bid on, buy, sell and trade with your friends.
 		</div>
 
-		<!-- Big Token List -->
-		<div class="token-list-container">
-			<!-- Token List with Horizontal Scrolling -->
-			<app-big-token-list [tokens$]="tokens$"></app-big-token-list>
+		<!-- CTA Button -->
+		<div class="cta-container">
+			<h2 class="token-list-header">Start trading with your friends</h2>
+			<!-- Register Button -->
+			<app-double-grad-button label="Join Now" (click)="openRegisterDialog()" [size]="'large'" [gradient]="'primary'"
+				class="grad-button dg-button-register"></app-double-grad-button>
 		</div>
 	</div>
 
-	<!-- CTA Button -->
-	<div class="cta-container">
-		<h2 class="token-list-header">Start trading with your friends</h2>
-		<!-- Register Button -->
-		<app-double-grad-button label="Join Now" (click)="openRegisterDialog()" [size]="'large'" [gradient]="'primary'" class="grad-button dg-button-register"></app-double-grad-button>
+	<!-- Big Token List -->
+	<div class="token-list-container">
+		<!-- Token List with Horizontal Scrolling -->
+		<app-big-token-list [tokens$]="tokens$"></app-big-token-list>
 	</div>
+
 	<a href="https://github.com/willslaunwhite" class="name-tag">designed by will s.</a>
 </div>

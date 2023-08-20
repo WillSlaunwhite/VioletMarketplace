@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { } from '@angular/material/divider';
+import {} from '@angular/material/divider';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import User from 'src/app/models/user';
@@ -10,55 +10,50 @@ import { logout, removeJwt } from 'src/app/modules/features/user/state/user.acti
 import { isLoggedIn, selectCurrentUser } from 'src/app/modules/features/user/state/user.selectors';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+	selector: 'app-navbar',
+	templateUrl: './navbar.component.html',
+	styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  isLoggedIn$: Observable<boolean | null> ;
-  user$: Observable<User | null>;
+	isLoggedIn$: Observable<boolean | null>;
+	user$: Observable<User | null>;
 
-  constructor(private store: Store,
-    private dialog: MatDialog,
-  ) {
-    this.user$ = this.store.select(selectCurrentUser);
+	constructor(private store: Store, private dialog: MatDialog) {
+		this.user$ = this.store.select(selectCurrentUser);
 
-    this.isLoggedIn$ = this.store.select(isLoggedIn);
-  }
+		this.isLoggedIn$ = this.store.select(isLoggedIn);
+	}
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {}
 
-  logout(): void {
-    this.store.dispatch(logout());
-    this.store.dispatch(removeJwt());
-    window.location.reload();
-  }
+	logout(): void {
+		this.store.dispatch(logout());
+		this.store.dispatch(removeJwt());
+		window.location.reload();
+	}
 
-  openRegisterDialog(): void {
-    this.dialog.open(RegisterComponent, {
-      data: {
-        optionalFieldsStrings: ['display name', 'biography', 'profile picture', 'wallet url'],
-        selectedTabIndex: 0
-      }
-    });
-  }
+	openRegisterDialog(): void {
+		this.dialog.open(RegisterComponent, {
+			data: {
+				optionalFieldsStrings: ['display name', 'biography', 'profile picture', 'wallet url'],
+				selectedTabIndex: 0,
+			},
+		});
+	}
 
-  openLoginDialog(): void {
-    this.dialog.open(LoginComponent);
-  }
+	openLoginDialog(): void {
+		this.dialog.open(LoginComponent);
+	}
 
-  getRegisterDialogAction(): Function {
-    return () => this.openRegisterDialog();
-  }
+	getRegisterDialogAction(): Function {
+		return () => this.openRegisterDialog();
+	}
 
-  getLogoutAction(): Function {
-    return () => this.logout();
-  }
+	getLogoutAction(): Function {
+		return () => this.logout();
+	}
 
-  getLoginDialogAction(): Function {
-    return () => this.openLoginDialog();
-  }
-
-
+	getLoginDialogAction(): Function {
+		return () => this.openLoginDialog();
+	}
 }

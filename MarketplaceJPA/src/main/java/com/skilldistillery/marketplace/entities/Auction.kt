@@ -1,6 +1,7 @@
 package com.skilldistillery.marketplace.entities
 
 import org.hibernate.proxy.HibernateProxy
+import java.math.BigDecimal
 import java.time.LocalDateTime
 import javax.persistence.*
 
@@ -10,17 +11,14 @@ data class Auction(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
 
-    @Column(name = "token_id", nullable = false)
-    val tokenId: Int,
+    @Column(name = "start_price", nullable = false, precision = 20, scale = 8)
+    val startPrice: BigDecimal,
 
-    @Column(name = "start_price", nullable = false)
-    val startPrice: Int,
+    @Column(name = "current_highest_bid", nullable = false, precision = 20, scale = 8)
+    var currentHighestBid: BigDecimal,
 
-    @Column(name = "current_highest_bid", nullable = false)
-    val currentHighestBid: Int,
-
-    @Column(name = "ceiling_price")
-    val ceilingPrice: Int?,
+    @Column(name = "ceiling_price", precision = 20, scale = 8)
+    val ceilingPrice: BigDecimal?,
 
     @Column(name = "start_time", nullable = false)
     val startTime: LocalDateTime,
@@ -32,10 +30,17 @@ data class Auction(
     @Column(name = "status", nullable = false)
     val status: AuctionStatus,
 
-    @OneToMany @JoinColumn(name = "seller_id", nullable = false)
+    @OneToMany(mappedBy = "auction", cascade = [CascadeType.ALL], orphanRemoval = true)
+    val bids: MutableList<Bid> = mutableListOf(),
+
+
+    @OneToOne (mappedBy = "auction", cascade = [CascadeType.ALL], orphanRemoval = true)
+    val transaction: Transaction? = null,
+
+    @ManyToOne @JoinColumn(name = "seller_id", nullable = false)
     val seller: User,
 
-    @OneToMany @JoinColumn(name = "token_id", nullable = false)
+    @ManyToOne @JoinColumn(name = "token_id", nullable = false)
     val token: Token
 ) {
     enum class AuctionStatus {
@@ -58,6 +63,6 @@ data class Auction(
     }
 
     override fun toString(): String {
-        return "Auction(id=$id, tokenId=$tokenId, startPrice=$startPrice, currentHighestBid=$currentHighestBid, ceilingPrice=$ceilingPrice, startTime=$startTime, endTime=$endTime, status=$status, seller=$seller, token=$token)"
+        return "Auction(id=$id, startPrice=$startPrice, currentHighestBid=$currentHighestBid, ceilingPrice=$ceilingPrice, startTime=$startTime, endTime=$endTime, status=$status, seller=$seller, token=$token)"
     }
 }

@@ -98,7 +98,7 @@
 
   .content {
     position: relative;
-    top: 65%;
+    top: 55%;
 
     .token-price {
       @include basic-bold-font($size: 1.5rem, $align: center, $weight: 400);
@@ -111,9 +111,11 @@
   }
 
   .actions {
-    @include abs-bot-left;
+    @include abs-bot-left(5px);
     @include full-wh-no-mrgpad;
-    height: 20%;
+    @include basic-precise-font(2.25rem);
+    display: initial;
+    height: 25%;
     cursor: default;
   }
 }

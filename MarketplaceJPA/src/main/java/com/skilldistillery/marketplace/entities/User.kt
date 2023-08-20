@@ -12,26 +12,26 @@ import javax.persistence.*
 import kotlin.jvm.Transient
 
 @Entity
-data class User  (
+data class User(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int = 0,
     var username: String,
     var password: String,
     @Convert(converter = AccountStatusConverter::class)
     @Column(name = "account_status")
-    var accountStatus: AccountStatus,
-    var role: String,
+    var accountStatus: AccountStatus? = null,
+    var role: String = "user",
     var email: String,
     var biography: String? = null,
 
     @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
-    val balances: Set<UserCurrencyBalance>  = emptySet(),
+    val balances: Set<UserCurrencyBalance> = mutableSetOf(),
 
     @CreationTimestamp @Column(name = "created_on")
-    var createdOn: LocalDateTime? = null,
+    var createdOn: LocalDateTime = LocalDateTime.now(),
     @UpdateTimestamp @Column(name = "updated_on")
-    var updatedOn: LocalDateTime? = null,
+    var updatedOn: LocalDateTime = LocalDateTime.now(),
 
     @get: JvmName(name = "getDisplayNameProperty")
     @Column(name = "display_name")
@@ -40,29 +40,30 @@ data class User  (
     @Column(name = "picture_url")
     var pictureUrl: String? = null,
     @JsonIgnore @OneToMany(mappedBy = "user")
-    var carts: Set<Cart> = emptySet(),
+    var carts: Set<Cart> = mutableSetOf(),
     @JsonBackReference(value = "sender")
     @OneToMany(mappedBy = "sender")
-    var sentMessages: Set<Message> = emptySet(),
+    var sentMessages: Set<Message> = mutableSetOf(),
     @JsonBackReference(value = "recipient")
     @OneToMany(mappedBy = "recipient")
-    var receivedMessages: Set<Message> = emptySet(),
+    var receivedMessages: Set<Message> = mutableSetOf(),
     @JsonIgnore @OneToMany(mappedBy = "creator")
-    var createdTokens: Set<Token>,
+    var createdTokens: Set<Token> = mutableSetOf(),
     @JsonIgnore @OneToMany(mappedBy = "owner")
-    var ownedTokens: Set<Token>,
+    var ownedTokens: Set<Token> = mutableSetOf(),
     @JsonIgnore @OneToMany(mappedBy = "creator")
-    var collectionsCreated: Set<Collection>,
+    var collectionsCreated: Set<Collection> = mutableSetOf(),
     @JsonIgnore @OneToMany(mappedBy = "seller")
-    var sales: Set<Transaction> = emptySet(),
+    var sales: Set<Transaction> = mutableSetOf(),
     @JsonIgnore @OneToMany(mappedBy = "buyer")
-    var purchases: Set<Transaction> = emptySet(),
+    var purchases: Set<Transaction> = mutableSetOf(),
     @JsonIgnore @OneToMany(mappedBy = "seller")
-    var auctions: Set<Transaction> = emptySet(),
+    var auctions: Set<Transaction> = mutableSetOf(),
 
-) : Searchable {
+    ) : Searchable {
     @Transient
     override val description: String = biography ?: ""
+
     @Transient
     override val type: String = "User"
 
@@ -73,6 +74,7 @@ data class User  (
 
         return username == other.username
     }
+
     override fun hashCode(): Int = username.hashCode()
     override fun toString(): String {
         return this::class.simpleName + "(id = $id , username = $username , password = $password , accountStatus = $accountStatus , role = $role , email = $email , biography = $biography , createdOn = $createdOn , updatedOn = $updatedOn , displayName = $displayName , pictureUrl = $pictureUrl )"

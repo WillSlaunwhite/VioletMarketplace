@@ -8,28 +8,23 @@ import javax.persistence.*
 data class Transaction (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Int,
-
     val timestamp: LocalDateTime,
-
     val description: String?,
-
     val type: String?,
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "token_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "token_id")
     val token: Token,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "seller_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "seller_id")
     val seller: User,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "buyer_id")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "buyer_id")
     val buyer: User,
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "block_id")
-    val block: Block
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "block_id")
+    val block: Block? = null,
+
+    @OneToOne(fetch = FetchType.LAZY)
+    val auction: Auction? = null
 
 ) {
     override fun equals(other: Any?): Boolean {

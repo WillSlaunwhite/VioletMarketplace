@@ -15,9 +15,9 @@
 }
 
 button {
-  width: 50%;
-  height: 100%;
   @include basic-precise-font($size: 2.5rem, $weight: 300, $align: center);
+  width: 50%;
+  height: 100% !important;
   z-index: 2;
   margin: .2em 0;
   padding: 0;

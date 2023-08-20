@@ -18,7 +18,11 @@ import javax.servlet.http.HttpServletResponse
 @RestController
 @RequestMapping("api")
 @CrossOrigin("*", "http://localhost:4301")
-class TokenController(private val tokenSvc: TokenService, private val userSvc: UserService, private val jwtUtil: JwtUtil) {
+class TokenController(
+    private val tokenSvc: TokenService,
+    private val userSvc: UserService,
+    private val jwtUtil: JwtUtil
+) {
     /////////////// UNAUTH METHODS ///////////////////
     //	return all tokens
     @GetMapping("tokens/home")
@@ -31,8 +35,8 @@ class TokenController(private val tokenSvc: TokenService, private val userSvc: U
     }
 
     @GetMapping("tokens/popular")
-    fun popularTokens(): ResponseEntity<Set<Token>> {
-        val tokenList = tokenSvc.index()
+    fun popularTokens(): ResponseEntity<List<Token>> {
+        val tokenList = tokenSvc.indexByPopular()
         if (tokenList.isEmpty()) {
             throw TokenNotFoundException("Unable to load index token list.")
         }
@@ -47,6 +51,7 @@ class TokenController(private val tokenSvc: TokenService, private val userSvc: U
         }
         return ResponseEntity.ok(tokenList)
     }
+
     //	find non-principal user's tokens index method
     @GetMapping("tokens/user/{username}")
     fun indexNonPrincipal(@PathVariable username: String): ResponseEntity<Set<Token>> {

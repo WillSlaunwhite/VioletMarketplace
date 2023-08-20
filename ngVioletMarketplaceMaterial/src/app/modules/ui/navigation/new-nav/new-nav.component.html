@@ -1,0 +1,36 @@
+<mat-toolbar class="mobile-navbar">
+  <div class="brand-container"><svg-icon class="brand" src="/assets/logos/matrix_vm_logo.svg"></svg-icon></div>
+  <mat-icon class="menu-icon" fontIcon="menu" (click)="toggleMenu()">menu</mat-icon>
+</mat-toolbar>
+
+<div class="menu-dropdown" *ngIf="menuOpen">
+  <div class="nav-links">
+    <a role="button" (click)="navigateToHome()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      <p>Home</p>
+    </a>
+    <mat-divider></mat-divider>
+    <a role="button" (click)="navigateToAboutUs()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      <p>About Us</p>
+    </a>
+    <mat-divider></mat-divider>
+    <a role="button" (click)="openRegisterDialog()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+      *ngIf="!(isLoggedIn$ | async)">
+      <p>Register</p>
+    </a>
+    <mat-divider></mat-divider>
+    <a role="button" (click)="openLoginDialog()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+      *ngIf="!(isLoggedIn$ | async)">
+      <p>Login</p>
+    </a>
+    <mat-divider></mat-divider>
+    <a role="button" (click)="navigateToAccount()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+      *ngIf="(isLoggedIn$ | async)">
+      <p>My Account</p>
+    </a>
+    <mat-divider></mat-divider>
+    <a (click)="getLogoutAction()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+      *ngIf="(isLoggedIn$ | async)">
+      <p>Logout</p>
+    </a>
+  </div>
+</div>

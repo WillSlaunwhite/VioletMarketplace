@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { TokenService } from '../services/token.service';
-import { loadTokens, loadTokensFailure, loadTokensSuccess, loadUserTokens, loadUserTokensFailure, loadUserTokensSuccess } from './tokens.actions';
+import { loadPopularTokens, loadPopularTokensFailure, loadPopularTokensSuccess, loadTokens, loadTokensFailure, loadTokensSuccess, loadUserTokens, loadUserTokensFailure, loadUserTokensSuccess } from './tokens.actions';
 
 @Injectable()
 export class TokenEffects {
@@ -25,6 +25,16 @@ export class TokenEffects {
       .pipe(
         map(tokens => loadUserTokensSuccess({ tokens })),
         catchError(error => of(loadUserTokensFailure({ error })))
+      )
+    )
+  ));
+
+  loadPopularTokens$ = createEffect(() => this.actions$.pipe(
+    ofType(loadPopularTokens),
+    mergeMap(user => this.tokenService.getByPopular()
+      .pipe(
+        map(tokens => loadPopularTokensSuccess({ tokens })),
+        catchError(error => of(loadPopularTokensFailure({ error })))
       )
     )
   ));

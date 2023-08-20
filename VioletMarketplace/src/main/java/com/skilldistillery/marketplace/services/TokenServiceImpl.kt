@@ -21,6 +21,10 @@ class TokenServiceImpl(
         return tokenRepo.findByStatus(Status.AVAILABLE)
     }
 
+    override fun indexByPopular(): List<Token> {
+        return tokenRepo.findTop10ByStatusOrderByViewsDesc(Status.AVAILABLE)
+    }
+
     override fun indexByUsername(username: String): LinkedHashSet<Token> {
         return (tokenRepo.findByOwner_Username(username))
     }
@@ -35,7 +39,7 @@ class TokenServiceImpl(
         token.creator = user
         token.owner = user
         //		token.setCollection(collectionRepo.findById(1));
-        token.transfers = txRepository.findAll() // every token has every transaction
+        token.transfers = txRepository.findAll().toSet()
         tokenRepo.saveAndFlush(token)
         return token
     }

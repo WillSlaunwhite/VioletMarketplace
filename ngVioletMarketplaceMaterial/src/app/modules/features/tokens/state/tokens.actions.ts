@@ -14,6 +14,8 @@ export const loadTokensFailure = createAction(
   '[Token] Load Tokens Failure',
   props<{ error: any }>()
 );
+
+
 export const loadUserTokens = createAction(
   '[Token] Load User Tokens',
   props<{ username: string }>()
@@ -26,5 +28,20 @@ export const loadUserTokensSuccess = createAction(
 
 export const loadUserTokensFailure = createAction(
   '[Token] Load User Tokens Failure',
+  props<{ error: any }>()
+);
+
+
+export const loadPopularTokens = createAction(
+  '[Token] Load Popular Tokens'
+);
+
+export const loadPopularTokensSuccess = createAction(
+  '[Token] Load Popular Tokens Success',
+  props<{ tokens: Token[] }>()
+);
+
+export const loadPopularTokensFailure = createAction(
+  '[Token] Load Popular Tokens Failure',
   props<{ error: any }>()
 );

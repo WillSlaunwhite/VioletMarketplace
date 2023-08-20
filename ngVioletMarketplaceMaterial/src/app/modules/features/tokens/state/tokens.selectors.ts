@@ -13,3 +13,8 @@ export const getUserTokens = createSelector(
   selectTokensState,
   (tokenState: TokensState) => tokenState.userTokens.length > 0 ? tokenState.userTokens : null
 );
+
+export const getPopularTokens = createSelector(
+  selectTokensState,
+  (tokenState: TokensState) => tokenState.popularTokens.length > 0 ? tokenState.popularTokens : null
+);

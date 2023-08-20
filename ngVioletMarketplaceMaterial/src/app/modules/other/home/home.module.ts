@@ -7,6 +7,7 @@ import { UserBalanceModule } from '../../features/user-balance/user-balance.modu
 import { TokenDisplayModule } from '../../ui/tokens/token-display.module';
 import { SearchDisplayModule } from '../../ui/search-display/search-display.module';
 import { SearchFeatureModule } from '../../features/search/search-feature.module';
+import { NavigationModule } from '../../ui/navigation/navigation.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SearchFeatureModule } from '../../features/search/search-feature.module
     UserBalanceModule,
     SearchDisplayModule,
     SearchFeatureModule,
+    NavigationModule,
   ],
 })
 export class HomeModule { }

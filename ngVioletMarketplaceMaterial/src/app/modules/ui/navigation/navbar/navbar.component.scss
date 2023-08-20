@@ -21,7 +21,6 @@
     height: auto;
     margin-top: 1em;
     margin-left: .5em;
-    cursor: none;
 
     // TODO fix brand's animation
     &:hover svg-icon {
@@ -60,6 +59,27 @@
   }
 
 }
+
+.hamburger-menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .toolbar {
+    height: 80px;
+  }
+
+  .nav-grad-button {
+    transform: scale(.25);
+  }
+
+  .brand-container {
+    @include rel-top-right($right: 4rem);
+    transform: scale(.5);
+  }
+}
+
+
 
 // DIVIDER COLOR
 .mat-mdc-divider {
