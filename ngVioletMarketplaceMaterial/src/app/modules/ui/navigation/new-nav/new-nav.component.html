@@ -5,32 +5,32 @@
 
 <div class="menu-dropdown" *ngIf="menuOpen">
   <div class="nav-links">
-    <div (click)="navigateToHome()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
-      Home
-    </div>
+    <a role="button" (click)="navigateToHome()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      <p>Home</p>
+    </a>
     <mat-divider></mat-divider>
-    <div (click)="navigateToAboutUs()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
-      About Us
-    </div>
+    <a role="button" (click)="navigateToAboutUs()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)">
+      <p>About Us</p>
+    </a>
     <mat-divider></mat-divider>
-    <div (click)="openRegisterDialog()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+    <a role="button" (click)="openRegisterDialog()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
       *ngIf="!(isLoggedIn$ | async)">
-      Register
-    </div>
+      <p>Register</p>
+    </a>
     <mat-divider></mat-divider>
-    <div (click)="openLoginDialog()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+    <a role="button" (click)="openLoginDialog()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
       *ngIf="!(isLoggedIn$ | async)">
-      Login
-    </div>
+      <p>Login</p>
+    </a>
     <mat-divider></mat-divider>
-    <div (click)="navigateToAccount()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+    <a role="button" (click)="navigateToAccount()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
       *ngIf="(isLoggedIn$ | async)">
-      My Account
-    </div>
+      <p>My Account</p>
+    </a>
     <mat-divider></mat-divider>
-    <div (click)="getLogoutAction()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
+    <a (click)="getLogoutAction()" class="nav-tile" matRipple matRippleColor="rgb(54, 53, 172, .5)"
       *ngIf="(isLoggedIn$ | async)">
-      Logout
-    </div>
+      <p>Logout</p>
+    </a>
   </div>
 </div>

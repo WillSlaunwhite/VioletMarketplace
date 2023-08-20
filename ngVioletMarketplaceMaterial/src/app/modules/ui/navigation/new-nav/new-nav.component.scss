@@ -8,7 +8,7 @@
   background: rgba($secondary-dark, 0.9);
 
   .brand-container {
-    @include rel-top-right($top: 20%, $right: 38%);
+    @include rel-top-right($top: 15%, $right: 38%);
     width: 20%;
     height: auto;
     margin: auto;
@@ -16,7 +16,7 @@
 
   .menu-icon {
     font-size: 30px;
-    margin: 0.5rem 1rem 0;
+    margin: 0 1.5rem 0;
     color: $text-light-grayed;
     cursor: pointer;
   }
@@ -31,9 +31,13 @@
 
     .nav-tile {
       @include flex-align-justify-direction($align: center, $justify: center);
-      @include basic-precise-font($size: 1.5rem, $weight: 200, $align: center);
       height: 12.5vh;
       backdrop-filter: blur(10px);
+
+      & > p {
+        @include basic-precise-font($size: 1.8rem, $weight: 300, $align: center);
+        cursor: pointer;
+      }
     }
   }
 }

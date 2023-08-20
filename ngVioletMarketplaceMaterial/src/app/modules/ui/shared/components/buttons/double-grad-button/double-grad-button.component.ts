@@ -27,7 +27,7 @@ export class DoubleGradButtonComponent implements OnInit {
   @Input() directionX: number = Math.random() * 20 - 10;
   @Input() directionY: number = Math.random() * 20 - 10;
 
-  @Output() submitEvent = new EventEmitter<void>();
+  // @Output() submitEvent = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit(): void {
