@@ -2,32 +2,45 @@
 @import '/src/scss/utils/variables';
 
 .tab-content {
-  height: calc(65vh - 50px);
+  height: calc(80vh - 50px);
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 
   .form-container {
     @include flex-align-justify-direction($direction: column, $justify: space-between);
-    width: 60%;
+    width: 70%;
     height: 80%;
     margin-inline: auto;
     margin-top: 1rem;
+    transform: translateX(-20px);
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
   }
 
   .form-field {
+    margin-bottom: 1rem;
 
     // * this works btw
     // * doesn't even bleed over
-    ::ng-deep .mat-mdc__text-label {
+    ::ng-deep .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
       letter-spacing: .05rem;
+      top: 32px !important;
     }
+
   }
 
   .required-label,
   .text-danger {
     @include basic-precise-font();
     @include responsive-font(1.2rem, 1.6rem, 350px, 1366px);
+  }
+
+
+  app-warning-message {
+    margin-bottom: .5rem;
   }
 
   .text-danger {
