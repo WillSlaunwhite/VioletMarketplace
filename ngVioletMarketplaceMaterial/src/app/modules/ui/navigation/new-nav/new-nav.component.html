@@ -1,5 +1,8 @@
 <mat-toolbar class="mobile-navbar">
-  <div class="brand-container"><svg-icon class="brand" src="/assets/logos/matrix_vm_logo.svg"></svg-icon></div>
+  <div class="brand-container">
+    <svg-icon class="logo" src="/assets/logos/vm_logo_lg.svg"
+      [svgStyle]="{ 'background-color':'transparent', 'width.px':120, 'height.px':150}"></svg-icon>
+  </div>
   <mat-icon class="menu-icon" fontIcon="menu" (click)="toggleMenu()">menu</mat-icon>
 </mat-toolbar>
 

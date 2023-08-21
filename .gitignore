@@ -15,5 +15,6 @@ VioletMarketplace/src/main/resources/static/*
 /node_modules
 node_modules/
 .vscode
+ngVioletMarketplaceMaterial/src/assets/*
 violetmarketplace.git/
 violetmarketplace.git/*

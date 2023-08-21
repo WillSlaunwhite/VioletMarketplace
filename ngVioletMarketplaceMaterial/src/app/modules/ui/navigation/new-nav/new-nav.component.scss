@@ -8,7 +8,7 @@
   background: rgba($secondary-dark, 0.9);
 
   .brand-container {
-    @include rel-top-right($top: 15%, $right: 38%);
+    @include rel-top-right($top: -50%, $right: 39%);
     width: 20%;
     height: auto;
     margin: auto;
@@ -39,5 +39,11 @@
         cursor: pointer;
       }
     }
+  }
+}
+
+@media (min-width: 1000px) {
+  .mobile-navbar {
+    display: none;
   }
 }
