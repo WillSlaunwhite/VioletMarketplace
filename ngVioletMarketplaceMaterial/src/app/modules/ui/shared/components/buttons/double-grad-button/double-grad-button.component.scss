@@ -12,7 +12,6 @@
 
 .dg-button-wrapper {
   @include button-wrapper-styles();
-  position: absolute;
   padding: 2px;
   border-radius: 6px;
   overflow: hidden;
