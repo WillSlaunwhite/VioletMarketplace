@@ -27,3 +27,21 @@ canvas {
   width: 100%;
   opacity: .7;
 }
+
+@media (min-width: 1000px) {
+  app-new-nav {
+    display: none;
+  }
+  app-navbar {
+    display: block;
+  }
+}
+
+@media (max-width: 999px) {
+  app-new-nav {
+    display: block;
+  }
+  app-navbar {
+    display: none;
+  }
+}

@@ -11,7 +11,8 @@
     width: 92%;
 
     .header-container {
-      @include basic-precise-font($size: 1.9rem, $align: center);
+      @include basic-precise-font($align: center);
+      @include responsive-font(12px, 20px, 320px, 1366px);
       @include flex-align-justify-direction($align: center, $justify: center);
       width: 45%;
       height: 30vh;
@@ -23,7 +24,8 @@
       width: 85%;
 
       .token-list-header {
-        @include basic-precise-font($size: 3.25rem, $align: start);
+        @include basic-precise-font($align: start);
+        @include responsive-font(18px, 36px, 320px, 1366px);
         width: 85%;
         margin-inline: auto;
       }

@@ -45,16 +45,17 @@ class AuthController(
 
     @PostMapping("/authenticate")
     fun createAuthenticationToken(@RequestBody authenticationRequest: AuthenticationRequest): ResponseEntity<AuthenticationResponse> {
-        try {
+        runCatching {
             authenticationManager.authenticate(
                 UsernamePasswordAuthenticationToken(authenticationRequest.username, authenticationRequest.password)
             )
-        } catch (e: BadCredentialsException) {
-            throw Exception("Incorrect username or password", e)
+        }.getOrElse {
+            throw Exception("Incorrect username or password.")
         }
-        println("username: " + authenticationRequest.username)
+
         val userDetails = userService.loadUserByUsername(authenticationRequest.username)
             ?: throw UserNotFoundException("Could not find user with username ${authenticationRequest.username} after registration.")
+
         val jwt = jwtUtil.generateToken(userDetails)
         println("jwt: $jwt")
         return ResponseEntity.ok(AuthenticationResponse(jwt))

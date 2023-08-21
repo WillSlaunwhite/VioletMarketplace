@@ -24,7 +24,6 @@
     &::ng-deep.mdc-tab {
       width: 17vw;
       height: 50px;
-      @include basic-precise-font($size: 1.3rem);
     }
 
     // * THIS WORKS
@@ -73,5 +72,6 @@
 }
 
 ::ng-deep .mat-mdc-tab .mdc-tab__text-label {
-  @include basic-precise-font($size: 1.3rem);
+  @include basic-precise-font($size: 1.6rem);
+  color: $text-secondary-dark;
 }
