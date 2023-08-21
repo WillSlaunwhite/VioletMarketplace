@@ -26,7 +26,8 @@
 
   .required-label,
   .text-danger {
-    @include basic-precise-font($size: 1.45rem);
+    @include basic-precise-font();
+    @include responsive-font(1.2rem, 1.6rem, 350px, 1366px);
   }
 
   .text-danger {

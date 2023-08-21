@@ -21,32 +21,39 @@
   font-size: $minSize;
 
   @media (min-width: $minViewport) and (max-width: $maxViewport) {
-    font-size: calc(#{$minSize} + (#{$maxSize} - #{$minSize}) * ((100vw - #{$minViewport}) / (#{$maxViewport} - #{$minViewport})));
+    $sizeDifference: strip-units($maxSize) - strip-units($minSize);
+    $viewportDifference: strip-units($maxViewport) - strip-units($minViewport);
+    
+    font-size: calc(#{$minSize} + (100vw - #{$minViewport}) * (#{$sizeDifference} / #{$viewportDifference}));
   }
 }
+
+// Function to strip units
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
 
 
 // FONTS
 
 // basic site font styling
-@mixin basic-precise-font($size: 1.1rem, $weight: 300, $spacing: normal, $height: normal, $align: initial) {
+@mixin basic-precise-font($weight: 300, $spacing: normal, $height: normal, $align: initial) {
   color: $text-primary-dark !important;
   font-family: 'Nunito';
   -webkit-font-smoothing: subpixel-antialiased;
   text-rendering: geometricPrecision;
-  font-size: $size;
   font-weight: $weight;
   letter-spacing: $spacing;
   line-height: $height;
   text-align: $align;
 }
 
-@mixin basic-bold-font($size: 1.1rem, $weight: 300, $spacing: normal, $height: normal, $align: initial) {
+@mixin basic-bold-font($weight: 300, $spacing: normal, $height: normal, $align: initial) {
   color: $text-primary-dark !important;
   font-family: 'Poppins', bold;
   -webkit-font-smoothing: subpixel-antialiased;
   text-rendering: geometricPrecision;
-  font-size: $size;
   font-weight: $weight;
   letter-spacing: $spacing;
   line-height: $height;

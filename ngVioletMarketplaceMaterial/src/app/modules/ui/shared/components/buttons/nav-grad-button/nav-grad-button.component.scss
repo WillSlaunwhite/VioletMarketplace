@@ -14,7 +14,6 @@
   radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%)
 );
 
-
 .button-wrapper {
   height: 8rem;
   width: 150px;
@@ -56,7 +55,8 @@
 // THE A TAGS FOR THE NAV LINKS
 .nav-button {
   @include rel-top-left($top: -5%);
-  @include basic-precise-font($size: 1.2rem, $align: center);
+  @include basic-precise-font($align: center);
+  @include responsive-font(1.2rem, 1.4rem, 320px, 1366px);
   @include full-wh-no-mrgpad;
   height: 120%;
 

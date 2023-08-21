@@ -1,8 +1,8 @@
 // @import '/src/scss/components/forms/forms';
 
-@import '/src/scss/utils/mixins';
-@import '/src/scss/utils/variables';
-@import '/src/scss/components/forms/tabs';
+@import "/src/scss/utils/mixins";
+@import "/src/scss/utils/variables";
+@import "/src/scss/components/forms/tabs";
 
 .register-tab-container {
   width: 55vw;
@@ -20,6 +20,7 @@
   .mat-mdc-tab,
   .mat-mdc-tab-label {
     width: 17vw;
-    @include basic-precise-font($size: 1.3rem);
+    @include basic-precise-font();
+    @include responsive-font(1.2rem, 1.4rem, 320px, 1366px);
   }
 }

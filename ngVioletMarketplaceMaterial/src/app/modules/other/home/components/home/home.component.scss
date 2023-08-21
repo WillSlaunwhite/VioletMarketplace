@@ -12,9 +12,9 @@
 
     .header-container {
       @include basic-precise-font($align: center);
-      @include responsive-font(12px, 20px, 320px, 1366px);
+      @include responsive-font(14px, 20px, 320px, 1366px);
       @include flex-align-justify-direction($align: center, $justify: center);
-      width: 45%;
+      width: 75%;
       height: 30vh;
       margin-left: 2rem;
     }
@@ -24,9 +24,9 @@
       width: 85%;
 
       .token-list-header {
-        @include basic-precise-font($align: start);
-        @include responsive-font(18px, 36px, 320px, 1366px);
-        width: 85%;
+        @include basic-precise-font($align: center);
+        @include responsive-font(24px, 36px, 320px, 1366px);
+        width: 100%;
         margin-inline: auto;
       }
 
@@ -55,5 +55,12 @@
     text-decoration: none;
     position: absolute;
     bottom: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-container {
+    width: 90%;
+    margin: auto;
   }
 }

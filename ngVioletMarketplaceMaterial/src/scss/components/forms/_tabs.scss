@@ -10,5 +10,6 @@ mat-tab-label,
 
 .mdc-tab__label,
 .mat-mdc-tab .mdc-tab__text-label {
-  @include basic-precise-font($size: 1.3rem);
+  @include basic-precise-font();
+  @include responsive-font(1.2rem, 1.4rem, 320px, 1366px);
 }

@@ -35,7 +35,8 @@
       backdrop-filter: blur(10px);
 
       & > p {
-        @include basic-precise-font($size: 1.8rem, $weight: 300, $align: center);
+        @include basic-precise-font($weight: 300, $align: center);
+        @include responsive-font(14px, 20px, 320px, 1366px);
         cursor: pointer;
       }
     }
