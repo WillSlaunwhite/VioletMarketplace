@@ -7,13 +7,13 @@ import { EffectsModule } from '@ngrx/effects';
 import { MaterialModule } from '../../ui/material/material.module';
 import { SharedModule } from '../../ui/shared/shared.module';
 import BigUserCardComponent from '../../ui/user/big-user-display/big-user-card/big-user-card.component';
-import { UserEffects } from '../register/state/register.effects';
 import { UserBalanceModule } from '../user-balance/user-balance.module';
 import { UserPageComponent } from './views/user-page/user-page.component';
 import { BigUserListComponent } from '../../ui/user/big-user-display/big-user-list/big-user-list.component';
 import { TokenModule } from '../tokens/token.module';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './state/user.reducer';
+import { AuthEffects } from './state/user.effect';
 
 @NgModule({
   declarations: [
@@ -30,8 +30,8 @@ import { reducer } from './state/user.reducer';
     TokenModule,
     SharedModule,
     UserBalanceModule,
-    EffectsModule.forFeature([UserEffects]),
     StoreModule.forFeature('auth', reducer),
+    EffectsModule.forFeature([AuthEffects]),
   ],
   exports: [
     ProfileManagementComponent,

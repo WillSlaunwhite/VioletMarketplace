@@ -60,7 +60,8 @@
 
       .card-img-title,
       .card-img-description {
-        @include basic-precise-font($size: 1.4rem, $align: center, $weight: 400);
+        @include basic-precise-font($align: center, $weight: 400);
+        @include responsive-font(1.2rem, 1.6rem, 350px, 1366);
       }
 
       .card-img-description {

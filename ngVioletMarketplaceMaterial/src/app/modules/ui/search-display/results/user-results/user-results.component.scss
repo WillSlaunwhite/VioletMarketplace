@@ -15,7 +15,8 @@
   }
 
   .container-header {
-    @include basic-precise-font($size: 2.5rem, $weight: 400);
+    @include basic-precise-font($weight: 400);
+    @include responsive-font(2.25rem, 2.5rem, 350px, 1366px);
     margin: 0;
     margin-left: 7rem;
     padding-block: 1rem;

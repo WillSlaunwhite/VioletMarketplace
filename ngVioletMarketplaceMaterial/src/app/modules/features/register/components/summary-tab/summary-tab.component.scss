@@ -1,5 +1,5 @@
-@import '/src/scss/utils/mixins';
-@import '/src/scss/utils/variables';
+@import "/src/scss/utils/mixins";
+@import "/src/scss/utils/variables";
 
 .summary-tab-content {
   height: 60%;
@@ -7,7 +7,7 @@
   padding-left: 5rem;
   overflow-y: auto;
   overflow-x: hidden;
-
+  @include flex-align-justify-direction($direction: column, $align: center, $justify: center);
 
   .fields-container {
     display: flex;
@@ -36,7 +36,6 @@
           display: none;
         }
       }
-
     }
   }
 
@@ -47,7 +46,8 @@
 }
 
 .summary-header {
-  @include basic-bold-font($size: 2.25rem, $align: center);
+  @include basic-bold-font($align: center);
+  @include responsive-font(2.1rem, 2.3rem, 350px, 1366px);
   margin-top: 0;
   margin-bottom: 1rem;
 }

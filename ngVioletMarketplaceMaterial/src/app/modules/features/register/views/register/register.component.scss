@@ -7,8 +7,8 @@
 .register-container {
   @include bg-gradient(linear-gradient(180deg, rgba($primary-dark, 0.95), rgba($primary-light, 0.95)));
 
-  width: 50vw;
-  height: 65vh;
+  width: 90vw;
+  height: auto;
   border-radius: 2px;
   opacity: 0.95;
 
@@ -22,17 +22,23 @@
     // TODO GPT says this is the only way, but
     // * need to investigate further
     &::ng-deep.mdc-tab {
-      width: 17vw;
-      height: 50px;
-      @include basic-precise-font($size: 1.3rem);
+      height: 40px;
+    }
+
+    @media (min-width: 768px) {
+      &::ng-deep.mdc-tab {
+        height: 50px;
+      }
     }
 
     // * THIS WORKS
     // * literally cannot find another
     // * way to do this
-    > ::ng-deep.mdc-tab-body-content {
-      overflow: hidden !important;
-      height: calc(65vh - 100px) !important;
+    @media (min-width: 768px) {
+      > ::ng-deep.mdc-tab-body-content {
+        overflow: hidden !important;
+        height: calc(85vh - 100px) !important;
+      }
     }
   }
 
@@ -47,11 +53,11 @@
   }
 
   .tab-nav-next {
-    right: 5%;
+    right: 15%;
   }
 
   .tab-nav-back {
-    left: 5%;
+    left: 15%;
   }
 }
 
@@ -73,5 +79,20 @@
 }
 
 ::ng-deep .mat-mdc-tab .mdc-tab__text-label {
-  @include basic-precise-font($size: 1.3rem);
+  @include basic-precise-font();
+  @include responsive-font(1.25rem, 1.9rem, 350px, 1366px);
+  color: $text-secondary-dark;
+}
+
+@media (min-width: 768px) {
+  .register-container {
+    width: 65vw;
+    height: 85vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .tab-nav-button {
+    transform: scale(1.5) !important;
+  }
 }

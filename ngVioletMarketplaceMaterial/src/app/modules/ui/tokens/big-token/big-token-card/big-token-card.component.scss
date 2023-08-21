@@ -67,14 +67,16 @@
 
       .card-img-title,
       .card-img-description {
-        @include basic-precise-font($size: 1.4rem, $align: center, $weight: 400);
+        @include basic-precise-font($align: center, $weight: 400);
+        @include responsive-font(1.2rem, 1.4rem, 320px, 1366px);
         margin: 8px 0;
         padding: 0;
         pointer-events: none;
       }
 
       .card-img-description {
-        @include basic-precise-font($size: 1.4rem, $align: center, $height: 1.75rem);
+        @include basic-precise-font($align: center, $height: 1.75rem);
+        @include responsive-font(1.2rem, 1.4rem, 320px, 1366px);
         @include limit-paragraph-to-n-lines;
         width: 90%;
         margin-inline: auto;
@@ -101,7 +103,8 @@
     top: 55%;
 
     .token-price {
-      @include basic-bold-font($size: 1.5rem, $align: center, $weight: 400);
+      @include basic-bold-font($align: center, $weight: 400);
+      @include responsive-font(1.4rem, 1.6rem, 320px, 1366px);
       position: relative;
       z-index: 1;
       width: 20%;
@@ -113,7 +116,8 @@
   .actions {
     @include abs-bot-left(5px);
     @include full-wh-no-mrgpad;
-    @include basic-precise-font(2.25rem);
+    @include basic-precise-font();
+    @include responsive-font(2.2rem, 2.4rem, 320px, 1366px);
     display: initial;
     height: 25%;
     cursor: default;

@@ -3,21 +3,20 @@
 
 .search-field {
   width: 100%;
+  display: inline-block;
 }
 
 .icon {
   @include rel-top-right($top: 15%, $right: 3%);
-  display: inline;
+  display: inline-block;
 }
 
-
 @media screen and (max-width: 768px) {
-  .search-field {
-    display: none;
-  }
-
   .icon {
-    @include rel-top-right($top: 50%, $right: 40%)
+    @include rel-top-right($top: 25%, $right: 10%);
   }
 
+  .search-field {
+    width: 120%;
+  }
 }

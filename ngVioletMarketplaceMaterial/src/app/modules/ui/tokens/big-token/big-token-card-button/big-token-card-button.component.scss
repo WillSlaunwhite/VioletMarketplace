@@ -1,5 +1,5 @@
-@import '/src/scss/utils/variables';
-@import '/src/scss/utils/mixins';
+@import "/src/scss/utils/variables";
+@import "/src/scss/utils/mixins";
 // @import '/src/scss/components/tokens/big-card';
 
 // border
@@ -8,18 +8,18 @@
   left: 0;
 }
 
-
 .large-purchase-button-bid::after {
   @include purchase-button-divider();
   right: 0;
 }
 
 button {
-  @include basic-precise-font($size: 2.5rem, $weight: 300, $align: center);
+  @include basic-precise-font($weight: 300, $align: center);
+  @include responsive-font(2.2rem, 2.4rem, 320px, 1366px);
   width: 50%;
   height: 100% !important;
   z-index: 2;
-  margin: .2em 0;
+  margin: 0.2em 0;
   padding: 0;
 
   &:hover {
@@ -39,7 +39,7 @@ button {
   }
 
   &.large-purchase-button:hover {
-    transition: opacity .2s;
+    transition: opacity 0.2s;
     background-color: rgba($primary-dark, 0.85);
   }
 }
