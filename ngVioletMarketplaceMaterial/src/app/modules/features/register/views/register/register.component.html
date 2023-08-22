@@ -1,6 +1,6 @@
 <div @slideInTop class="register-container">
   <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <mat-tab-group [animationDuration]=350 [dynamicHeight]=true class="register-tab-container"
+    <mat-tab-group  [animationDuration]=350 [dynamicHeight]=true class="register-tab-container"
       [selectedIndex]="selectedTabIndex" (selectedIndexChange)="onTabChange($event)">
       <mat-tab class="register-tab required-tab" label="Required">
         <app-required-form [formFields]="requiredFields"></app-required-form>
@@ -18,13 +18,12 @@
       <mat-tab class="register-tab summary-tab" label="Summary">
         <app-summary-tab [summary]="summary"></app-summary-tab>
         <div class="dg-button-container">
-          <app-double-grad-button [label]="'submit'" type="submit" [size]="'large'"></app-double-grad-button>
+          <!-- <app-double-grad-button [label]="'submit'" type="submit" [size]="'large'"></app-double-grad-button> -->
           <!-- TODO need to figure out navigation for summary page -->
           <!-- <app-ghost-grad-button (click)="onTabChange(selectedTabIndex-1)" class="tab-nav-button tab-nav-back" [size]="'small'" [gradient]="'red'" [label]="'back'"></app-ghost-grad-button> -->
         </div>
       </mat-tab>
     </mat-tab-group>
-    <button type="submit" style="display: none;"></button>
   </form>
   <div class="glass-wrapper"></div>
 </div>

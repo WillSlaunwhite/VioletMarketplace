@@ -1,4 +1,5 @@
 @import '/src/scss/utils/mixins';
+@import '/src/scss/utils/variables';
 
 // sizing and font for form tabs
 mat-tab,
@@ -9,8 +10,10 @@ mat-tab-label,
 }
 
 .mdc-tab__label,
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label,
+.mat-mdc-tab.mdc-tab--active:hover .mdc-tab__text-label,
 .mat-mdc-tab .mdc-tab__text-label {
   @include basic-precise-font();
-  @include responsive-font(1.2rem, 1.4rem, 320px, 1366px);
+  @include responsive-font(1.5rem, 2rem, 320px, 1366px);
 }
 

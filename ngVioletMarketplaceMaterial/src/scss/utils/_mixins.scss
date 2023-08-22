@@ -38,8 +38,7 @@
 // FONTS
 
 // basic site font styling
-@mixin basic-precise-font($weight: 300, $spacing: normal, $height: normal, $align: initial) {
-  color: $text-primary-dark !important;
+@mixin basic-precise-font($weight: 300, $spacing: normal, $height: normal, $align: initial, $color: #e5e5e5) {
   font-family: 'Nunito';
   -webkit-font-smoothing: subpixel-antialiased;
   text-rendering: geometricPrecision;
@@ -47,10 +46,11 @@
   letter-spacing: $spacing;
   line-height: $height;
   text-align: $align;
+  color: $color !important;
 }
 
 @mixin basic-bold-font($weight: 300, $spacing: normal, $height: normal, $align: initial) {
-  color: $text-primary-dark !important;
+  color: $text-primary-dark;
   font-family: 'Poppins', bold;
   -webkit-font-smoothing: subpixel-antialiased;
   text-rendering: geometricPrecision;

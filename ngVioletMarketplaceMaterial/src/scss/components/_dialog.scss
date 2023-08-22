@@ -14,3 +14,7 @@
   transition: opacity ease-in-out 1.25s;
   background: rgba(0, 0, 0, .57);
 }
+
+.cdk-overlay-pane {
+  max-width: 90vw !important;
+}
