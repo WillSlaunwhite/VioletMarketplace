@@ -5,7 +5,7 @@ mat-tab,
 mat-tab-label,
 .mat-mdc-tab,
 .mat-mdc-tab-label {
-  width: 17vw;
+  width: 15vw;
 }
 
 .mdc-tab__label,
@@ -13,3 +13,4 @@ mat-tab-label,
   @include basic-precise-font();
   @include responsive-font(1.2rem, 1.4rem, 320px, 1366px);
 }
+

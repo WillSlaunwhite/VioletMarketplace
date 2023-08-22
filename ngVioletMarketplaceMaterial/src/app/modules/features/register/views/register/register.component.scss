@@ -37,13 +37,14 @@
     @media (min-width: 768px) {
       > ::ng-deep.mdc-tab-body-content {
         overflow: hidden !important;
-        height: calc(85vh - 100px) !important;
+        height: calc(75vh - 100px) !important;
       }
     }
 
-      > ::ng-deep.mdc-tab-body-content {
-        height: calc(75vh - 100px) !important;
-      }
+    > ::ng-deep.mdc-tab-body-content {
+      height: calc(75vh - 100px) !important;
+      width: 89%;
+    }
   }
 
   .register-form {
@@ -69,12 +70,12 @@
   width: 50%;
   height: 70px;
   margin-top: 2rem;
-  transform: scale(.85);
+  transform: scale(0.85);
   margin-left: 3px;
 }
 
 .summary-tab {
-  height: 80vh;
+  height: 70vh;
   overflow: hidden;
 }
 
@@ -101,4 +102,11 @@
   .tab-nav-button {
     transform: scale(1.5) !important;
   }
+}
+
+
+
+
+::ng-deep .mat-mdc-tab-body, mat-mdc-tab-body {
+  height: 75vh !important;
 }

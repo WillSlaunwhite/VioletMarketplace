@@ -2,6 +2,7 @@
   background: rgba(120, 120, 120, .5) !important;
   margin: 0;
   padding: 0 !important;
+  overflow-x: hidden; 
 
   &::before {
     cursor: pointer;
