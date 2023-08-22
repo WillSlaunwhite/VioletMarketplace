@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-summary-tab',
@@ -6,24 +6,20 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./summary-tab.component.scss']
 })
 export class SummaryTabComponent implements OnInit {
-  // TODO
-  // take an array of fields
-  // display a grid based on the number of fields
-  // array of fields can actually be taken out of state
-  // when the event to move to the third tab happens
-  // get current form data, take all the field names
-  // and values and display them for confirmation
   @Input() summary: any = {
     requiredFields: {},
     optionalFields: {}
   };
+  @Output() requestFormSubmit = new EventEmitter<void>()
 
   objectKeys = Object.keys;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
+  handleFormSubmit(): void {
+    console.log('in summary tab submit');
+    this.requestFormSubmit.emit();
   }
-
 }

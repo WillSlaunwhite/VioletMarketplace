@@ -29,5 +29,5 @@
     </mat-card-content>
   </mat-card>
 
-  <app-double-grad-button [label]="'submit'" type="submit" [size]="'large'"></app-double-grad-button>
+  <app-double-grad-button (submitEvent)="handleFormSubmit()" [label]="'submit'" type="submit" [size]="'large'"></app-double-grad-button>
 </div>

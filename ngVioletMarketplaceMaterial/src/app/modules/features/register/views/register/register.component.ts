@@ -24,7 +24,12 @@ export class RegisterComponent implements OnInit, OnChanges {
 		optionalFields: {},
 	};
 
-	constructor(private fb: FormBuilder, private store: Store, public dialogRef: MatDialogRef<RegisterComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
+	constructor(
+		private fb: FormBuilder,
+		private store: Store,
+		public dialogRef: MatDialogRef<RegisterComponent>,
+		@Inject(MAT_DIALOG_DATA) public data: any
+	) {
 		this.registerForm = this.fb.group({
 			requiredFields: this.fb.group(
 				{
@@ -60,11 +65,13 @@ export class RegisterComponent implements OnInit, OnChanges {
 	ngOnChanges(): void {}
 
 	onSubmit(): void {
+		console.log('in register submit');
 		if (this.registerForm.valid) {
 			const user: User = {
 				...this.registerForm.value.requiredFields,
 				...this.registerForm.value.optionalFields,
 			};
+			console.log('user: ' + user.username);
 			this.store.dispatch(registerUser({ user }));
 			this.dialogRef.close();
 		} else {
