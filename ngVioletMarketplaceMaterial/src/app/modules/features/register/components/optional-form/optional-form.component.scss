@@ -12,10 +12,14 @@
 
   .form-container {
     @include flex-align-justify-direction($direction: column, $justify: space-between);
-    width: 60%;
+    width: 70%;
     height: 80%;
     margin-inline: auto;
     margin-top: 1rem;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
   }
 
   .form-field {
