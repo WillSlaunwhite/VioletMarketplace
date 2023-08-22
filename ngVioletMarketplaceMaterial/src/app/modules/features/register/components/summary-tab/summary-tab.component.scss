@@ -2,57 +2,54 @@
 @import "/src/scss/utils/variables";
 
 .summary-tab-content {
-  height: 60%;
-  width: 88%;
-  padding-left: 5rem;
+  @include flex-align-justify-direction($direction: column, $align: center, $justify: center);
+  @include full-wh-no-mrgpad;
   overflow-y: auto;
   overflow-x: hidden;
-  @include flex-align-justify-direction($direction: column, $align: center, $justify: center);
 
-  .fields-container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    overflow: hidden;
-    max-width: 50vw;
+  .section-container {
+    background-color: rgba($background-dark, .8);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    margin-block: 0.5rem;
+    margin-inline: auto;
+    width: 90%;
+    height: 40%;
 
-    .summary-field {
-      height: 80px;
-      width: 100%;
+    .section-header {
+      @include basic-bold-font($align: center);
+      @include responsive-font($minSize: 1.5rem, $maxSize: 2rem, $minViewport: 366px, $maxViewport: 1366px);
+      margin-block: 0.5rem;
+    }
 
-      .key-text {
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        text-overflow: ellipsis;
-        overflow-y: hidden;
-        overflow-x: scroll;
-        white-space: normal;
-        color: orange;
-        width: 90%;
-        margin: 6px 24px;
+    .fields-container {
+      @include flex-align-justify-direction($direction: column);
 
-        &::-webkit-scrollbar {
-          display: none;
+      .summary-field {
+        margin-bottom: 0.75rem;
+
+        .key-text {
+          @include basic-bold-font($align: left);
+          display: block;
+          white-space: nowrap;
+          overflow: scroll;
+          width: 100%;
+          margin: 6px 0;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
       }
     }
   }
 
-  .tab-header {
-    color: $text-primary-dark;
-    text-align: center;
+  .required-container {
+    margin-top: 1rem;
   }
-}
 
-.summary-header {
-  @include basic-bold-font($align: center);
-  @include responsive-font(2.1rem, 2.3rem, 350px, 1366px);
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.optional-container,
-.required-container {
-  width: 25vw;
+  app-double-grad-button {
+    transform: scale(0.8);
+    margin-bottom: 1rem;
+  }
 }

@@ -2,6 +2,7 @@
   background: rgba(120, 120, 120, .5) !important;
   margin: 0;
   padding: 0 !important;
+  overflow-x: hidden; 
 
   &::before {
     cursor: pointer;
@@ -12,4 +13,8 @@
 .cdk-overlay-dark-backdrop {
   transition: opacity ease-in-out 1.25s;
   background: rgba(0, 0, 0, .57);
+}
+
+.cdk-overlay-pane {
+  max-width: 90vw !important;
 }

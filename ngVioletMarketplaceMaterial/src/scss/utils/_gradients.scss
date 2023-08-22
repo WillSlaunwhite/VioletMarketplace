@@ -7,7 +7,6 @@
 }
 
 .gradient-blue {
-  /* Created with https://www.css-gradient.com */
   background: #471D90;
   background: -webkit-linear-gradient(top, #471D90, #334884E3);
   background: -moz-linear-gradient(top, #471D90, #334884E3);
@@ -16,7 +15,6 @@
 }
 
 .gradient-purple {
-  /* Created with https://www.css-gradient.com */
   background: #471D90;
   background: -webkit-linear-gradient(top, #471D90, #524888);
   background: -moz-linear-gradient(top, #471D90, #524888);
@@ -28,4 +26,19 @@
   background: -webkit-linear-gradient(top left, #471D90, #270269D3);
   background: -moz-linear-gradient(top left, #471D90, #270269D3);
   background: linear-gradient(to bottom right, #471D90, #270269D3);
+}
+
+
+.gradient-light-flipped {
+  background: #471D90;
+  background: -webkit-linear-gradient(bottom, #471D90, #5B4C75);
+  background: -moz-linear-gradient(bottom, #471D90, #5B4C75);
+  background: linear-gradient(to top, #471D90, #5B4C75);
+}
+
+.gradient-blue-flipped {
+  background: #471D90;
+  background: -webkit-linear-gradient(bottom, #471D90, #334884E3);
+  background: -moz-linear-gradient(bottom, #471D90, #334884E3);
+  background: linear-gradient(to top, #471D90, #334884E3);
 }

@@ -1,34 +1,44 @@
 // @import '/src/scss/components/forms/forms';
-@import '/src/scss/utils/mixins';
-@import '/src/scss/utils/variables';
+@import "/src/scss/utils/mixins";
+@import "/src/scss/utils/variables";
 
 @include remove-autofill-background;
 
 .form-content {
-  height: calc(65vh - 50px);
+  height: calc(80vh - 50px);
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
 
   .form-container {
     @include flex-align-justify-direction($direction: column, $justify: space-between);
-    width: 60%;
+    width: 70%;
     height: 80%;
     margin-inline: auto;
     margin-top: 1rem;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
   }
 
   .form-field {
-
     // * this works btw
     // * doesn't even bleed over
-    ::ng-deep mat-mdc__text-label {
-      letter-spacing: .05rem;
+    ::ng-deep .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+      letter-spacing: 0.05rem;
+      top: 32px !important;
     }
   }
 }
 
 // changes the biography textarea height
 .textarea textarea.mat-mdc-input-element {
-  height: 150px;
+  height: 50px;
+}
+
+@media (min-width: 768px) {
+  .textarea textarea.mat-mdc-input-element {
+    height: 150px;
+  }
 }

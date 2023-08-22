@@ -2,26 +2,32 @@
 * and their values from state, iterate over them
 * and display them to be validated by the user.
 * editable? -->
-<h2 class="summary-header">Summary</h2>
 <div class="summary-tab-content">
-  <div class="required-container">
-    <div class="fields-container">
-      <div class="summary-field required-field" *ngFor="let key of objectKeys(summary?.requiredFields)">
-        <p class="key-text ">
+  <!-- Required Section -->
+  <mat-card class="section-container required-container">
+    <mat-card-title class="section-header">Required</mat-card-title>
+    <mat-card-content class="fields-container">
+      <div class="summary-field" *ngFor="let key of objectKeys(summary.requiredFields)">
+        <p class="key-text">
           <strong>{{key | fromCamelCase}}:</strong>
           {{summary.requiredFields[key]}}
         </p>
       </div>
-    </div>
-  </div>
-  <div class="optional-container">
-    <div class="fields-container">
-      <div class="summary-field optional-field" *ngFor="let key of objectKeys(summary?.optionalFields)">
-        <p class="key-text ">
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Optional Section -->
+  <mat-card class="section-container optional-container">
+    <mat-card-title class="section-header">Optional</mat-card-title>
+    <mat-card-content class="fields-container">
+      <div class="summary-field" *ngFor="let key of objectKeys(summary.optionalFields)">
+        <p class="key-text">
           <strong>{{key | fromCamelCase}}:</strong>
           {{summary.optionalFields[key]}}
         </p>
       </div>
-    </div>
-  </div>
+    </mat-card-content>
+  </mat-card>
+
+  <app-double-grad-button (submitEvent)="handleFormSubmit()" [label]="'submit'" type="submit" [size]="'large'"></app-double-grad-button>
 </div>
