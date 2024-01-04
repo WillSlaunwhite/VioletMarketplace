@@ -8,24 +8,21 @@
   opacity: 0.95;
 
   .search-tab-container {
-    height: 92.5%;
-    width: 100%;
-    margin-top: 1rem;
+    width: 97.5%;
+    margin-inline: auto;
+    padding-top: 1.5%;
+
+    ::ng-deep.mdc-tab {
+      height: 4rem;
+      background-color: $primary-dark;
+    }
 
     // TODO GPT says this is the only way, but
     // * need to investigate further
-    &::ng-deep.mat-mdc-tab-label {
-      width: 45%;
-      height: 4rem;
+    & ::ng-deep.mdc-tab__text-label {
       @include basic-bold-font();
       @include responsive-font(2.25rem, 2.5rem, 350px, 1366px);
-      background: $primary-dark;
-      margin: 0;
       padding: 0;
-
-      &:first-of-type {
-        margin-left: 5%;
-      }
     }
 
     // * THIS WORKS

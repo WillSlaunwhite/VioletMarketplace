@@ -49,7 +49,7 @@
   color: $color !important;
 }
 
-@mixin basic-bold-font($weight: 300, $spacing: normal, $height: normal, $align: initial) {
+@mixin basic-bold-font($weight: 300, $spacing: normal, $height: normal, $align: initial, $color: #e5e5e5) {
   color: $text-primary-dark;
   font-family: 'Poppins', bold;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -58,6 +58,7 @@
   letter-spacing: $spacing;
   line-height: $height;
   text-align: $align;
+  color: $color !important;
 }
 
 @mixin remove-autofill-background {

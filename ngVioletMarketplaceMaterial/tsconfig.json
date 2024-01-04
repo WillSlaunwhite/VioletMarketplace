@@ -22,8 +22,8 @@
       "dom"
     ],
     "paths": {
-      "@ng-violet-marketplace-material/Users-williamslaunwhite-Projects-_VioletMarketplace-VioletMarketplace-ngVioletMarketplaceMaterial-src-app-modules-user": [
-        "projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/src/index.ts"
+      "@ng-violet-marketplace-material/Users-william-Projects-VioletMarketplace-ngVioletMarketplaceMaterial-src-app-modules-user": [
+        "projects/Users/william/Projects/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/src/index.ts"
       ]
     }
   },
