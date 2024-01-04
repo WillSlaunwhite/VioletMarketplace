@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../../../../../../../../node_modules/nx/schemas/project-schema.json",
+  "name": "Users-william-Projects-VioletMarketplace-ngVioletMarketplaceMaterial-src-app-modules-user",
+  "sourceRoot": "projects/Users/william/Projects/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "projects/Users/william/Projects/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/projects/Users/william/Projects/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user"
+      ],
+      "options": {
+        "jestConfig": "projects/Users/william/Projects/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
