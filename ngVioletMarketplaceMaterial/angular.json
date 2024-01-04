@@ -3,43 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Users-williamslaunwhite-Projects-_VioletMarketplace-VioletMarketplace-ngVioletMarketplaceMaterial-src-app-modules-user": {
-      "root": "projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user",
-      "sourceRoot": "projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
-          "options": {
-            "lintFilePatterns": [
-              "projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user"
-          ],
-          "options": {
-            "jestConfig": "projects/Users/williamslaunwhite/Projects/_VioletMarketplace/VioletMarketplace/ngVioletMarketplaceMaterial/src/app/modules/user/jest.config.ts",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
     "ngVioletMarketplaceMaterial": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
         }
       },
       "root": "",
@@ -47,11 +15,10 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/ng-violet-marketplace-material",
             "index": "src/index.html",
-            "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -89,12 +56,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -103,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngVioletMarketplaceMaterial:build:production"
+              "buildTarget": "ngVioletMarketplaceMaterial:build:production"
             },
             "development": {
-              "browserTarget": "ngVioletMarketplaceMaterial:build:development"
+              "buildTarget": "ngVioletMarketplaceMaterial:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -114,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngVioletMarketplaceMaterial:build"
+            "buildTarget": "ngVioletMarketplaceMaterial:build"
           }
         },
         "test": {

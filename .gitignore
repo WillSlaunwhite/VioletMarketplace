@@ -18,3 +18,4 @@ node_modules/
 ngVioletMarketplaceMaterial/src/assets/*
 violetmarketplace.git/
 violetmarketplace.git/*
+ngVioletMarketplaceMaterial/.nx/*
