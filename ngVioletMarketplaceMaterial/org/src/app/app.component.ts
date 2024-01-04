@@ -8,7 +8,6 @@ import { loadUserTokens } from './modules/features/tokens/state/tokens.actions';
 import { loginSuccess } from './modules/features/user/state/user.actions';
 
 @Component({
-	standalone: false,
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
