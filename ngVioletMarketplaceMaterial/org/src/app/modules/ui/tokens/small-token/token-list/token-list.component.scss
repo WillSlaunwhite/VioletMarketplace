@@ -1,0 +1,72 @@
+@import '../../../../../../scss/layout/token_containers';
+@import '../../../../../../scss/layout/containers';
+
+.tokens-container {
+  position: relative;
+  height: 100%;
+  width: 92.5%;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  gap: 1.5em;
+  background: transparent;
+  scroll-behavior: auto;
+  margin: auto;
+
+  app-token-card {
+    margin: auto;
+    overflow-wrap: normal;
+    transition: all ease-in-out 1s;
+  }
+
+  app-token-card:last-of-type {
+    margin-right: 2.5em;
+  }
+
+  .scroll-button {
+    position: fixed;
+    top: 0%;
+    width: 3em;
+    height: 100%;
+    padding-top: 1em;
+    z-index: 2;
+    opacity: .45;
+    cursor: pointer;
+  }
+
+  .scroll-button-left {
+    background: linear-gradient(to left, rgb(0, 0, 0, .3), rgba(0, 0, 0, .6));
+    left: 0;
+  }
+
+  .scroll-button-right {
+    background: linear-gradient(to right, rgb(0, 0, 0, .3), rgba(0, 0, 0, .6));
+    right: 0;
+  }
+
+}
+
+
+
+// WEBKIT SCROLLBAR IS NON-STANDARD
+
+.tokens-container::-webkit-scrollbar {
+  overflow: auto;
+  width: .5rem;
+  height: .4rem;
+  scroll-behavior: smooth;
+}
+
+.tokens-container::-webkit-scrollbar-track {
+  margin-inline: 1.5em;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  border-radius: 10px;
+  scroll-behavior: smooth;
+}
+
+.tokens-container::-webkit-scrollbar-thumb {
+  background: rgba(71, 29, 144, 0.3);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  scroll-behavior: smooth;
+}

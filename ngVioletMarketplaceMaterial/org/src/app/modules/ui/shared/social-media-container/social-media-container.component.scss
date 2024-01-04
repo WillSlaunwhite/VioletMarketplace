@@ -1,0 +1,44 @@
+@import '/org/src/scss/utils/mixins';
+@import '/org/src/scss/utils/variables';
+
+.social-icon,
+svg-icon {
+  background-color: transparent !important;
+  color: transparent;
+  transition: ease .2s;
+}
+
+
+.socials-container {
+  width: 100%;
+  height: 50px;
+  @include flex-center;
+  cursor: default;
+
+  .social-icon {
+    cursor: default;
+    margin-inline: 1rem;
+
+    &:hover {
+      transition: ease .4s;
+      transform: scale(1.1);
+    }
+  }
+
+
+  .bi-google {
+    font-size: 42px;
+    position: relative;
+    top: -4px;
+  }
+
+  &::ng-deep.mat-mdc-button-focus-overlay {
+    display: none;
+  }
+}
+
+svg,
+em {
+  cursor: pointer;
+  transform: scale(1.45);
+}

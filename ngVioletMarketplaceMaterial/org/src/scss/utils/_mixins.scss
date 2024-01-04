@@ -1,0 +1,263 @@
+@import '../utils/utilities';
+@import '../utils/variables';
+
+// apply box shadow to all browsers
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+// apply transition to all browsers
+@mixin transition($properties...) {
+  -webkit-transition: $properties;
+  -moz-transition: $properties;
+  -o-transition: $properties;
+  transition: $properties;
+}
+
+// calculate font size based on viewport
+@mixin responsive-font($minSize, $maxSize, $minViewport, $maxViewport) {
+  font-size: $minSize;
+
+  @media (min-width: $minViewport) and (max-width: $maxViewport) {
+    $sizeDifference: strip-units($maxSize) - strip-units($minSize);
+    $viewportDifference: strip-units($maxViewport) - strip-units($minViewport);
+    
+    font-size: calc(#{$minSize} + (100vw - #{$minViewport}) * (#{$sizeDifference} / #{$viewportDifference}));
+  }
+}
+
+// Function to strip units
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+
+
+// FONTS
+
+// basic site font styling
+@mixin basic-precise-font($weight: 300, $spacing: normal, $height: normal, $align: initial, $color: #e5e5e5) {
+  font-family: 'Nunito';
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: geometricPrecision;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  line-height: $height;
+  text-align: $align;
+  color: $color !important;
+}
+
+@mixin basic-bold-font($weight: 300, $spacing: normal, $height: normal, $align: initial) {
+  color: $text-primary-dark;
+  font-family: 'Poppins', bold;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: geometricPrecision;
+  font-weight: $weight;
+  letter-spacing: $spacing;
+  line-height: $height;
+  text-align: $align;
+}
+
+@mixin remove-autofill-background {
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: white;
+    -webkit-text-size-adjust: 50%;
+  }
+
+}
+
+
+// * ##### POSITIONING
+
+// center a div
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// basic flex properties
+@mixin flex-align-justify-direction($align: initial, $justify: initial, $direction: initial) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+
+// absolute position top of container
+@mixin abs-top-left($top: 0, $left: 0) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin abs-top-right($top: 0, $right: 0) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+
+@mixin abs-bot-left($bot: 0, $left: 0) {
+  position: absolute;
+  bottom: $bot;
+  left: $left;
+}
+
+@mixin abs-bot-right($bot: 0, $right: 0) {
+  position: absolute;
+  bottom: $bot;
+  right: $right;
+}
+
+@mixin rel-top-left($top: 0, $left: 0) {
+  position: relative;
+  top: $top;
+  left: $left;
+}
+
+@mixin rel-top-right($top: 0, $right: 0) {
+  position: relative;
+  top: $top;
+  right: $right;
+}
+
+@mixin full-wh-no-mrgpad($width: 100%, $height: 100%, $margin: 0, $padding: 0) {
+  width: $width;
+  height: $height;
+  margin: $margin;
+  padding: $padding;
+}
+
+@mixin flex-full-wh() {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+@mixin full-size {
+  @include full-wh-no-mrgpad;
+  @include abs-top-left;
+  border-radius: inherit;
+}
+
+
+
+
+// TODO need to move all gradient definitions here
+@mixin preset-gradients {
+  .dg-button-red {
+    @include bg-gradient (linear-gradient(85.69deg, rgba(71, 29, 144, 0.3) 1.1%, rgba(14, 14, 69, 0.3) 71.94%),
+      linear-gradient(93.31deg, #833AB4 0%, #FD1D1D 53.39%, #FCB045 94.05%));
+  }
+}
+
+
+// hide form field underline
+@mixin hide-underline {
+  form ::ng-deep .mat-mdc-form-field-underline {
+    display: none !important;
+  }
+}
+
+
+// glass effects for cards
+@mixin glass-effect($gradients...) {
+
+  .glass-wrapper {
+    @include abs-top-left;
+    @include bg-gradient($gradients);
+    @include full-wh-no-mrgpad;
+    content: '';
+    z-index: 2;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+@mixin glass-border($gradients...) {
+  .glass-wrapper::before {
+    @include abs-top-left;
+    @include bg-gradient($gradients);
+    @include full-wh-no-mrgpad;
+    content: '';
+    // background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%),
+    //   radial-gradient(circle at center, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, .1) 70%);
+    // background: linear-gradient(135deg, blue, red);
+    opacity: .5;
+    z-index: -1;
+    border-radius: inherit;
+  }
+}
+
+// TODO need to do more here I think
+@mixin bg-gradient($gradients...) {
+  background-image: $gradients;
+}
+
+@mixin button-wrapper-styles($gradients...) {
+
+  .grad-button::before,
+  .grad-button::after {
+    position: absolute;
+    content: '';
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    z-index: -1;
+    border-radius: 6px;
+    transition: all .5s ease-out;
+    transform: none;
+    animation: gradient 8s linear 10s infinite;
+    background-image: $gradients 150% 100%; // TEMPORARY
+  }
+
+}
+
+@mixin button-styles($background-image, $before-background-image, $after-background-image) {
+  background-image: $background-image;
+
+  &::before {
+    background-image: $before-background-image;
+  }
+
+  &::after {
+    background-image: $after-background-image;
+  }
+}
+
+// just in case...
+@mixin purchase-button-divider() {
+  position: absolute;
+  content: '';
+  border: none;
+  top: 10%;
+  width: 1px;
+  height: 75%;
+  z-index: -1;
+  background-color: black; // temporary
+  // background-image: linear-gradient(to right, #34D1C8 33.56%, #FD241D 78.08%);
+  background-size: 150% 100%;
+  transition: all .8s ease-in-out;
+  pointer-events: none;
+}
+
+@mixin limit-paragraph-to-n-lines($n: 5) {
+  // LIMIT PARAGRAPH TEXT TO N LINES
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  line-clamp: $n;
+  text-overflow: ellipsis !important;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}

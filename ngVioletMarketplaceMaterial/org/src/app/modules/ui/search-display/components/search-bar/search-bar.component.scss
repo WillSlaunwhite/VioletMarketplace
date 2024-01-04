@@ -1,0 +1,22 @@
+@import "/org/src/scss/utils/mixins";
+@import "/org/src/scss/utils/variables";
+
+.search-field {
+  width: 100%;
+  display: inline-block;
+}
+
+.icon {
+  @include rel-top-right($top: 15%, $right: 3%);
+  display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+  .icon {
+    @include rel-top-right($top: 25%, $right: 10%);
+  }
+
+  .search-field {
+    width: 120%;
+  }
+}

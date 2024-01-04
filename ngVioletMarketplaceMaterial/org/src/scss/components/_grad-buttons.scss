@@ -1,0 +1,96 @@
+@import "../../scss/utils/mixins";
+
+// * need to move gradient color declarations here I think
+// * GRADIENTS MUST BE HIGH OPACITY
+
+.dg-button {
+  @include button-wrapper-styles();
+  display: inline-block;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  background-size: 150% 150%;
+  animation: gradient 6s linear 8s infinite;
+  transition: all ease-out 0.25s;
+}
+
+.dg-button-sm {
+  width: 124px;
+  height: 44px;
+
+  .text-wrapper {
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: $text-primary-dark;
+  }
+
+  > .dg-button:hover::before,
+  > .dg-button:hover::after {
+    transform: rotate(27.5deg) scale(1.5);
+    transition: all 0.35s ease-out;
+  }
+}
+
+.dg-button-md {
+  width: 244px;
+  height: 74px;
+
+  .text-wrapper {
+    font-family: "Poppins";
+    font-size: 1.75rem;
+    font-weight: 200;
+  }
+
+  > .dg-button:hover::before,
+  > .dg-button:hover::after {
+    transform: rotate(27.5deg) scale(1.5);
+    transition: all 0.35s ease-out;
+  }
+}
+
+.dg-button-lg {
+  width: 324px;
+  height: 60px;
+
+  .text-wrapper {
+    @include basic-bold-font();
+    @include responsive-font(2.2rem, 2.4rem, 320px, 1366px);
+  }
+
+  > .dg-button:focus::before,
+  > .dg-button:focus::after,
+  > .dg-button:hover::before,
+  > .dg-button:hover::after {
+    transform: rotate(-20.5deg) scale(1.5);
+    transition: all 0.5s ease-in;
+  }
+}
+
+.dg-button-cta {
+  @include button-styles(linear-gradient(88.33deg, #3635ac 0.81%, #304b7e 51.46%, #471d90 102.11%), linear-gradient(to right, #34d1c8 33.56%, #fd241d 78.08%), linear-gradient(to bottom, #34d1c8 33.56%, #fd241d 78.08%));
+
+  &:focus::before,
+  &:focus::after,
+  &:hover::before,
+  &:hover::after {
+    transform: rotate(20.5deg) scale(1.5) !important;
+  }
+}
+
+.dg-button-primary {
+  @include button-styles(linear-gradient(85.69deg, rgba(71, 29, 144) 1.1%, rgba(14, 14, 69) 71.94%), linear-gradient(93.31deg, #833ab4 0%, #fd1d1d 53.39%, #fcb045 94.05%), linear-gradient(93.31deg, #833ab4 0%, #fd1d1d 53.39%, #fcb045 94.05%)) // linear-gradient(to bottom, #FCB045 0%, #77B388 100%));
+;
+}
+
+.dg-button-secondary {
+  @include button-styles(linear-gradient(88.33deg, #3635ac 0.81%, #304b7e 51.46%, #471d90 102.11%), linear-gradient(to right, #34d1c8 33.56%, #fd241d 78.08%), linear-gradient(to bottom, #34d1c8 33.56%, #fd241d 78.08%));
+}
+
+.dg-button-orange {
+  @include button-styles(linear-gradient(94.53deg, rgba(213, 117, 42, 0.7) 9.1%, rgba(119, 179, 136, 0.175) 89.58%), linear-gradient(to right, #88b5df 0%, #d5752a 100%), linear-gradient(to bottom, #88b5df 0%, #d5752a 100%));
+}
+
+.dg-button-green {
+  @include button-styles(linear-gradient(0deg, rgba(0, 0, 0), rgba(0, 0, 0)), linear-gradient(91.5deg, rgba(71, 29, 144) 1.28%, rgba(39, 91, 47) 93.7%), linear-gradient(89.23deg, #275b2f 0.38%, #5b4c75 99.34%));
+}

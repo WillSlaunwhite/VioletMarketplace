@@ -1,0 +1,45 @@
+@import "/org/src/scss/utils/variables";
+@import "/org/src/scss/utils/mixins";
+@import "/org/src/scss/components/grad-buttons";
+@import "/org/src/scss/utils/utilities";
+
+@include glass-effect(
+  linear-gradient(135deg, rgba(199, 199, 199, 0.303) 0%, rgba(189, 189, 189, 0.443) 100%),
+  linear-gradient(90deg, rgba(197, 197, 197, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  linear-gradient(180deg, rgba(121, 121, 121, 0.164) 0%, rgba(255, 255, 255, 0.124) 100%),
+  radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%)
+);
+
+.dg-button-wrapper {
+  @include button-wrapper-styles();
+  padding: 2px;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 1;
+  will-change: transform;
+  background-color: $secondary-light;
+  @include box-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+  margin-right: 0.5em;
+
+  .dg-button {
+    @include full-wh-no-mrgpad;
+
+    .glass-wrapper {
+      border-radius: 6px;
+      opacity: 0.45;
+    }
+    .text-wrapper {
+      @include flex-center;
+      @include abs-top-left;
+      @include flex-full-wh;
+      text-align: center;
+      z-index: 3;
+      pointer-events: none; // Add this line to make sure the button is still clickable
+    }
+
+    ::ng-deep .mdc-button__label {
+      @include full-wh-no-mrgpad;
+      display: block;
+    }
+  }
+}

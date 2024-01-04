@@ -1,0 +1,154 @@
+  @import '/org/src/scss/utils/variables';
+  @import '/org/src/scss/utils/mixins';
+
+  @include glass-effect(linear-gradient(90deg, rgba(0, 0, 0, 0.364) 0%, rgba(48, 48, 48, 0.524) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.164) 0%, rgba(100, 100, 100, 0.124) 100%),
+    radial-gradient(circle at center, rgba(106, 106, 106, 0.15), rgba(105, 105, 105, 0.15) 70%));
+
+
+  @include glass-border;
+
+  // todo remove duplicate code
+  // * most of this is duplicate code from _card.scss
+
+  // CARDS
+  .mat-mdc-card {
+    height: 22.5rem;
+    width: 18rem;
+    border-radius: 6px;
+    padding: 0;
+    opacity: .85;
+    overflow: hidden;
+    text-align: center;
+    will-change: transform;
+    transition: ease-in-out .55s;
+
+    &:hover {
+      opacity: .975;
+      transform: translateY(-3px);
+      transition: ease-out .2s;
+      backface-visibility: hidden;
+      @include box-shadow(0 0 8px hsla(0, 0%, 50%, 0.7));
+
+      img {
+        image-resolution: from-image;
+        image-rendering: optimizeQuality;
+        animation: clip-fade 1s infinite alternate;
+        transition: all .2s;
+      }
+
+      .token-price {
+        opacity: 1;
+        pointer-events: none;
+        transition: ease-out .4s;
+      }
+
+      .card-img-description {
+        transition: ease-out .4s;
+        pointer-events: none;
+        text-align: center;
+        // LIMIT PARAGRAPH TEXT TO N LINES
+        text-overflow: ellipsis !important;
+        opacity: 1;
+        -webkit-line-clamp: 5;
+        /* number of lines to show */
+        line-clamp: 5;
+        -webkit-box-orient: vertical;
+      }
+
+      .card-img-title {
+        pointer-events: none;
+        transition: all .5s ease-in;
+      }
+
+      &:hover .card-img-title {
+        display: none;
+      }
+
+      .glass-wrapper {
+        opacity: .45
+      }
+    }
+
+    .glass-wrapper {
+      opacity: .8;
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 0;
+
+    }
+
+    a {
+      @include flex-center;
+      align-items: flex-start;
+    }
+
+    .mat-mdc-card-image {
+      position: absolute;
+      height: 77.5%;
+      margin-top: 0;
+      margin-inline: auto;
+      // opacity: .9;
+      @include flex-center;
+    }
+
+    .card-img-title {
+      color: $text-primary-dark;
+      font-size: 1.8em;
+      font-weight: 200;
+      position: absolute;
+      top: 25%;
+      left: -30%;
+      width: 16em;
+      justify-content: center;
+      z-index: 3;
+    }
+
+    .card-img-description {
+      position: absolute;
+      top: 12.5%;
+      height: auto;
+      width: calc(100% - 20px);
+      overflow: hidden;
+      opacity: 0;
+      align-items: center;
+      justify-content: flex-start;
+      transition: ease-in .4s;
+      z-index: 3;
+    }
+
+    img {
+      width: calc(100% + 60px);
+      height: 77.5%;
+      background: transparent;
+      image-resolution: from-image;
+      image-rendering: optimizeQuality;
+    }
+
+    .mat-mdc-card-content {
+      text-align: center;
+    }
+
+    .token-price {
+      flex-direction: row;
+      @include flex-center;
+      opacity: 0;
+      width: 5rem;
+      position: absolute;
+      top: 70%;
+      text-align: center;
+      margin: auto;
+      transition: ease-out .4s;
+      z-index: 3;
+    }
+
+    .actions {
+      width: 100%;
+      position: absolute;
+      height: 4.5rem;
+      bottom: 0;
+      margin: 0 !important;
+      padding: 0 !important;
+
+    }
+  }

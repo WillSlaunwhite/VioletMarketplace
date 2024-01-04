@@ -1,0 +1,89 @@
+@import "/org/src/scss/utils/mixins";
+@import "/org/src/scss/utils/variables";
+@import "/org/src/scss/components/grad-buttons";
+
+.home-container {
+  height: 92.5vh;
+  @include flex-align-justify-direction($align: center, $direction: column, $justify: space-between);
+
+  .header-cta-container {
+    display: flex;
+    flex-direction: column;
+    width: 92%;
+    margin-top: 1rem;
+
+    .header-container {
+      @include basic-precise-font($align: center);
+      @include responsive-font(16px, 20px, 320px, 1366px);
+      @include flex-align-justify-direction($align: center, $justify: center);
+      width: 90%;
+      margin-inline: auto;
+    }
+
+    .cta-container {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      margin-inline: auto;
+      margin-top: 1rem;
+
+      .token-list-header {
+        @include basic-precise-font($align: center);
+        @include responsive-font(2rem, 2.5rem, 320px, 1366px);
+        margin-block: 0;
+        width: 80%;
+        margin-inline: auto;
+      }
+
+      .grad-button {
+        align-self: center;
+        color: $text-primary-dark;
+        scale: 0.8;
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .token-list-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    app-big-token-list {
+      scale: 0.75;
+      width: 100%;
+      transform: translateX(-20px);
+    }
+  }
+
+  .name-tag {
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-cta-container {
+    flex-direction: column;
+
+    .header-container {
+    }
+  }
+}
+
+@media (min-width: 325px) and (max-width: 768px) {
+  .token-list-header {
+    margin-block: 0;
+  }
+
+  .token-list-container {
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    transform: translateX(-20px);
+  }
+}

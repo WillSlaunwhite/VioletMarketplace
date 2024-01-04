@@ -1,0 +1,30 @@
+@import "../../../../../../../scss/utils/mixins";
+@import "../../../../../../../scss/utils/variables";
+@import "../../../../../../../scss/components/forms/forms";
+
+.form-field-large {
+  width: 100%;
+  margin-inline: auto;
+  @include basic-precise-font();
+  @include responsive-font(1.5rem, 1.75rem, 320px, 1366px);
+
+  // * this works btw
+  // * doesn't even bleed over
+  ::ng-deep mat-label {
+    @include basic-precise-font();
+    @include responsive-font(1.5rem, 1.75rem, 320px, 1366px);
+    letter-spacing: 0.05rem;
+  }
+
+  input {
+    caret-color: $text-primary-dark;
+  }
+}
+
+.mat-mdc-text-wrapper {
+  color: $text-primary-light;
+  caret-color: white !important;
+  text-decoration: white;
+  background: transparent;
+  transition: all ease-out 0.75s;
+}
